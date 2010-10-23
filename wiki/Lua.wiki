@@ -1,0 +1,296 @@
+=Lua and the ABC of programming=
+Now, this is not a guide on programming. This is just the basic knowledge, which will help you understand how RAICK works. It is mainly theoretical stuff, which may seem too abstracted from the actual AI, but be patient- this is the basis, which you need to know and understand before we dig into the real thing.
+==Client & Script==
+As you probably already know from your experience with AI's the entry point for any AI script is the AI.lua/AI_M.lua file. This is a regular text file, using which your Ragnarok game client makes(every time your homunculus/mercenary enters the screen) a small program(the AI) that(every time it is called/asked) tells the client what actions should your homunculus/mercenary perform based on the data that the client provides it with. This happens multiple times per second and that's how the AI actually works.
+So, from all of this you should remember the following:
+  * The script text file is loaded only when the bot re-enters the screen(respawnes)
+  * The client works with the program(which it made during respawn), not with the text file itself
+  * The script text file is not used by the client the rest of the time(you can delete and modify it without any harm)
+  * The data that the client gives the AI to make a decision is static(it is a frozen moment in time and no matter how many times you query it, it will not change during the same call of the AI program)
+These facts may seem i bit confusing right now, but they will help you to understand some things better in future chapters.
+==Building blocks of Lua==
+Lets focus more on that text file. The client assumes it is written in Lua. Being above all a *programming language* it follows some basic concepts that i would like to explain to you.
+===Types, Values & Variables ===
+All programming languages have three basic concepts in common:
+  * Types
+  * Values
+  * Variables
+And they are actually a lot simpler than they sound.
+
+*Types* are used to categorize data. For example in Lua:
+  * `1, 42309483209.3129083219038, -9999999999999999` are all of type _number_
+  * `"this is a message"` and `'this is another message'` are of type _string_(a message consisting of characters)
+The number of types that come with the language are often quite limited, but they are very versatile and using them you can define your own ones.
+<br>
+Now, what about *values*? Well, actually, you have already seen them! Values are individual elements of types. We can rewrite our example this way:
+  * `1, 42309483209.3129083219038, -9999999999999999` are *values* of type _number_
+  * `"this is a message"` and `'this is another message'` are *values* type _string_(a message consisting of characters)
+Quite simple isn't it? The whole story comes down to this:
+  * We have numeric values like: 1, 2, -300 or 123.123, so we define a _number_ type for them. This generalization is very useful to us, since all numbers have many thing in common, for example: we can add them, multiply by one another and they all don't like to be divided by zero.
+  * We have message values like: `'blah blah blah'` or `"yep yep yep"`, so we define a _string_ type for them. And again it is useful, since we can, for example: "glue" 2 strings together or check how many characters they have.
+So, to summarize. Types are names for sets of data(values) with common properties. They define rules to manipulate with the particular piece of data. If we know the type of the value, then we know what we can do with it and what we can't.
+<br><br>
+Suppose we have our values, which we have divided into groups(types). The obvious question is: where do we store them? And here is when *variables* enter the scene to help us out. They are just "boxes" with names, where you can store any value of any data type you like. This way you can transfer data between different parts of your script.
+<br>
+The last thing you need to know is that there are two kinds of variables: *local* and *global*. Global ones(as their name suggests) could be used across all of your script- they are visible everywhere. As for local ones, they are visible only in a small area. No one will stop you from using only global variables in your script. Using local ones just helps to keep the global namespace clean. Examples:
+{{{
+a = 1 -- Putting 1 to variable 'a'.
+b = 2 + 3 -- Adding two numbers and writing result to 'b'.
+a = b - 2.5 -- Here we take the value from the variable 'b' and subtract 2.5 from it. Then we replace 1 in variable 'a' with this result.
+a = a * 5 -- And here we multiply the value in the variable by 5.
+
+--[[
+There are certain rules for naming variables. The name can contain letters, numbers and underscopes(_), but cannot start with a number. For example:
+____a____ is a valid name
+_123 is a valid name
+123abc is not a valid name
+abc$$$ is not a valid name
+--]]
+
+str1 = "a string" -- Typically we define a string between double quotes, ..
+str2 = 'another string' -- .. but single quotes are also permited.
+str3 = str1 .. str2 -- Operator '..' allows us to "glue"(concatenate) two strings together. The result is: "a stringanother string".
+}}}
+Oh, and one more thing- comments. You put those after `--` or between `--[[` and `--]]`. They are used, when you want to explain certain parts of your code.
+===Functions===
+First of all, *function* is a special type. The values that this type represent are individual functions that you define or that come with the Lua language.<br>
+Functions are the ones that make something work in your AI. Every piece of code in Lua is executed inside some function. Your AI script is also written inside a function, which you should put in a variable 'AI'. This name is an agreement between the client and your script, so that the client knows what function to call after it makes the AI program.
+So, as i said, this function contains your whole AI. Of course, it would be hard to make such complex AI's like RampageAI or MirAI with all of the code being in one place. Thus, when you write your AI you usually divide it into different pieces for easier management.
+Another good use for functions is when you have a piece of code that you use many times in your script. You could put this code inside a function and call this function every time you need it. A good example from the AI is the function to calculate the distance between the 2 objects. It receives (x,y) coordinates of those objects and returns the distance between them. Having this function you could call it every time you want to know the distance between some objects without the need to write the same code over and over again.
+<br>
+Now, you may have noticed something new about functions from the previous paragraph and you are right! Functions can receive values, which are called *arguments* and can return values. Using arguments you can influence the behavior of the function and/or its' return values. The most trivial example of this concept are the operators(`+, -, `*`, /`). They are also functions with a bit different appearance, which take 2 arguments and return a value based on them.
+<br>
+So, to sum up, we use functions to divide the logic of the script into different parts for easier management or to generalize our code, eliminating the need to write the same thing many times. Examples:
+{{{
+-- This is a function definition. It terms of Lua this means that we put a value of type function into a global variable 'checkForCommands'.
+The variable is global since we have not told in any way that we refer to a local variable. For now, i don't want you to think too much about those local variables and will assume that all our variables are global.
+function    checkForCommands()
+
+    -- We do something here.
+end
+
+-- This is a function, which takes 2 arguments and returns them sum.
+function    sum2(a, b)
+
+    return a + b
+end
+
+-- This function return the doubled value of its' argument.
+function    multiplyBy2(a)
+
+    return a * 2
+end
+
+-- The client calls this function. We just have to define it.
+function    AI()
+
+    -- Once the client calls the function it will start one by one doing things that are defined inside.
+    checkForCommands() -- First of all this, ..
+    
+    local sum = sum2(1, 2) -- .. then this ..
+    
+    multiplyBy2(sum) -- .. and finally this.
+    
+    -- You can seen that we use a local variable here to store the result of the sum. After the 'AI' function ends this variable will dissapear. We could have used the global variable instead, but this way the would "pollute" the global namespace with unneeded data.
+end
+}}}
+===Tables===
+The next interesting type, which is vital for us to fully understand programming in Lua is the *table*. This is nothing more than a storage for other types(including the table itself). Tables are very versatile and could be used for all kinds of purposes, but you don't need to know much about the complex stuff. What you need to know is that you can put any data you like into the table and retrieve it afterwards. It is very similar to variables, only you are not limited to associating names with your values. In case of tables you can associate any value(which is called _key_) with any value(which is called just _value_). Examples:
+{{{
+a = {} -- '{}' is a table constructor. This means that it is a command to create a new table.
+
+a[1] = 25 -- We put 25 under numeric key 1.
+b = a[1] -- We can then retrieve this value by its' key.
+
+a["abc"] = 12 -- We put 12 under string key "abc"
+c = a["abc"] -- We can retrieve this value as always, but ..
+d = a.abc -- .. with strings you can also use the dot syntax!
+
+-- Now watch closely here:
+function    a.method(arg)
+
+    return arg
+end
+
+e = a.method(1) -- 'e' now holds value 1.
+-- What you have seen right now is that i have defined a function inside a table. Technically speaking: i have created a function and put it under string key "method" of a table inside a global variable 'a'. The syntax 'something.something(arg1, arg2, ...)' is very widespread in modern programming languages. What does it mean? Well, be patient, i will certainly refer to it many times in the chapter about using RAICK.
+}}}
+===nil===
+Before we continue i would like to say a few words about one important type, which is *nil*. This is a special type, which has only one value- `nil`. This value signals the absence of any other value. For example, if you refer to a variable that you have not used before it will contain `nil`. You can also use `nil` to delete anything from a variable. 
+===Conditions & Booleans===
+So far we have seen programming as a process of writing lines of code that get executed inside some main function, which is being initially called by someone(in our case- the Ragnarok client). What if we want to execute a certain line only when a certain condition is satisfied? We need a way to define conditions and some structure that would interpret them. This structure is known in programming as the *if* statement. It takes a condition, which can return either `true` or `false` and executes the enclosed code based on this value. Now, hold on a second! True or false? What's that? Well, those are values of type *boolean*. This type has only those 2 values. They are in cases where you need to know if the result is: positive or negative, yes or no, on or off, true or false etc. That's why they are ideal for *conditional expressions*. Those are expressions similar to arithmetic ones like `2 * 3 + 5`, only they deal with logical and comparison operators and return `true` or `false` instead of a numeric result. Lets make things clear using examples:
+{{{
+a = 1
+b = 2
+
+-- We check if the sum of a and b is less than 5 then we execute the code inside the if statement
+if (a + b) < 5 then
+    c = 10
+end
+
+--[[
+There are 6 types of comparison operators:
+< - less
+> - greater
+<= - less or equals
+>= - greater or equals
+== - equals
+~= - not equals
+
+First 4 of them can be used to compare numbers and strings(they are compared by alphabetic order) only. The last 2 can be used to compare any type with any type.
+Note: String '123' is not equal to number 123.
+--]]
+
+c = "abc"
+d = 8
+e = 3
+
+-- Here we use logical operators(or, and, not) to combine small conditions into a big conditional expression.
+if (c == "cba") or ((d > 6) and (e == 3)) then -- 'c' is not equal to "cba", 'd' is greater than 6, 'e' equals 3. We get: false or (true and true). Operator 'and' returns true if both arguments are true. 'or' returns true if at least one argument is true. So we get: false or true -> true. The whole statement is true and code inside 'if' will be executed.
+    if not(b ~= 2) then -- 'not' just returns the opposite. b is indeed 2, so b ~= 2 returns false and 'not' makes it true, so the whole statement is true and code inside 'if' will be executed.
+        h = 4
+    end
+end
+
+--[[
+There are 3 logical operators available:
+and - Returns true if both arguments are true. false otherwise.
+or - Returns true if at least one argument is true. false otherwise.
+not - Returns true if the argument is false. false otherwise.
+--]]
+
+a = true
+b = nil
+c = 1
+
+-- We can use the values themselves as conditional expressions. Everything other than 'nil' and 'false' with be turned to true.
+if a then -- 'a' is already true, so the code inside if will be executed
+    -- 'b' is nil so it turns to false. 'c' is 1, which is neither nil nor false, so it becomes true. false and true -> false, so the if won't be executed.
+    if b and c then
+        a = 2
+    end
+    
+    b = 1
+end
+}}}
+===Loops===
+The final structure you need to know about is the *loop*. This structure is very similar to the if statement, only in this case the code gets executed over and over again until the conditional expression is true. There are many types of loops in Lua, but with RAICK you will actually need to know only one of them- the *for* loop. This loop has 2 ways of using it. Lets examine them in the following example:
+{{{
+a = 0
+
+-- This is the first way to use this loop. First of all you need to define some local variable that will hold the current index(in our case it is variable 'i'). Then you define the starting number(1 in this example) and the ending number(100). With every cycle of the loop the value in 'i' will grow by 1 until it reaches 100. And every time the 'i' grows the code inside the loop gets executed.
+Note: 'i' is a regular variable like any other. You can use it inside the loop and even change it.
+for i = 1, 100 do
+    a = a + 2
+end
+-- 'a' is now 200
+
+b = {}
+b[1] = 2
+b[2] = 5
+b[3] = -2
+
+c = 0
+
+-- This is probably the main loop, which you will be using in RAICK, since it allows searching through sets of data like friend lists, target lists or the list of monsters, players and NPC's on the screen. It has a bit some complex logic behind it, but i will tell you only the stuff that you need to know. It the example below between 'in' and 'do' you see a function, which takes a table 'b' as an argument. This is a function from the Lua standard library(be patient, this will be covered in the next section), which assumes that the given table has all of its' values under numeric keys starting from 1. Knowing that it then starts passing one by one values from the table to the for loop. The key from the table is written to the first variable of the loop('i' in our example) and the value to the second one('v'). The code inside the loop is executed as many times as there are sequential values in the table(meaning that if the table has values under keys 1, 2, 4, 5, 8 only 1, 2 will be used in the loop, because at number 3 it will assume that the list has ended).
+for i, v in ipairs(b) do
+    c = c + v
+end
+-- 'c' is now 5
+}}}
+===Standard libraries===
+A *standard library* is nothing more than a set of predefined functions that come with the language. Mathematical operators(`+, -, /, *`) are good examples of those functions, but there are a lot more. You have already seen the `ipairs` function, that can help us to search through a table, which is organized into a primitive list. The next very important function in context of RAICK is `require`. With its' help you can divide your script into multiple files and link them to your main file like so:
+{{{
+require "./AI/USER_AI/RAICK.lua" -- This is also how you attach RAICK to the AI.lua/AI_M.lua.
+}}}
+Sometimes you need to know what type is the given value. It this case `type` function is very useful. It return the name of the type in form of a string. For example:
+{{{
+a = 1
+b = "abc"
+c = false
+function    d()
+end
+
+type(a) -- returns "number"
+type(b) -- returns "string"
+type(c) -- returns "boolean"
+type(d) -- returns "function"
+type(e) -- return "nil", because 'e' has not been used
+}}}
+Another useful function is `math.random`. It takes 2 numeric(can be negative) arguments and returns a random number between them. Random is sometimes useful in programming. The main use for it in AI scripts is the so called "dance attack".<br>
+These are just some examples of the standard functions. This is just a short overview of Lua, so i am not doing to cover the rest of them(and they are quite useless for you anyway).
+===The final hard part: Objects and Primitive types===
+OK, we are almost done! I don't know if this is actually the hardest part, but it tends to be quite confusing for most people. I just want you to try to understand it, since it is a very important issue, especially with RAICK.<br>
+Lets, first of all, review what types we have learned during this quick guide:
+  * number
+  * string
+  * boolean
+  * nil
+  * function
+  * table
+These types are all you will need for your script. Every AI, every script and even RAICK, they all use only those types and not a type more. Now, you might have noticed that to create the first 4 of them you don't need to do anything special. You just write the value you need and it is there. For the rest 2 of them you have used some specific ways. If you remember i have mentioned the word 'constructor' somewhere in the section about tables. Well, you can say that both the table and the function have contructors to create them. Let me demonstrate this with an example:
+{{{
+a = {} -- '{}' is a table constructor.
+
+-- Here we create a function a place it in variable 'b', which ..
+function    b(arg1, arg2)
+end
+
+-- .. is basically identical to writing the following:
+b = function(arg1, arg2) 
+end
+-- Or this:
+b = function(arg1, arg2) end
+-- You can see that 'function() ... end' is nothing more than function constructor.
+}}}
+In Lua those types that don't have any special ways to define their values are called *primitive types* and the other ones are called *objects*. This is actually not the only difference between those two groups and, in fact, not the main one. The main difference is in the way they are stored in variables. Primitive types are stored *by value* and objects are stored *by reference*. It is not easy for a beginner to understand this significant differece, but, nevertheless i will try to make it clearer:
+{{{
+-- Suppose we have put a number into a variable:
+a = 1
+-- This is a primitive type, which means that the value itself is stored in the variable. What this means is that when we query/read what is stored in the variable we get a copy of the value:
+b = a -- 'b' now holds a copy of what is stored in 'a'- number 1.
+
+type(a) -- A copy of the value in 'a' is passed as an argument, not the value itself. The value in 'a' and the value that will be processed inside the function are 2 different exemplars of the same value.
+
+-- Lets now see how the object behaves.
+a = {}
+-- 'a' holds a reference(think of a hyperlink in your browser) to the table, which has been created using constructor '{}'. When we query what is stored in the variable we get a copy of the reference(not the value)- a copy of the link to the same value:
+b = a
+-- Now both 'a' and 'b' hold links to the same value. If you modify the table through the variable 'a' these changes will also be visible through variable 'b', since they both refer to the same value.
+a.abc = 1
+
+c = b.abc -- You will get 1, since the table has been modified before. It does not matter which variable you use to modify or query the table- the result is identical.
+
+-- Lets do the same thing with a function:
+function    a()
+
+    return 1
+end
+
+b = a
+-- Both 'a' and 'b' now refer to the same function. It does not matter if a call a function using 'a' or 'b'- in both cases the same function will be called returning number 1.
+
+c = a()
+d = b()
+-- Both 'c' and 'd' now contain 1.
+}}}
+With references you need to be more careful, since, for example, if you pass the table as an argument to some function, you will pass not the copy of the value, but the value itself. Any modifications that the function will perform will be on the given table, not on its' copy. The good news, however, is that references give us a lot of interesting possibilities that the primitive types don't have. For example, references to self:
+{{{
+-- Suppose we have a table:
+a = {}
+-- Remember that we can put any type of value inside a table, even another table and now we know that the table is stored as a reference.
+a.a = a -- We can put a reference to a table under some key of the same table. In this case under string key 'a'.
+-- Now, when we will query what is stored under that key we will get the same table back:
+b = a.a -- 'b' now holds reference to the same table as 'a'.
+-- So we can query it again:
+b = a.a.a
+-- And again:
+b = a.a.a.a
+-- And so on:
+b = a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a
+-- And we still get or table back.
+}}}
+This is just a funny example, but this principe actually has a great implementation in RAICK as you will see.<br>
+I hope that i have made this important issue a bit less complicated. Try to understand it, since in RAICK you will mainly be dealing with objects.
+===It's over!===
+Finally! You torture is over! We have covered the most boring and most crutial part of mastering RAICK. Now, you have the knowledge to dig into the interesting part- A quick guide on using RAICK.
