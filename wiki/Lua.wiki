@@ -48,7 +48,7 @@ abc$$$ is not a valid name
 --]]
 
 str1 = "a string" -- Typically we define a string between double quotes, ..
-str2 = 'another string' -- .. but single quotes are also permited.
+str2 = 'another string' -- .. but single quotes are also permitted.
 str3 = str1 .. str2 -- Operator '..' allows us to "glue"(concatenate) two strings together. The result is: "a stringanother string".
 }}}
 Oh, and one more thing- comments. You put those after `--` or between `--[[` and `--]]`. They are used, when you want to explain certain parts of your code.
@@ -91,7 +91,7 @@ function    AI()
     
     multiplyBy2(sum) -- .. and finally this.
     
-    -- You can seen that we use a local variable here to store the result of the sum. After the 'AI' function ends this variable will dissapear. We could have used the global variable instead, but this way the would "pollute" the global namespace with unneeded data.
+    -- You can seen that we use a local variable here to store the result of the sum. After the 'AI' function ends this variable will disappear. We could have used the global variable instead, but this way the would "pollute" the global namespace with unneeded data.
 end
 }}}
 ===Tables===
@@ -228,7 +228,7 @@ Lets, first of all, review what types we have learned during this quick guide:
   * nil
   * function
   * table
-These types are all you will need for your script. Every AI, every script and even RAICK, they all use only those types and not a type more. Now, you might have noticed that to create the first 4 of them you don't need to do anything special. You just write the value you need and it is there. For the rest 2 of them you have used some specific ways. If you remember i have mentioned the word 'constructor' somewhere in the section about tables. Well, you can say that both the table and the function have contructors to create them. Let me demonstrate this with an example:
+These types are all you will need for your script. Every AI, every script and even RAICK, they all use only those types and not a type more. Now, you might have noticed that to create the first 4 of them you don't need to do anything special. You just write the value you need and it is there. For the rest 2 of them you have used some specific ways. If you remember i have mentioned the word 'constructor' somewhere in the section about tables. Well, you can say that both the table and the function have constructors to create them. Let me demonstrate this with an example:
 {{{
 a = {} -- '{}' is a table constructor.
 
@@ -243,7 +243,7 @@ end
 b = function(arg1, arg2) end
 -- You can see that 'function() ... end' is nothing more than function constructor.
 }}}
-In Lua those types that don't have any special ways to define their values are called *primitive types* and the other ones are called *objects*. This is actually not the only difference between those two groups and, in fact, not the main one. The main difference is in the way they are stored in variables. Primitive types are stored *by value* and objects are stored *by reference*. It is not easy for a beginner to understand this significant differece, but, nevertheless i will try to make it clearer:
+In Lua those types that don't have any special ways to define their values are called *primitive types* and the other ones are called *objects*. This is actually not the only difference between those two groups and, in fact, not the main one. The main difference is in the way they are stored in variables. Primitive types are stored *by value* and objects are stored *by reference*. It is not easy for a beginner to understand this significant difference, but, nevertheless i will try to make it clearer:
 {{{
 -- Suppose we have put a number into a variable:
 a = 1
@@ -290,7 +290,7 @@ b = a.a.a.a
 b = a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a
 -- And we still get or table back.
 }}}
-This is just a funny example, but this principe actually has a great implementation in RAICK as you will see.<br>
+This is just a funny example, but this principle actually has a great implementation in RAICK as you will see.<br>
 I hope that i have made this important issue a bit less complicated. Try to understand it, since in RAICK you will mainly be dealing with objects.
 ===It's over!===
-Finally! You torture is over! We have covered the most boring and most crutial part of mastering RAICK. Now, you have the knowledge to dig into the interesting part- A quick guide on using RAICK.
+Finally! You torture is over! We have covered the most boring and most crucial part of mastering RAICK. Now, you have the knowledge to dig into the interesting part- A quick guide on using RAICK.
