@@ -80,7 +80,7 @@ end
 -- This function return the doubled value of its' argument.
 function    multiplyBy2(a)
 
-    return a * 2
+    return a `*` 2
 end
 
 -- The client calls this function. We just have to define it.
@@ -103,8 +103,8 @@ The next interesting type, which is vital for us to fully understand programming
 <code language="lua">
 a = {} -- '{}' is a table constructor. This means that it is a command to create a new table.
 
-a[1] = 25 -- We put 25 under numeric key 1.
-b = a[1] -- We can then retrieve this value by its' key.
+a`[1]` = 25 -- We put 25 under numeric key 1.
+b = a`[1]` -- We can then retrieve this value by its' key.
 
 a["abc"] = 12 -- We put 12 under string key "abc"
 c = a["abc"] -- We can retrieve this value as always, but ..
@@ -203,9 +203,9 @@ end
 -- 'a' is now 200
 
 b = {}
-b[1] = 2
-b[2] = 5
-b[3] = -2
+b`[1]` = 2
+b`[2]` = 5
+b`[3]` = -2
 
 c = 0
 
