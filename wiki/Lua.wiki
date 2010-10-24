@@ -34,7 +34,7 @@ So, to summarize. Types are names for sets of data(values) with common propertie
 Suppose we have our values, which we have divided into groups(types). The obvious question is: where do we store them? And here is when *variables* enter the scene to help us out. They are just "boxes" with names, where you can store any value of any data type you like. This way you can transfer data between different parts of your script.
 <br>
 The last thing you need to know is that there are two kinds of variables: *local* and *global*. Global ones(as their name suggests) could be used across all of your script- they are visible everywhere. As for local ones, they are visible only in a small area. No one will stop you from using only global variables in your script. Using local ones just helps to keep the global namespace clean. Examples:
-{{{
+<code language="lua">
 a = 1 -- Putting 1 to variable 'a'.
 b = 2 + 3 -- Adding two numbers and writing result to 'b'.
 a = b - 2.5 -- Here we take the value from the variable 'b' and subtract 2.5 from it. Then we replace 1 in variable 'a' with this result.
@@ -51,7 +51,7 @@ abc$$$ is not a valid name
 str1 = "a string" -- Typically we define a string between double quotes, ..
 str2 = 'another string' -- .. but single quotes are also permitted.
 str3 = str1 .. str2 -- Operator '..' allows us to "glue"(concatenate) two strings together. The result is: "a stringanother string".
-}}}
+</code>
 Oh, and one more thing- comments. You put those after `--` or between `--[[` and `--]]`. They are used, when you want to explain certain parts of your code.
 ===Functions===
 First of all, *function* is a special type. The values that this type represent are individual functions that you define or that come with the Lua language.<br>
@@ -97,7 +97,7 @@ end
 </code>
 ===Tables===
 The next interesting type, which is vital for us to fully understand programming in Lua is the *table*. This is nothing more than a storage for other types(including the table itself). Tables are very versatile and could be used for all kinds of purposes, but you don't need to know much about the complex stuff. What you need to know is that you can put any data you like into the table and retrieve it afterwards. It is very similar to variables, only you are not limited to associating names with your values. In case of tables you can associate any value(which is called _key_) with any value(which is called just _value_). Examples:
-{{{
+<code language="lua">
 a = {} -- '{}' is a table constructor. This means that it is a command to create a new table.
 
 a[1] = 25 -- We put 25 under numeric key 1.
@@ -115,12 +115,12 @@ end
 
 e = a.method(1) -- 'e' now holds value 1.
 -- What you have seen right now is that i have defined a function inside a table. Technically speaking: i have created a function and put it under string key "method" of a table inside a global variable 'a'. The syntax 'something.something(arg1, arg2, ...)' is very widespread in modern programming languages. What does it mean? Well, be patient, i will certainly refer to it many times in the chapter about using RAICK.
-}}}
+</code>
 ===nil===
 Before we continue i would like to say a few words about one important type, which is *nil*. This is a special type, which has only one value- `nil`. This value signals the absence of any other value. For example, if you refer to a variable that you have not used before it will contain `nil`. You can also use `nil` to delete anything from a variable. 
 ===Conditions & Booleans===
 So far we have seen programming as a process of writing lines of code that get executed inside some main function, which is being initially called by someone(in our case- the Ragnarok client). What if we want to execute a certain line only when a certain condition is satisfied? We need a way to define conditions and some structure that would interpret them. This structure is known in programming as the *if* statement. It takes a condition, which can return either `true` or `false` and executes the enclosed code based on this value. Now, hold on a second! True or false? What's that? Well, those are values of type *boolean*. This type has only those 2 values. They are in cases where you need to know if the result is: positive or negative, yes or no, on or off, true or false etc. That's why they are ideal for *conditional expressions*. Those are expressions similar to arithmetic ones like `2 * 3 + 5`, only they deal with logical and comparison operators and return `true` or `false` instead of a numeric result. Lets make things clear using examples:
-{{{
+<code language="lua">
 a = 1
 b = 2
 
@@ -173,10 +173,10 @@ if a then -- 'a' is already true, so the code inside if will be executed
     
     b = 1
 end
-}}}
+</code>
 ===Loops===
 The final structure you need to know about is the *loop*. This structure is very similar to the if statement, only in this case the code gets executed over and over again until the conditional expression is true. There are many types of loops in Lua, but with RAICK you will actually need to know only one of them- the *for* loop. This loop has 2 ways of using it. Lets examine them in the following example:
-{{{
+<code language="lua">
 a = 0
 
 -- This is the first way to use this loop. First of all you need to define some local variable that will hold the current index(in our case it is variable 'i'). Then you define the starting number(1 in this example) and the ending number(100). With every cycle of the loop the value in 'i' will grow by 1 until it reaches 100. And every time the 'i' grows the code inside the loop gets executed.
@@ -198,14 +198,14 @@ for i, v in ipairs(b) do
     c = c + v
 end
 -- 'c' is now 5
-}}}
+</code>
 ===Standard libraries===
 A *standard library* is nothing more than a set of predefined functions that come with the language. Mathematical operators(`+, -, /, *`) are good examples of those functions, but there are a lot more. You have already seen the `ipairs` function, that can help us to search through a table, which is organized into a primitive list. The next very important function in context of RAICK is `require`. With its' help you can divide your script into multiple files and link them to your main file like so:
-{{{
+<code language="lua">
 require "./AI/USER_AI/RAICK.lua" -- This is also how you attach RAICK to the AI.lua/AI_M.lua.
-}}}
+</code>
 Sometimes you need to know what type is the given value. It this case `type` function is very useful. It return the name of the type in form of a string. For example:
-{{{
+<code language="lua">
 a = 1
 b = "abc"
 c = false
@@ -217,7 +217,7 @@ type(b) -- returns "string"
 type(c) -- returns "boolean"
 type(d) -- returns "function"
 type(e) -- return "nil", because 'e' has not been used
-}}}
+</code>
 Another useful function is `math.random`. It takes 2 numeric(can be negative) arguments and returns a random number between them. Random is sometimes useful in programming. The main use for it in AI scripts is the so called "dance attack".<br>
 These are just some examples of the standard functions. This is just a short overview of Lua, so i am not doing to cover the rest of them(and they are quite useless for you anyway).
 ===The final hard part: Objects and Primitive types===
@@ -231,7 +231,7 @@ Lets, first of all, review what types we have learned during this quick guide:
   * table
 
 These types are all you will need for your script. Every AI, every script and even RAICK, they all use only those types and not a type more. Now, you might have noticed that to create the first 4 of them you don't need to do anything special. You just write the value you need and it is there. For the rest 2 of them you have used some specific ways. If you remember i have mentioned the word 'constructor' somewhere in the section about tables. Well, you can say that both the table and the function have constructors to create them. Let me demonstrate this with an example:
-{{{
+<code language="lua">
 a = {} -- '{}' is a table constructor.
 
 -- Here we create a function a place it in variable 'b', which ..
@@ -244,9 +244,9 @@ end
 -- Or this:
 b = function(arg1, arg2) end
 -- You can see that 'function() ... end' is nothing more than function constructor.
-}}}
+</code>
 In Lua those types that don't have any special ways to define their values are called *primitive types* and the other ones are called *objects*. This is actually not the only difference between those two groups and, in fact, not the main one. The main difference is in the way they are stored in variables. Primitive types are stored *by value* and objects are stored *by reference*. It is not easy for a beginner to understand this significant difference, but, nevertheless i will try to make it clearer:
-{{{
+<code language="lua">
 -- Suppose we have put a number into a variable:
 a = 1
 -- This is a primitive type, which means that the value itself is stored in the variable. What this means is that when we query/read what is stored in the variable we get a copy of the value:
@@ -275,9 +275,9 @@ b = a
 c = a()
 d = b()
 -- Both 'c' and 'd' now contain 1.
-}}}
+</code>
 With references you need to be more careful, since, for example, if you pass the table as an argument to some function, you will pass not the copy of the value, but the value itself. Any modifications that the function will perform will be on the given table, not on its' copy. The good news, however, is that references give us a lot of interesting possibilities that the primitive types don't have. For example, references to self:
-{{{
+<code language="lua">
 -- Suppose we have a table:
 a = {}
 -- Remember that we can put any type of value inside a table, even another table and now we know that the table is stored as a reference.
@@ -291,7 +291,7 @@ b = a.a.a.a
 -- And so on:
 b = a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a
 -- And we still get or table back.
-}}}
+</code>
 This is just a funny example, but this principle actually has a great implementation in RAICK as you will see.<br>
 I hope that i have made this important issue a bit less complicated. Try to understand it, since in RAICK you will mainly be dealing with objects.
 ===It's over!===
