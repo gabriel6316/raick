@@ -62,7 +62,7 @@ Another good use for functions is when you have a piece of code that you use man
 Now, you may have noticed something new about functions from the previous paragraph and you are right! Functions can receive values, which are called *arguments* and can return values. Using arguments you can influence the behavior of the function and/or its' return values. The most trivial example of this concept are the operators(`+, -, *, /`). They are also functions with a bit different appearance, which take 2 arguments and return a value based on them.
 <br>
 So, to sum up, we use functions to divide the logic of the script into different parts for easier management or to generalize our code, eliminating the need to write the same thing many times. Examples:
-<code lang="js">
+<code lang="lua">
 -- This is a function definition. It terms of Lua this means that we put a value of type function into a global variable 'checkForCommands'.<br>
 -- The variable is global since we have not told in any way that we refer to a local variable. For now, i don't want you to think too much about those local variables and will assume that all our variables are global.<br>
 function    checkForCommands()
