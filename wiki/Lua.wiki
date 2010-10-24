@@ -194,7 +194,8 @@ The final structure you need to know about is the *loop*. This structure is very
 a = 0
 
 -- This is the first way to use this loop. First of all you need to define some local variable that will hold the current index(in our case it is variable 'i').
--- Then you define the starting number(1 in this example) and the ending number(100). With every cycle of the loop the value in 'i' will grow by 1 until it reaches 100. And every time the 'i' grows the code inside the loop gets executed.
+-- Then you define the starting number(1 in this example) and the ending number(100).
+-- With every cycle of the loop the value in 'i' will grow by 1 until it reaches 100. And every time the 'i' grows the code inside the loop gets executed.
 -- Note: 'i' is a regular variable like any other. You can use it inside the loop and even change it.
 for i = 1, 100 do
     a = a + 2
@@ -209,9 +210,11 @@ b[3] = -2
 c = 0
 
 -- This is probably the main loop, which you will be using in RAICK, since it allows searching through sets of data like friend lists, target lists or the list of monsters, players and NPC's on the screen.
--- It has a bit some complex logic behind it, but i will tell you only the stuff that you need to know. It the example below between 'in' and 'do' you see a function, which takes a table 'b' as an argument.
+-- It has a bit some complex logic behind it, but i will tell you only the stuff that you need to know.
+-- It the example below between 'in' and 'do' you see a function, which takes a table 'b' as an argument.
 -- This is a function from the Lua standard library(be patient, this will be covered in the next section), which assumes that the given table has all of its' values under numeric keys starting from 1.
--- Knowing that it then starts passing one by one values from the table to the for loop. The key from the table is written to the first variable of the loop('i' in our example) and the value to the second one('v').
+-- Knowing that it then starts passing one by one values from the table to the for loop.
+-- The key from the table is written to the first variable of the loop('i' in our example) and the value to the second one('v').
 -- The code inside the loop is executed as many times as there are sequential values in the table(meaning that if the table has values under keys 1, 2, 4, 5, 8 only 1, 2 will be used in the loop, because at number 3 it will assume that the list has ended).
 for i, v in ipairs(b) do
     c = c + v
@@ -268,19 +271,24 @@ In Lua those types that don't have any special ways to define their values are c
 <code language="lua">
 -- Suppose we have put a number into a variable:
 a = 1
--- This is a primitive type, which means that the value itself is stored in the variable. What this means is that when we query/read what is stored in the variable we get a copy of the value:
+-- This is a primitive type, which means that the value itself is stored in the variable.
+-- What this means is that when we query/read what is stored in the variable we get a copy of the value:
 b = a -- 'b' now holds a copy of what is stored in 'a'- number 1.
 
-type(a) -- A copy of the value in 'a' is passed as an argument, not the value itself. The value in 'a' and the value that will be processed inside the function are 2 different exemplars of the same value.
+type(a) -- A copy of the value in 'a' is passed as an argument, not the value itself.
+-- The value in 'a' and the value that will be processed inside the function are 2 different exemplars of the same value.
 
 -- Lets now see how the object behaves.
 a = {}
--- 'a' holds a reference(think of a hyperlink in your browser) to the table, which has been created using constructor '{}'. When we query what is stored in the variable we get a copy of the reference(not the value)- a copy of the link to the same value:
+-- 'a' holds a reference(think of a hyperlink in your browser) to the table, which has been created using constructor '{}'.
+-- When we query what is stored in the variable we get a copy of the reference(not the value)- a copy of the link to the same value:
 b = a
--- Now both 'a' and 'b' hold links to the same value. If you modify the table through the variable 'a' these changes will also be visible through variable 'b', since they both refer to the same value.
+-- Now both 'a' and 'b' hold links to the same value.
+-- If you modify the table through the variable 'a' these changes will also be visible through variable 'b', since they both refer to the same value.
 a.abc = 1
 
-c = b.abc -- You will get 1, since the table has been modified before. It does not matter which variable you use to modify or query the table- the result is identical.
+c = b.abc -- You will get 1, since the table has been modified before.
+-- It does not matter which variable you use to modify or query the table- the result is identical.
 
 -- Lets do the same thing with a function:
 function    a()
@@ -289,7 +297,8 @@ function    a()
 end
 
 b = a
--- Both 'a' and 'b' now refer to the same function. It does not matter if a call a function using 'a' or 'b'- in both cases the same function will be called returning number 1.
+-- Both 'a' and 'b' now refer to the same function.
+-- It does not matter if a call a function using 'a' or 'b'- in both cases the same function will be called returning number 1.
 
 c = a()
 d = b()
