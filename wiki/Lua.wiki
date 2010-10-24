@@ -28,12 +28,13 @@ Now, what about *values*? Well, actually, you have already seen them! Values are
 Quite simple isn't it? The whole story comes down to this:
   * We have numeric values like: 1, 2, -300 or 123.123, so we define a _number_ type for them. This generalization is very useful to us, since all numbers have many thing in common, for example: we can add them, multiply by one another and they all don't like to be divided by zero.
   * We have message values like: `'blah blah blah'` or `"yep yep yep"`, so we define a _string_ type for them. And again it is useful, since we can, for example: "glue" 2 strings together or check how many characters they have.
+
 So, to summarize. Types are names for sets of data(values) with common properties. They define rules to manipulate with the particular piece of data. If we know the type of the value, then we know what we can do with it and what we can't.
-<br>
+<br><br>
 Suppose we have our values, which we have divided into groups(types). The obvious question is: where do we store them? And here is when *variables* enter the scene to help us out. They are just "boxes" with names, where you can store any value of any data type you like. This way you can transfer data between different parts of your script.
 <br>
 The last thing you need to know is that there are two kinds of variables: *local* and *global*. Global ones(as their name suggests) could be used across all of your script- they are visible everywhere. As for local ones, they are visible only in a small area. No one will stop you from using only global variables in your script. Using local ones just helps to keep the global namespace clean. Examples:
-<code class="prettyprint lang-html">
+{{{
 a = 1 -- Putting 1 to variable 'a'.
 b = 2 + 3 -- Adding two numbers and writing result to 'b'.
 a = b - 2.5 -- Here we take the value from the variable 'b' and subtract 2.5 from it. Then we replace 1 in variable 'a' with this result.
@@ -50,7 +51,7 @@ abc$$$ is not a valid name
 str1 = "a string" -- Typically we define a string between double quotes, ..
 str2 = 'another string' -- .. but single quotes are also permitted.
 str3 = str1 .. str2 -- Operator '..' allows us to "glue"(concatenate) two strings together. The result is: "a stringanother string".
-</code>
+}}}
 Oh, and one more thing- comments. You put those after `--` or between `--[[` and `--]]`. They are used, when you want to explain certain parts of your code.
 ===Functions===
 First of all, *function* is a special type. The values that this type represent are individual functions that you define or that come with the Lua language.<br>
