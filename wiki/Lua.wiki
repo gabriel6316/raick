@@ -229,6 +229,7 @@ Lets, first of all, review what types we have learned during this quick guide:
   * nil
   * function
   * table
+
 These types are all you will need for your script. Every AI, every script and even RAICK, they all use only those types and not a type more. Now, you might have noticed that to create the first 4 of them you don't need to do anything special. You just write the value you need and it is there. For the rest 2 of them you have used some specific ways. If you remember i have mentioned the word 'constructor' somewhere in the section about tables. Well, you can say that both the table and the function have constructors to create them. Let me demonstrate this with an example:
 {{{
 a = {} -- '{}' is a table constructor.
