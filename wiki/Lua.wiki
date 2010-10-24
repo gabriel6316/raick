@@ -63,29 +63,29 @@ Now, you may have noticed something new about functions from the previous paragr
 <br>
 So, to sum up, we use functions to divide the logic of the script into different parts for easier management or to generalize our code, eliminating the need to write the same thing many times. Examples:
 <pre class="prettyprint lang-lua">
--- This is a function definition. It terms of Lua this means that we put a value of type function into a global variable 'checkForCommands'.<br>
--- The variable is global since we have not told in any way that we refer to a local variable. For now, i don't want you to think too much about those local variables and will assume that all our variables are global.<br>
+-- This is a function definition. It terms of Lua this means that we put a value of type function into a global variable 'checkForCommands'.
+-- The variable is global since we have not told in any way that we refer to a local variable. For now, i don't want you to think too much about those local variables and will assume that all our variables are global.
 function    checkForCommands()
 
     -- We do something here.
 end
 
--- This is a function, which takes 2 arguments and returns them sum.<br>
+-- This is a function, which takes 2 arguments and returns them sum.
 function    sum2(a, b)
 
     return a + b
 end
 
--- This function return the doubled value of its' argument.<br>
+-- This function return the doubled value of its' argument.
 function    multiplyBy2(a)
 
-    return a `*` 2
+    return a * 2
 end
 
--- The client calls this function. We just have to define it.<br>
+-- The client calls this function. We just have to define it.
 function    AI()
 
-    -- Once the client calls the function it will start one by one doing things that are defined inside.<br>
+    -- Once the client calls the function it will start one by one doing things that are defined inside.
     checkForCommands() -- First of all this, ..
     
     local sum = sum2(1, 2) -- .. then this ..
