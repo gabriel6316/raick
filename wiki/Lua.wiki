@@ -209,13 +209,16 @@ b[3] = -2
 
 c = 0
 
--- This is probably the main loop, which you will be using in RAICK, since it allows searching through sets of data like friend lists, target lists or the list of monsters, players and NPC's on the screen.
+-- This is probably the main loop, which you will be using in RAICK, .. 
+-- .. since it allows searching through sets of data like friend lists, target lists or the list of monsters, players and NPC's on the screen.
 -- It has a bit some complex logic behind it, but i will tell you only the stuff that you need to know.
 -- It the example below between 'in' and 'do' you see a function, which takes a table 'b' as an argument.
--- This is a function from the Lua standard library(be patient, this will be covered in the next section), which assumes that the given table has all of its' values under numeric keys starting from 1.
+-- This is a function from the Lua standard library(be patient, this will be covered in the next section), ..
+-- .. which assumes that the given table has all of its' values under numeric keys starting from 1.
 -- Knowing that it then starts passing one by one values from the table to the for loop.
 -- The key from the table is written to the first variable of the loop('i' in our example) and the value to the second one('v').
--- The code inside the loop is executed as many times as there are sequential values in the table(meaning that if the table has values under keys 1, 2, 4, 5, 8 only 1, 2 will be used in the loop, because at number 3 it will assume that the list has ended).
+-- The code inside the loop is executed as many times as there are sequential values in the table ..
+-- .. (meaning that if the table has values under keys 1, 2, 4, 5, 8 only 1, 2 will be used in the loop, because at number 3 it will assume that the list has ended).
 for i, v in ipairs(b) do
     c = c + v
 end
