@@ -41,9 +41,9 @@ a = b - 2.5 -- Here we take the value from the variable 'b' and subtract 2.5 fro
 a = a * 5 -- And here we multiply the value in the variable by 5.
 
 --[[
-There are certain rules for naming variables. The name can contain letters, numbers and underscopes(_), but cannot start with a number. For example:
-____a____ is a valid name
-_123 is a valid name
+There are certain rules for naming variables. The name can contain letters, numbers and underscopes(`_`), but cannot start with a number. For example:
+`____`a`____` is a valid name
+`_`123 is a valid name
 123abc is not a valid name
 abc$$$ is not a valid name
 --]]
@@ -63,8 +63,9 @@ Now, you may have noticed something new about functions from the previous paragr
 <br>
 So, to sum up, we use functions to divide the logic of the script into different parts for easier management or to generalize our code, eliminating the need to write the same thing many times. Examples:
 <code language="lua">
--- This is a function definition. It terms of Lua this means that we put a value of type function into a global variable 'checkForCommands'.
--- The variable is global since we have not told in any way that we refer to a local variable. For now, i don't want you to think too much about those local variables and will assume that all our variables are global.
+--[[
+This is a function definition. It terms of Lua this means that we put a value of type function into a global variable 'checkForCommands'. The variable is global since we have not told in any way that we refer to a local variable. For now, i don't want you to think too much about those local variables and will assume that all our variables are global.
+--]]
 function    checkForCommands()
 
     -- We do something here.
@@ -92,7 +93,9 @@ function    AI()
     
     multiplyBy2(sum) -- .. and finally this.
     
-    -- You can seen that we use a local variable here to store the result of the sum. After the 'AI' function ends this variable will disappear. We could have used the global variable instead, but this way the would "pollute" the global namespace with unneeded data.
+    --[[
+    You can seen that we use a local variable here to store the result of the sum. After the 'AI' function ends this variable will disappear. We could have used the global variable instead, but this way the would "pollute" the global namespace with unneeded data.
+--]]
 end
 </code>
 ===Tables===
