@@ -63,9 +63,9 @@ Now, you may have noticed something new about functions from the previous paragr
 <br>
 So, to sum up, we use functions to divide the logic of the script into different parts for easier management or to generalize our code, eliminating the need to write the same thing many times. Examples:
 <code language="lua">
---[[
-This is a function definition. It terms of Lua this means that we put a value of type function into a global variable 'checkForCommands'. The variable is global since we have not told in any way that we refer to a local variable. For now, i don't want you to think too much about those local variables and will assume that all our variables are global.
---]]
+-- This is a function definition. It terms of Lua this means that we put a value of type function into a global variable 'checkForCommands'.
+-- The variable is global since we have not told in any way that we refer to a local variable.
+-- For now, i don't want you to think too much about those local variables and will assume that all our variables are global.
 function    checkForCommands()
 
     -- We do something here.
@@ -93,9 +93,9 @@ function    AI()
     
     multiplyBy2(sum) -- .. and finally this.
     
-    --[[
-    You can seen that we use a local variable here to store the result of the sum. After the 'AI' function ends this variable will disappear. We could have used the global variable instead, but this way the would "pollute" the global namespace with unneeded data.
---]]
+
+    -- You can seen that we use a local variable here to store the result of the sum. After the 'AI' function ends this variable will disappear.
+    -- We could have used the global variable instead, but this way the would "pollute" the global namespace with unneeded data.
 end
 </code>
 ===Tables===
@@ -117,7 +117,10 @@ function    a.method(arg)
 end
 
 e = a.method(1) -- 'e' now holds value 1.
--- What you have seen right now is that i have defined a function inside a table. Technically speaking: i have created a function and put it under string key "method" of a table inside a global variable 'a'. The syntax 'something.something(arg1, arg2, ...)' is very widespread in modern programming languages. What does it mean? Well, be patient, i will certainly refer to it many times in the chapter about using RAICK.
+-- What you have seen right now is that i have defined a function inside a table.
+-- Technically speaking: i have created a function and put it under string key "method" of a table inside a global variable 'a'.
+-- The syntax 'something.something(arg1, arg2, ...)' is very widespread in modern programming languages. What does it mean?
+-- Well, be patient, i will certainly refer to it many times in the chapter about using RAICK.
 </code>
 ===nil===
 Before we continue i would like to say a few words about one important type, which is *nil*. This is a special type, which has only one value- `nil`. This value signals the absence of any other value. For example, if you refer to a variable that you have not used before it will contain `nil`. You can also use `nil` to delete anything from a variable. 
@@ -127,7 +130,7 @@ So far we have seen programming as a process of writing lines of code that get e
 a = 1
 b = 2
 
--- We check if the sum of a and b is less than 5 then we execute the code inside the if statement
+-- We check if the sum of 'a' and 'b' is less than 5 then we execute the code inside the if statement
 if (a + b) < 5 then
     c = 10
 end
@@ -141,7 +144,8 @@ There are 6 types of comparison operators:
 == - equals
 ~= - not equals
 
-First 4 of them can be used to compare numbers and strings(they are compared by alphabetic order) only. The last 2 can be used to compare any type with any type.
+First 4 of them can be used to compare numbers and strings(they are compared by alphabetic order) only.
+The last 2 can be used to compare any type with any type.
 Note: String '123' is not equal to number 123.
 --]]
 
@@ -150,8 +154,15 @@ d = 8
 e = 3
 
 -- Here we use logical operators(or, and, not) to combine small conditions into a big conditional expression.
-if (c == "cba") or ((d > 6) and (e == 3)) then -- 'c' is not equal to "cba", 'd' is greater than 6, 'e' equals 3. We get: false or (true and true). Operator 'and' returns true if both arguments are true. 'or' returns true if at least one argument is true. So we get: false or true -> true. The whole statement is true and code inside 'if' will be executed.
-    if not(b ~= 2) then -- 'not' just returns the opposite. b is indeed 2, so b ~= 2 returns false and 'not' makes it true, so the whole statement is true and code inside 'if' will be executed.
+if (c == "cba") or ((d > 6) and (e == 3)) then
+-- 'c' is not equal to "cba", 'd' is greater than 6, 'e' equals 3.
+-- We get: false or (true and true). Operator 'and' returns true if both arguments are true.
+-- 'or' returns true if at least one argument is true.
+-- So we get: false or true -> true.
+-- The whole statement is true and code inside 'if' will be executed.
+    if not(b ~= 2) then
+    -- 'not' just returns the opposite.
+    -- b is indeed 2, so b ~= 2 returns false and 'not' makes it true, so the whole statement is true and code inside 'if' will be executed.
         h = 4
     end
 end
