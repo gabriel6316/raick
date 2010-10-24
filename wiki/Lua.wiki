@@ -67,21 +67,25 @@ So, to sum up, we use functions to divide the logic of the script into different
 -- The variable is global since we have not told in any way that we refer to a local variable.
 -- For now, i don't want you to think too much about those local variables and will assume that all our variables are global.
 function    checkForCommands()
+
     -- We do something here.
 end
 
 -- This is a function, which takes 2 arguments and returns them sum.
 function    sum2(a, b)
+
     return a + b
 end
 
 -- This function return the doubled value of its' argument.
 function    multiplyBy2(a)
+
     return a `*` 2
 end
 
 -- The client calls this function. We just have to define it.
 function    AI()
+
     -- Once the client calls the function it will start one by one doing things that are defined inside.
     checkForCommands() -- First of all this, ..
     
@@ -108,6 +112,7 @@ d = a.abc -- .. with strings you can also use the dot syntax!
 
 -- Now watch closely here:
 function    a.method(arg)
+
     return arg
 end
 
@@ -290,6 +295,7 @@ c = b.abc -- You will get 1, since the table has been modified before.
 
 -- Lets do the same thing with a function:
 function    a()
+
     return 1
 end
 
