@@ -27,7 +27,7 @@ function    GetOwnerEnemy (myid)
             target = GetV (V_TARGET,v)
             if (target == owner) then
                 if (IsMonster(v) == 1) then
-                    enemys[index] = v
+                    enemys`[index]` = v
                     index = index+1
                 else
                     local motion = GetV(V_MOTION,v)
@@ -53,7 +53,7 @@ function    GetOwnerEnemy (myid)
     return result
 end
 </code>
-And here is its\ analogue, written using RAICK:
+And here is its' analogue, written using RAICK:
 <code language="lua">
 function    GetOwnerEnemy ()
 
