@@ -62,17 +62,17 @@ Most of them are created during installation, others during runtime, when needed
     * *Logs & Errors* folder<br><br>
       * *Error History.txt* file
       This file is created(and later updated) when RAICK encounters an error inside your script. The entry will contain the time when the error occurep and a copy of the error window.
-    * *[[0]] Memory.lua* file
+    * *`[`0`]` Memory.lua* file
     In this file RAICK stores values that you have decided to save. Saving data to a file is the only way to prevent it from being lost when the AI stops working(your homunculus/mercenary are not longer on the screen).
-    * *[[1]] On Startup.lua*
+    * *`[`1`]` On Startup.lua*
     In this file you define your custom variables or functions that you want to use in your script. This file is loaded once when the script starts. It is typical place for reading saved data from the memory or putting initial values to variables.
-    * *[[2]] Commands.lua*
+    * *`[`2`]` Commands.lua*
     This is the place where you can define your own custom ways to interpet _Alt + Something_ commands that come from the player. Default handlers are auto-generated so you just have to modify them.
-    * *[[3]] Skills.lua*
+    * *`[`3`]` Skills.lua*
     File with the same structure as the previous one, only here you can customize the way skill commands are interpreted by your AI.
-    * *[[4]] Messages.lua*
+    * *`[`4`]` Messages.lua*
     In this file you can also define handlers like two previous ones, but they are meant to intercept messages that bots send to each other. This is a unique feature that allows sending arbitary data between homunculus and mercenary AI's.
-    * *[[5]] Activities.lua*
+    * *`[`5`]` Activities.lua*
     The "heart" of your AI. Here you must define activities that you want your homunculus/mercenary to perform. Activities(also known as _states_ in most of AI's) is just a way to divide your script into logical parts. Each activity is a set of actions, which your logically group under some name. For example, the basic set of activities is:
       * _Passive_ - Don't react to anything. Just follow the owner.
       * _Active_ - If a monster is in sight then start chasing it(switch to _Chase_ activity), if not then follow owner.
@@ -80,7 +80,7 @@ Most of them are created during installation, others during runtime, when needed
       * _Attack_ - Attack the monster until it is killed or no longer in sight and then start looking for the next one(switch to _Active_ activity).
     Now, all you need to do is put these words into code and you have yourself a primitive AI.
   * *Mercenary Script* folder
-  This folder basically mirrors the *Homunculus Script* folder. The only difference is that the *[[3]] Skills.lua* file is divided into separate parts, since mercenaries have a lot more targeted skills than homunculi.
+  This folder basically mirrors the *Homunculus Script* folder. The only difference is that the *`[`3`]` Skills.lua* file is divided into separate parts, since mercenaries have a lot more targeted skills than homunculi.
 ===
 ----
 ==Settings==
@@ -104,7 +104,7 @@ RAICK can be configured using the `RAICK.Settings.lua` file. Currently RAICK has
 The names of settings and the values that they support are case insensitive, furthermore you can even separate different words with underscopes. For example:
   * visionrange
   * ViSion`___`RanGE
-  * VISION_RANGE
+  * VISION`_`RANGE
   * VisionRange
 Would all refer to the same setting. The same is with values:
   * Yes
