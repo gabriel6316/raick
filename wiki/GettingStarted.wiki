@@ -1,0 +1,122 @@
+=Getting started with RAICK=
+==Installation==
+First things first- you need to let RAICK install itself. Unlike other AI scripts RAICK is packaged into a single file. This file contains all of the logic needed to create the initial file and folder structure. It also creates the uninstaller that quickly removes those files, leaving just the `RAICK.lua` file.<br>
+  * To install RAICK you first need to decide where to put it. A typical place for custom scripts is the `USER_AI` folder, but you are not limited to a specific place. Once you have decided where to put it you need to open your `AI.lua` or `AI_M.lua` file in either `AI` or `AI/USER_AI` folder(depending on what */hoai* setting you are planning to use) and put a single line of code there:
+<code language="lua">
+require "./AI/USER_AI/RAICK.lua"
+</code>
+This line of code assumes that you have put `RAICK.lua` to the `USER_AI` folder. The dot represents the folder of your Rangarok client. You could have also written the full path to RAICK:
+<code language="lua">
+require "C:/Program Files/Gravity/Ragnarok/AI/USER_AI/RAICK.lua" -- Of course, you should put the actual path to your client if it is somewhere else
+</code>
+And as i said you are not limited to your client folder only:
+<code language="lua">
+require "C:/RAICK.lua"
+</code>
+In this case all files and folders will be created right on the `C:/` disk.<br>
+  * Once `RAICK.lua` is linked with the `AI.lua` or `AI_M.lua` file you'll just need to launch the script from the game(activate your homunculus/mercenary). For a moment you will see a command-prompt window, which will signal that the installation has been performed.
+  * If a new version if RAICK is released then you just need to replace the `RAICK.lua` file and the update is compeleted.
+  _Note:_ If you have used the beta version then it is best if you replace `RAICK.lua` with the new file, run it and uninstall RAICK using the created uninstaller(beta version didn't have it). After that install the script again._
+----
+==Files & Folders==
+The schema below illustrates the full set of files that RAICK can create:
+<pre>
+-\
+ |-\ "Homunculus Script"
+   |-\ "Logs & Errors"
+     |- "Error History.txt"
+   |- "`[0]` Memory.lua"
+   |- "`[1]` On Startup.lua"
+   |- "`[2]` Commands.lua"
+   |- "`[3]` Skills.lua"
+   |- "`[4]` Messages.lua"
+   |- "`[5]` Activities.lua"
+ |-\ "Mercenary Script"
+   |-\ "Logs & Errors"
+     |- "Error History.txt"
+   |- "`[0]` Memory.lua"
+   |- "`[1]` On Startup.lua"
+   |- "`[2]` Commands.lua"
+   |- "`[3]` 1. Common Skills.lua"
+   |- "`[3]` 2. Bowman Skills.lua"
+   |- "`[3]` 3. Fencer Skills.lua"
+   |- "`[3]` 4. Lancer Skills.lua"
+   |- "`[4]` Messages.lua"
+   |- "`[5]` Activities.lua"
+ |- "RAICK.Bugz.txt
+ |- "RAICK.lua"
+ |- "RAICK.Settings.lua"
+ |- "RAICK.Uninstall.bat"
+</pre>
+Most of them are created during installation, others during runtime, when needed. You can see that homunculus and mercenary scripts are separated into different folders for easier management.<br><br>
+===Common Files===
+  * *RAICK.Bugz.txt* file
+  This file is created(and later updated) when RAICK encounters a bug inside itself. The entry will contain the time when the error occurep and a copy of the error window. This is possible, because RAICK is smart enough to classify errors and can even distinguish between errors that occured in your script from the ones that occured inside the framework.
+  * *RAICK.Settings.lua* file
+  This file is used to configurate RAICK. See next section for more details.
+  * *RAICK.Uninstall.bat* file
+  Run this script if you want to uninstall RAICK. All files that have been created during installation will be deleted.<br>
+===AI Specific Files===
+  * *Homunculus Script* folder
+  The structure of the folder is designed for maximum efficiency and convinience. Files are numbered to mimic the order, in which they are loaded upon startup of AI and also how they are processed later, when the client starts calling the script.
+    * *Logs & Errors* folder<br><br>
+      * *Error History.txt* file
+      This file is created(and later updated) when RAICK encounters an error inside your script. The entry will contain the time when the error occurep and a copy of the error window.
+    * *[[0]] Memory.lua* file
+    In this file RAICK stores values that you have decided to save. Saving data to a file is the only way to prevent it from being lost when the AI stops working(your homunculus/mercenary are not longer on the screen).
+    * *[[1]] On Startup.lua*
+    In this file you define your custom variables or functions that you want to use in your script. This file is loaded once when the script starts. It is typical place for reading saved data from the memory or putting initial values to variables.
+    * *[[2]] Commands.lua*
+    This is the place where you can define your own custom ways to interpet _Alt + Something_ commands that come from the player. Default handlers are auto-generated so you just have to modify them.
+    * *[[3]] Skills.lua*
+    File with the same structure as the previous one, only here you can customize the way skill commands are interpreted by your AI.
+    * *[[4]] Messages.lua*
+    In this file you can also define handlers like two previous ones, but they are meant to intercept messages that bots send to each other. This is a unique feature that allows sending arbitary data between homunculus and mercenary AI's.
+    * *[[5]] Activities.lua*
+    The "heart" of your AI. Here you must define activities that you want your homunculus/mercenary to perform. Activities(also known as _states_ in most of AI's) is just a way to divide your script into logical parts. Each activity is a set of actions, which your logically group under some name. For example, the basic set of activities is:
+      * _Passive_ - Don't react to anything. Just follow the owner.
+      * _Active_ - If a monster is in sight then start chasing it(switch to _Chase_ activity), if not then follow owner.
+      * _Chase_ - Chase the monster until you get close enough and then start attacking it(switch to _Attack_ activity).
+      * _Attack_ - Attack the monster until it is killed or no longer in sight and then start looking for the next one(switch to _Active_ activity).
+    Now, all you need to do is put these words into code and you have yourself a primitive AI.
+  * *Mercenary Script* folder
+  This folder basically mirrors the *Homunculus Script* folder. The only difference is that the *[[3]] Skills.lua* file is divided into separate parts, since mercenaries have a lot more targeted skills than homunculi.
+===
+----
+==Settings==
+RAICK can be configured using the `RAICK.Settings.lua` file. Currently RAICK has 4 settings:
+  * *VisionRange*
+  Default: `14`<br>
+  Supported values: `number >0`<br>
+  The distance between your character and the visible edge of the screen(not the one you can see if you zoom out, but the one where objects, monsters etc are no longer visible). Typically it is 14 cells, but if you play on some unique server, then it might be different.
+  * *Language*
+  Default: `EN`<br>
+  Supported values: `YES, NO, ON, OFF`<br>
+  Currently RAICK supports only English and Russian. The language mainly affects error messages.
+  * *LoggersUseTraceAI*
+  Default: `NO`<br>
+  Supported values: `YES, NO, ON, OFF`<br>
+  Defines whether Logger objects react to */traceai* command status. This will be explained in the next chapter.
+  * *BotCommunication*
+  Default: `OFF`<br>
+  Supported values: `YES, NO, ON, OFF`<br>
+  Turns communication between homunculus and mercenary ON or OFF. This will be explained in the next chapter.
+The names of settings and the values that they support are case insensitive, furthermore you can even separate different words with underscopes. For example:
+  * visionrange
+  * ViSion`___`RanGE
+  * VISION_RANGE
+  * VisionRange
+Would all refer to the same setting. The same is with values:
+  * Yes
+  * No
+  * On
+  * Off
+  * ON
+  * OfF
+Are all permitted. It does not matter if you write `'ON'` or `ON` inside this file, since variable names are translated into strings.<br>
+And one more thing- if you omit/delete some setting the default value will be used. All of this is done for your convenience.
+----
+==Lets learn it together!==
+The best way to learn something in programming is by doing practical exercises or writing something yourself, so lets write a simple AI using RAICK. This way by the end of this chapter you will have both a working script and an idea whether RAICK actually suits your needs.
+===The initial idea===
+First of all, you need to have a clear idea of what you want from your AI.
