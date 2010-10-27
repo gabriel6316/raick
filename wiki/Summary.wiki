@@ -84,7 +84,7 @@ For those, who are already familiar with programming, here is what RAICK will of
   * *Names instead of ID's*
   With RAICK you can forget about ID's in your script. Everything is replaced with names. Every monster, every skill- you just have to name it.
   * *Data persistence out of the box*
-  Pretty much every data type used in the script can be serialized and retrieved upon start-up of AI. This way you can prevent vital data(like targets and friend-lists) from being lost, when your script restarts. Preserving your crucial data has never been easier!
+  Pretty much every data type used in the script can be serialized and retrieved upon startup of AI. This way you can prevent vital data(like targets and friend-lists) from being lost, when your script restarts. Preserving your crucial data has never been easier!
   * *Smart error handling*
   RAICK catches any errors that occur in your script. The error window will appear only once(remember the annoying endless error window?), after which your homunculus/mercenary will enter a Safe Mode. The error window itself will contain more detailed information about the cause of the error and will be logged to a file. RAICK can even analyze errors and inform you if the error is caused by a bug inside RAICK. This way you can just paste the error log in a bug report and i will immediately have the information to fix it.
   * *Exchange of data between your homunculus and mercenary*
