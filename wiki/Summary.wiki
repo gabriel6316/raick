@@ -69,7 +69,7 @@ function    GetOwnerEnemy ()
 end
 </code>
 In the last one you can almost intuitively guess what the code chunk is doing. As for the default AI code, well, i think even one look at it makes you want to close the file and never touch it again. That's one of the main benefits of using RAICK- it does not scare you away. The framework provides a natural, close to human language way of writing your script. It brings AI programming closer to your, without limiting your possibilities.<br>
-If you are truly new to programming then i would advice you to start with an [Lua introduction to AI and Lua].<br>
+If you are truly new to programming then i would advice you to start with an [Lua introduction to AI and Lua].<br><br>
 ----
 ==For geeks and those just familiar with the craft==
 For those, who are already familiar with programming, here is what RAICK will offer your in terms of exchanging your AI scripting experience:
