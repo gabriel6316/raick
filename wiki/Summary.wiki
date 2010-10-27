@@ -15,7 +15,7 @@ So, to put it simple:
 
 To put it even simpler, here is an ugly and scary piece of code from the default AI, which finds the closest monster attacking your character:
 <code language="lua">
-function    GetOwnerEnemy `(`myid)
+function    GetOwnerEnemy (myid)
     local result = 0
     local owner  = GetV (V_OWNER,myid)
     local actors = GetActors ()
@@ -26,7 +26,7 @@ function    GetOwnerEnemy `(`myid)
         if (v ~= owner and v ~= myid) then
             target = GetV (V_TARGET,v)
             if (target == owner) then
-                if (IsMonster`(`v) == 1) then
+                if (IsMonster(v) == 1) then
                     enemys`[index]` = v
                     index = index+1
                 else
