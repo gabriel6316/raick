@@ -2,7 +2,7 @@
 
 You are visiting the homepage of a unique project. Although, it is created for AI purposes, it is not really an AI. RAICK could be defined as a _framework_ for AI creation. Now, this word may not be very familiar to you, but it is actually a very simple concept. It it a set of tools, which brings AI creation to a whole new level. It hides all the nerdy and complex programming stuff and in exchange gives a simple set of intuitive and easy-to-use tools for you to program your homunculus/mercenary your way. As many IT people like to say about frameworks:<br><br>
 _It takes care of the plumbing and lets you define only the things that really matters with minimum effort and time consumption_ © Me =D
-==For newbies in programming==
+==<font color="#006666">For newbies in programming</font>==
 So, to put it simple:
   * You can be interested in this project if:
     # You want to learn how to program your homunculus/mercenary, but the standard way is too complex for you
@@ -71,7 +71,7 @@ end
 In the last one you can almost intuitively guess what the code chunk is doing. As for the default AI code, well, i think even one look at it makes you want to close the file and never touch it again. That's one of the main benefits of using RAICK- it does not scare you away. The framework provides a natural, close to human language way of writing your script. It brings AI programming closer to your, without limiting your possibilities.<br>
 You can start with an [Lua introduction to AI and Lua] to learn the basics that you need to know, when working with RAICK.<br><br>
 ----
-==For geeks and those just familiar with the craft==
+==<font color="#006666">For geeks and those just familiar with the craft</font>==
 For those, who are already familiar with programming, here is what RAICK will offer your in terms of exchanging your AI scripting experience:
   * *Ready-to-use folder and file structure*
   Upon installation RAICK defines a simple file and directory layout. With only a few configuration nuances you can immediately engage in the scripting process.
