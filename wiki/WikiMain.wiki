@@ -1,9 +1,9 @@
 =<font color="#003366">R.A.I.C.K. Wikipedia</font>=
 
-<font size="5">
-  * [Lua Lua and the ABC of programming]<font size="4"><br/><br/>
+<font size="5" color="#003366">
+  * Lua and the ABC of programming [Lua >>]<font size="4" color="#006666><br/><br/>
     * [http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]
-    * [http://code.google.com/p/raick/wiki/Lua#Building_blocks_of_Lua Building blocks of Lua]<font size="3"><br/><br/>
+    * [http://code.google.com/p/raick/wiki/Lua#Building_blocks_of_Lua Building blocks of Lua]<font size="3" color="#006600><br/><br/>
       * [http://code.google.com/p/raick/wiki/Lua#Types,_Values_&_Variables Types, Values & Variables]
       * [http://code.google.com/p/raick/wiki/Lua#Functions Functions]
       * [http://code.google.com/p/raick/wiki/Lua#Tables Tables]
