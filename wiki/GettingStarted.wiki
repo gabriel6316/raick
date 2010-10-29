@@ -87,6 +87,7 @@ RAICK can be configured using the `RAICK.Settings.lua` file. Currently RAICK has
   * *VisionRange*
   Default: `14`<br>
   Supported values: `number >0`<br>
+
   The distance between your character and the visible edge of the screen(not the one you can see if you zoom out, but the one where objects, monsters etc are no longer visible). Typically it is 14 cells, but if you play on some unique server, then it might be different.
   * *Language*
   Default: `EN`<br>
