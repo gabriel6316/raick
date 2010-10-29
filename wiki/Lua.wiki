@@ -52,7 +52,7 @@ str1 = "a string" -- Typically we define a string between double quotes, ..
 str2 = 'another string' -- .. but single quotes are also permitted.
 str3 = str1 .. str2 -- Operator '..' allows us to "glue"(concatenate) two strings together. The result is: "a stringanother string".
 </code>
-Oh, and one more thing- comments. You put those after `--` or between `--[[` and `--]]`. They are used, when you want to explain certain parts of your code.
+Oh, and one more thing- comments. You put those after `--` or between `--[[` and `--]]`. They are used, when you want to explain certain parts of your code.<br><br>
 ----
 ===Functions===
 First of all, the *function* is a special type. The values that this type represent are individual functions that you define or that come with the Lua language.<br>
@@ -96,7 +96,7 @@ function    AI()
     -- You can see that we use a local variable here to store the result of the sum. After the 'AI' function ends this variable will disappear.
     -- We could have used the global variable instead, but this way the would "pollute" the global namespace with unneeded data.
 end
-</code>
+</code><br><br>
 ----
 ===Tables===
 The next interesting type, which is vital for us to fully understand programming in Lua is the *table*. This is nothing more than a storage for other types(including the table itself). Tables are very versatile and could be used for all kinds of purposes, but you don't need to know much about the complex stuff. What you need to know is that you can put any data you like into the table and retrieve it afterwards. It is very similar to variables, only you are not limited to associating names with your values. In case of tables you can associate any value(which is called _key_) with any value(which is called just _value_). Examples:
@@ -121,10 +121,10 @@ e = a.method(1) -- 'e' now holds value 1.
 -- Technically speaking: i have created a function and put it under string key "method" of a table inside a global variable 'a'.
 -- The syntax 'something.something(arg1, arg2, ...)' is very widespread in modern programming languages. What does it mean?
 -- Well, be patient, i will certainly refer to it many times in the chapter about using RAICK.
-</code>
+</code><br><br>
 ----
 ===nil===
-Before we continue i would like to say a few words about one important type, which is *nil*. This is a special type, which has only one value- `nil`. This value signals the absence of any other value. For example, if you refer to a variable that you have not used before it will contain `nil`. You can also use `nil` to delete anything from a variable or from under a table key.
+Before we continue i would like to say a few words about one important type, which is *nil*. This is a special type, which has only one value- `nil`. This value signals the absence of any other value. For example, if you refer to a variable that you have not used before it will contain `nil`. You can also use `nil` to delete anything from a variable or from under a table key.<br><br>
 ----
 ===Conditions & Booleans===
 So far we have seen programming as a process of writing lines of code that get executed inside some main function, which is being initially called by someone(in our case- the Ragnarok client). What if we want to execute a certain line only when a certain condition is satisfied? We need a way to define conditions and some structure that would interpret them. This structure is known in programming as the *if statement*. It takes a condition, which can return either `true` or `false` and executes the enclosed code based on this value. Now, hold on a second! `true` or `false`? What's that? Well, those are values of type *boolean*. This type has only those 2 values. They are used in cases where you need to know if the result is: positive or negative, yes or no, on or off, true or false etc. That's why they are ideal for *conditional expressions*. Those are expressions similar to arithmetic ones like `2 * 3 + 5`, only they deal with logical and comparison operators and return `true` or `false` instead of a numeric result. Lets make things clear using examples:
@@ -189,7 +189,7 @@ if a then -- 'a' is already true, so the code inside if will be executed
     
     b = 1
 end
-</code>
+</code><br><br>
 ----
 ===Loops===
 The final structure you need to know about is the *loop*. This structure is very similar to the if statement, only in this case the code gets executed over and over again while the conditional expression is true. There are many types of loops in Lua, but with RAICK you will actually need to know only one of them- the *for* loop. This loop has 2 ways of using it. Lets examine both of them in the following example:
@@ -226,7 +226,7 @@ for i, v in ipairs(b) do
     c = c + v
 end
 -- 'c' is now 5
-</code>
+</code><br><br>
 ----
 ===Standard libraries===
 A *standard library* is nothing more than a set of predefined functions that come with the language. Mathematical operators(`+, -, /, *`) are good examples of such functions, but there are a lot more. You have already seen the `ipairs` function, that can help us to search through a table, which is organized into a primitive list. The next very important function in context of RAICK is `require`. With its' help you can divide your script into multiple files and link them to your main file like so:
@@ -252,9 +252,9 @@ Another useful function is `math.random`. It takes 2 numeric(can be negative) ar
 rand = math.random(-3, 2) -- Returns -3, -2, -1, 0, 1 or 2 randomly.
 </code>
 Random is often useful in programming. The main use for it in AI scripts is the so called "dance attack".<br>
-These are just some examples of the standard functions. This is just a short overview of Lua, so i am not doing to cover the rest of them(and they are quite useless for you anyway).
+These are just some examples of the standard functions. This is just a short overview of Lua, so i am not doing to cover the rest of them(and they are quite useless for you anyway).<br><br>
 ----
-===The hardest part: Objects and Primitive types===
+===The hard part: Objects and Primitive types===
 OK, we are almost done! I don't know if this is actually the hardest part, but it tends to be quite confusing for most people. I just want you to try to understand it, since it is a very important issue, especially with RAICK.<br>
 Lets, first of all, review what types we have learned during this quick guide:
   * number
@@ -333,7 +333,7 @@ b = a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.
 -- And we'll still get our table back.
 </code>
 This is just a funny example, but this principle actually has a great implementation in RAICK as you will see later.<br>
-I hope that i have made this important issue a bit less complicated. Try to understand it, since in RAICK you will mainly be dealing with objects.
+I hope that i have made this important issue a bit less complicated. Try to understand it, since in RAICK you will mainly be dealing with objects.<br><br>
 ----
 ===It's over!===
-Finally! You torture is over! We have covered the most boring and most crucial part of mastering RAICK. Now, you have the knowledge to dig into the interesting part- A quick guide on using RAICK.
+Finally! You torture is over! We have covered the most boring and most crucial part of mastering RAICK. Now, you have the knowledge to dig into the interesting part- A [GettingStarted quick guide on using RAICK].
