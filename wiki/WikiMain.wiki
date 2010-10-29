@@ -1,5 +1,7 @@
 =<font color="#003366">R.A.I.C.K. Wikipedia</font>=
 
+=<font color="#006666">Table of contents</font>=
+
 <font size="5">
   * [Lua Lua and the ABC of programming]<br/><br/><font size="4">
     # _[http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]
