@@ -1,6 +1,6 @@
-=Lua and the ABC of programming=
+=<font color="#003366">Lua and the ABC of programming</font>=
 Now, this is not a guide on programming. This is just the basic knowledge, which will help you understand how RAICK works. It is mainly theoretical stuff, which may seem too abstracted from the actual AI, but be patient- this is the basis, which you need to know and understand before we dig into the real thing.
-==Client & Script==
+==<font color="#006666">Client & Script</font>==
 As you probably already know from your experience with AI's the entry point for any AI script is the `AI.lua`/`AI_M.lua` file. This is a regular text file, using which your Ragnarok game client makes(every time your homunculus/mercenary enters the screen) a small program(the AI) that(every time it is called/asked) tells the client what actions should your homunculus/mercenary perform based on the data that the client provides it with. This happens multiple times per second and that's how the AI actually works. When your homunculus/mercenary leaves the screen for some reason(death, _Rest/Vaporize_ skill etc) the AI program is stopped and thrown away with all of its data. Once the the homunculus/mercenary will appear on the screen again the client will make a fresh AI program from the AI text file and the cycle will continue.
 So, from all of this you should remember the following:
   * The script text file is loaded only when the bot re-enters the screen(respawnes)
@@ -9,9 +9,9 @@ So, from all of this you should remember the following:
   * The data that the client gives the AI to make a decision is static(it is a frozen moment in time and no matter how many times you query it, it will not change during the same call of the AI program)
   * The AI looses all of its data when it stops working
 These facts may seem i bit confusing right now, but they will help you to understand some things better in future chapters.
-==Building blocks of Lua==
+==<font color="#006666">Building blocks of Lua</font>==
 Lets focus more on that text file. The client assumes it is written in Lua. Being above all a *programming language* it follows some basic concepts that i would like to explain to you.
-===Types, Values & Variables ===
+===<font color="#660000">Types, Values & Variables</font>===
 All programming languages have three basic concepts in common:
   * Types
   * Values
@@ -55,7 +55,7 @@ str3 = str1 .. str2 -- Operator '..' allows us to "glue"(concatenate) two string
 </code>
 Oh, and one more thing- comments. You put those after `--` or between `--[[` and `--]]`. They are used, when you want to explain certain parts of your code.<br><br>
 ----
-===Functions===
+===<font color="#660000">Functions</font>===
 First of all, the *function* is a special type. The values that this type represent are individual functions that you define or that come with the Lua language.<br>
 Functions are the ones that make something work in your AI. Every piece of code in Lua is executed inside some function. The AI script is also written inside a function, which you should put in a variable `AI`. This name is an agreement between the client and your script, so that the client knows what function to call after it makes the AI program.
 So, as i said, this function contains your whole AI. Of course, it would be hard to make such complex AI's like RampageAI or MirAI with all of the code being in one place. Thus, when you write your AI you usually divide it into different pieces for easier management.
@@ -99,7 +99,7 @@ function    AI()
 end
 </code><br><br>
 ----
-===Tables===
+===<font color="#660000">Tables</font>===
 The next interesting type, which is vital for us to fully understand programming in Lua is the *table*. This is nothing more than a storage for other types(including the table itself). Tables are very versatile and could be used for all kinds of purposes, but you don't need to know much about the complex stuff. What you need to know is that you can put any data you like into the table and retrieve it afterwards. It is very similar to variables, only you are not limited to associating names with your values. In case of tables you can associate any value(which is called _key_) with any value(which is called just _value_). Examples:
 <code language="lua">
 a = {} -- '{}' is a table constructor. This means that it is a command to create a new table.
@@ -124,10 +124,10 @@ e = a.method(1) -- 'e' now holds value 1.
 -- Well, be patient, i will certainly refer to it many times in the chapter about using RAICK.
 </code><br><br>
 ----
-===nil===
+===<font color="#660000">nil</font>===
 Before we continue i would like to say a few words about one important type, which is *nil*. This is a special type, which has only one value- `nil`. This value signals the absence of any other value. For example, if you refer to a variable that you have not used before it will contain `nil`. You can also use `nil` to delete anything from a variable or from under a table key.<br><br>
 ----
-===Conditions & Booleans===
+===<font color="#660000">Conditions & Booleans</font>===
 So far we have seen programming as a process of writing lines of code that get executed inside some main function, which is being initially called by someone(in our case- the Ragnarok client). What if we want to execute a certain line only when a certain condition is satisfied? We need a way to define conditions and some structure that would interpret them. This structure is known in programming as the *if statement*. It takes a condition, which can return either `true` or `false` and executes the enclosed code based on this value. Now, hold on a second! `true` or `false`? What's that? Well, those are values of type *boolean*. This type has only those 2 values. They are used in cases where you need to know if the result is: positive or negative, yes or no, on or off, true or false etc. That's why they are ideal for *conditional expressions*. Those are expressions similar to arithmetic ones like `2 * 3 + 5`, only they deal with logical and comparison operators and return `true` or `false` instead of a numeric result. Lets make things clear using examples:
 <code language="lua">
 a = 1
@@ -192,7 +192,7 @@ if a then -- 'a' is already true, so the code inside if will be executed
 end
 </code><br><br>
 ----
-===Loops===
+===<font color="#660000">Loops</font>===
 The final structure you need to know about is the *loop*. This structure is very similar to the if statement, only in this case the code gets executed over and over again while the conditional expression is true. There are many types of loops in Lua, but with RAICK you will actually need to know only one of them- the *for* loop. This loop has 2 ways of using it. Lets examine both of them in the following example:
 <code language="lua">
 a = 0
@@ -229,7 +229,7 @@ end
 -- 'c' is now 5
 </code><br><br>
 ----
-===Standard libraries===
+===<font color="#660000">Standard libraries</font>===
 A *standard library* is nothing more than a set of predefined functions that come with the language. Mathematical operators(`+, -, /, *`) are good examples of such functions, but there are a lot more. You have already seen the `ipairs` function, that can help us to search through a table, which is organized into a primitive list. The next very important function in context of RAICK is `require`. With its' help you can divide your script into multiple files and link them to your main file like so:
 <code language="lua">
 require "./AI/USER_AI/RAICK.lua" -- This is also how you attach RAICK to the AI.lua/AI_M.lua.
@@ -255,7 +255,7 @@ rand = math.random(-3, 2) -- Returns -3, -2, -1, 0, 1 or 2 randomly.
 Random is often useful in programming. The main use for it in AI scripts is the so called "dance attack".<br>
 These are just some examples of the standard functions. This is just a short overview of Lua, so i am not doing to cover the rest of them(and they are quite useless for you anyway).<br><br>
 ----
-===The hard part: Objects and Primitive types===
+===<font color="#660000">The hard part: Objects and Primitive types</font>===
 OK, we are almost done! I don't know if this is actually the hardest part, but it tends to be quite confusing for most people. I just want you to try to understand it, since it is a very important issue, especially with RAICK.<br>
 Lets, first of all, review what types we have learned during this quick guide:
   * number
@@ -336,5 +336,5 @@ b = a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.
 This is just a funny example, but this principle actually has a great implementation in RAICK as you will see later.<br>
 I hope that i have made this important issue a bit less complicated. Try to understand it, since in RAICK you will mainly be dealing with objects.<br><br>
 ----
-===It's over!===
+===<font color="#660000">It's over!</font>===
 Finally! You torture is over! We have covered the most boring and most crucial part of mastering RAICK. Now, you have the knowledge to dig into the interesting part- [GettingStarted a quick guide on using RAICK].
