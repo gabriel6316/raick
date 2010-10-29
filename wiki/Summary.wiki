@@ -27,12 +27,12 @@ function    GetOwnerEnemy (myid)
             target = GetV (V_TARGET,v)
             if (target == owner) then
                 if (IsMonster(v) == 1) then
-                    enemys`[index]` = v
+                    enemys[index] = v
                     index = index+1
                 else
                     local motion = GetV(V_MOTION,v)
                     if (motion == MOTION_ATTACK or motion == MOTION_ATTACK2) then
-                        enemys`[index]` = v
+                        enemys[index] = v
                         index = index+1
                     end
                 end
