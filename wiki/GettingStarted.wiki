@@ -2,18 +2,18 @@
 ==Installation==
 First things first- you need to let RAICK install itself. Unlike other AI scripts RAICK is packaged into a single file. This file contains all of the logic needed to create the initial file and folder structure. It also creates the uninstaller that quickly removes those files, leaving just the `RAICK.lua` file.<br>
   * To install RAICK you first need to decide where to put it. A typical place for custom scripts is the `USER_AI` folder, but you are not limited to a specific place. Once you have decided where to put it you need to open your `AI.lua` or `AI_M.lua` file in either `AI` or `AI/USER_AI` folder(depending on what */hoai* setting you are planning to use) and put a single line of code there:
-<code language="lua">
+  <code language="lua">
 require "./AI/USER_AI/RAICK.lua"
 </code>
-This line of code assumes that you have put `RAICK.lua` to the `USER_AI` folder. The dot represents the folder of your Rangarok client. You could have also written the full path to RAICK:
-<code language="lua">
+  This line of code assumes that you have put `RAICK.lua` to the `USER_AI` folder. The dot represents the folder of your Rangarok client. You could have also written the full path to RAICK:
+  <code language="lua">
 require "C:/Program Files/Gravity/Ragnarok/AI/USER_AI/RAICK.lua" -- Of course, you should put the actual path to your client if it is somewhere else
 </code>
-And as i said you are not limited to your client folder only:
-<code language="lua">
+  And as i said you are not limited to your client folder only:
+  <code language="lua">
 require "C:/RAICK.lua"
 </code>
-In this case all files and folders will be created right on the `C:/` disk.<br>
+  In this case all files and folders will be created right on the `C:/` disk.<br>
   * Once `RAICK.lua` is linked with the `AI.lua` or `AI_M.lua` file you'll just need to launch the script from the game(activate your homunculus/mercenary). For a moment you will see a command-prompt window, which will signal that the installation has been performed.
 
   * If a new version if RAICK is released then you just need to replace the `RAICK.lua` file and the update is compeleted.
