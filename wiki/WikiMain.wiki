@@ -1,4 +1,3 @@
-
 =<font color="#003366">R.A.I.C.K. Wikipedia</font>=
 
 =<font color="#006666">Table of contents</font>=
@@ -20,7 +19,7 @@
     # _[http://code.google.com/p/raick/wiki/GettingStarted#Installation Installation]
     # [http://code.google.com/p/raick/wiki/GettingStarted#Files_&_Folders Files & Folders]<font size="3"><br/><br/>
       * *[http://code.google.com/p/raick/wiki/GettingStarted#Common_Files Common Files]
-      * [http://code.google.com/p/raick/wiki/GettingStarted#AI_Specific_Files AI Specific Files]*</font><br/><br/>
+      * [http://code.google.com/p/raick/wiki/GettingStarted#AI_Specific_Files AI Specific Files]*</font><br/>
     # [http://code.google.com/p/raick/wiki/GettingStarted#Settings Settings]
     # [http://code.google.com/p/raick/wiki/GettingStarted#Lets_learn_it_together! Lets learn it together!]_
 </font><font color="gray">
