@@ -69,7 +69,7 @@ function    GetOwnerEnemy ()
 end
 </code>
 In the last one you can almost intuitively guess what the code chunk is doing. As for the default AI code, well, i think even one look at it makes you want to close the file and never touch it again. That's one of the main benefits of using RAICK- it does not scare you away. The framework provides a natural, close to human language way of writing your script. It brings AI programming closer to your, without limiting your possibilities.<br>
-If you are truly new to programming then i would advice you to start with an [Lua introduction to AI and Lua].<br><br>
+You can start with an [Lua introduction to AI and Lua] to learn the basics that you need to know, when working with RAICK.<br><br>
 ----
 ==For geeks and those just familiar with the craft==
 For those, who are already familiar with programming, here is what RAICK will offer your in terms of exchanging your AI scripting experience:
@@ -89,3 +89,4 @@ For those, who are already familiar with programming, here is what RAICK will of
   RAICK catches any errors that occur in your script. The error window will appear only once, after which your homunculus/mercenary will enter a Safe Mode. The error window itself will contain more detailed information about the cause of the error and will be logged to a file. RAICK can even analyze errors and inform you if the error is caused by a bug inside RAICK. This way you can just paste the error log in a bug report and i will immediately have the information to fix it. You can kiss the annoying endless default error window goodbye!
   * *Exchange of data between your homunculus and mercenary*
   You just have to flip the switch(turn on the corresponding option) and your bots will immediately begin to communicate. Your homunculus will have full control over the actions of the mercenary and vice-versa. Programming different cooperation scenarios- with RAICK it's a piece of pie!
+If you want to get a feeling of what RAICK is i would advise you to read the [GettingStarted Getting Started] page first.
