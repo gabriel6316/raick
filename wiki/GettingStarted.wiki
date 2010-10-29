@@ -85,21 +85,24 @@ Most of them are created during installation, others during runtime, when needed
 ==Settings==
 RAICK can be configured using the `RAICK.Settings.lua` file. Currently RAICK has 4 settings:
   * *VisionRange*
-  Default: `14`<br>
-  Supported values: `number >0`<br>
+  <u>Default:</u> `14`<br>
+  <u>Supported values:</u> `number >0`<br>
 
   The distance between your character and the visible edge of the screen(not the one you can see if you zoom out, but the one where objects, monsters etc are no longer visible). Typically it is 14 cells, but if you play on some unique server, then it might be different.
   * *Language*
   <u>Default:</u> `EN`<br>
-  Supported values: `EN, RU`<br>
+  <u>Supported values:</u> `EN, RU`<br>
+
   Currently RAICK supports only English and Russian. This settings affects mainly error messages.
   * *LoggersUseTraceAI*
-  Default: `NO`<br>
-  Supported values: `YES, NO, ON, OFF`<br>
+  <u>Default:</u> `NO`<br>
+  <u>Supported values:</u> `YES, NO, ON, OFF`<br>
+
   Defines whether Logger objects react to */traceai* command status. This will be explained in the next chapter.
   * *BotCommunication*
-  Default: `OFF`<br>
-  Supported values: `YES, NO, ON, OFF`<br>
+  <u>Default:</u> `OFF`<br>
+  <u>Supported values:</u> `YES, NO, ON, OFF`<br>
+
   Turns communication between homunculus and mercenary ON or OFF. This will be explained in the next chapter.
 The names of settings and the values that they support are case insensitive, furthermore you can even separate different words with underscopes. For example:
   * visionrange
