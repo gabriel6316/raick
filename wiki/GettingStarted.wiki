@@ -25,7 +25,7 @@ The schema below illustrates the full set of files that RAICK can create:
  |-\ "Homunculus Script"
    |-\ "Logs & Errors"
      |- "Error History.txt"
-   |- "[0] Memory.lua"
+   |- "`[0]` Memory.lua"
    |- "`[1]` On Startup.lua"
    |- "`[2]` Commands.lua"
    |- "`[3]` Skills.lua"
@@ -113,7 +113,7 @@ Would all refer to the same setting. The same is with values:
   * ON
   * OfF
 Are all permitted. It does not matter if you write `'ON'` or `ON` inside this file, since variable names are translated into strings.<br>
-And one more thing- if you omit/delete some setting the default value will be used. All of this is done for your convenience.
+And one more thing- if you omit/delete some setting the default value will be used. All of this is done for your convenience.<br><br>
 ----
 ==Lets learn it together!==
 The best way to learn something in programming is by doing practical exercises or writing something yourself, so lets write a simple AI using RAICK. This way by the end of this chapter you will have both a working script and an idea whether RAICK actually suits your needs.
