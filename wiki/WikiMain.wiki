@@ -2,24 +2,24 @@
 
 <font size="5">
   * [Lua Lua and the ABC of programming]<br/><br/><font size="4">
-    * _[http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]_
-    * _[http://code.google.com/p/raick/wiki/Lua#Building_blocks_of_Lua Building blocks of Lua]_<font size="3"><br/><br/>
-      * *[http://code.google.com/p/raick/wiki/Lua#Types,_Values_&_Variables Types, Values & Variables]*
-      * *[http://code.google.com/p/raick/wiki/Lua#Functions Functions]*
-      * *[http://code.google.com/p/raick/wiki/Lua#Tables Tables]*
-      * *[http://code.google.com/p/raick/wiki/Lua#nil nil]*
-      * *[http://code.google.com/p/raick/wiki/Lua#Conditions_&_Booleans Conditions & Booleans]*
-      * *[http://code.google.com/p/raick/wiki/Lua#Loops Loops]*
-      * *[http://code.google.com/p/raick/wiki/Lua#Standard_libraries Standard libraries]
-      * [http://code.google.com/p/raick/wiki/Lua#The_hard_part:_Objects_and_Primitive_types The hard part: Objects and Primitive types]*
+    # _[http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]
+    # [http://code.google.com/p/raick/wiki/Lua#Building_blocks_of_Lua Building blocks of Lua]<font size="3"><br/><br/>
+      * *[http://code.google.com/p/raick/wiki/Lua#Types,_Values_&_Variables Types, Values & Variables]
+      * [http://code.google.com/p/raick/wiki/Lua#Functions Functions]
+      * [http://code.google.com/p/raick/wiki/Lua#Tables Tables]
+      * [http://code.google.com/p/raick/wiki/Lua#nil nil]
+      * [http://code.google.com/p/raick/wiki/Lua#Conditions_&_Booleans Conditions & Booleans]
+      * [http://code.google.com/p/raick/wiki/Lua#Loops Loops]
+      * [http://code.google.com/p/raick/wiki/Lua#Standard_libraries Standard libraries]
+      * [http://code.google.com/p/raick/wiki/Lua#The_hard_part:_Objects_and_Primitive_types The hard part: Objects and Primitive types]_*
 </font></font>
   * [GettingStarted Getting started with RAICK]<br/><br/><font size="4">
-    * _[http://code.google.com/p/raick/wiki/GettingStarted#Installation Installation]_
-    * _[http://code.google.com/p/raick/wiki/GettingStarted#Files_&_Folders Files & Folders]_<font size="3"><br/><br/>
+    # _[http://code.google.com/p/raick/wiki/GettingStarted#Installation Installation]
+    # [http://code.google.com/p/raick/wiki/GettingStarted#Files_&_Folders Files & Folders]<font size="3"><br/><br/>
       * *[http://code.google.com/p/raick/wiki/GettingStarted#Common_Files Common Files]*
       * *[http://code.google.com/p/raick/wiki/GettingStarted#AI_Specific_Files AI Specific Files]*</font><br/><br/>
-    * _[http://code.google.com/p/raick/wiki/GettingStarted#Settings Settings]_
-    * _[http://code.google.com/p/raick/wiki/GettingStarted#Lets_learn_it_together! Lets learn it together!]_
+    # [http://code.google.com/p/raick/wiki/GettingStarted#Settings Settings]
+    # [http://code.google.com/p/raick/wiki/GettingStarted#Lets_learn_it_together! Lets learn it together!]_
 </font><font color="gray">
   * RAICK reference manual
   * Mastering RAICK
