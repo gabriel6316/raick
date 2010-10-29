@@ -3,7 +3,7 @@
 <font size="3">
   # [Lua Learning Lua and the basics of programming]<br/><br/>
     * [http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]
-    * [http://code.google.com/p/raick/wiki/Lua#Building_blocks_of_Lua Building blocks of Lua]<br/><br/>
+    * [http://code.google.com/p/raick/wiki/Lua#Building_blocks_of_Lua Building blocks of Lua]<br/><br/><font size="2">
       * [http://code.google.com/p/raick/wiki/Lua#Types,_Values_&_Variables Types, Values & Variables]
       * [http://code.google.com/p/raick/wiki/Lua#Functions Functions]
       * [http://code.google.com/p/raick/wiki/Lua#Tables Tables]
@@ -11,7 +11,7 @@
       * [http://code.google.com/p/raick/wiki/Lua#Conditions_&_Booleans Conditions & Booleans]
       * [http://code.google.com/p/raick/wiki/Lua#Loops Loops]
       * [http://code.google.com/p/raick/wiki/Lua#Standard_libraries Standard libraries]
-      * [http://code.google.com/p/raick/wiki/Lua#The_hard_part:_Objects_and_Primitive_types The hard part: Objects and Primitive types]<br/><br/>
+      * [http://code.google.com/p/raick/wiki/Lua#The_hard_part:_Objects_and_Primitive_types The hard part: Objects and Primitive types]<br/><br/></font>
   # [GettingStarted Getting started with RAICK]
   # <font color="gray">RAICK reference manual</font>
   # <font color="gray">Mastering RAICK</font>
