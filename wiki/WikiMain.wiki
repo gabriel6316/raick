@@ -14,4 +14,5 @@
       * [http://code.google.com/p/raick/wiki/Lua#The_hard_part:_Objects_and_Primitive_types The hard part: Objects and Primitive types]<br/><br/>
   # [GettingStarted Getting started with RAICK]
   # <font color="gray">RAICK reference manual</font>
+  # <font color="gray">Mastering RAICK</font>
 </font>
