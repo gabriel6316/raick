@@ -1,9 +1,9 @@
 =R.A.I.C.K. Wikipedia=
 
-<font size="3">
+<font size="4">
   # [Lua Learning Lua and the basics of programming]<br/><br/>
     * [http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]
-    * [http://code.google.com/p/raick/wiki/Lua#Building_blocks_of_Lua Building blocks of Lua]<br/><br/><font size="2">
+    * [http://code.google.com/p/raick/wiki/Lua#Building_blocks_of_Lua Building blocks of Lua]<br/><br/><font size="4">
       * [http://code.google.com/p/raick/wiki/Lua#Types,_Values_&_Variables Types, Values & Variables]
       * [http://code.google.com/p/raick/wiki/Lua#Functions Functions]
       * [http://code.google.com/p/raick/wiki/Lua#Tables Tables]
