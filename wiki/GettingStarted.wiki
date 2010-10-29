@@ -16,7 +16,7 @@ require "C:/RAICK.lua"
 In this case all files and folders will be created right on the `C:/` disk.<br>
   * Once `RAICK.lua` is linked with the `AI.lua` or `AI_M.lua` file you'll just need to launch the script from the game(activate your homunculus/mercenary). For a moment you will see a command-prompt window, which will signal that the installation has been performed.
   * If a new version if RAICK is released then you just need to replace the `RAICK.lua` file and the update is compeleted.
-  _Note:_ If you have used the beta version then it is best if you replace `RAICK.lua` with the new file, run it and uninstall RAICK using the created uninstaller(beta version didn't have it). After that install the script again._
+  _Note: If you have used the beta version then it is best if you replace `RAICK.lua` with the new file, run it and uninstall RAICK using the created uninstaller(beta version didn't have it). After that install the script again._<br><br>
 ----
 ==Files & Folders==
 The schema below illustrates the full set of files that RAICK can create:
@@ -25,7 +25,7 @@ The schema below illustrates the full set of files that RAICK can create:
  |-\ "Homunculus Script"
    |-\ "Logs & Errors"
      |- "Error History.txt"
-   |- "`[0]` Memory.lua"
+   |- "[0] Memory.lua"
    |- "`[1]` On Startup.lua"
    |- "`[2]` Commands.lua"
    |- "`[3]` Skills.lua"
@@ -80,8 +80,7 @@ Most of them are created during installation, others during runtime, when needed
       * _Attack_ - Attack the monster until it is killed or no longer in sight and then start looking for the next one(switch to _Active_ activity).
     Now, all you need to do is put these words into code and you have yourself a primitive AI.
   * *Mercenary Script* folder
-  This folder basically mirrors the *Homunculus Script* folder. The only difference is that the *`[`3`]` Skills.lua* file is divided into separate parts, since mercenaries have a lot more targeted skills than homunculi.
-===
+  This folder basically mirrors the *Homunculus Script* folder. The only difference is that the *`[`3`]` Skills.lua* file is divided into separate parts, since mercenaries have a lot more targeted skills than homunculi.<br><br>
 ----
 ==Settings==
 RAICK can be configured using the `RAICK.Settings.lua` file. Currently RAICK has 4 settings:
