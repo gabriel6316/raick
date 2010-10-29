@@ -15,8 +15,9 @@ require "C:/RAICK.lua"
 </code>
 In this case all files and folders will be created right on the `C:/` disk.<br>
   * Once `RAICK.lua` is linked with the `AI.lua` or `AI_M.lua` file you'll just need to launch the script from the game(activate your homunculus/mercenary). For a moment you will see a command-prompt window, which will signal that the installation has been performed.
+
   * If a new version if RAICK is released then you just need to replace the `RAICK.lua` file and the update is compeleted.
-  _Note: If you have used the beta version then it is best if you replace `RAICK.lua` with the new file, run it and uninstall RAICK using the created uninstaller(beta version didn't have it). After that install the script again._<br><br>
+  _Note: If you have used the beta version then it is best if you replace `RAICK.lua` with the new file, run it and uninstall RAICK using the created uninstaller(the beta version didn't have one). After that install the script again._<br><br>
 ----
 ==Files & Folders==
 The schema below illustrates the full set of files that RAICK can create:
