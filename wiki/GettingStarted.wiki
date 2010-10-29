@@ -123,4 +123,12 @@ And one more thing- if you omit/delete some setting the default value will be us
 ==<font color="#006666">Lets learn it together!</font>==
 The best way to learn something in programming is by doing practical exercises or writing something yourself, so lets write a simple AI using RAICK. This way by the end of this chapter you will have both a working script and an idea whether RAICK actually suits your needs.
 ===<font color="#006600">The initial idea</font>===
-First of all, you need to have a clear idea of what you want from your AI.
+First of all, you need to have a clear idea of what you want from your AI. Every AI has a main purpose and this purpose defines the principles that you will use when creating it. Will it be for PvP or for mob killing only or maybe you would like to make a tank out of your homunculus/mercenary that would try to provoke monsters on itself. Of course, it is easy to say that: "I want it to be as cool as RampageAI!", but would not it be easier just to use Rampage instead? RAICK is not meant(but still can be used) to build super-complex AI's that do everything, because those AI's are already created and i don't think that you can make something even close to AzzyAI or RAIL, not speaking of writing a better one. Instead RAICK gives you, on the one hand, a way to get into the scripting process with less pain and, on the other hand, the possibility to write small scripts that 100% fulfill your needs. When your needs change, your script will change with them. This way you can initially write yourself a very simple script and modify it as your needs and your skills in programming will grow. Small, but constant changes to your script- that is the pattern i recommend following, when creating your AI using RAICK.<br>
+So, going back to the idea. Lets create a script for homunculus Vanilmirth that would allow us to:
+  * Give homunculus orders to attack a specified target using both Caprise and normal attacks
+  * Auto-attack those who are damaging your character or homunculus and use caprise on those, who cast something on us(excluding support skills)
+  * Switch between active and passive modes
+Those 3 objectives now give us something to move further and start writing our first lines of code.<br><br>
+----
+===<font color="#006600">First lines of code</font>===
+Lets move to our workplace- the `Homunculus AI` directory. 
