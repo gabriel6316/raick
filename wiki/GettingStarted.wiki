@@ -1,5 +1,5 @@
-=Getting started with RAICK=
-==Installation==
+=<font color="#003366">Getting started with RAICK</font>=
+==<font color="#006666">Installation</font>==
 First things first- you need to let RAICK install itself. Unlike other AI scripts RAICK is packaged into a single file. This file contains all of the logic needed to create the initial file and folder structure. It also creates the uninstaller that quickly removes those files, leaving just the `RAICK.lua` file.<br>
   * To install RAICK you first need to decide where to put it. A typical place for custom scripts is the `USER_AI` folder, but you are not limited to a specific place. Once you have decided where to put it you need to open your `AI.lua` or `AI_M.lua` file in either `AI` or `AI/USER_AI` folder(depending on what */hoai* setting you are planning to use) and put a single line of code there:
   <code language="lua">
@@ -19,7 +19,7 @@ require "C:/RAICK.lua"
   * If a new version if RAICK is released then you just need to replace the `RAICK.lua` file and the update is compeleted.
   _Note: If you have used the beta version then it is best if you replace `RAICK.lua` with the new file, run it and uninstall RAICK using the created uninstaller(the beta version didn't have one). After that install the script again._<br><br>
 ----
-==Files & Folders==
+==<font color="#006666">Files & Folders</font>==
 The schema below illustrates the full set of files that RAICK can create:
 <pre>
 -\
@@ -50,14 +50,14 @@ The schema below illustrates the full set of files that RAICK can create:
  |- "RAICK.Uninstall.bat"
 </pre>
 Most of them are created during installation, others during runtime, when needed. You can see that homunculus and mercenary scripts are separated into different folders for easier management.<br><br>
-===Common Files===
+===<font color="#006600">Common Files</font>===
   * <u>*RAICK.Bugz.txt* file</u>
   This file is created(and later updated) when RAICK encounters a bug inside itself. The entry will contain the time when the error occurep and a copy of the error window. This is possible, because RAICK is smart enough to classify errors and can even distinguish between errors that occured in your script from the ones that occured inside the framework.
   * <u>*RAICK.Settings.lua* file</u>
   This file is used to configure RAICK. See next section for more details.
   * <u>*RAICK.Uninstall.bat* file</u>
   Run this script if you want to uninstall RAICK. All files that have been created during installation will be deleted.<br>
-===AI Specific Files===
+===<font color="#006600">AI Specific Files</font>===
   * <u>*Homunculus Script* folder</u>
   The structure of the folder is designed for maximum efficiency and convinience. Files are numbered to mimic the order, in which they are loaded upon startup of AI and also how they are processed later, when the client starts calling the script.
     * <u>*Logs & Errors* folder</u><br><br>
@@ -83,7 +83,7 @@ Most of them are created during installation, others during runtime, when needed
   * <u>*Mercenary Script* folder</u>
   This folder basically mirrors the *Homunculus Script* folder. The only difference is that the *`[`3`]` Skills.lua* file is divided into separate parts, since mercenaries have a lot more targeted skills than homunculi do.<br><br>
 ----
-==Settings==
+==<font color="#006666">Settings</font>==
 RAICK can be configured using the `RAICK.Settings.lua` file. Currently RAICK has 4 settings:
   * *VisionRange*
   <u>Default:</u> `14`<br>
@@ -120,7 +120,7 @@ Would all refer to the same setting. The same is with values:
 Are all permitted. It does not matter if you write `'ON'` or `ON` inside this file, since variable names are translated into strings.<br>
 And one more thing- if you omit/delete some setting the default value will be used. All of this is done for your convenience.<br><br>
 ----
-==Lets learn it together!==
+==<font color="#006666">Lets learn it together!</font>==
 The best way to learn something in programming is by doing practical exercises or writing something yourself, so lets write a simple AI using RAICK. This way by the end of this chapter you will have both a working script and an idea whether RAICK actually suits your needs.
-===The initial idea===
+===<font color="#006600">The initial idea</font>===
 First of all, you need to have a clear idea of what you want from your AI.
