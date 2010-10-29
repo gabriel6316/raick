@@ -1,12 +1,13 @@
 =Lua and the ABC of programming=
 Now, this is not a guide on programming. This is just the basic knowledge, which will help you understand how RAICK works. It is mainly theoretical stuff, which may seem too abstracted from the actual AI, but be patient- this is the basis, which you need to know and understand before we dig into the real thing.
 ==Client & Script==
-As you probably already know from your experience with AI's the entry point for any AI script is the `AI.lua`/`AI_M.lua` file. This is a regular text file, using which your Ragnarok game client makes(every time your homunculus/mercenary enters the screen) a small program(the AI) that(every time it is called/asked) tells the client what actions should your homunculus/mercenary perform based on the data that the client provides it with. This happens multiple times per second and that's how the AI actually works.
+As you probably already know from your experience with AI's the entry point for any AI script is the `AI.lua`/`AI_M.lua` file. This is a regular text file, using which your Ragnarok game client makes(every time your homunculus/mercenary enters the screen) a small program(the AI) that(every time it is called/asked) tells the client what actions should your homunculus/mercenary perform based on the data that the client provides it with. This happens multiple times per second and that's how the AI actually works. When your homunculus/mercenary leaves the screen for some reason(death, _Rest/Vaporize_ skill etc) the AI program is stopped and thrown away with all of its data. Once the the homunculus/mercenary will appear on the screen again the client will make a fresh AI program from the AI text file and the cycle will continue.
 So, from all of this you should remember the following:
   * The script text file is loaded only when the bot re-enters the screen(respawnes)
   * The client works with the program(which it made during respawn), not with the text file itself
   * The script text file is not used by the client the rest of the time(you can delete and modify it without any harm)
   * The data that the client gives the AI to make a decision is static(it is a frozen moment in time and no matter how many times you query it, it will not change during the same call of the AI program)
+  * The AI looses all of its data when it stops working
 These facts may seem i bit confusing right now, but they will help you to understand some things better in future chapters.
 ==Building blocks of Lua==
 Lets focus more on that text file. The client assumes it is written in Lua. Being above all a *programming language* it follows some basic concepts that i would like to explain to you.
