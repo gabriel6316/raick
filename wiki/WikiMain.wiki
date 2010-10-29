@@ -1,0 +1,7 @@
+=R.A.I.C.K. Wiki=
+
+<font size="4">
+  # [Lua Learning Lua and the basics of programming]
+  # [GettingStarted Getting started with RAICK]
+  # RAICK reference manual
+</font>
