@@ -53,7 +53,7 @@ function    GetOwnerEnemy (myid)
     return result
 end
 </code>
-And here is its' analogue, written using RAICK:
+And here is its analogue written using RAICK:
 <code language="lua">
 function    GetOwnerEnemy ()
 
