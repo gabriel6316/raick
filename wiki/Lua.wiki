@@ -198,8 +198,10 @@ elseif not a then -- false
     d = 2
 elseif c then -- true!
     d = 3
-else -- not checked
+elseif a and not b then -- not checked
     d = 4
+else
+    d = 5
 end
 -- If's are checked one by one until one of them receives true and if this does not happen, then the code in 'else' will be executed.
 -- In this example d will get 3.
