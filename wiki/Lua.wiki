@@ -190,6 +190,19 @@ if a then -- 'a' is already true, so the code inside if will be executed
     
     b = 1
 end
+
+-- 'If' can also be paired with 'else' or 'elseif'.
+if b then -- false
+    d = 1
+elseif not a then -- false
+    d = 2
+elseif c then -- true!
+    d = 3
+else -- not checked
+    d = 4
+end
+-- If's are checked one by one until one of them receives true and if this does not happen, then the code in 'else' will be executed.
+-- In this example d will get 3.
 </code><br><br>
 ----
 ===<font color="#006600">Loops</font>===
