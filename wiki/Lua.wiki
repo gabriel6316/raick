@@ -203,7 +203,7 @@ elseif a and not b then -- not checked
 else
     d = 5
 end
--- If's are checked one by one until one of them receives true and if this does not happen, then the code in 'else' will be executed.
+-- If's are checked one by one until one of them receives true and if this does not happen, then the code inside 'else' will be executed.
 -- In this example d will get 3.
 </code><br><br>
 ----
