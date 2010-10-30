@@ -131,18 +131,17 @@ So, going back to the idea. Lets create a script for homunculus Vanilmirth that 
 Those 3 objectives now give us something to move further and start writing our first lines of code.<br><br>
 ----
 ===<font color="#006600">First lines of code</font>===
-Lets move to our workplace- the `Homunculus AI` directory:
-  * Open `On Startup` file
-    * Here we can initialize(put initial values to) the variables that we are going to use
-    * This is not entirely needed, but it allows us to eliminate the need to check our variables later in the code
-    * Right now the only one we will need is the one, where we would store our target
-    * So we write:
-  <code language="lua">
+Lets move to our workplace- the `Homunculus AI` directory. Open the `On Startup` file. Here we can initialize(put initial values to) the variables that we are going to use. This is not entirely needed, but it allows us to eliminate the need to check our variables later in the code. Right now the only one we will need is the one, where we would store our target. So we write:
+<code language="lua">
 target = Actor()
 -- 'Actor()' is a contructor for the object 'Actor', which represents all objects that  your homunculus/mercenary can see(monsters, players, NPCs).
 -- Normally, you would pass the ID of the object as an argument, but here we don't do it and as a result we get a "blank" Actor object.
 -- The blank actor represents the absence of one like 'nil' the absence of any value, but when the variable is meant to store actors ..
 -- .. it is better to use this value instead of 'nil as you will see later.
 </code>
-    What we have done is we have put a blank actor as a default value for the target. It is the first/initial value that this variable will have when the script starts and it will signal that we have not got a target at the moment. If we would not have done this then the default value would have been `nil`, which would force us to check this variable for `nil` every time we read it.
-  * The first step is made, lets now turn to 
+What we have done is we have put a blank actor as a default value for the target. It is the first/initial value that this variable will have when the script starts and it will signal that we have not got a target at the moment. If we would not have done this then the default value would have been `nil`, which would force us to check this variable for `nil` every time we read it.<br>
+The first step is made, lets now turn to the "main course"- the `Activities` file. As you can see one activity is already defined here. It serves mainly as an example. In this activity your homunculus would just follow you. This i certainly too simple for so lets modify it:
+<code language="lua">
+function    Active()
+end
+</code>
