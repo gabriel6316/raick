@@ -153,7 +153,8 @@ function    Passive()
 end
 -- The 'Homun' variable holds the object of type Homunculus. As you might have already guessed it represents your homunculus.
 -- In the example activity 'FollowOwner' the variable 'Homunculus' was used instead, which you can also use.
--- For your convenience references to this object are stored in variables starting from 'Hom' and ending with 'Homunculus'. So, for example, 'Homu' or 'Homunc' can also be used.
+-- For your convenience references to this object are stored in variables starting from 'Hom' and ending with 'Homunculus'.
+-- So, for example, 'Homu' or 'Homunc' can also be used.
 -- And one more thing, remember that i had mentioned something about the syntax 'something.something(arg1, arg2, ...)'?
 -- Well, here it is. This is just a way to call inner functions of objects, which are called "methods".
 -- A method is like any other function only it is a "property" of the object and is linked with its data.
