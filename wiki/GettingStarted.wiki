@@ -137,7 +137,7 @@ Lets move to our workplace- the `Homunculus AI` directory:
     * This is not entirely needed, but it allows us to eliminate the need to check our variables later in the code.
     * Right now the only one we will need is the one, where we would store our target.
     * So we write:
-<code language="lua">
+  <code language="lua">
 target = Actor()
 -- 'Actor()' is a contructor for the object 'Actor', which represents all objects that  your homunculus/mercenary can see(monsters, players, NPCs).
 -- Normally, you would pass the ID of the object as an argument, but here we don't do it and as a result we get a "blank" Actor object.
@@ -145,4 +145,4 @@ target = Actor()
 -- .. it is better to use this value instead of 'nil as you will see later.
 </code>
     * What we have done is we have put a blank actor as a default value for the target. It is the first/initial value that this variable will have when the script starts and it will signal that we have not got a target at the moment. If we would not have done this then the default value would have been `nil`, which would force us to check this variable for `nil` every time we read it.
-  
+  * abc
