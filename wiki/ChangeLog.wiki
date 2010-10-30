@@ -1,5 +1,6 @@
-=<font color="#003366">Change Log</font>=
 
+=<font color="#003366">Change Log</font>=
+----
 ===XX.10.10 :: 2.0.0===
   * Release of the full version(still needs some testing).
 ----
