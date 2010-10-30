@@ -139,10 +139,7 @@ Lets move to our workplace- the `Homunculus AI` directory:
   * So we write:
   <code language="lua">
   target = Actor()
-  -- 'Actor()' is a contructor for the object 'Actor', which represents all objects that ..
-  -- .. your homunculus/mercenary can see(monsters, players, NPCs).
-  -- Normally, you would pass the ID of the object as an argument, but ..
-  -- .. here we don't do it and as a result we get a "blank" Actor object.
-  -- The blank actor represents the absence of one, like nil the absence of any value, but ..
-  -- .. as you will see later in our case it is better than nil.
+  -- 'Actor()' is a contructor for the object 'Actor', which represents all objects that  your homunculus/mercenary can see(monsters, players, NPCs).
+  -- Normally, you would pass the ID of the object as an argument, but here we don't do it and as a result we get a "blank" Actor object.
+  -- The blank actor represents the absence of one, like nil the absence of any value, but as you will see later in our case it is better than nil.
   </code>
