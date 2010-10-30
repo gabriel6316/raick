@@ -1,0 +1,5 @@
+
+=<font color="#003366">Change Log</font>=
+
+*04.10 -> v2.0.0 beta*
+    - Beta version released.
