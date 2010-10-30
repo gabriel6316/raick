@@ -155,5 +155,22 @@ end
 -- In the example activity 'FollowOwner' the variable 'Homunculus' was used instead, which you can also use.
 -- For your convenience references to this object are stored in variables starting from 'Hom' and ending with 'Homunculus'.
 -- So, for example, 'Homu' or 'Homunc' can also be used.
+-- And one more thing, remember that i had mentioned something about the syntax 'something.something(arg1, arg2, ...)'?
+-- Well, here it is. This is just a way to call inner functions of objects, which are called "methods".
+-- A method is like any other function only it is a "property" of the object and is linked with its data.
+-- This way we can write our code in a more human-language way like 'Someone.doSomething()'.
 </code>
-Right now they are identical, but later we will change the first one. Before we start doing that we must provide ourselves a way to switch between active(represented by activity `Active`) and passive(represented by activity `Passive`) modes.
+Right now they are identical, but later we will start changing the first one.<br>
+Before we do that we must provide ourselves a way to switch between active(represented by activity `Active`) and passive(represented by activity `Passive`) modes. This is done in the `Commands` file. You can see that this file is also filled with auto-generated functions. In programming those functions are called _handlers_, because they are meant to _handle_ certain signals that come from the outer or inner environment(in our case from the client) of your program. One of the methods to bind a handler function with the corresponding signal is by using predefined names and this is the method that RAICK uses:
+<code language="lua">
+-- When a function in this file is named 'AltT' or 'altt' or even 'ALT_T'(case and underscopes do not play any role), then ..
+-- .. RAICK binds it with the command 'Alt + T'.
+function    AltT()
+
+    if Activity.current.is.Active then
+        Activity.switchTo.Passive()
+    else
+        Activity.switchTo.Active()
+    end
+end
+</code>
