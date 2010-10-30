@@ -137,9 +137,9 @@ Lets move to our workplace- the `Homunculus AI` directory:
   * This is not entirely needed, but it allows us to eliminate the need to check (since your script is unaware whether the 
   * Right now the only one we will need is the one, where we would store our target
   * So we write:
-  <code language="lua">
-  target = Actor()
-  -- 'Actor()' is a contructor for the object 'Actor', which represents all objects that  your homunculus/mercenary can see(monsters, players, NPCs).
-  -- Normally, you would pass the ID of the object as an argument, but here we don't do it and as a result we get a "blank" Actor object.
-  -- The blank actor represents the absence of one, like nil the absence of any value, but as you will see later in our case it is better than nil.
-  </code>
+<code language="lua">
+target = Actor()
+-- 'Actor()' is a contructor for the object 'Actor', which represents all objects that  your homunculus/mercenary can see(monsters, players, NPCs).
+-- Normally, you would pass the ID of the object as an argument, but here we don't do it and as a result we get a "blank" Actor object.
+-- The blank actor represents the absence of one, like 'nil' the absence of any value, but when the variable is meant to store actors it is better to use the blank actor instead of nil.
+</code>
