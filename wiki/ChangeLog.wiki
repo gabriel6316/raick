@@ -1,5 +1,8 @@
-
 =<font color="#003366">Change Log</font>=
 
-*04.10 -> v2.0.0 beta*
-    - Beta version released.
+===XX.10.10 :: 2.0.0===
+  * Release of the full version(still needs some testing).
+----
+===04.10.10 :: 2.0.0 beta===
+  * Beta version released.
+----
