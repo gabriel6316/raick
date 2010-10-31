@@ -225,4 +225,4 @@ Instead of:
 something.is("name")
 </code>
 The first variant in definitely easier to read and faster to write. All RAICK objects have this method in common and later i will show you what other tricks can be performed using it.<br>
-So, `Activity.current.is.Main` just gives us `true` if current activity is `Main`- that is the main point if we drop the technical details. Other lines are also pretty much self-explainable. The `switchTo` field contains a table, which holds functions that switch between activities.
+So, `Activity.current.is.Main` just gives us `true` if current activity is `Main`- that is the main point if we drop the technical details. Other lines are also pretty much self-explainable. The `switchTo` field contains a table, which holds functions that allow us to switch between activities.
