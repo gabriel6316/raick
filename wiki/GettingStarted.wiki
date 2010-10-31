@@ -198,10 +198,10 @@ Instead of:<br>
   _Function, make homunculus with this ID do that_<br>
 This approach allows us to have a more organized, understandable and maintainable code and that is why objects are used in programming.<br>
 To sum up, objects(as a general concept in programming):
-  * Are values that are stored in variables by reference
+  * Are values that are stored in variables as references
   * Are created using a special function/command that can also take arguments
   * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
-  * Can contain any other type of data inside themselves(those places are called _fields_ and in Lua they are just string keys in a table)
+  * Can contain any other type of data inside themselves(the places, where this data is stored are called _fields_ and in Lua they are just string keys in a table)
 <br><br>
 ----
 ===<font color="#006600">Continuing our hard work</font>===
