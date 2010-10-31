@@ -136,18 +136,19 @@ Lets move to our workplace- the `Homunculus AI` directory. Open the `On Startup`
 target = Actor()
 -- 'Actor()' is a contructor for the object 'Actor', which represents all objects that  your homunculus/mercenary can see(monsters, players, NPCs).
 -- Normally, you would pass the ID of the object as an argument, but here we don't do it and as a result we get a "blank" Actor object.
--- The blank actor represents the absence of one like 'nil' the absence of any value, but when the variable is meant to store actors ..
--- .. it is better to use this value instead of 'nil as you will see later.
+-- The blank actor represents the absence of one, like 'nil' the absence of any value, but when the variable is meant to store actors ..
+-- .. it is better to use this value instead of 'nil' as you will see later.
 </code>
-What we have done is we have put a blank actor as a default value for the target. It is the first/initial value that this variable will have when the script starts and it will signal that we have not got a target at the moment. If we would not have done this then the default value would have been `nil`, which would force us to check this variable for `nil` every time we read it.<br>
-The first step is made, lets now turn to the "main course"- the `Activities` file. As you can see one activity is already defined here. It serves mainly as an example. In this activity your homunculus would just follow you. This i certainly too simple for so lets modify it. To begin we need at least 2 activities:
+What we have done is we have put a blank actor as a default value for the target. It is the first/initial value that this variable will have when the script starts and it will signal that we have not got a target at the moment. If we did not do this then the default value would have been `nil`, which would force us to check this variable for `nil` every time we read it.<br>
+The first step is made, lets now turn to the "main course"- the `Activities` file. As you can see one activity is already defined here. It serves mainly as an example. In this activity your homunculus would just follow you. This is certainly too simple for us so lets modify it.<br>
+To begin we need at least 2 activities:
 <code language="lua">
-function    Active()
+function    Main()
 
     Homun.goTo(Owner)
 end
 
-function    Passive()
+function    FollowOwner()
 
     Homun.goTo(Owner)
 end
@@ -161,15 +162,61 @@ end
 -- This way we can write our code in a more human-language way like 'Someone.doSomething()'.
 </code>
 Right now they are identical, but later we will start changing the first one.<br>
-Before we do that we must provide ourselves a way to switch between active(represented by activity `Active`) and passive(represented by activity `Passive`) modes. This is done in the `Commands` file. You can see that this file is also filled with auto-generated functions. In programming those functions are called _handlers_, because they are meant to _handle_ certain signals that come from the outer or inner environment(in our case from the client) of your program. One of the methods to bind a handler function with the corresponding signal is by using predefined names and this is the method that RAICK uses:
+Before we do that we must provide ourselves a way to switch between active(represented by activity `Main`) and passive(represented by activity `FollowOwner`) modes. This is done in the `Commands` file. You can see that this file is also filled with auto-generated functions. In programming those functions are called _handlers_, because they are meant to _handle_ certain signals that come from the outer or inner environment(in our case from the client) of your program. One of the methods to bind a handler function with the corresponding signal is by using predefined names and this is the method that RAICK uses:
 <code language="lua">
 -- When a function in this file is named 'AltT' or 'altt' or even 'ALT_T'(case and underscopes do not play any role), then RAICK binds it with the command 'Alt + T'.
 function    AltT()
 
-    if Activity.current.is.Active then
-        Activity.switchTo.Passive()
-    else
-        Activity.switchTo.Active()
+    if Activity.current.is.Main then -- If our current activity is 'Main', then ..
+        Activity.switchTo.FollowOwner() -- .. we change it to 'FollowOwner'
+    else -- If not, then ..
+        Activity.switchTo.Main() -- .. we change it to 'Main'
     end
 end
 </code>
+I think already from this short piece of code you can see how easy it is to use and understand RAICK. Let me explain i little bit what is happening here. In the previous block of code i have told you about _methods_, which are just functions that belong to objects. The funny thing is that a have not really defined what is an _object_ in RAICK...
+===<font color="#006600">A step back: Objects in RAICK</font>===
+From the chapter about Lua your know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the object is not only some value that is stores by reference, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
+<code language="lua">
+-- This is a standard function from Gravity, which allows us to order the homunculus to go to a cell with (x,y) coordinates.
+-- 'homunID' is the ID of your homunculus and (x,y) are coordinates of the destination cell.
+Move(homunID, x, y)
+
+-- Now lets observe how it is done in RAICK:
+Homunculus.goTo(cell)
+-- 'cell' is an object of type Cell, which holds (x,y) coordinates of the cell it represents.
+
+-- And one more:
+Attack(homunID, targetID)
+
+Homunculus.hit(target)
+</code>
+So, you can see that instead of writing a lot of separate functions that take their the ID as their first argument we can create a generalized concept- an object of type `Homunculus`. This object can be used to hold the data and the actions/commands associated with this data or with the concept itself. This allows us to have a more organized, understandable and maintainable code and that is why objects are used in programming.<br>
+To sum up, objects(as a general concept in programming):
+  * Are values that are stored in variables by reference
+  * Are created using a special function/command that can also take arguments
+  * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
+  * Can contain any other type of data inside themselves(those places are called _fields_ and in Lua they are just string keys in a table)
+OK, this section may be a bit confusing, but i am sure you will get the idea later.
+===<font color="#006600">Continuing our hard work</font>===
+Now where were we? Oh, right:
+<code language="lua">
+function    AltT()
+
+    if Activity.current.is.Main then -- If our current activity is 'Main', then ..
+        Activity.switchTo.FollowOwner() -- .. we change it to 'FollowOwner'
+    else -- If not, then ..
+        Activity.switchTo.Main() -- .. we change it to 'Main'
+    end
+end
+</code>
+With RAICK objects being now a smaller mystery for us i can proceed with explaining this code chunk. What we do here is we take a field `current` of the `Activity` object(which is located in the global variable `Activity`). This field contains another object of type `Value`. For now, what you need to know about this object is that it holds a name in form of a string and this string can be compared with some other string through a very convenient method `is`. That's right! It is a method, but not a regular one, since it allows you to write this:
+<code language="lua">
+something.is.name
+</code>
+Instead of:
+<code language="lua">
+something.is("name")
+</code>
+The first variant in definitely easier to read and faster to write. All RAICK objects have this method in common and later i will show you what other tricks can be performed using it.<br>
+So, `Activity.current.is.Main` just gives us `true` if current activity is `Main` that is the main point if we drop the technical details. Other lines are also pretty much self-explainable. The `switchTo` field contains a table, which holds functions that switch between activities.
