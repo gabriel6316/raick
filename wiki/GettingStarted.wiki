@@ -177,7 +177,7 @@ end
 I think already from this short piece of code you can see how easy it is to use and understand RAICK. Let me explain i little bit what is happening here. In the previous block of code i have told you about _methods_, which are just functions that belong to objects. The funny thing is that a have not really defined what is an _object_ in RAICK...<br><br>
 ----
 ===<font color="#006600">A step back: Objects in RAICK</font>===
-From the chapter about Lua your know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the object is not only some value that is stores by reference, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
+From the chapter about Lua your know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the _object_ is not only some value that stores its reference is a variable, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
 <code language="lua">
 -- This is a standard function from Gravity, which allows us to order the homunculus to go to a cell with (x,y) coordinates.
 -- 'homunID' is the ID of your homunculus and (x,y) are coordinates of the destination cell.
@@ -192,13 +192,17 @@ Attack(homunID, targetID)
 
 Homunculus.hit(target)
 </code>
-So, you can see that instead of writing a lot of separate functions that take their the ID as their first argument we can create a generalized concept- an object of type `Homunculus`. This object can be used to hold the data and the actions/commands associated with this data or with the concept itself. This allows us to have a more organized, understandable and maintainable code and that is why objects are used in programming.<br>
+So, you can see that instead of writing a lot of separate functions that take their the ID as their first argument we can create a generalized concept- an object of type `Homunculus`. This object can be used to hold the data(like the type of your homunculus or its location) and the actions/commands associated with this data or with the concept itself(like methods to order your homunculus to move to some cell or use a skill). It is as almost we were saying:
+_Homunculus, do that_
+Instead of:
+_Function, make homunculus with this ID do that_
+This approach allows us to have a more organized, understandable and maintainable code and that is why objects are used in programming.<br>
 To sum up, objects(as a general concept in programming):
   * Are values that are stored in variables by reference
   * Are created using a special function/command that can also take arguments
   * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
   * Can contain any other type of data inside themselves(those places are called _fields_ and in Lua they are just string keys in a table)
-OK, this section may be a bit confusing, but i am sure you will get the idea later<br><br>
+<br><br>
 ----
 ===<font color="#006600">Continuing our hard work</font>===
 Now where were we? Oh, right:
