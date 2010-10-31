@@ -216,7 +216,7 @@ function    AltT()
     end
 end
 </code>
-With RAICK objects being now a smaller mystery for us i can proceed with explaining this code chunk. What we do here is we take a field `current` of the `Activity` object(which is located in the global variable `Activity`). This field contains another object of type `Value`. For now, what you need to know about this object is that it holds a name in form of a string and this string can be compared with some other string through a very convenient method `is`. That's right! It is a method, but not a regular one, since it allows you to write this:
+With RAICK objects being now a smaller mystery for us i can proceed with explaining this code chunk. What we do here is we read the field `current` of the `Activity` object(which is located in the global variable `Activity`). This field contains another object of type `Value`. For now, what you need to know about this object is that it holds a name in form of a string and this string can be compared with some other string through a very convenient method `is`. That's right! It is a method, but not a regular one, since it allows you to write this:
 <code language="lua">
 something.is.name
 </code>
@@ -225,4 +225,6 @@ Instead of:
 something.is("name")
 </code>
 The first variant in definitely easier to read and faster to write. All RAICK objects have this method in common and later i will show you what other tricks can be performed using it.<br>
-So, `Activity.current.is.Main` just gives us `true` if current activity is `Main`- that is the main point if we drop the technical details. Other lines are also pretty much self-explainable. The `switchTo` field contains a table, which holds functions that allow us to switch between activities.
+If we drop the technical details, then what `Activity.current.is.Main` does is it just gives us `true` if current activity is `Main`. Quite obvious, isn't it? Other lines are also pretty much self-explainable. The `switchTo` field contains a table, which holds functions that allow us to switch between activities.<br><br>
+----
+===<font color="#006600">Back to our activities</font>===
