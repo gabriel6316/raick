@@ -174,7 +174,8 @@ function    AltT()
     end
 end
 </code>
-I think already from this short piece of code you can see how easy it is to use and understand RAICK. Let me explain i little bit what is happening here. In the previous block of code i have told you about _methods_, which are just functions that belong to objects. The funny thing is that a have not really defined what is an _object_ in RAICK...
+I think already from this short piece of code you can see how easy it is to use and understand RAICK. Let me explain i little bit what is happening here. In the previous block of code i have told you about _methods_, which are just functions that belong to objects. The funny thing is that a have not really defined what is an _object_ in RAICK...<br><br>
+----
 ===<font color="#006600">A step back: Objects in RAICK</font>===
 From the chapter about Lua your know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the object is not only some value that is stores by reference, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
 <code language="lua">
@@ -197,7 +198,8 @@ To sum up, objects(as a general concept in programming):
   * Are created using a special function/command that can also take arguments
   * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
   * Can contain any other type of data inside themselves(those places are called _fields_ and in Lua they are just string keys in a table)
-OK, this section may be a bit confusing, but i am sure you will get the idea later.
+OK, this section may be a bit confusing, but i am sure you will get the idea later<br><br>
+----
 ===<font color="#006600">Continuing our hard work</font>===
 Now where were we? Oh, right:
 <code language="lua">
