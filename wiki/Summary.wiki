@@ -1,4 +1,4 @@
-=<font color="#003366">Welcome, AI lovers and just curious visitors!</font>=
+=<font color="#003366">Welcome, AI lovers! <font size="3">^* and just curious visitors^</font></font>=
 
 You are visiting the homepage of a unique project. Although, it is created for AI purposes, it is not really an AI. RAICK could be defined as a _framework_ for AI creation. Now, this word may not be very familiar to you, but it is actually a very simple concept. It it a set of tools, which brings AI creation to a whole new level. It hides all the nerdy and complex programming stuff and in exchange gives a simple set of intuitive and easy-to-use tools for you to program your homunculus/mercenary your way. As many IT people like to say about frameworks:<br><br>
 _It takes care of the plumbing and lets you define only the things that really matters with minimum effort and time consumption_ © Me =D
