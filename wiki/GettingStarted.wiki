@@ -193,9 +193,9 @@ Attack(homunID, targetID)
 Homunculus.hit(target)
 </code>
 So, you can see that instead of writing a lot of separate functions that take their the ID as their first argument we can create a generalized concept- an object of type `Homunculus`. This object can be used to hold the data(like the type of your homunculus or its location) and the actions/commands associated with this data or with the concept itself(like methods to order your homunculus to move to some cell or use a skill). It is as almost we were saying:<br>
-_Homunculus, do that_
+_Homunculus, do that_<br>
 Instead of:<br>
-_Function, make homunculus with this ID do that_
+_Function, make homunculus with this ID do that_<br>
 This approach allows us to have a more organized, understandable and maintainable code and that is why objects are used in programming.<br>
 To sum up, objects(as a general concept in programming):
   * Are values that are stored in variables by reference
