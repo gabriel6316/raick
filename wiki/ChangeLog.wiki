@@ -1,8 +1,9 @@
+
 =<font color="#003366">Change Log</font>=
 ----
-===<font color="#660000">XX.11.10</font> | <font color="#006600">2.0.0</font>===
+===<font color="#A30000">XX.11.10</font> | <font color="#006600">2.0.0</font>===
   * Release of the full version(still needs some testing).
 ----
-===<font color="#660000">04.10.10</font> | <font color="#006600">2.0.0 beta</font>===
+===<font color="#A30000">04.10.10</font> | <font color="#006600">2.0.0 beta</font>===
   * Beta version released.
 ----
