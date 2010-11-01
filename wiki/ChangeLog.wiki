@@ -1,9 +1,9 @@
 
 =<font color="#003366">Change Log</font>=
 ----
-===XX.11.10 | 2.0.0===
+===November XX, 2010 | 2.0.0===
   * Release of the full version(still needs some testing).
 ----
-===04.10.10 | 2.0.0 beta===
+===October 4, 2010 | 2.0.0 beta===
   * Beta version released.
 ----
