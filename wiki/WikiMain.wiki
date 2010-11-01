@@ -21,5 +21,6 @@
     * [http://code.google.com/p/raick/wiki/GettingStarted#Settings Settings]
     * [http://code.google.com/p/raick/wiki/GettingStarted#Lets_learn_it_together! Lets learn it together!]_</font><font color="gray">
   # RAICK reference manual
-  # Mastering RAICK</font>
+  # Mastering RAICK
+</font>
 </font>
