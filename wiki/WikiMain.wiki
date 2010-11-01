@@ -19,7 +19,7 @@
       * *[http://code.google.com/p/raick/wiki/GettingStarted#Common_Files Common Files]
       * [http://code.google.com/p/raick/wiki/GettingStarted#AI_Specific_Files AI Specific Files]*</font>
     * [http://code.google.com/p/raick/wiki/GettingStarted#Settings Settings]
-    * [http://code.google.com/p/raick/wiki/GettingStarted#Lets_learn_it_together! Lets learn it together!]_</font>
+    * [http://code.google.com/p/raick/wiki/GettingStarted#Lets_learn_it_together! Lets learn it together!]_</font><font color="gray">
   # <font color="gray">RAICK reference manual</font>
-  # <font color="gray">Mastering RAICK</font>
+  # <font color="gray">Mastering RAICK</font></font>
 </font>
