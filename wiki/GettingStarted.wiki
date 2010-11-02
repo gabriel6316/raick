@@ -153,7 +153,7 @@ function    FollowOwner()
     Homun.goTo(Owner)
 end
 -- The 'Homun' variable holds the object of type Homunculus. As you might have already guessed it represents your homunculus.
--- In the example activity 'FollowOwner' the variable 'Homunculus' was used instead, which you can also use.
+-- In the auto-generated activity 'FollowOwner' the variable 'Homunculus' was used instead, which you can also use.
 -- For your convenience references to this object are stored in variables starting from 'Hom' and ending with 'Homunculus'.
 -- So, for example, 'Homu' or 'Homunc' can also be used.
 -- And one more thing, remember that i had mentioned something about the syntax 'something.something(arg1, arg2, ...)'?
