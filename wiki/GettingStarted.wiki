@@ -156,9 +156,10 @@ end
 -- In the auto-generated activity 'FollowOwner' the variable 'Homunculus' was used instead, which you can also use.
 -- For your convenience references to this object are stored in variables starting from 'Hom' and ending with 'Homunculus'.
 -- So, for example, 'Homu' or 'Homunc' can also be used.
--- And one more thing, remember that i had mentioned something about the syntax 'something.something(arg1, arg2, ...)'?
--- Well, here it is. This is just a way to call inner functions of objects, which are called "methods".
--- A method is like any other function only it is a "property" of the object and is linked with its data.
+
+-- And one more thing! Do you remember that i had mentioned something about the syntax 'something.something(arg1, arg2, ...)'?
+-- Well, here it is. This is just a way to call inner functions of objects. Those functions are called "methods".
+-- A method is like any other function, but the difference is that it is a "property" of the object and is linked with its data.
 -- This way we can write our code in a more human-language way like 'Someone.doSomething()'.
 </code>
 Right now they are identical, but later we will start changing the first one.<br>
