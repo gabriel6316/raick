@@ -1,10 +1,10 @@
-=History of the project=
+=<font color="#003366">History of the project</font>=
 I would like to say a few words about the history of the project and why is it the 2-nd version of RAICK.
-==H.A.I.C.K.==
+==<font color="#006666">H.A.I.C.K.</font>==
 It all started with HAICK, which stands for _Homunculus Artificial Intelligence Creation Kit_. At first it was just an experiment- i was trying to make something that would present the AI data in a more convenient and easy-to-use way. At some point the framework got mature enough to be shown to the public and i began to write the manual. After posting it on the forum of the Russian private server [http://www.asgardro.com AsgardRO] the framework started to gain popularity in the Russian RO community.<br><br>
 ----
-==R.A.I.C.K. v1==
+==<font color="#006666">R.A.I.C.K. v1</font>==
 With the release of mercenaries i thought that it would be a good idea to make something similar for them and since anyway most of the code would have been the same i decided to merge this new functionality with HAICK. However, adding something that would only mirror HAICK would have been too boring, so i developed a feature that allowed homunculus to communicate with mercenary and vice-versa. 
 <br><br>
 ----
-==Going international with R.A.I.C.K. v2==
+==<font color="#006666">Going international with R.A.I.C.K. v2</font>==
