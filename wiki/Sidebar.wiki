@@ -1,5 +1,5 @@
-
   * [ChangeLog Change Log]
+  * [History History of the project]
   * [Lua Lua and the ABC of programming]
     * [http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]
     * [http://code.google.com/p/raick/wiki/Lua#Building_blocks_of_Lua Building blocks of Lua]
