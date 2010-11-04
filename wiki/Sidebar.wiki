@@ -1,5 +1,8 @@
   * [ChangeLog Change Log]
   * [History History of the project]
+    * [http://code.google.com/p/raick/wiki/History#H.A.I.C.K. H.A.I.C.K.]
+    * [http://code.google.com/p/raick/wiki/History#R.A.I.C.K._v1 R.A.I.C.K. v1]
+    * [http://code.google.com/p/raick/wiki/History#Going_international_with_R.A.I.C.K._v2 Going international with R.A.I.C.K. v2]
   * [Lua Lua and the ABC of programming]
     * [http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]
     * [http://code.google.com/p/raick/wiki/Lua#Building_blocks_of_Lua Building blocks of Lua]
