@@ -11,7 +11,7 @@
       * [http://code.google.com/p/raick/wiki/Lua#Loops Loops]
       * [http://code.google.com/p/raick/wiki/Lua#Standard_libraries Standard libraries]
       * [http://code.google.com/p/raick/wiki/Lua#The_hard_part:_Objects_and_Primitive_types The hard part: Objects and Primitive types]
-  * [GettingStarted Getting started with RAICK]
+  * [GettingStarted Getting started]
     * [http://code.google.com/p/raick/wiki/GettingStarted#Installation Installation]
     * [http://code.google.com/p/raick/wiki/GettingStarted#Files_&_Folders Files & Folders]
       * [http://code.google.com/p/raick/wiki/GettingStarted#Common_Files Common Files]
