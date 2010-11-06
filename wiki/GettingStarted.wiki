@@ -230,7 +230,8 @@ So, we can change modes now, but that doesn't give us anything without a target 
 There are many ways to tell your bot to attack something. If it doesn't have a targeted skill(for example, _Lif_ or _Amistr_), then basically the only choice you have is clicking near the target and ordering your bot to attack the closest one to this cell. Luckily, our _Vanilmirth_ has got _Caprise_ and we can use it directly to select targets.<br>
 Lets do it then! Open `Skills` file. As always in RAICK handlers are already defined and default actions are set. What you need to do is redefine the handler for _Caprise_:
 <code language="lua">
--- 'target' is an argument that this handler recieves. This variable holds the 'Actor' object that represents the monster or player, on which you have used the skill 'Caprise'.
+-- 'target' is an argument that this handler recieves.
+-- This variable holds the 'Actor' object that represents the monster or player, on which you have used the skill 'Caprise'.
 function    Caprise(target)
 
     mainTarget = target
