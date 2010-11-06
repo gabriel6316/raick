@@ -163,9 +163,9 @@ There are actually a lot of other features that a true object should have, but i
 ===<font color="#006600">The initial idea</font>===
 Now that RAICK objects is smaller mystery for us we can, finally, start thinking about our script. First of all, you need to have a clear idea of what you want from your AI. Every AI has a main purpose and this purpose defines the principles that you will use when creating it. Will it be for PvP or for mob killing only or maybe you would like to make a tank out of your homunculus/mercenary that would try to provoke monsters on itself. Of course, it is easy to say that: "I want it to be as cool as RampageAI!", but would not it be easier just to use Rampage instead? RAICK is not meant(but still can be used) to build super-complex AI's that do everything, because those AI's are already created and i don't think that you can make something even close to AzzyAI or RAIL, not speaking of writing a better one. Instead RAICK gives you, on the one hand, a way to get into the scripting process with less pain and, on the other hand, the possibility to write small scripts that 100% fulfill your needs. When your needs change, your script will change with them. This way you can initially write yourself a very simple script and modify it as your needs and your skills in programming will grow. Small, but constant changes to your script- that is the pattern i recommend following, when creating your AI using RAICK.<br>
 So, going back to the idea. Lets create a script for homunculus Vanilmirth that would allow us to:
-  * Give homunculus orders to attack a specified target using both Caprise and normal attacks
-  * Auto-attack those who are damaging your character or homunculus and use caprise on those, who cast something on us(excluding support skills)
-  * Switch between active and passive modes
+  # Give homunculus orders to attack a specified target using both Caprise and normal attacks
+  # Auto-attack those who are damaging your character or homunculus and use caprise on those, who cast something on us(excluding support skills)
+  # Switch between active and passive modes
 Those 3 objectives now give us something to move further and start writing our first lines of code.<br><br>
 ----
 ===<font color="#006600">First lines of code</font>===
@@ -225,7 +225,7 @@ If we drop the technical details, then what `Activity.current.is.Main` does is i
 So, we can change modes now, but that doesn't give us anything without a target to attack, since passive mode is made mainly to stop homunculus/mercenary from attacking the target. We will deal with this issue in the next section.
 <br><br>
 ----
-===<font color="#006600">Target selection</font>===
+===<font color="#006600">Manual target selection</font>===
 There are many ways to tell your bot to attack something. If it doesn't have a targeted skill(for example, _Lif_ or _Amistr_), then basically the only choice you have is clicking near the target and ordering your bot to attack the closest one to this cell. Luckily, our _Vanilmirth_ has got _Caprise_ and we can use it directly to select targets.<br>
 Lets do it then! Open `Skills` file. As always in RAICK handlers are already defined and default actions are set. What you need to do is redefine the handler for _Caprise_:
 <code language="lua">
@@ -277,4 +277,12 @@ end
 </code>
 
 In the `Main` activity we check if the target is visible(can be visually observed on the screen) and if it is not dead(it might be confusing that being dead is an action, but you should just accept this for now), then we switch to our "killing activity".<br>
-In the `AttackMainTarget` activity we check for the opposite: if the target is not visually observable or it is dead, then all is left for us is to go back to from where we came. The interesting part, though, starts when the target is still with us. 
+In the `AttackMainTarget` activity we check for the opposite: if the target is not visually observable or it is dead, then all is left for us is to go back to from where we came. A lot more interesting part for us lies in the `else` scenario. First of all, when the target is available, the homunculus will follow it. Secondly, it will use _Caprise_ on the target if the distance between the homunculus and the target is less equal than the range of the skill. And finally, our _Vanilmirth_ will "bite" the target if it is in range of the hit.<br>
+With so little lines of code we already have ourselves a primitive, but nonetheless a working AI! So far, we have implemented 2 out of 3 ideas. In the next section we will make an attempt to complete our AI.<br><br>
+----
+===<font color="#006600">Automated target selection</font>===
+To implement this feature we need to add some code to the `Main` activity and to modify a bit the `AttackMainTarget` activity. 
+----
+===<font color="#006600">The final touch</font>===
+----
+===<font color="#006600">It's done!</font>===
