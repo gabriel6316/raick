@@ -145,7 +145,6 @@ Attack(homunID, targetID)
 Homunculus.hit(target)
 </code>
 
-
 You can see that instead of writing a lot of separate functions that take their the ID as their first argument we can create a generalized concept- an object of type `Homunculus`. This object can be used to hold the data(like the type of your homunculus or its location) and the actions/commands associated with this data or with the concept itself(like methods to order your homunculus to move to some cell or use a skill). It is as almost we were saying:<br>
   _Homunculus, do that_<br>
 Instead of:<br>
@@ -198,6 +197,7 @@ end
 -- For your convenience references to this object are stored in variables starting from 'Hom' and ending with 'Homunculus'.
 -- So, for example, 'Homu' or 'Homunc' can also be used.
 </code>
+
 Right now they are identical, but later we will start changing the first one.<br>
 Before we do that we must provide ourselves with a way to switch between active(represented by activity `Main`) and passive(represented by activity `FollowOwner`) modes. This is done in the `Commands` file. You can see that this file is also filled with auto-generated functions. In programming those functions are called _handlers_, because they are meant to _handle_ certain signals that come from the outer or inner environment(in our case from the client) of your program. One of the methods to bind a handler function with the corresponding signal is by using predefined names and this is the method that RAICK uses:
 <code language="lua">
@@ -211,6 +211,7 @@ function    AltT()
     end
 end
 </code>
+
 I think already from this short piece of code you can see how easy it is to use and understand RAICK. Let me explain i little bit what is happening here. What we do is we read the field `current` of the `Activity` object(which is located in the global variable `Activity`). This field contains another object of type `Value`. For now, all you need to know about this object is that it holds a name in form of a string and this string can be compared with some other string using a very convenient method `is`. That's right! It is a method, but not a regular one, since it allows you to write this:
 <code language="lua">
 something.is.name
@@ -219,6 +220,7 @@ Instead of:
 <code language="lua">
 something.is("name")
 </code>
+
 The first variant in definitely easier to read and faster to write. All RAICK objects have this method in common and later i will show you what other tricks can be performed using it.<br>
 If we drop the technical details, then what `Activity.current.is.Main` does is it just gives us `true` if current activity is `Main`. Quite obvious, isn't it? Other lines are also pretty much self-explainable. The `switchTo` field contains a table, which holds functions that allow us to switch between activities.<br>
 So, we can change modes now, but that doesn't give us anything without a target to attack, since passive mode is made mainly to stop homunculus/mercenary from attacking the target. We will deal with this issue in the next section.
