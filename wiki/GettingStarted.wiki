@@ -258,12 +258,12 @@ function    AttackMainTarget()
         -- 1) We follow it no matter what
         Homun.goTo(mainTarget)
 
-        -- 2) Use 'Caprise', if we are in range of the skill
+        -- 2) Use 'Caprise', if we are close enough
         if Homun .. mainTarget <= Caprise.range then
             Homun.use(Caprise).on(mainTarget)
         end
 
-        -- 3) Hit/bite the target, if we close enough
+        -- 3) Hit/bite the target, if we are close enough
         if Homun .. mainTarget <= Homun.hit.range then
             Homun.hit(mainTarget)
         end
