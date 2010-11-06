@@ -179,6 +179,7 @@ mainTarget = Actor()
 -- The blank actor represents the absence of one, like 'nil' the absence of any value, but when the variable is meant to store actors ..
 -- .. it is better to use this value instead of 'nil' as you will see later.
 </code>
+
 What we have done is we have put a blank actor as a default value for the target. It is the first/initial value that this variable will have when the script starts and it will signal that we have not got a target at the moment. If we did not do this then the default value would have been `nil`, which would force us to check this variable for `nil` every time we read it.<br>
 The first step is made, lets now turn to the "main course"- the `Activities` file. As you can see one activity is already defined here. It serves mainly as an example. In this activity your homunculus would just follow you. This is certainly too simple for us so lets modify it.<br>
 To begin we need at least 2 activities:
