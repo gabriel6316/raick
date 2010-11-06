@@ -352,4 +352,4 @@ This is just a funny example, but this principle actually has a great implementa
 I hope that i have made this important issue a bit less complicated. Try to understand it, since in RAICK you will mainly be dealing with objects.<br><br>
 ----
 ===<font color="#006600">It's over!</font>===
-Finally! You torture is over! We have covered the most boring and most crucial part of mastering RAICK. Now, you have the knowledge to dig into the interesting part- [GettingStarted a quick guide on using RAICK].
+Finally! Your torture is over! We have covered the most boring and most crucial part of mastering RAICK. Now, you have the knowledge to dig into the interesting part- [GettingStarted a quick guide on using RAICK].
