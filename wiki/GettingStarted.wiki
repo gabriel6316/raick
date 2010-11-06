@@ -220,7 +220,7 @@ Instead of:
 something.is("name")
 </code>
 
-The first variant in definitely easier to read and faster to write. All RAICK objects have this method in common and later i will show you what other tricks can be performed using it.<br>
+The first variant in definitely easier to read and faster to write. All RAICK objects have this method(and its opposite "twin brother" `isNot`) in common and later i will show you what other tricks can be performed using it.<br>
 If we drop the technical details, then what `Activity.current.is.Main` does is it just gives us `true` if current activity is `Main`. Quite obvious, isn't it? Other lines are also pretty much self-explainable. The `switchTo` field contains a table, which holds functions that allow us to switch between activities.<br>
 So, we can change modes now, but that doesn't give us anything without a target to attack, since passive mode is made mainly to stop homunculus/mercenary from attacking the target. We will deal with this issue in the next section.
 <br><br>
