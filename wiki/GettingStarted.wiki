@@ -121,9 +121,47 @@ Are all permitted. It does not matter if you write `'ON'` or `ON` inside this fi
 And one more thing- if you omit/delete some setting the default value will be used. All of this is done for your convenience.<br><br>
 ----
 ==<font color="#006666">Lets learn it together!</font>==
-The best way to learn something in programming is by doing practical exercises or writing something yourself, so lets write a simple AI using RAICK. This way by the end of this chapter you will have both a working script and an idea whether RAICK actually suits your needs.
+The best way to learn something in programming is by doing practical exercises or writing something yourself, so lets write a simple AI using RAICK. This way by the end of this chapter you will have both a working script and an idea whether RAICK actually suits your needs.<br><br>
+----
+===<font color="#006600">Some extra knowledge: Objects is RAICK</font>===
+As much as would like to dig into the scripting process right away i can't leave this topic without attention, since roughly it is what RAICK is made of.<br>
+From the chapter about Lua your know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the _object_ is not only some value that stores its reference is a variable, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
+<code language="lua">
+-- This is a standard function from Gravity, which allows us to order the homunculus to go to a cell with (x,y) coordinates.
+-- 'homunID' is the ID of your homunculus and (x,y) are coordinates of the destination cell.
+Move(homunID, x, y)
+
+-- Now lets observe how it is done in RAICK:
+Homunculus.goTo(cell)
+-- 'cell' is an object of type Cell, which holds (x,y) coordinates of the cell it represents.
+
+-- Do you remember that i had mentioned something about the syntax 'something.something(arg1, arg2, ...)'?
+-- Well, here it is. This is just a way to call inner functions of objects. Those functions are called "methods".
+-- A method is like any other function, but the difference is that it is a "property" of the object and is linked with its data.
+
+-- And one more pair:
+Attack(homunID, targetID)
+
+Homunculus.hit(target)
+</code>
+You can see that instead of writing a lot of separate functions that take their the ID as their first argument we can create a generalized concept- an object of type `Homunculus`. This object can be used to hold the data(like the type of your homunculus or its location) and the actions/commands associated with this data or with the concept itself(like methods to order your homunculus to move to some cell or use a skill). It is as almost we were saying:<br>
+  _Homunculus, do that_<br>
+Instead of:<br>
+  _Function, make homunculus with this ID do that_<br>
+This approach allows us to have a more organized, understandable and maintainable code and that is why objects are used in programming.<br>
+So lets now sum up everything that we know about objects(as a general concept in programming):
+  * Are values that are stored in variables as references
+  * Are created using a special command/function(that can also take arguments as you will see later)
+  * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
+  * Can contain any other type of data inside themselves(the places, where this data is stored are called _fields_ and in Lua they are just string keys in a table)
+Let me also note that you need to understand the difference between the _object_ as a general concept in programming and those objects that exist in Lua. In Lua the word _object_ can mean either:
+  * Just a value that stores its value in the variable by reference(for example, functions)
+  * The implementation of the general concept using stuff that Lua has(for example, RAICK objects are designed using basically every data type available to fit the list features that this general concept declares)
+There are actually a lot of other features that a true object should have, but i did not want to make them too complex, so they are sort of like a lightweight option.
+<br><br>
+----
 ===<font color="#006600">The initial idea</font>===
-First of all, you need to have a clear idea of what you want from your AI. Every AI has a main purpose and this purpose defines the principles that you will use when creating it. Will it be for PvP or for mob killing only or maybe you would like to make a tank out of your homunculus/mercenary that would try to provoke monsters on itself. Of course, it is easy to say that: "I want it to be as cool as RampageAI!", but would not it be easier just to use Rampage instead? RAICK is not meant(but still can be used) to build super-complex AI's that do everything, because those AI's are already created and i don't think that you can make something even close to AzzyAI or RAIL, not speaking of writing a better one. Instead RAICK gives you, on the one hand, a way to get into the scripting process with less pain and, on the other hand, the possibility to write small scripts that 100% fulfill your needs. When your needs change, your script will change with them. This way you can initially write yourself a very simple script and modify it as your needs and your skills in programming will grow. Small, but constant changes to your script- that is the pattern i recommend following, when creating your AI using RAICK.<br>
+Now that RAICK objects is smaller mystery for us i can, finally, start thinking about our script. First of all, you need to have a clear idea of what you want from your AI. Every AI has a main purpose and this purpose defines the principles that you will use when creating it. Will it be for PvP or for mob killing only or maybe you would like to make a tank out of your homunculus/mercenary that would try to provoke monsters on itself. Of course, it is easy to say that: "I want it to be as cool as RampageAI!", but would not it be easier just to use Rampage instead? RAICK is not meant(but still can be used) to build super-complex AI's that do everything, because those AI's are already created and i don't think that you can make something even close to AzzyAI or RAIL, not speaking of writing a better one. Instead RAICK gives you, on the one hand, a way to get into the scripting process with less pain and, on the other hand, the possibility to write small scripts that 100% fulfill your needs. When your needs change, your script will change with them. This way you can initially write yourself a very simple script and modify it as your needs and your skills in programming will grow. Small, but constant changes to your script- that is the pattern i recommend following, when creating your AI using RAICK.<br>
 So, going back to the idea. Lets create a script for homunculus Vanilmirth that would allow us to:
   * Give homunculus orders to attack a specified target using both Caprise and normal attacks
   * Auto-attack those who are damaging your character or homunculus and use caprise on those, who cast something on us(excluding support skills)
@@ -134,7 +172,7 @@ Those 3 objectives now give us something to move further and start writing our f
 Lets move to our workplace- the `Homunculus AI` directory. Open the `On Startup` file. Here we can initialize(put initial values to) the variables that we are going to use. This is not entirely needed, but it allows us to eliminate the need to check our variables later in the code. Right now the only one we will need is the one, where we would store our target. So we write:
 <code language="lua">
 target = Actor()
--- 'Actor()' is a contructor for the object 'Actor', which represents all objects that  your homunculus/mercenary can see(monsters, players, NPCs).
+-- 'Actor()' is a contructor for the object 'Actor', which represents all objects that your homunculus/mercenary can see(monsters, players, NPCs).
 -- Normally, you would pass the ID of the object as an argument, but here we don't do it and as a result we get a "blank" Actor object.
 -- The blank actor represents the absence of one, like 'nil' the absence of any value, but when the variable is meant to store actors ..
 -- .. it is better to use this value instead of 'nil' as you will see later.
@@ -156,14 +194,9 @@ end
 -- In the auto-generated activity 'FollowOwner' the variable 'Homunculus' was used instead, which you can also use.
 -- For your convenience references to this object are stored in variables starting from 'Hom' and ending with 'Homunculus'.
 -- So, for example, 'Homu' or 'Homunc' can also be used.
-
--- And one more thing! Do you remember that i had mentioned something about the syntax 'something.something(arg1, arg2, ...)'?
--- Well, here it is. This is just a way to call inner functions of objects. Those functions are called "methods".
--- A method is like any other function, but the difference is that it is a "property" of the object and is linked with its data.
--- This way we can write our code in a more human-language way like 'Someone.doSomething()'.
 </code>
 Right now they are identical, but later we will start changing the first one.<br>
-Before we do that we must provide ourselves a way to switch between active(represented by activity `Main`) and passive(represented by activity `FollowOwner`) modes. This is done in the `Commands` file. You can see that this file is also filled with auto-generated functions. In programming those functions are called _handlers_, because they are meant to _handle_ certain signals that come from the outer or inner environment(in our case from the client) of your program. One of the methods to bind a handler function with the corresponding signal is by using predefined names and this is the method that RAICK uses:
+Before we do that we must provide ourselves with a way to switch between active(represented by activity `Main`) and passive(represented by activity `FollowOwner`) modes. This is done in the `Commands` file. You can see that this file is also filled with auto-generated functions. In programming those functions are called _handlers_, because they are meant to _handle_ certain signals that come from the outer or inner environment(in our case from the client) of your program. One of the methods to bind a handler function with the corresponding signal is by using predefined names and this is the method that RAICK uses:
 <code language="lua">
 -- When a function in this file is named 'AltT' or 'altt' or even 'ALT_T'(case and underscopes do not play any role), then RAICK binds it with the command 'Alt + T'.
 function    AltT()
@@ -175,49 +208,7 @@ function    AltT()
     end
 end
 </code>
-I think already from this short piece of code you can see how easy it is to use and understand RAICK. Let me explain i little bit what is happening here. In the previous block of code i have told you about _methods_, which are just functions that belong to objects. The funny thing is that a have not really defined what is an _object_ in RAICK...<br><br>
-----
-===<font color="#006600">A step back: Objects in RAICK</font>===
-From the chapter about Lua your know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the _object_ is not only some value that stores its reference is a variable, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
-<code language="lua">
--- This is a standard function from Gravity, which allows us to order the homunculus to go to a cell with (x,y) coordinates.
--- 'homunID' is the ID of your homunculus and (x,y) are coordinates of the destination cell.
-Move(homunID, x, y)
-
--- Now lets observe how it is done in RAICK:
-Homunculus.goTo(cell)
--- 'cell' is an object of type Cell, which holds (x,y) coordinates of the cell it represents.
-
--- And one more:
-Attack(homunID, targetID)
-
-Homunculus.hit(target)
-</code>
-So, you can see that instead of writing a lot of separate functions that take their the ID as their first argument we can create a generalized concept- an object of type `Homunculus`. This object can be used to hold the data(like the type of your homunculus or its location) and the actions/commands associated with this data or with the concept itself(like methods to order your homunculus to move to some cell or use a skill). It is as almost we were saying:<br>
-  _Homunculus, do that_<br>
-Instead of:<br>
-  _Function, make homunculus with this ID do that_<br>
-This approach allows us to have a more organized, understandable and maintainable code and that is why objects are used in programming.<br>
-To sum up, objects(as a general concept in programming):
-  * Are values that are stored in variables as references
-  * Are created using a special function/command that can also take arguments
-  * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
-  * Can contain any other type of data inside themselves(the places, where this data is stored are called _fields_ and in Lua they are just string keys in a table)
-<br><br>
-----
-===<font color="#006600">Lets continue...</font>===
-Now, where were we? Oh, right:
-<code language="lua">
-function    AltT()
-
-    if Activity.current.is.Main then -- If our current activity is 'Main', then ..
-        Activity.switchTo.FollowOwner() -- .. we change it to 'FollowOwner'
-    else -- If not, then ..
-        Activity.switchTo.Main() -- .. we change it to 'Main'
-    end
-end
-</code>
-With RAICK objects being now a smaller mystery for us i can proceed with explaining this code chunk. What we do here is we read the field `current` of the `Activity` object(which is located in the global variable `Activity`). This field contains another object of type `Value`. For now, what you need to know about this object is that it holds a name in form of a string and this string can be compared with some other string through a very convenient method `is`. That's right! It is a method, but not a regular one, since it allows you to write this:
+I think already from this short piece of code you can see how easy it is to use and understand RAICK. Let me explain i little bit what is happening here. What we do is we read the field `current` of the `Activity` object(which is located in the global variable `Activity`). This field contains another object of type `Value`. For now, all you need to know about this object is that it holds a name in form of a string and this string can be compared with some other string using a very convenient method `is`. That's right! It is a method, but not a regular one, since it allows you to write this:
 <code language="lua">
 something.is.name
 </code>
@@ -226,6 +217,9 @@ Instead of:
 something.is("name")
 </code>
 The first variant in definitely easier to read and faster to write. All RAICK objects have this method in common and later i will show you what other tricks can be performed using it.<br>
-If we drop the technical details, then what `Activity.current.is.Main` does is it just gives us `true` if current activity is `Main`. Quite obvious, isn't it? Other lines are also pretty much self-explainable. The `switchTo` field contains a table, which holds functions that allow us to switch between activities.<br><br>
+If we drop the technical details, then what `Activity.current.is.Main` does is it just gives us `true` if current activity is `Main`. Quite obvious, isn't it? Other lines are also pretty much self-explainable. The `switchTo` field contains a table, which holds functions that allow us to switch between activities.<br>
+So, we can change modes now, but that doesn't give us anything without a target to attack, since passive mode is made mainly to stop homunculus/mercenary from attacking the target.
+<br><br>
 ----
-===<font color="#006600">Back to our activities</font>===
+===<font color="#006600">Target selection</font>===
+The best way to select a target is just using some targeted skill on it. Luckily Vanilmirth has this kind of skill.
