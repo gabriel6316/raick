@@ -120,7 +120,7 @@ Would all refer to the same setting. The same is with values:
 Are all permitted. It does not matter if you write `'ON'` or `ON` inside this file, since variable names are translated into strings.<br>
 And one more thing- if you omit/delete some setting the default value will be used. All of this is done for your convenience.<br><br>
 ----
-==<font color="#006666">Lets learn it together!</font>==
+==<font color="#006666">Try it out!</font>==
 The best way to learn something in programming is by doing practical exercises or writing something yourself, so lets write a simple AI using RAICK. This way by the end of this chapter you will have both a working script and an idea whether RAICK actually suits your needs.<br><br>
 ----
 ===<font color="#006600">Some extra knowledge: Objects is RAICK</font>===
@@ -132,8 +132,7 @@ From the chapter about Lua your know that an _object_ is a value, which is store
 Move(homunID, x, y)
 
 -- Now lets observe how it is done in RAICK:
-Homunculus.goTo(cell)
--- 'cell' is an object of type Cell, which holds (x,y) coordinates of the cell it represents.
+Homunculus.goTo(object)
 
 -- Do you remember that i had mentioned something about the syntax 'something.something(arg1, arg2, ...)'?
 -- Well, here it is. This is just a way to call inner functions of objects. Those functions are called "methods".
@@ -237,5 +236,45 @@ function    Caprise(target)
     mainTarget = target
 end
 </code>
-Nothing to comment here. We just put the selected target to the variable.<br><br>
+Nothing to comment here.<br><br>
 ----
+===<font color="#006600">Back to our activities</font>===
+The preparational work is done, it is now time to think about how we are going to use the selected target. Obviously, we want to kill it. I propose that we make another activity just for this cause:
+<code language="lua">
+function    Main()
+
+    if mainTarget.is.visible and mainTarget.action.isNot.dead then -- If the target is visible and not dead, then ..
+        Activity.switchTo.AttackMainTarget() -- .. we lock on it to kill.
+    else -- If not, then ..
+        Homun.goTo(Owner) -- .. we just follow owner.
+    end
+end
+
+function    AttackMainTarget()
+
+    if mainTarget.isNot.visible or mainTarget.action.is.dead then -- If the target is not visible anymore or is already dead, then ..
+        Activity.switchTo.Main() -- .. there is no point in performing this activity anymore and we can return to from where we came.
+    else -- If the target is still with us, then ..
+        -- 1) We follow it no matter what
+        Homun.goTo(mainTarget)
+
+        -- 2) Use 'Caprise', if we are in range of the skill
+        if Homun .. mainTarget <= Caprise.range then
+            Homun.use(Caprise).on(mainTarget)
+        end
+
+        -- 3) Hit/bite the target, if we close enough
+        if Homun .. mainTarget <= Homun.hit.range then
+            Homun.hit(mainTarget)
+        end
+    end
+end
+
+function    FollowOwner()
+
+    Homun.goTo(Owner)
+end
+</code>
+
+In the `Main` activity we check if the target is visible(can be visually observed on the screen) and if it is not dead(it might be confusing that being dead is an action, but you should just accept this for now), then we switch to our "killing activity".<br>
+In the `AttackMainTarget` activity we check for the opposite: if the target is not visually observable or it is dead, then all is left for us is to go back to from where we came. The interesting part, though, starts when the target is still with us. 
