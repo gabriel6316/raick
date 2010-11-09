@@ -331,14 +331,14 @@ function    Main()
 end
 </code>
 
-This is the first time you see how the `for` loop is used to scan through every actor visible. `Owner.surround.each()` work similarly to `ipairs` meaning that it passes actors(along with the index `i`) one by one to the loop. What you can also see here is that we now specify the target through the argument of the `AttackTarget` activity and that we use `return` to stop the execution of the activity. This is very useful in cases when you have already switched to some other activity and don't want the current activity to execute anymore.<br>
+This is the first time you see how the `for` loop is used to scan through every actor visible. `Owner.surround.each()` work similarly to `ipairs` meaning that it passes actors(along with the index `i`) one by one to the loop. What you can also see here is that we now specify the target through the argument of the `AttackTarget` activity and that we use `return` to stop the execution of the activity. This is very useful in cases when you have already switched to some other activity and don't want the current activity to be executed anymore.<br>
 Well, congratulations! 3 out of 3, but i would like to point out and fix some things that still need to be ...<br><br>
 ----
 ===<font color="#006600">The final touch</font>===
 The AI is pretty much done, but there are still some nuances that make it incomplete. The first one concerns the fact that the main target we select is not saved to memory. This could be easily fixed with a few modifications.<br>
 In `On Startup` file:
 <code language="lua">
-mainTarget = Memory.get("mainTarget", Actor()) -- We retrieve the record "mainTarget". If it does not exists in the memory, then we return a "blank" actor instead.
+mainTarget = Memory.get("mainTarget", Actor()) -- We retrieve the record "mainTarget" upon startup of your AI. If it does not exists in the memory, we return a "blank" actor instead.
 </code>
 And in `Skills` file:
 <code language="lua">
@@ -370,3 +370,4 @@ function    AttackTarget(target)
 <br><br>
 ----
 ===<font color="#006600">It's done!</font>===
+In this guide i have shown you how a working AI could be created using RAICK. This page was not intended to teach you the details of how everything works, it is just an example of some of RAICK's core features. I can say that i have only demonstrated about 5-7% of what RAICK can really offer you. To learn the full potential of RAICK you need to get yourself acquainted with the [Manual Reference manual](still to be written).
