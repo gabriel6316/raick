@@ -154,9 +154,9 @@ So lets now sum up everything that we know about objects(as a general concept in
   * Are created using a special command/function(that can also take arguments as you will see later)
   * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
   * Can contain any other type of data inside themselves(the places, where this data is stored are called _fields_ and in Lua they are just string keys in a table)
-Let me also note that you need to understand the difference between the _object_ as a general concept in programming and those objects that exist in Lua. In Lua the word _object_ can mean either:
-  * Just a value that stores its value in the variable by reference(for example, functions)
-  * The implementation of the general concept using stuff that Lua has(for example, RAICK objects are designed using basically every data type available to fit the list features that this general concept declares)
+Note: You need to understand the difference between the _object_ as a general concept in programming and those objects that exist in Lua. In Lua the word _object_ can mean either:
+  * Just a value that is stored in the variable by reference(for example, functions)
+  * The implementation of the general concept using stuff that Lua has(for example, RAICK objects are designed using almost every data type available to fit the list features that this general concept declares)
 There are actually a lot of other features that a true object should have, but i did not want to make them too complex, so they are sort of like a lightweight option.
 <br><br>
 ----
