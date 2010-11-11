@@ -348,6 +348,7 @@ function    Caprise(target)
     mainTarget = Memory.save("mainTarget", target) -- Save the value from the variable 'target' under the name "mainTarget" and return this value afterwards.
 end
 </code>
+
 The second problem lies in the automated target selection part. Here we have forgotten to add a condition that would filter out actors that cast supportive magic on us. Unfortionatelly, there is no straight way to do it(you cannot get any data about the type of the skill that someone is casting). However, we can try to come up with a solution that would give us similar results like, for example, filtering out supportive jobs:
 <code language="lua">
 ...
@@ -364,6 +365,7 @@ The second problem lies in the automated target selection part. Here we have for
             end
 ...
 </code>
+
 The third issue is very small, but could lead to a very annoying and confusing error. It lies in the `AttackTarget` activity(and pretty much every activity that uses arguments). As i have mentioned before, activity arguments are automatically saved to the memory preventing it from being vanished(turned to `nil`) upon the restart of the AI. But what if for some reason the memory is lost? The probability of that is very small, but nonetheless it can happen and thus it needs to be fixed. So, lets do it:
 <code language="lua">
 function    AttackTarget(target)
