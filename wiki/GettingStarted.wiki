@@ -339,7 +339,8 @@ At this moment we can say that all 3 planned features are implemented, but actua
 The first issue concerns the fact that the main target we select is not saved to memory. This could be easily fixed with a few modifications.<br>
 In `On Startup` file:
 <code language="lua">
-mainTarget = Memory.get("mainTarget", Actor()) -- We retrieve the record "mainTarget" upon startup of your AI. If it does not exists in the memory, we return a "blank" actor instead.
+-- We retrieve the record "mainTarget" upon startup of your AI. If it does not exists in the memory, we return a "blank" actor instead.
+mainTarget = Memory.get("mainTarget", Actor())
 </code>
 And in `Skills` file:
 <code language="lua">
