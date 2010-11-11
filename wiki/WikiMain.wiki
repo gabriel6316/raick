@@ -23,7 +23,15 @@
       * *[http://code.google.com/p/raick/wiki/GettingStarted#Common_Files Common Files]
       * [http://code.google.com/p/raick/wiki/GettingStarted#AI_Specific_Files AI Specific Files]*</font>
     * [http://code.google.com/p/raick/wiki/GettingStarted#Settings Settings]
-    * [http://code.google.com/p/raick/wiki/GettingStarted#Lets_learn_it_together! Lets learn it together!]_</font><font color="gray">
+    * [http://code.google.com/p/raick/wiki/GettingStarted#Try_it_out! Try it out!]<font size="3">
+      * *[http://code.google.com/p/raick/wiki/GettingStarted#Some_extra_knowledge:_Objects_is_RAICK Some extra knowledge: Objects is RAICK]
+      * [http://code.google.com/p/raick/wiki/GettingStarted#The_initial_idea The initial idea]
+      * [http://code.google.com/p/raick/wiki/GettingStarted#First_lines_of_code First lines of code]
+      * [http://code.google.com/p/raick/wiki/GettingStarted#Manual_target_selection Manual target selection]
+      * [http://code.google.com/p/raick/wiki/GettingStarted#Back_to_our_activities Back to our activities]
+      * [http://code.google.com/p/raick/wiki/GettingStarted#Automated_target_selection Automated target selection]
+      * [http://code.google.com/p/raick/wiki/GettingStarted#The_final_touch The final touch]
+      * [http://code.google.com/p/raick/wiki/GettingStarted#It%27s_done! It's done!]*</font>_</font><font color="gray">
   # Reference manual
   # Mastering RAICK
 </font>
