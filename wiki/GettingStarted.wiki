@@ -1,4 +1,4 @@
-=<font color="#003366">Getting started with RAICK</font>=
+=<font color="#003366">Getting started</font>=
 ==<font color="#006666">Installation</font>==
 First things first, you need to let RAICK install itself. Unlike other AI scripts RAICK is packaged into a single file. This file contains all of the logic needed to create the initial folder and file structure.<br>
   * To install RAICK you first need to decide where to put it. A typical place for custom scripts is the `USER_AI` folder, but you are not limited to a specific place. Once the `RAICK.lua` file is in place, open your `AI.lua` or `AI_M.lua` file in either `AI` or `AI/USER_AI` folder(depending on what */hoai* setting you are planning to use) and put a single line of code there:
