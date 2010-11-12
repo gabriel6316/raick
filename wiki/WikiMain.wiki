@@ -3,6 +3,7 @@
 
 <font size="5">
   * [ChangeLog Change Log]
+  * [CodeEditor Lua code editor]
   # [History History of the project]<font size="4">
     * [http://code.google.com/p/raick/wiki/History#H.A.I.C.K. H.A.I.C.K.]
     * [http://code.google.com/p/raick/wiki/History#R.A.I.C.K._v1 R.A.I.C.K. v1]
