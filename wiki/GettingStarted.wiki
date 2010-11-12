@@ -244,7 +244,7 @@ The preparation work is done, it is now time to think about how we are going to 
 <code language="lua">
 function    Main()
 
-    if mainTarget.is.visible and mainTarget.action.isNot.dead then -- If the target is visible and not dead, then ..
+    if mainTarget.status.is.visible and mainTarget.action.isNot.dead then -- If the target is visible and not dead, then ..
         Activity.switchTo.AttackMainTarget() -- .. we lock on it to kill.
     else -- If not, then ..
         Homun.goTo(Owner) -- .. we just follow the owner.
@@ -253,7 +253,7 @@ end
 
 function    AttackMainTarget()
 
-    if mainTarget.isNot.visible or mainTarget.action.is.dead then -- If the target is not visible anymore or is already dead, then ..
+    if mainTarget.status.isNot.visible or mainTarget.action.is.dead then -- If the target is not visible anymore or is already dead, then ..
         Activity.switchTo.Main() -- .. there is no point in performing this activity anymore and we can return to from where we came.
     else -- If the target is still with us, then ..
         -- 1) We follow it no matter what
@@ -287,7 +287,7 @@ To implement this feature we need to update both `Main` and `AttackMainTarget` a
 <code language="lua">
 function    AttackTarget(target)
 
-    if target.isNot.visible or target.action.is.dead then -- If the target is in not the memory or it is not visible anymore or is already dead, then ..
+    if target.status.isNot.visible or target.action.is.dead then -- If the target is in not the memory or it is not visible anymore or is already dead, then ..
         Activity.switchTo.Main() -- .. there is no point in performing this activity anymore and we can return to from where we came.
     else -- If the target is still with us, then ..
         -- 1) We follow it no matter what
@@ -311,7 +311,7 @@ Lets now look at the modified `Main` activity to see how you can pass arguments 
 <code language="lua">
 function    Main()
 
-    if mainTarget.is.visible and mainTarget.action.isNot.dead then -- If the target is visible and not dead, then ..
+    if mainTarget.status.is.visible and mainTarget.action.isNot.dead then -- If the target is visible and not dead, then ..
         Activity.switchTo.AttackTarget(mainTarget) -- .. we lock on it to kill(observe how we pass 'mainTarget' as an argument).
     else -- If not, then ..
         for i, actor in Owner.surround.each() do -- .. we make a loop over the list of all visible actors. For each actor we check:
@@ -372,7 +372,7 @@ The third issue is very small, but could lead to a very annoying and confusing e
 function    AttackTarget(target)
 
     -- In case the 'target' argument is 'nil'(it is not in the memory) we leave the activity.
-    if target ~= nil and target.isNot.visible or target.action.is.dead then
+    if target == nil or target.status.isNot.visible or target.action.is.dead then
         Activity.switchTo.Main()
 ...
 </code>
