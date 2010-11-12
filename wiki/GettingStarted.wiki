@@ -232,7 +232,8 @@ Lets do it then! Open `Skills` file. As always in RAICK handlers are already def
 <code language="lua">
 -- 'target' is an argument that this handler receives.
 -- This variable holds the 'Actor' object that represents the monster or player, on which you have used the skill 'Caprise'.
-function    Caprise(target)
+-- And as you might have already guessed argument 'level' holds the level of the skill used.
+function    Caprise(target, level)
 
     mainTarget = target
 end
@@ -344,7 +345,7 @@ mainTarget = Memory.get("mainTarget", Actor())
 </code>
 And in `Skills` file:
 <code language="lua">
-function    Caprise(target)
+function    Caprise(target, level)
 
     mainTarget = Memory.save("mainTarget", target) -- Save the value from the variable 'target' under the name "mainTarget" and return this value afterwards.
 end
