@@ -1,4 +1,4 @@
 =<font color="#003366">Lua code editor</font>=
-I recommend SciTE for editing `.lua` files. It is very lightweight and easy-to-use.
+I recommend *SciTE* for editing `.lua` files. It is very lightweight and easy-to-use.
 
 =<font color="#006600">[http://prdownloads.sourceforge.net/scintilla/wscite222.zip?download DOWNLOAD]</font>=
