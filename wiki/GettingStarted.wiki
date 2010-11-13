@@ -20,7 +20,7 @@ require "C:/RAICK.lua"
   _Note: If you have been using the beta version then it is best if you replace `RAICK.lua` with the new file, run it and uninstall RAICK using the created uninstaller(the beta version didn't have one). After that install the script again._<br><br>
 ----
 ==<font color="#006666">Files & Folders</font>==
-The schema below illustrates the full set of files that RAICK can create:
+The schema below illustrates the full set of files and folders that RAICK can create:
 <pre>
 -\
  |-\ "Homunculus Script"
