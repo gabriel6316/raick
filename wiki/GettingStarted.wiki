@@ -339,7 +339,7 @@ This is the first time you see how the `for` loop is used to scan through every 
 At this moment we can say that all 3 planned features are implemented, but actually there are still some minor details that require our attention. We will have a look at them in the next section.<br><br>
 ----
 ===<font color="#006600">The final touch</font>===
-The first issue concerns the fact that the main target we select is not saved to memory. This could be easily fixed with a few modifications.<br>
+The first issue concerns the fact that the main target we select is not saved to the memory. This could be easily fixed with a few modifications.<br>
 In `On Startup` file:
 <code language="lua">
 -- We retrieve the record "mainTarget" upon startup of your AI. If it does not exists in the memory, we return a "blank" actor instead.
@@ -353,7 +353,7 @@ function    Caprise(target, level)
 end
 </code>
 
-Once this is added we momentarily have created ourselves another problem: how do we erase the selected target from the memory if we don't want to attack it anymore? In our case the best way to do it is to put a blank actor to the "mainTarget" entry. We also need a think of signal to tell the AI that we want to do it. A click under the character, for example, could be a good choice. This means that we must modify the `Commands` file:
+Once this is added we momentarily have created ourselves another problem: how do we erase the selected target from the memory if we don't want to attack it anymore? In our case the best way to do it is to put a blank actor to the "mainTarget" entry. We also need to think of signal to tell the AI that we want to do it. A click under the character, for example, could be a good choice. This means that we must modify the `Commands` file:
 <code language="lua">
 -- This handler is called, when the player presses 'Alt + Right Click On The Ground'
 function    AltGround(cell)
@@ -389,7 +389,7 @@ The third problem lies in the automated target selection part. Here we have forg
 ...
 </code>
 
-The final issue is very small, but could lead to a very annoying and confusing error. It lies in the `AttackTarget` activity(and pretty much every activity that uses arguments). As i have mentioned before, activity arguments are automatically saved to the memory preventing it from being vanished(turned to `nil`) upon the restart of the AI. But what if for some reason the memory is lost? The probability of that is very small, but nonetheless it can happen and thus it needs to be fixed. So, lets do it:
+The final issue is very small, but could lead to a very annoying and confusing error. It lies in the `AttackTarget` activity(and pretty much every activity that uses arguments). As i have mentioned before, activity arguments are automatically saved to the memory preventing it from being vanished(turned to `nil`) upon the restart of the AI. But what if for some reason the memory is lost? The probability of that is very small, but nonetheless it can happen and thus this problem needs to be fixed. So, lets do it:
 <code language="lua">
 function    AttackTarget(target)
 
