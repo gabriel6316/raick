@@ -351,7 +351,26 @@ function    Caprise(target, level)
 end
 </code>
 
-The second problem lies in the automated target selection part. Here we have forgotten to add a condition that would filter out actors that cast supportive magic on us. Unfortunately, there is no straight way to do it(you cannot get any data about the type of the skill that someone is casting). However, we can try to come up with a solution that would give us similar results like, for example, filtering out supportive jobs:
+Once this is added we momentarily have created ourselves another problem: how do we erase the selected target from the memory if we don't want to attack it anymore? In our case the best way to do it is to put a blank actor to the "mainTarget" entry. We also need a think of signal to tell the AI that we want to do it. A click under the character, for example, could be a good choice. This means that we must modify the `Commands` file:
+<code language="lua">
+-- This handler is called, when the player presses 'Alt + Right Click On The Ground'
+function    AltGround(cell)
+
+    if cell.is(Owner.cell) then -- If the clicked cell is the same cell as the one our character stands on, then ..
+        mainTarget = Memory.save("mainTarget", Actor()) -- .. we clear both the variable and the entry in the memory
+    end
+end
+</code>
+
+The second thing that needs to be fixed is in the `Skills` file, which we have already update above. If you analyze the current code of the AI you would notice that if our homunculus is already attacking someone or it is in a "passive mode", then it would not react to the fact that we have selected a target. This is certainly not what we want, since it is the main target and the homunculus should respond immediately if we explicitly show it the enemy. To correct this we just add a line of code to the `Caprise` handler in the `Skills` file:
+<code language="lua">
+function    Caprise(target, level)
+
+    mainTarget = Memory.save("mainTarget", target) -- Save the target and ..
+    Activity.switchTo.AttackTarget(mainTarget) -- .. order to attack it right away.
+end
+</code>
+The third problem lies in the automated target selection part. Here we have forgotten to add a condition that would filter out actors that cast supportive magic on us. Unfortunately, there is no straight way to do it(you cannot get any data about the type of the skill that someone is casting). However, we can try to come up with a solution that would give us similar results like, for example, filtering out supportive jobs:
 <code language="lua">
 ...
 -- Everything is the same, only now we also filter out full-support jobs.
@@ -368,7 +387,7 @@ The second problem lies in the automated target selection part. Here we have for
 ...
 </code>
 
-The third issue is very small, but could lead to a very annoying and confusing error. It lies in the `AttackTarget` activity(and pretty much every activity that uses arguments). As i have mentioned before, activity arguments are automatically saved to the memory preventing it from being vanished(turned to `nil`) upon the restart of the AI. But what if for some reason the memory is lost? The probability of that is very small, but nonetheless it can happen and thus it needs to be fixed. So, lets do it:
+The final issue is very small, but could lead to a very annoying and confusing error. It lies in the `AttackTarget` activity(and pretty much every activity that uses arguments). As i have mentioned before, activity arguments are automatically saved to the memory preventing it from being vanished(turned to `nil`) upon the restart of the AI. But what if for some reason the memory is lost? The probability of that is very small, but nonetheless it can happen and thus it needs to be fixed. So, lets do it:
 <code language="lua">
 function    AttackTarget(target)
 
