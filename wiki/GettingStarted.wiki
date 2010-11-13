@@ -400,3 +400,11 @@ With this last addition we can finally say that the script is done! Enjoy your (
 ----
 ===<font color="#006600">It's done!</font>===
 In this short introductory guide i have shown you how a working AI could be created using RAICK. This page is not intended to teach you the details of how everything works, it is just an example of some of RAICK's core features. I can say that i have demonstrated only about 5-7% of what RAICK can really offer you. To learn the full potential of RAICK you need to get yourself acquainted with the [Manual Reference manual](still to be written).
+<br><br>
+----
+===<font color="#006600">Appendix</font>===
+Below you will find the list of files for the AI that was created in this guide:
+  * [http://raick.googlecode.com/files/%5B1%5D%20On%20Startup.lua On Startup]
+  * [http://raick.googlecode.com/files/%5B2%5D%20Commands.lua Commands]
+  * [http://raick.googlecode.com/files/%5B2%5D%20Skills.lua Skills]
+  * [http://raick.googlecode.com/files/%5B2%5D%20Activities.lua Activities]
