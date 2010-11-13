@@ -68,11 +68,11 @@ Most of them are created during installation, others during runtime, when needed
     * <u>*`[`1`]` On Startup.lua* file</u>
     In this file you define your custom variables or functions that you want to use in your script. This file is loaded once when the script starts. It is typical place for reading saved data from the memory or putting initial values to variables.
     * <u>*`[`2`]` Commands.lua* file</u>
-    This is the place where you can define your own custom ways to interpret _Alt + Something_ commands that come from the player. Default handlers are auto-generated so you just have to modify them.
+    This is the place where you can define your own custom ways to interpret _Alt/Ctrl + Something_ commands that come from the player. Default handlers are auto-generated so you just have to modify them.
     * <u>*`[`3`]` Skills.lua* file</u>
     File with the same structure as the previous one, only here you can customize the way skill commands are interpreted by your AI.
     * <u>*`[`4`]` Messages.lua* file</u>
-    In this file you can also define handlers like two previous ones, but they are meant to intercept messages that bots send to each other. This is a unique feature that allows sending arbitrary data between homunculus and mercenary AI's.
+    In this file you can also define handlers like two previous ones, but in this case they are meant to intercept messages that bots send to each other. This is a unique feature of RAICK that allows exchanging arbitrary data between homunculus and mercenary AI's.
     * <u>*`[`5`]` Activities.lua* file</u>
     The "heart" of your AI. Here you must define activities that you want your homunculus/mercenary to perform. Activities(also known as _states_ in most of AI's) is just a way to divide your script into logical parts. Each activity is a set of actions, which your logically group under some name. For example, the basic set of activities is:
       * _Passive_ - Don't react to anything. Just follow the owner.
@@ -125,7 +125,7 @@ The best way to learn something in programming is by doing practical exercises o
 ----
 ===<font color="#006600">Some extra knowledge: Objects is RAICK</font>===
 As much as would like to dig into the scripting process right away i can't leave this topic without attention, since roughly it is what RAICK is made of.<br>
-From the chapter about Lua your know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the _object_ is not only some value that stores its reference is a variable, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
+From the chapter about Lua your know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the _object_ is not only some value that stores its reference in a variable, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
 <code language="lua">
 -- This is a standard function from Gravity, which allows us to order the homunculus to go to a cell with (x,y) coordinates.
 -- 'homunID' is the ID of your homunculus and (x,y) are coordinates of the destination cell.
@@ -155,14 +155,14 @@ So lets now sum up everything that we know about objects(as a general concept in
   * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
   * Can contain any other type of data inside themselves(the places, where this data is stored are called _fields_ and in Lua they are just string keys in a table)
 
-_Note: You need to understand the difference between the *object* as a general concept in programming and those objects that exist in Lua. In Lua the word *object* could mean one of two things:
+From this section you also need remember that there is a difference between the _object_* as a general concept in programming and those objects that exist in Lua. In Lua the word _object_ could mean one of two things:
   * Just a value that is stored in the variable as a reference(for example, functions)
   * The implementation of the general concept using stuff that Lua has(for example, RAICK objects are designed using almost every data type available to fit the list features that this general concept declares)
-There are actually a lot of other features that a true object should have, but i did not want to make them too complex, so they are sort of like a lightweight option._
+There are actually a lot of other features that a true object should have, but i did not want to make them too complex, so they are sort of like a lightweight option.
 <br><br>
 ----
 ===<font color="#006600">The initial idea</font>===
-Now that RAICK objects is smaller mystery for us we can, finally, start thinking about our script. First of all, you need to have a clear idea of what you want from your AI. Every AI has a main purpose and this purpose defines the principles that you will use when creating it. Will it be for PvP or for mob killing only or maybe you would like to make a tank out of your homunculus/mercenary that would try to provoke monsters on itself. Of course, it is easy to say that: "I want it to be as cool as RampageAI!", but would not it be easier just to use Rampage instead? RAICK is not meant(but still can be used) to build super-complex AI's that do everything, because those AI's are already created and i don't think that you can make something even close to AzzyAI or RAIL, not speaking of writing a better one. Instead RAICK gives you, on the one hand, a way to get into the scripting process with less pain and, on the other hand, the possibility to write small scripts that 100% fulfill your needs. When your needs change, your script will change with them. This way you can initially write yourself a very simple script and modify it as your needs and your skills in programming will grow. Small, but constant changes to your script- that is the pattern i recommend following, when creating your AI using RAICK.<br>
+Now that RAICK objects is smaller mystery for us we can, finally, start thinking about our script. First of all, you need to have a clear idea of what you want from your AI. Every AI has a main purpose and this purpose defines the principles that you will use when creating it. Will it be for PvP or for mob killing only or maybe you would like to make a tank out of your homunculus/mercenary that would try to provoke monsters on itself. Of course, it is easy to say that: "I want it to be as cool as RampageAI!", but wouldn't it be easier then just to use Rampage instead? RAICK is not meant(but still can be used) to build super-complex AI's that do everything, because those AI's are already created and i don't think that you can make something even close to AzzyAI or RAIL, not speaking of writing a better one. Instead RAICK gives you, on the one hand, a way to get into the scripting process with less pain and, on the other hand, the possibility to write small scripts that 100% fulfill your needs. When your needs change, your script will change with them. This way you can initially write yourself a very simple script and modify it as your needs and your skills in programming will grow. Small, but constant changes to your script- that is the pattern i recommend following, when creating your AI using RAICK.<br>
 So, going back to the idea. Lets create a script for homunculus Vanilmirth that would allow us to:
   # Give homunculus orders to attack a specified target using both Caprise and normal attacks
   # Auto-attack those who are damaging your character or homunculus and use caprise on those, who cast something on us(excluding support skills)
@@ -227,7 +227,7 @@ So, we can change modes now, but that doesn't give us anything without a target 
 <br><br>
 ----
 ===<font color="#006600">Manual target selection</font>===
-There are many ways to tell your bot to attack something. If it doesn't have a targeted skill(for example, _Lif_ or _Amistr_), then basically the only choice you have is clicking near the target and ordering your bot to attack the closest one to this cell. Luckily, our _Vanilmirth_ has got _Caprise_ and we can use it directly to select targets.<br>
+There are many ways to tell your bot to attack something. If it doesn't have any targeted skills(for example, _Lif_ or _Amistr_), then basically the only choice you have is clicking near the target and ordering your bot to attack the closest actor to this cell. Luckily, our _Vanilmirth_ has got _Caprise_ and we can use it directly to select targets.<br>
 Lets do it then! Open `Skills` file. As always in RAICK handlers are already defined and default actions are set. What you need to do is redefine the handler for _Caprise_:
 <code language="lua">
 -- 'target' is an argument that this handler receives.
@@ -245,6 +245,8 @@ The preparation work is done, it is now time to think about how we are going to 
 <code language="lua">
 function    Main()
 
+    -- This is the place, where using a blank actor instead of leaving the variable uninitialized' eliminates the need to check mainTarget for 'nil.
+    -- If we haven't initialized the variable, then we would be forced to check if 'mainTarget ~= nil' every time we wanted to use the variable.
     if mainTarget.status.is.visible and mainTarget.action.isNot.dead then -- If the target is visible and not dead, then ..
         Activity.switchTo.AttackMainTarget() -- .. we lock on it to kill.
     else -- If not, then ..
