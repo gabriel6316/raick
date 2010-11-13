@@ -32,7 +32,8 @@
       * [http://code.google.com/p/raick/wiki/GettingStarted#Back_to_our_activities Back to our activities]
       * [http://code.google.com/p/raick/wiki/GettingStarted#Automated_target_selection Automated target selection]
       * [http://code.google.com/p/raick/wiki/GettingStarted#The_final_touch The final touch]
-      * [http://code.google.com/p/raick/wiki/GettingStarted#It%27s_done! It's done!]*</font>_</font><font color="gray">
+      * [http://code.google.com/p/raick/wiki/GettingStarted#It%27s_done! It's done!]
+      * [http://code.google.com/p/raick/wiki/GettingStarted#Appendix Appendix]*</font>_</font><font color="gray">
   # Reference manual
   # Mastering RAICK
 </font>
