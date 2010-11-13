@@ -54,7 +54,7 @@ Most of them are created during installation, others during runtime, when needed
   * <u>*RAICK.Bugz.txt* file</u>
   This file is created(and later updated) when RAICK encounters a bug inside itself. The entry will contain the time when the error occurred and a copy of the error window. This is possible, because RAICK is smart enough to classify errors and can even distinguish between errors that occurred in your script from the ones that occurred inside the framework.
   * <u>*RAICK.Settings.lua* file</u>
-  This file is used to configure RAICK. See next section for more details.
+  This file is used to configure RAICK. See [http://code.google.com/p/raick/wiki/GettingStarted#Settings Settings] for more information.
   * <u>*RAICK.Uninstaller.bat* file</u>
   Run this file if you want to uninstall RAICK. All files that have been created during installation will be deleted.<br>
 ===<font color="#006600">AI Specific Files</font>===
