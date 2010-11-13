@@ -155,7 +155,7 @@ So lets now sum up everything that we know about objects(as a general concept in
   * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
   * Can contain any other type of data inside themselves(the places, where this data is stored are called _fields_ and in Lua they are just string keys in a table)
 
-From this section you also need remember that there is a difference between the _object_* as a general concept in programming and those objects that exist in Lua. In Lua the word _object_ could mean one of two things:
+From this section you also need remember that there is a difference between the _object_ as a general concept in programming and those objects that exist in Lua. In Lua the word _object_ could mean one of two things:
   * Just a value that is stored in the variable as a reference(for example, functions)
   * The implementation of the general concept using stuff that Lua has(for example, RAICK objects are designed using almost every data type available to fit the list features that this general concept declares)
 There are actually a lot of other features that a true object should have, but i did not want to make them too complex, so they are sort of like a lightweight option.
@@ -245,8 +245,8 @@ The preparation work is done, it is now time to think about how we are going to 
 <code language="lua">
 function    Main()
 
-    -- This is the place, where using a blank actor instead of leaving the variable uninitialized' eliminates the need to check mainTarget for 'nil.
-    -- If we haven't initialized the variable, then we would be forced to check if 'mainTarget ~= nil' every time we wanted to use the variable.
+    -- This is the place, where using a blank actor instead of leaving the variable uninitialized eliminates the need to check mainTarget for 'nil'.
+    -- If we hadn't initialized the variable, then we would have been forced to check if 'mainTarget ~= nil' every time we wanted to use the variable.
     if mainTarget.status.is.visible and mainTarget.action.isNot.dead then -- If the target is visible and not dead, then ..
         Activity.switchTo.AttackMainTarget() -- .. we lock on it to kill.
     else -- If not, then ..
