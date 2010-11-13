@@ -245,7 +245,7 @@ The preparation work is done, it is now time to think about how we are going to 
 <code language="lua">
 function    Main()
 
-    -- This is the place, where using a blank actor instead of leaving the variable uninitialized eliminates the need to check mainTarget for 'nil'.
+    -- This is the place, where using a blank actor instead of leaving the variable uninitialized pays off.
     -- If we hadn't initialized the variable, then we would have been forced to check if 'mainTarget ~= nil' every time we wanted to use the variable.
     if mainTarget.status.is.visible and mainTarget.action.isNot.dead then -- If the target is visible and not dead, then ..
         Activity.switchTo.AttackMainTarget() -- .. we lock on it to kill.
