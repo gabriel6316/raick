@@ -357,12 +357,12 @@ Once this is added we momentarily have created ourselves another problem: how do
 function    AltGround(cell)
 
     if cell.is(Owner.cell) then -- If the clicked cell is the same cell as the one our character stands on, then ..
-        mainTarget = Memory.save("mainTarget", Actor()) -- .. we clear both the variable and the entry in the memory
+        mainTarget = Memory.save("mainTarget", Actor()) -- .. we clear both the variable and the entry in the memory.
     end
 end
 </code>
 
-The second thing that needs to be fixed is in the `Skills` file, which we have already update above. If you analyze the current code of the AI you would notice that if our homunculus is already attacking someone or it is in a "passive mode", then it would not react to the fact that we have selected a target. This is certainly not what we want, since it is the main target and the homunculus should respond immediately if we explicitly show it the enemy. To correct this we just add a line of code to the `Caprise` handler in the `Skills` file:
+The second thing that needs to be fixed is again located in the `Skills` file, which we have already update above. If you analyze the current code of the AI you would notice that if our homunculus is already attacking someone or it is in a "passive mode", then it would not react to the fact that we have selected a target. This is certainly not what we want, since it is the main target and the homunculus should respond immediately if we explicitly show it the enemy. To correct this we just add a line of code to the `Caprise` handler in the `Skills` file:
 <code language="lua">
 function    Caprise(target, level)
 
