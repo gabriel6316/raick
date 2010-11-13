@@ -4,10 +4,10 @@ I would like to say a few words about the history of the project and why is it t
 It all started with HAICK, which stands for _Homunculus Artificial Intelligence Creation Kit_. At first it was just an experiment- i was trying to make something that would present the AI data in a more convenient and easy-to-use way. At some point the framework got mature enough to be shown to the public, so i began writing the manual. After posting it on the forum of a Russian private server [http://www.asgardro.com AsgardRO](on which a had been playing at that time) the framework started slowly, but steadily gaining popularity in the Russian RO community.<br><br>
 ----
 ==<font color="#006666">R.A.I.C.K. v1</font>==
-With the release of mercenaries i thought that it would be a good idea to make something similar for them and since anyway most of the code would have been the same i decided to merge this new functionality with HAICK. However, adding something that would only mirror HAICK would have been too boring, so i developed a feature that allowed homunculus to communicate with mercenary and vice-versa.<br><br>
+With the release of mercenaries i thought that it would be a good idea to make something similar for them and since anyway most of the code would have been the same i decided to merge this new functionality with HAICK. However, adding something that would only mirror HAICK would have been too boring, so i developed a feature that allowed homunculus to communicate with mercenary and vice-verse. And thus the successor of HAICK was born.<br><br>
 ----
 ==<font color="#006666">Going international with R.A.I.C.K. v2</font>==
-After some time i've decided to introduce my creation to a larger public. With this intention in mind i've set 2 ambitious goals for myself:
+After some time I've decided to introduce my creation to a larger public. With this intention in mind I've set 2 ambitious goals for myself:
   * To rewrite RAICK, simplifying everything that can still be simplified
   * To write a new simple guide in English not only for the RAICK itself, but for the Lua language, AI scripting and programming as a whole
 This way RAICK project becomes not only a framework, but also something like an online tutorial for learning AI scripting.<br>
