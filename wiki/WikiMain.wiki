@@ -1,13 +1,12 @@
-
 =<font color="#003366">Table of Contents for R.A.I.C.K. Wikipedia</font>=
 
 <font size="5">
   * [ChangeLog Change Log]
   * [CodeEditor Lua code editor]
   # [History History of the project]<font size="4">
-    * [http://code.google.com/p/raick/wiki/History#H.A.I.C.K. H.A.I.C.K.]
+    * _[http://code.google.com/p/raick/wiki/History#H.A.I.C.K. H.A.I.C.K.]
     * [http://code.google.com/p/raick/wiki/History#R.A.I.C.K._v1 R.A.I.C.K. v1]
-    * [http://code.google.com/p/raick/wiki/History#Going_international_with_R.A.I.C.K._v2 Going international with R.A.I.C.K. v2]</font>
+    * [http://code.google.com/p/raick/wiki/History#Going_international_with_R.A.I.C.K._v2 Going international with R.A.I.C.K. v2]_</font>
   # [Lua Lua and the ABC of programming]<font size="4">
     * _[http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]
     * [http://code.google.com/p/raick/wiki/Lua#Building_blocks_of_Lua Building blocks of Lua]<font size="3">
