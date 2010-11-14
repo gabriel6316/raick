@@ -74,7 +74,7 @@ Most of them are created during installation, others during runtime, when needed
     * <u>*`[`4`]` Messages.lua* file</u>
     In this file you can also define handlers like two previous ones, but in this case they are meant to intercept messages that bots send to each other. This is a unique feature of RAICK that allows exchanging arbitrary data between homunculus and mercenary AI's.
     * <u>*`[`5`]` Activities.lua* file</u>
-    The "heart" of your AI. Here you must define activities that you want your homunculus/mercenary to perform. Activities(also known as _states_ in most of AI's) is just a way to divide your script into logical parts. Each activity is a set of actions, which your logically group under some name. For example, the basic set of activities is:
+    The "heart" of your AI. Here you must define activities that you want your homunculus/mercenary to perform. Activities(also known as _states_ in most of AI's) is just a way to divide your script into logical parts. Each activity is basically a set of actions, which are logically grouped under some name. For example, the basic set of activities could be:
       * _Passive_ - Don't react to anything. Just follow the owner.
       * _Active_ - If a monster is in sight then start chasing it(switch to _Chase_ activity), if not then follow owner.
       * _Chase_ - Chase the monster until you get close enough and then start attacking it(switch to _Attack_ activity).
@@ -179,7 +179,7 @@ mainTarget = Actor()
 -- .. it is better to use this value instead of 'nil' as you will see later.
 </code>
 
-What we have done is we have put a blank actor as a default value for the target. It is the first/initial value that this variable will have when the script starts and it will signal that we have not got a target at the moment. If we did not do this then the default value would have been `nil`, which would force us to check this variable for `nil` every time we read it.<br>
+What we have done is we have put a blank actor as a default value for the target. It is the first/initial value that this variable will have when the script starts and it will signal that we have not got a target at the moment. If we haven't done this, then the default value would have been `nil`, which would force us to check this variable for `nil` every time we read it.<br>
 The first step is made, lets now turn to the "main course"- the `Activities` file. As you can see one activity is already defined here. It serves mainly as an example. In this activity your homunculus would just follow you. This is certainly too simple for us so lets modify it.<br>
 To begin we need at least 2 activities:
 <code language="lua">
@@ -198,8 +198,7 @@ end
 -- So, for example, 'Homu' or 'Homunc' can also be used.
 </code>
 
-Right now they are identical, but later we will start changing the first one.<br>
-Before we do that we must provide ourselves with a way to switch between active(represented by activity `Main`) and passive(represented by activity `FollowOwner`) modes. This is done in the `Commands` file. You can see that this file is also filled with auto-generated functions. In programming those functions are called _handlers_, because they are meant to _handle_ certain signals that come from the outer or inner environment(in our case from the client) of your program. One of the methods to bind a handler function with the corresponding signal is by using predefined names and this is the method that RAICK uses:
+Right now they are identical, but later we will start changing the first one. Before we do that we must provide ourselves with a way to switch between active(represented by activity `Main`) and passive(represented by activity `FollowOwner`) modes. This is done in the `Commands` file. You can see that this file is also filled with auto-generated functions. In programming those functions are called _handlers_, because they are meant to _handle_ certain signals that come from the outer or inner environment(in our case from the client) of your program. One of the methods to bind a handler function with the corresponding signal is by using predefined names and this is the method that RAICK uses:
 <code language="lua">
 -- When a function in this file is named 'AltT' or 'altt' or even 'ALT_T'(case and underscores do not play any role), then RAICK binds it with the command 'Alt + T'.
 function    AltT()
@@ -378,7 +377,7 @@ The third problem lies in the automated target selection part. Here we have forg
 -- Everything is the same, only now we also filter out full-support jobs.
 -- If a Soul Linker or a Priest is attacking us, then we should not waste our time on him.
 -- Full-supports also don't have any serious offensive skills, so if he is casting something on us it is most likely supportive magic.
-            if actor.target.is(Owner, Homun) and actor.type.isNot(Priest, HighPriest, BabyPriest, SoulLinker) then
+            if actor.target.is(Owner, Homun) and actor.type.isNot(Priest, HighPriest, BabyPriest, SoulLinker) then -- 'is' and 'isNot' can take as much arguments as you want.
                 if actor.action.is.attacking then
                     Activity.switchTo.AttackTarget(actor)
                     return
