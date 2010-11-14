@@ -377,7 +377,7 @@ The third problem lies in the automated target selection part. Here we have forg
 -- Everything is the same, only now we also filter out full-support jobs.
 -- If a Soul Linker or a Priest is attacking us, then we should not waste our time on him.
 -- Full-supports also don't have any serious offensive skills, so if he is casting something on us it is most likely supportive magic.
-            if actor.target.is(Owner, Homun) and actor.type.isNot(Priest, HighPriest, BabyPriest, SoulLinker) then -- 'is' and 'isNot' can take as much arguments as you want.
+            if actor.target.is(Owner, Homun) and actor.type.isNot(Priest, HighPriest, BabyPriest, SoulLinker) then -- 'is' and 'isNot' can take as many arguments as you like.
                 if actor.action.is.attacking then
                     Activity.switchTo.AttackTarget(actor)
                     return
