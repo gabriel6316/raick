@@ -1,6 +1,7 @@
 =<font color="#660000">! Under construction !</font>=
 <br>
 =<font color="#003366">Reference manual</font>=
+<wiki:comment>
 A reference manual is a place, where the developer(s) describes his creation in details. It is often a very dry and concrete document, reading which be quite boring. You can check out the [http://www.lua.org/manual/5.1/manual.html Lua documentation] for an example of a typical reference manual.<br>
 In this manual I'll try to keep a balance between technicality and lucidity of the content.
 ==<font color="#006666">Detailed description of objects</font>==
@@ -8,6 +9,7 @@ Objects are basically what RAICK is made of. About 80% of what the framework off
 
 Each object has a constructor, which has the same name as the type of the object. Constructors can take <br>
 So, without any further delays lets get down to business.
+</wiki:comment>
 ===<font color="#006600">Cell</font>===
 ===<font color="#006600">Actor</font>===
 ===<font color="#006600">Value</font>===
