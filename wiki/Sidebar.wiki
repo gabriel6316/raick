@@ -31,3 +31,4 @@
       * [http://code.google.com/p/raick/wiki/GettingStarted#The_final_touch The final touch]
       * [http://code.google.com/p/raick/wiki/GettingStarted#It%27s_done! It's done!]
       * [http://code.google.com/p/raick/wiki/GettingStarted#Appendix Appendix]
+  * [Manual Reference manual]
