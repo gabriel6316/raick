@@ -72,7 +72,7 @@ Most of them are created during installation, others during runtime, when needed
     * <u>*`[`3`]` Skills.lua* file</u>
     File with the same structure as the previous one, only here you can customize the way skill commands are interpreted by your AI.
     * <u>*`[`4`]` Messages.lua* file</u>
-    In this file you can also define handlers like two previous ones, but in this case they are meant to intercept messages that bots send to each other. This is a unique feature of RAICK that allows exchanging arbitrary data between homunculus and mercenary AI's.
+    In this file you can also define handlers like in two previous ones, but in this case they are meant to intercept messages that bots send to each other. This is a unique feature of RAICK that allows exchanging arbitrary data between homunculus and mercenary AI's.
     * <u>*`[`5`]` Activities.lua* file</u>
     The "heart" of your AI. Here you must define activities that you want your homunculus/mercenary to perform. Activities(also known as _states_ in most of AI's) is just a way to divide your script into logical parts. Each activity is basically a set of actions, which are logically grouped under some name. For example, the basic set of activities could be:
       * _Passive_ - Don't react to anything. Just follow the owner.
