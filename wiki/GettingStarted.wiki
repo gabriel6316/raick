@@ -133,7 +133,6 @@ Move(homunID, x, y)
 
 -- Now lets observe how it is done in RAICK:
 Homunculus.goTo(object)
-
 -- Do you remember that i had mentioned something about the syntax 'something.something(arg1, arg2, ...)'?
 -- Well, here it is. This is just a way to call inner functions of objects. Those functions are called "methods".
 -- A method is like any other function, but the difference is that it is a "property" of the object and is linked with its data.
@@ -155,7 +154,7 @@ So lets now sum up everything that we know about objects(as a general concept in
   * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
   * Can contain any other type of data inside themselves(the places, where this data is stored are called _fields_ and in Lua they are just string keys in a table)
 
-From this section you also need remember that there is a difference between the _object_ as a general concept in programming and those objects that exist in Lua. In Lua the word _object_ could mean one of two things:
+From this section you also need to remember that there is a difference between the _object_ as a general concept in programming and those objects that exist in Lua. In Lua the word _object_ could mean one of two things:
   * Just a value that is stored in the variable as a reference(for example, functions)
   * The implementation of the general concept using stuff that Lua has(for example, RAICK objects are designed using almost every data type available to fit the list features that this general concept declares)
 There are actually a lot of other features that a true object should have, but i did not want to make them too complex, so they are sort of like a lightweight option.
