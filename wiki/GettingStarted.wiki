@@ -74,7 +74,7 @@ Most of them are created during installation, others during runtime, when needed
     * <u>*`[`4`]` Messages.lua* file</u>
     In this file you can also define handlers like in two previous ones, but in this case they are meant to intercept messages that bots send to each other. This is a unique feature of RAICK that allows exchanging arbitrary data between homunculus and mercenary AI's.
     * <u>*`[`5`]` Activities.lua* file</u>
-    The "heart" of your AI. Here you must define activities that you want your homunculus/mercenary to perform. Activities(also known as _states_ in most of AI's) is just a way to divide your script into logical parts. Each activity is basically a set of actions, which are logically grouped under some name. For example, the basic set of activities could be:
+    The "heart" of your AI. Here you must define activities that you want your homunculus/mercenary to perform. Activities(also known as _states_ in most AI's) is just a way to divide your script into logical parts. Each activity is basically a set of actions, which are logically grouped under some name. For example, the basic set of activities could be:
       * _Passive_ - Don't react to anything. Just follow the owner.
       * _Active_ - If a monster is in sight then start chasing it(switch to _Chase_ activity), if not then follow owner.
       * _Chase_ - Chase the monster until you get close enough and then start attacking it(switch to _Attack_ activity).
