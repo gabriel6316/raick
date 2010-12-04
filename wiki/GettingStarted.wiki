@@ -121,7 +121,7 @@ Are all permitted. It does not matter if you write `'ON'` or `ON` inside this fi
 And one more thing- if you omit/delete some setting the default value will be used. All of this is done for your convenience.<br><br>
 ----
 ==<font color="#006666">Try It Out!</font>==
-The best way to learn something in programming is by doing practical exercises or writing something yourself, so lets write a simple AI using RAICK. This way by the end of this chapter you will have both a working script and an idea of whether RAICK actually suits your needs.<br><br>
+The best way to learn something in programming is by doing practical exercises or writing something yourself, so let's write a simple AI using RAICK. This way by the end of this chapter you will have both a working script and an idea of whether RAICK actually suits your needs.<br><br>
 ----
 ===<font color="#006600">Some Extra Knowledge: Objects in RAICK</font>===
 As much as would like to dig into the scripting process right away i can't leave this topic without attention, since roughly it is what RAICK is made of.<br>
@@ -131,7 +131,7 @@ From the chapter about Lua your know that an _object_ is a value, which is store
 -- 'homunID' is the ID of your homunculus and (x,y) are coordinates of the destination cell.
 Move(homunID, x, y)
 
--- Now lets observe how it is done in RAICK:
+-- Now let's observe how it is done in RAICK:
 Homunculus.goTo(object)
 -- Do you remember that i had mentioned something about the syntax 'something.something(arg1, arg2, ...)'?
 -- Well, here it is. This is just a way to call inner functions of objects. Those functions are called "methods".
@@ -148,7 +148,7 @@ You can see that instead of writing a lot of separate functions that take their 
 Instead of:<br>
   _Function, make homunculus with this ID do that_<br>
 This approach allows us to have a more organized, understandable and maintainable code and that is why objects are used in programming.<br>
-So lets now sum up everything that we know about objects(as a general concept in programming):
+So let's now sum up everything that we know about objects(as a general concept in programming):
   * Are values that are stored in variables as references
   * Are created using a special command/function(that can also take arguments as you will see later)
   * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
@@ -162,14 +162,14 @@ There are actually a lot of other features that a true object should have, but i
 ----
 ===<font color="#006600">The Initial Idea</font>===
 Now that RAICK objects is smaller mystery for us we can, finally, start thinking about our script. First of all, you need to have a clear idea of what you want from your AI. Every AI has a main purpose and this purpose defines the principles that you will use when creating it. Will it be for PvP or for mob killing only or maybe you would like to make a tank out of your homunculus/mercenary that would try to provoke monsters on itself. Of course, it is easy to say that: "I want it to be as cool as RampageAI!", but wouldn't it be easier then just to use Rampage instead? RAICK is not meant(but still can be used) to build super-complex AI's that do everything, because those AI's are already created and i don't think that you can make something even close to AzzyAI or RAIL, not speaking of writing a better one. Instead RAICK gives you, on the one hand, a way to get into the scripting process with less pain and, on the other hand, the possibility to write small scripts that 100% fulfill your needs. When your needs change, your script will change with them. This way you can initially write yourself a very simple script and modify it as your needs and your skills in programming will grow. Small, but constant changes to your script- that is the pattern i recommend following, when creating your AI using RAICK.<br>
-So, going back to the idea. Lets create a script for homunculus Vanilmirth that would allow us to:
+So, going back to the idea. Let's create a script for homunculus Vanilmirth that would allow us to:
   # Give homunculus orders to attack a specified target using both Caprise and normal attacks
   # Auto-attack those who are damaging your character or homunculus and use caprise on those, who cast something on us(excluding support skills)
   # Switch between active and passive modes
 Those 3 objectives now give us something to move further and start writing our first lines of code.<br><br>
 ----
 ===<font color="#006600">First Lines of Code</font>===
-Lets move to our workplace- the `Homunculus AI` directory. Open the `On Startup` file. Here we can initialize(put initial values to) the variables that we are going to use. This is not entirely needed, but it allows us to eliminate the need to check our variables later in the code. Right now the only one we will need is the one, where we would store our target. So we write:
+Let's move to our workplace- the `Homunculus AI` directory. Open the `On Startup` file. Here we can initialize(put initial values to) the variables that we are going to use. This is not entirely needed, but it allows us to eliminate the need to check our variables later in the code. Right now the only one we will need is the one, where we would store our target. So we write:
 <code language="lua">
 mainTarget = Actor()
 -- 'Actor()' is a constructor for the object 'Actor', which represents all objects that your homunculus/mercenary can see(monsters, players, NPCs).
@@ -178,8 +178,8 @@ mainTarget = Actor()
 -- .. it is better to use this value instead of 'nil' as you will see later.
 </code>
 
-What we have done is we have put a blank actor as a default value for the target. It is the first/initial value that this variable will have when the script starts and it will signal that we have not got a target at the moment. If we haven't done this, then the default value would have been `nil`, which would force us to check this variable for `nil` every time we read it.<br>
-The first step is made, lets now turn to the "main course"- the `Activities` file. As you can see one activity is already defined here. It serves mainly as an example. In this activity your homunculus would just follow you. This is certainly too simple for us so lets modify it.<br>
+What we have done is we have put a blank actor as a default value for the target. It is the first/initial value that this variable will have when the script starts and it will signal that we have not got a target at the moment. If we haven't had done this, then the default value would have been `nil`, which would force us to check this variable for `nil` every time we read it.<br>
+The first step is made, let's now turn to the "main course"- the `Activities` file. As you can see one activity is already defined here. It serves mainly as an example. In this activity your homunculus would just follow you. This is certainly too simple for us so let's modify it.<br>
 To begin we need at least 2 activities:
 <code language="lua">
 function    Main()
@@ -226,7 +226,7 @@ So, we can change modes now, but that doesn't give us anything without a target 
 ----
 ===<font color="#006600">Manual Target Selection</font>===
 There are many ways to tell your bot to attack something. If it doesn't have any targeted skills(for example, _Lif_ or _Amistr_), then basically the only choice you have is clicking near the target and ordering your bot to attack the closest actor to this cell. Luckily, our _Vanilmirth_ has got _Caprise_ and we can use it directly to select targets.<br>
-Lets do it then! Open `Skills` file. As always in RAICK handlers are already defined and default actions are set. What you need to do is redefine the handler for _Caprise_:
+Let's do it then! Open `Skills` file. As always in RAICK handlers are already defined and default actions are set. What you need to do is redefine the handler for _Caprise_:
 <code language="lua">
 -- 'target' is an argument that this handler receives.
 -- This variable holds the 'Actor' object that represents the monster or player, on which you have used the skill 'Caprise'.
@@ -284,7 +284,7 @@ With so little lines of code we already have ourselves a primitive, but nonethel
 In the next section we will make an attempt to complete our AI by adding the auto-attack functionality.<br><br>
 ----
 ===<font color="#006600">Automated Target Selection</font>===
-To implement this feature we need to update both `Main` and `AttackMainTarget` activities. Lets start with `AttackMainTarget`:
+To implement this feature we need to update both `Main` and `AttackMainTarget` activities. Let's start with `AttackMainTarget`:
 <code language="lua">
 function    AttackTarget(target)
 
@@ -308,7 +308,7 @@ end
 </code>
 
 There are 2 changes here: we have renamed `AttackMainTarget` to `AttackTarget` and added activity argument `target`, which is now used instead of `mainTarget`. Activity arguments are just like usual function arguments plus they are automatically saved to(and retrieved from) the memory.<br>
-Lets now look at the modified `Main` activity to see how you can pass arguments to activities:
+Let's now look at the modified `Main` activity to see how you can pass arguments to activities:
 <code language="lua">
 function    Main()
 
@@ -388,7 +388,7 @@ The third problem lies in the automated target selection part. Here we have forg
 ...
 </code>
 
-The final issue is very small, but could lead to a very annoying and confusing error. It lies in the `AttackTarget` activity(and pretty much every activity that uses arguments). As i have mentioned before, activity arguments are automatically saved to the memory preventing it from being vanished(turned to `nil`) upon the restart of the AI. But what if for some reason the memory is lost? The probability of that is very small, but nonetheless it can happen and thus this problem needs to be fixed. So, lets do it:
+The final issue is very small, but could lead to a very annoying and confusing error. It lies in the `AttackTarget` activity(and pretty much every activity that uses arguments). As i have mentioned before, activity arguments are automatically saved to the memory preventing it from being vanished(turned to `nil`) upon the restart of the AI. But what if for some reason the memory is lost? The probability of that is very small, but nonetheless it can happen and thus this problem needs to be fixed. So, let's do it:
 <code language="lua">
 function    AttackTarget(target)
 
