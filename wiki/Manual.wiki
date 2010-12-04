@@ -15,7 +15,7 @@ Objects that are direct representations of the in-game objects of Ragnarok(actor
   * The second call. Your character does not move. The current cell is (15,23). The previous cell is now also (15,23), since this is the value of the previous call, but the last cell remains `nil`, because the was no change in the value.
   * The third call. Your character has moved. The current cell is now (16,24). The previous cell remains (15,23), but the last cell changes to (15,23), since the current value has changed and we now know that the last cell, on which our character has stepped was (15,23).
 OK, i guess you are now ready. Lets get down to business.<br><br>
-===<font color="#006600">Single objects</font>===
+===<font color="#006600">Single Objects</font>===
 ====<font color="#660000">Cell</font>====
 Represents a cell with (x,y) coordinates on a map/location. The coordinates of a cell, which your character is currently occupying can always be checked using the */where* command.
   * *Constructor*
@@ -31,7 +31,7 @@ Represents a cell with (x,y) coordinates on a map/location. The coordinates of a
 ====<font color="#660000">Timer</font>====
 ====<font color="#660000">Logger</font>====
 ====<font color="#660000">Vector</font>====
-===<font color="#006600">Multipliable objects</font>===
+===<font color="#006600">Multipliable Objects</font>===
 ====<font color="#660000">Homunculus</font>====
 ====<font color="#660000">Mercenary</font>====
 ====<font color="#660000">Memory</font>====
