@@ -34,7 +34,7 @@ Represents a cell with (x,y) coordinates on a map/location. The coordinates of a
       * <u>Description:</u>
         Y-coordinate of the cell.<br>
     * *Description:*
-      
+      Returns the _Cell_ object, which represents the cell with (<font color="#0052A3">*x*</font>, <font color="#0052A3">*y*</font>) coordinates.
   * <u>*Fields*</u>
   * <u>*Methods*</u>
   * <u>*Operators*</u>
