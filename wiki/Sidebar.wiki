@@ -14,7 +14,7 @@
       * [http://code.google.com/p/raick/wiki/Lua#Conditions_&_Booleans Conditions & Booleans]
       * [http://code.google.com/p/raick/wiki/Lua#Loops Loops]
       * [http://code.google.com/p/raick/wiki/Lua#Standard_Libraries Standard Libraries]
-      * [http://code.google.com/p/raick/wiki/Lua#The_hard_part:_Objects_and_Primitive_types The hard part: Objects and Primitive types]
+      * [http://code.google.com/p/raick/wiki/Lua#The_Hard_Part:_Objects_and_Primitive_Types The Hard Part: Objects and Primitive Types]
   * [GettingStarted Getting Started]
     * [http://code.google.com/p/raick/wiki/GettingStarted#Installation Installation]
     * [http://code.google.com/p/raick/wiki/GettingStarted#Files_&_Folders Files & Folders]
