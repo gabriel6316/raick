@@ -1,4 +1,4 @@
-=<font color="#003366">Getting started</font>=
+=<font color="#003366">Getting Started</font>=
 ==<font color="#006666">Installation</font>==
 First things first, you need to let RAICK install itself. Unlike other AI scripts RAICK is packaged into a single file. This file contains all of the logic needed to create the initial folder and file structure.<br>
   * To install RAICK you first need to decide where to put it. A typical place for custom scripts is the `USER_AI` folder, but you are not limited to a specific place. Once the `RAICK.lua` file is in place, open your `AI.lua` or `AI_M.lua` file in either `AI` or `AI/USER_AI` folder(depending on what */hoai* setting you are planning to use) and put a single line of code there:
@@ -120,10 +120,10 @@ Would all refer to the same setting. The same is with values:
 Are all permitted. It does not matter if you write `'ON'` or `ON` inside this file, since variable names are translated into strings.<br>
 And one more thing- if you omit/delete some setting the default value will be used. All of this is done for your convenience.<br><br>
 ----
-==<font color="#006666">Try it out!</font>==
+==<font color="#006666">Try It Out!</font>==
 The best way to learn something in programming is by doing practical exercises or writing something yourself, so lets write a simple AI using RAICK. This way by the end of this chapter you will have both a working script and an idea of whether RAICK actually suits your needs.<br><br>
 ----
-===<font color="#006600">Some extra knowledge: Objects is RAICK</font>===
+===<font color="#006600">Some Extra Knowledge: Objects in RAICK</font>===
 As much as would like to dig into the scripting process right away i can't leave this topic without attention, since roughly it is what RAICK is made of.<br>
 From the chapter about Lua your know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the _object_ is not only some value that stores its reference in a variable, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
 <code language="lua">
@@ -160,7 +160,7 @@ From this section you also need to remember that there is a difference between t
 There are actually a lot of other features that a true object should have, but i did not want to make them too complex, so they are sort of like a lightweight option.
 <br><br>
 ----
-===<font color="#006600">The initial idea</font>===
+===<font color="#006600">The Initial Idea</font>===
 Now that RAICK objects is smaller mystery for us we can, finally, start thinking about our script. First of all, you need to have a clear idea of what you want from your AI. Every AI has a main purpose and this purpose defines the principles that you will use when creating it. Will it be for PvP or for mob killing only or maybe you would like to make a tank out of your homunculus/mercenary that would try to provoke monsters on itself. Of course, it is easy to say that: "I want it to be as cool as RampageAI!", but wouldn't it be easier then just to use Rampage instead? RAICK is not meant(but still can be used) to build super-complex AI's that do everything, because those AI's are already created and i don't think that you can make something even close to AzzyAI or RAIL, not speaking of writing a better one. Instead RAICK gives you, on the one hand, a way to get into the scripting process with less pain and, on the other hand, the possibility to write small scripts that 100% fulfill your needs. When your needs change, your script will change with them. This way you can initially write yourself a very simple script and modify it as your needs and your skills in programming will grow. Small, but constant changes to your script- that is the pattern i recommend following, when creating your AI using RAICK.<br>
 So, going back to the idea. Lets create a script for homunculus Vanilmirth that would allow us to:
   # Give homunculus orders to attack a specified target using both Caprise and normal attacks
@@ -168,7 +168,7 @@ So, going back to the idea. Lets create a script for homunculus Vanilmirth that 
   # Switch between active and passive modes
 Those 3 objectives now give us something to move further and start writing our first lines of code.<br><br>
 ----
-===<font color="#006600">First lines of code</font>===
+===<font color="#006600">First Lines of Code</font>===
 Lets move to our workplace- the `Homunculus AI` directory. Open the `On Startup` file. Here we can initialize(put initial values to) the variables that we are going to use. This is not entirely needed, but it allows us to eliminate the need to check our variables later in the code. Right now the only one we will need is the one, where we would store our target. So we write:
 <code language="lua">
 mainTarget = Actor()
@@ -224,7 +224,7 @@ If we drop the technical details, then what `Activity.current.is.Main` does is i
 So, we can change modes now, but that doesn't give us anything without a target to attack, since passive mode is made mainly to stop homunculus/mercenary from attacking the target. We will deal with this issue in the next section.
 <br><br>
 ----
-===<font color="#006600">Manual target selection</font>===
+===<font color="#006600">Manual Target Selection</font>===
 There are many ways to tell your bot to attack something. If it doesn't have any targeted skills(for example, _Lif_ or _Amistr_), then basically the only choice you have is clicking near the target and ordering your bot to attack the closest actor to this cell. Luckily, our _Vanilmirth_ has got _Caprise_ and we can use it directly to select targets.<br>
 Lets do it then! Open `Skills` file. As always in RAICK handlers are already defined and default actions are set. What you need to do is redefine the handler for _Caprise_:
 <code language="lua">
@@ -238,7 +238,7 @@ end
 </code>
 Nothing to comment here.<br><br>
 ----
-===<font color="#006600">Back to our activities</font>===
+===<font color="#006600">Back to Our Activities</font>===
 The preparation work is done, it is now time to think about how we are going to use the selected target. Obviously, we want to kill it. I propose that we make another activity just for this cause:
 <code language="lua">
 function    Main()
@@ -283,7 +283,7 @@ In the `AttackMainTarget` activity we check for the opposite: if the target is n
 With so little lines of code we already have ourselves a primitive, but nonetheless a working AI! So far, we have implemented 2 out of 3 ideas.<br>
 In the next section we will make an attempt to complete our AI by adding the auto-attack functionality.<br><br>
 ----
-===<font color="#006600">Automated target selection</font>===
+===<font color="#006600">Automated Target Selection</font>===
 To implement this feature we need to update both `Main` and `AttackMainTarget` activities. Lets start with `AttackMainTarget`:
 <code language="lua">
 function    AttackTarget(target)
@@ -336,7 +336,7 @@ end
 This is the first time you see how the `for` loop is used to scan through every actor visible. `Owner.surround.each()` work similarly to `ipairs` meaning that it passes actors(along with the index `i`) one by one to the loop. What you can also notice here is that we now specify the target through the argument of the `AttackTarget` activity and that we use `return` to interrupt the execution of the activity. This technique very useful in cases when you have already switched to another activity and don't want the current activity to be executed anymore.<br>
 At this moment we can say that all 3 planned features are implemented, but actually there are still some minor details that require our attention. We will have a look at them in the next section.<br><br>
 ----
-===<font color="#006600">The final touch</font>===
+===<font color="#006600">The Final Touch</font>===
 The first issue concerns the fact that the main target we select is not saved to the memory. This could be easily fixed with a few modifications.<br>
 In `On Startup` file:
 <code language="lua">
@@ -399,7 +399,7 @@ function    AttackTarget(target)
 </code>
 With this last addition we can finally say that the script is done! Enjoy your (most likely first) self-made AI!<br><br>
 ----
-===<font color="#006600">It's done!</font>===
+===<font color="#006600">It's Done!</font>===
 In this short introductory guide i have shown you how a working AI could be created using RAICK. This page is not intended to teach you the details of how everything works, it is just an example of some of RAICK's core features. I can say that i have demonstrated only about 5-7% of what RAICK can really offer you. To learn the full potential of RAICK you need to get yourself acquainted with the [Manual Reference manual].
 <br><br>
 ----
