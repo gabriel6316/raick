@@ -1,7 +1,7 @@
 =<font color="#003366">Downloads</font>=
 ==<font color="#006666">RAICK Final Version</font>==
 [http://raick.googlecode.com/files/RAICK.lua http://www.le.ac.uk/engassoc/images/download.png]
-==<font color="#006666">Other Downloads</font>==
+==<font color="#006666">All Downloads</font>==
 [http://code.google.com/p/raick/downloads/list http://upload.wikimedia.org/wikipedia/commons/thumb/archive/e/e6/20070927221153!GreenButton_RightArrow.svg/120px-GreenButton_RightArrow.svg.png]
 <br><br>
 =<font color="#003366">Change Log</font>=
