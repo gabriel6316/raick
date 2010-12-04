@@ -9,7 +9,7 @@ Objects are basically what RAICK is made of. About 80% of what the framework off
  Exist only in one exemplar, which is automatically created upon startup of your script.
  * Multipliable objects
  Can be created multiple times using the _constructor_, which located in a global variable with the same name as the type of the object(for example, constructor for object `Cell` is located in the global variable `Cell`). The constructor is nothing more than a function and like every function it can take arguments(for example, `Cell(20,30)` creates a `Cell` object with coordinates (20,30)).<br>
-Some objects allow operators to be used on them(you can distinguish them by the *Operators* subsection). For example, you may remember that we have used operator `..` to get the distance between your homunculus and its target in the [http://code.google.com/p/raick/wiki/GettingStarted#Back_to_Our_Activities Getting Started] guide.<br>
+Some objects allow operators to be used on them(you can distinguish them by the <u>*Operators*</u> subsection). For example, you may remember that we have used operator `..` to get the distance between your homunculus and its target in the [http://code.google.com/p/raick/wiki/GettingStarted#Back_to_Our_Activities Getting Started] guide.<br>
 Objects that are direct representations of the in-game objects of Ragnarok(actors, cell, your homunculus/mercenary, your character) have 2 special tables inside each of them. One is called `prev`, the other `last`. The first one is used to store information about the object from the previous call of the AI by the client(remember that the data changes only between those calls). The information in the second table changes only when the current data is changed. For example:
   * The script has started and the AI is called for the first time. The current cell of your character is (15,23). The previous cell is `nil` and the last cell is also `nil` since there is no previous data available.
   * The second call. Your character does not move. The current cell is (15,23). The previous cell is now also (15,23), since this is the value of the previous call, but the last cell remains `nil`, because the was no change in the value.
@@ -18,10 +18,26 @@ OK, i guess you are now ready. Lets get down to business.<br><br>
 ===<font color="#006600">Single Objects</font>===
 ====<font color="#660000">Cell</font>====
 Represents a cell with (x,y) coordinates on a map/location. The coordinates of a cell, which your character is currently occupying can always be checked using the */where* command.
-  * *Constructor*
-  * *Fields*
-  * *Methods*
-  * *Operators*
+  * <u>*Constructor*</u>
+    Cell(<font color="#0052A3">*x*</font>, <font color="#0052A3">*y*</font>)<br>
+    * *Arguments:*
+      <font color="#0052A3"><strong>x</strong></font>
+      * <u>Optional:</u> No
+      * <u>Type:</u> _number_
+      * <u>Accepted Values:</u> > 0
+      * <u>Description:</u>
+        X-coordinate of the cell.<br>
+      <font color="#0052A3"><strong>y</strong></font>
+      * <u>Optional:</u> No
+      * <u>Type:</u> _number_
+      * <u>Accepted Values:</u> > 0
+      * <u>Description:</u>
+        Y-coordinate of the cell.<br>
+    * *Description:*
+      
+  * <u>*Fields*</u>
+  * <u>*Methods*</u>
+  * <u>*Operators*</u>
 ====<font color="#660000">Actor</font>====
 ====<font color="#660000">Value</font>====
 ====<font color="#660000">Points</font>====
