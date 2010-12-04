@@ -1,4 +1,4 @@
-=<font color="#003366">Lua and the ABC of programming</font>=
+=<font color="#003366">Lua and the ABC of Programming</font>=
 Now, this is not a guide on programming. This is just the basic knowledge, which will help you understand how RAICK works. It is mainly theoretical stuff, which may seem too abstracted from the actual AI, but be patient- this is the basis, which you need to know and understand before we dig into the real thing.
 ==<font color="#006666">Client & Script</font>==
 As you probably already know from your experience with AI's the entry point for any AI script is the `AI.lua`/`AI_M.lua` file. This is a regular text file, using which your Ragnarok game client makes(every time your homunculus/mercenary enters the screen) a small program(the AI) that(every time it is called/asked) tells the client what actions should your homunculus/mercenary perform based on the data that the client provides it with. This happens multiple times per second and that's how the AI actually works. When your homunculus/mercenary leaves the screen for some reason(death, _Rest/Vaporize_ skill etc) the AI program is stopped and thrown away with all of its data. Once the the homunculus/mercenary will appear on the screen again the client will make a fresh AI program from the AI text file and the cycle will continue.
@@ -257,7 +257,7 @@ end
 -- 'g' is now 51.
 </code><br><br>
 ----
-===<font color="#006600">Standard libraries</font>===
+===<font color="#006600">Standard Libraries</font>===
 A *standard library* is nothing more than a set of predefined functions that come with the language. Mathematical operators(`+, -, /, *`) are good examples of such functions, but there are a lot more. You have already seen the `ipairs` function, that can help us to search through a table, which is organized into a primitive list. The next very important function in context of RAICK is `require`. With its' help you can divide your script into multiple files and link them to your main file like so:
 <code language="lua">
 require "./AI/USER_AI/RAICK.lua" -- This is also how you attach RAICK to the AI.lua/AI_M.lua.
@@ -283,7 +283,7 @@ rand = math.random(-3, 2) -- Returns -3, -2, -1, 0, 1 or 2 randomly.
 Random is often useful in programming. The main use for it in AI scripts is the so called "dance attack".<br>
 These are just some examples of the standard functions. This is just a short overview of Lua, so i am not doing to cover the rest of them(and they are quite useless for you anyway).<br><br>
 ----
-===<font color="#006600">The hard part: Objects and Primitive types</font>===
+===<font color="#006600">The Hard Part: Objects and Primitive Types</font>===
 OK, we are almost done! I don't know if this is actually the hardest part, but it tends to be quite confusing for most people. I just want you to try to understand it, since it is a very important issue, especially with RAICK.<br>
 Lets, first of all, review what types we have learned during this quick guide:
   * number
@@ -364,5 +364,5 @@ b = a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.
 This is just a funny example, but this principle actually has a great implementation in RAICK as you will see later.<br>
 I hope that i have made this important issue a bit less complicated. Try to understand it, since in RAICK you will mainly be dealing with objects.<br><br>
 ----
-===<font color="#006600">It's over!</font>===
+===<font color="#006600">It's Over!</font>===
 Finally! Your torture is over! We have covered the most boring and most crucial part of mastering RAICK. Now, you have the knowledge to dig into the interesting part- [GettingStarted a quick guide on using RAICK].
