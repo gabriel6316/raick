@@ -6,7 +6,7 @@
   # [History History of the Project]<font size="4">
     * _[http://code.google.com/p/raick/wiki/History#H.A.I.C.K. H.A.I.C.K.]
     * [http://code.google.com/p/raick/wiki/History#R.A.I.C.K._v1 R.A.I.C.K. v1]
-    * [http://code.google.com/p/raick/wiki/History#Going_International_with_R.A.I.C.K._v2 Going international with R.A.I.C.K. v2]_</font>
+    * [http://code.google.com/p/raick/wiki/History#Going_International_with_R.A.I.C.K._v2 Going International with R.A.I.C.K. v2]_</font>
   # [Lua Lua and the ABC of Programming]<font size="4">
     * _[http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]
     * [http://code.google.com/p/raick/wiki/Lua#Building_Blocks_of_Lua Building Blocks of Lua]<font size="3">
