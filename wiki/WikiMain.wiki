@@ -1,3 +1,4 @@
+
 =<font color="#003366">Table of Contents for R.A.I.C.K. Wikipedia</font>=
 
 <font size="5">
@@ -29,7 +30,7 @@
       * [http://code.google.com/p/raick/wiki/GettingStarted#The_Initial_Idea The Initial Idea]
       * [http://code.google.com/p/raick/wiki/GettingStarted#First_Lines_of_Code First Lines of Code]
       * [http://code.google.com/p/raick/wiki/GettingStarted#Manual_Target_Selection Manual Target Selection]
-      * [http://code.google.com/p/raick/wiki/GettingStarted#Back_to_Our_Activities Back to our Activities]
+      * [http://code.google.com/p/raick/wiki/GettingStarted#Back_to_Our_Activities Back to Our Activities]
       * [http://code.google.com/p/raick/wiki/GettingStarted#Automated_Target_Selection Automated Target Selection]
       * [http://code.google.com/p/raick/wiki/GettingStarted#The_Final_Touch The Final Touch]
       * [http://code.google.com/p/raick/wiki/GettingStarted#It%27s_Done! It's Done!]
