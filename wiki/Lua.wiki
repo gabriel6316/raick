@@ -10,7 +10,7 @@ So, from all of this you should remember the following:
   * The AI looses all of its data when it stops working
 These facts may seem i bit confusing right now, but they will help you to understand some things better in future chapters.
 ==<font color="#006666">Building blocks of Lua</font>==
-Lets focus more on that text file. The client assumes it is written in Lua. Being above all a *programming language* it follows some basic concepts that i would like to explain to you.
+Let's focus more on that text file. The client assumes it is written in Lua. Being above all a *programming language* it follows some basic concepts that i would like to explain to you.
 ===<font color="#006600">Types, Values & Variables</font>===
 All programming languages have three basic concepts in common:
   * Types
@@ -128,7 +128,7 @@ e = a.method(1) -- 'e' now holds value 1.
 Before we continue i would like to say a few words about one important type, which is *nil*. This is a special type, which has only one value- `nil`. This value signals the absence of any other value. For example, if you refer to a variable that you have not used before it will contain `nil`. You can also use `nil` to delete anything from a variable or from under a table key.<br><br>
 ----
 ===<font color="#006600">Conditions & Booleans</font>===
-So far we have seen programming as a process of writing lines of code that get executed inside some main function, which is being initially called by someone(in our case- the Ragnarok client). What if we want to execute a certain line only when a certain condition is satisfied? We need a way to define conditions and some structure that would interpret them. This structure is known in programming as the *if statement*. It takes a condition, which can return either `true` or `false` and executes the enclosed code based on this value. Now, hold on a second! `true` or `false`? What's that? Well, those are values of type *boolean*. This type has only those 2 values. They are used in cases where you need to know if the result is: positive or negative, yes or no, on or off, true or false etc. That's why they are ideal for *conditional expressions*. Those are expressions similar to arithmetic ones like `2 * 3 + 5`, only they deal with logical and comparison operators and return `true` or `false` instead of a numeric result. Lets make things clear using examples:
+So far we have seen programming as a process of writing lines of code that get executed inside some main function, which is being initially called by someone(in our case- the Ragnarok client). What if we want to execute a certain line only when a certain condition is satisfied? We need a way to define conditions and some structure that would interpret them. This structure is known in programming as the *if statement*. It takes a condition, which can return either `true` or `false` and executes the enclosed code based on this value. Now, hold on a second! `true` or `false`? What's that? Well, those are values of type *boolean*. This type has only those 2 values. They are used in cases where you need to know if the result is: positive or negative, yes or no, on or off, true or false etc. That's why they are ideal for *conditional expressions*. Those are expressions similar to arithmetic ones like `2 * 3 + 5`, only they deal with logical and comparison operators and return `true` or `false` instead of a numeric result. Let's make things clear using examples:
 <code language="lua">
 a = 1
 b = 2
@@ -208,7 +208,7 @@ end
 </code><br><br>
 ----
 ===<font color="#006600">Loops</font>===
-The final structure you need to know about is the *loop*. This structure is very similar to the if statement, only in this case the code gets executed over and over again while the conditional expression is true. There are many types of loops in Lua, but with RAICK you will actually need to know only one of them- the *for* loop. This loop has 2 ways of using it. Lets examine both of them in the following example:
+The final structure you need to know about is the *loop*. This structure is very similar to the if statement, only in this case the code gets executed over and over again while the conditional expression is true. There are many types of loops in Lua, but with RAICK you will actually need to know only one of them- the *for* loop. This loop has 2 ways of using it. Let's examine both of them in the following example:
 <code language="lua">
 a = 0
 
@@ -285,7 +285,7 @@ These are just some examples of the standard functions. This is just a short ove
 ----
 ===<font color="#006600">The Hard Part: Objects and Primitive Types</font>===
 OK, we are almost done! I don't know if this is actually the hardest part, but it tends to be quite confusing for most people. I just want you to try to understand it, since it is a very important issue, especially with RAICK.<br>
-Lets, first of all, review what types we have learned during this quick guide:
+Let's, first of all, review what types we have learned during this quick guide:
   * number
   * string
   * boolean
@@ -319,7 +319,7 @@ b = a -- 'b' now holds a copy of what is stored in 'a'- number 1.
 type(a) -- A copy of the value in 'a' is passed as an argument, not the value itself.
 -- The value in 'a' and the value that will be processed inside the function are 2 different exemplars of the same value.
 
--- Lets now see how the object behaves.
+-- Let's now see how the object behaves.
 a = {}
 -- 'a' holds a reference(think of a hyperlink in your browser) to the table, which has been created using constructor '{}'.
 -- When we query what is stored in the variable we get a copy of the reference(not the value)- a copy of the link to the same value:
@@ -331,7 +331,7 @@ a.abc = 1
 c = b.abc -- You will get 1, since the table has been modified before.
 -- It does not matter which variable you use to modify the table or query from it- the result is identical.
 
--- Lets do the same thing with a function:
+-- Let's do the same thing with a function:
 function    a()
 
     return 1
