@@ -1,8 +1,8 @@
 =<font color="#003366">Downloads</font>=
-* [http://raick.googlecode.com/files/RAICK.lua R.A.I.C.K. Final Version]
-* [http://code.google.com/p/raick/downloads/list Other Downloads]
+  * <font size="5">[http://raick.googlecode.com/files/RAICK.lua R.A.I.C.K. Final Version]</font>
+  * [http://code.google.com/p/raick/downloads/list Other Downloads]
 <br><br>
-----
+
 =<font color="#003366">Change Log</font>=
 ----
 ===<font color="#A30000">13.11.10</font> | <font color="#006600">2.0.0</font>===
