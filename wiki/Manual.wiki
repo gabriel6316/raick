@@ -1,9 +1,9 @@
 =<font color="#E07000"><< Under construction >></font>=
 <br>
-=<font color="#003366">Reference manual</font>=
+=<font color="#003366">Reference Manual</font>=
 A reference manual is a place, where the developer(s) describes his creation in details. It is often a very dry and concrete document, reading which be quite boring. You can check out the [http://www.lua.org/manual/5.1/manual.html Lua documentation] for an example of a typical reference manual.<br>
 In this manual I'll try to keep a balance between technicality and lucidity of the content.
-==<font color="#006666">Detailed description of objects</font>==
+==<font color="#006666">Detailed Description of Objects</font>==
 Objects are basically what RAICK is made of. About 80% of what the framework offers is in one way or another related to them. They are divided into 2 categories:
  * Single objects
  Exist only in one exemplar, which is automatically created upon startup of your script.
@@ -35,6 +35,6 @@ Represents a cell with (x,y) coordinates on a map/location. The coordinates of a
 ====<font color="#660000">Homunculus</font>====
 ====<font color="#660000">Mercenary</font>====
 ====<font color="#660000">Memory</font>====
-==<font color="#006666">Detailed overview of files</font>==
-==<font color="#006666">Understanding RAICK errors</font>==
-==<font color="#006666">Data exchange between homunculus and mercenary</font>==
+==<font color="#006666">Detailed Overview of Files</font>==
+==<font color="#006666">Understanding RAICK Errors</font>==
+==<font color="#006666">Data Exchange Between Homunculus and Mercenary</font>==
