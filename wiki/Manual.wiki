@@ -43,10 +43,10 @@ Represents a cell with (x,y) coordinates on a map/location. The coordinates of a
         An arbitrary series consisting of any values. For example: `is(1, 2, "abc")`.<br>
       * *Description*
        This method can receive any number of arguments of any type, but only certain values have meaning for it. The method returns `true` if all given values are "telling" the truth about the current object. If among those values is at least one value that the method cannot interpret it will return `false`. Below is the list of types/values that the method can understand:<br><br>
-         * `Cell` — Returns _true_ if the given cell is the same as the current.
-         * `string "visible"` — Returns _true_ if the current cell is in range of sight of your character.
-         * `string "occupied"` — Returns _true_ if the current cell is occupied by some object.
-         * `string "x;y"` — Returns _true_ if the current cell has specified (x,y) coordinates.
+         * `Cell` — Returns `true` if the given cell is the same as the current.
+         * `string "visible"` — Returns `true` if the current cell is in range of sight of your character.
+         * `string "occupied"` — Returns `true` if the current cell is occupied by some object.
+         * `string "x;y"` — Returns `true` if the current cell has specified (x,y) coordinates.
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">cell</font> + <font color="#006666">vector</font> `*` <font color="#5E5B00">distance</font></font>* :: `Cell`<br><br>
       * *Arguments*<br><br>
