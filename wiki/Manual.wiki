@@ -42,7 +42,7 @@ Represents a cell with (x,y) coordinates on a map/location. The coordinates of a
         * <font color="#006666">*…*</font>
         An arbitrary series consisting of any values. For example: `is(1, 2, "abc")`.<br>
       * *Description*
-       This method can receive any number of arguments of any type, but only certain values have meaning for it. The method returns _true_ if all given values are "telling" the truth about the current object. If among those values is at least one value that the method cannot interpret it will return _false_. Below is the list of types/values that the method can understand:<br><br>
+       This method can receive any number of arguments of any type, but only certain values have meaning for it. The method returns `true` if all given values are "telling" the truth about the current object. If among those values is at least one value that the method cannot interpret it will return `false`. Below is the list of types/values that the method can understand:<br><br>
          * `Cell` — Returns _true_ if the given cell is the same as the current.
          * `"visible"` — Returns _true_ if the current cell is in range of sight of your character.
          * `"occupied"` — Returns _true_ if the current cell is occupied by some object.
