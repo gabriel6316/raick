@@ -3,7 +3,7 @@
 <br><br><br><br>
 <p align="middle">
 <font size="7">*[http://code.google.com/p/raick/wiki/GettingStarted#Installation How to Install]*</font><br><br><br><br>
-<font size="5">*[http://code.google.com/p/raick/downloads/list Show All Downloads ››]*</font>
+<font size="5">*[http://code.google.com/p/raick/downloads/list Show All Downloads »]*</font>
 <br><br>
 =<font color="#003366">Change Log</font>=
 ----
