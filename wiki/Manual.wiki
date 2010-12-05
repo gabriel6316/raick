@@ -15,29 +15,83 @@ Objects that are direct representations of the in-game objects of Ragnarok(actor
   * The second call. Your character does not move. The current cell is (15,23). The previous cell is now also (15,23), since this is the value of the previous call, but the last cell remains `nil`, because the was no change in the value.
   * The third call. Your character has moved. The current cell is now (16,24). The previous cell remains (15,23), but the last cell changes to (15,23), since the current value has changed and we now know that the last cell, on which our character has stepped was (15,23).
 OK, i guess you are now ready. Lets get down to business.<br><br>
-===<font color="#006600">Single Objects</font>===
+===<font color="#006600">Multipliable Objects</font>===
 ====<font color="#660000">Cell</font>====
 Represents a cell with (x,y) coordinates on a map/location. The coordinates of a cell, which your character is currently occupying can always be checked using the */where* command.
-  * <u>*Constructor*</u>
-    Cell(<font color="#0052A3">*x*</font>, <font color="#0052A3">*y*</font>)<br>
-    * *Arguments:*
-      <font color="#0052A3"><strong>x</strong></font>
-      * <u>Optional:</u> No
-      * <u>Type:</u> _number_
-      * <u>Accepted Values:</u> > 0
-      * <u>Description:</u>
-        X-coordinate of the cell.<br>
-      <font color="#0052A3"><strong>y</strong></font>
-      * <u>Optional:</u> No
-      * <u>Type:</u> _number_
-      * <u>Accepted Values:</u> > 0
-      * <u>Description:</u>
-        Y-coordinate of the cell.<br>
-    * *Description:*
-      Returns the _Cell_ object with (<font color="#0052A3">*x*</font>, <font color="#0052A3">*y*</font>) coordinates.
-  * <u>*Fields*</u>
-  * <u>*Methods*</u>
-  * <u>*Operators*</u>
+  * <u>*Constructors*</u><br><br>
+    * *<font color="#0052A3">Cell( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>*<br><br>
+      * *Arguments:*<br><br>
+        * <font color="#006666">*x*</font>
+        <u>Optional:</u> No<br>
+        <u>Type:</u> _number_<br>
+        <u>Accepted Values:</u> > 0<br>
+        <u>Description:</u> The X-coordinate of the cell.<br>
+        * <font color="#006666">*y*</font>
+        <u>Optional:</u> No<br>
+        <u>Type:</u> _number_<br>
+        <u>Accepted Values:</u> > 0<br>
+        <u>Description:</u> The Y-coordinate of the cell.<br>
+      * *Description:*
+        Returns the _Cell_ object with (<font color="#006666">*x*</font>, <font color="#006666">*y*</font>) coordinates.
+  * <u>*Fields*</u><br><br>
+      * <font color="#006666">*x*</font>
+      <u>Type:</u> _number_<br>
+      <u>Description:</u> The X-coordinate of the cell.<br>
+      * <font color="#006666">*y*</font>
+      <u>Type:</u> _number_<br>
+      <u>Description:</u> The Y-coordinate of the cell.<br>
+      * <font color="#006666">*occupier*</font>
+      <u>Type:</u> _Actor_ | _Owner_ | _Homunculus_ | _Mercenary_ | _nil_<br>
+      <u>Description:</u> The object, which is currently standing on the cell. Contains _nil_ if the cell is empty. In case on multiple occupiers contains only one of them.<br>
+  * <u>*Regular Methods*</u><br>
+    —<br>
+  * <u>*_is_ Methods*</u><br><br>
+    * *<font color="#0052A3">is( <font color="#006666">...</font> )</font>*<br><br>
+      * *Arguments:*<br><br>
+        * <font color="#006666">*...*</font>
+        <u>Optional:</u> No<br>
+        <u>Type:</u> Every<br>
+        <u>Accepted Values:</u> All<br>
+        <u>Description:</u> An arbitrary series consisting of any values. For example: `is(1, 2, "abc")`.<br>
+      * *Description:*
+       
+  * <u>*Operators*</u><br><br>
+    * *<font color="#0052A3"><font color="#006666">cell</font> + <font color="#006666">vector</font> `*` <font color="#006666">distance</font></font>*<br><br>
+      * *Returns:* _Cell_<br><br>
+      * *Arguments:*<br><br>
+        * <font color="#006666">*cell*</font>
+        <u>Optional:</u> No<br>
+        <u>Type:</u> _Cell_<br>
+        <u>Accepted Values:</u> All<br>
+        <u>Description:</u> An arbitrary _Cell_ object.<br>
+        * <font color="#006666">*vector*</font>
+        <u>Optional:</u> No<br>
+        <u>Type:</u> _Vector_<br>
+        <u>Accepted Values:</u> All<br>
+        <u>Description:</u>  An arbitrary _Vector_ object.<br>
+        * <font color="#006666">*distance*</font>
+        <u>Optional:</u> Yes<br>
+        <u>Type:</u> _number_<br>
+        <u>Accepted Values:</u> All<br>
+        <u>Default Value:</u> 1<br>
+        <u>Description:</u>  The distance, by which the *<font color="#006666">cell</font>* will be shifted in the direction of *<font color="#006666">vector</font>*. Negative values will shift it in the opposite direction.<br>
+      * *Description:*
+        This equation returns the cell, which is *<font color="#006666">distance</font>* cells away from the *<font color="#006666">cell</font>* in the direction defined by *<font color="#006666">vector</font>*.
+    * *<font color="#0052A3"><font color="#006666">cell</font> .. <font color="#006666">object</font></font>*<br><br>
+      * *Returns:* _number_<br><br>
+      * *Arguments:*<br><br>
+        * <font color="#006666">*cell*</font>
+        <u>Optional:</u> No<br>
+        <u>Type:</u> _Cell_<br>
+        <u>Accepted Values:</u> All<br>
+        <u>Description:</u> An arbitrary _Cell_ object.<br>
+        * <font color="#006666">*object*</font>
+        <u>Optional:</u> No<br>
+        <u>Type:</u> _Cell_ |  _Actor_ |  _Owner_ |  _Homunculus_ |  _Mercenary_<br>
+        <u>Accepted Values:</u> _Actor_ must be visible; No restrictions for others<br>
+        <u>Description:</u> Any in-game object, distance till which you want to know.<br>
+      * *Description:*
+        Returns the distance(in cells) between the <font color="#006666">*cell*</font> and the <font color="#006666">*object*</font>.
 ====<font color="#660000">Actor</font>====
 ====<font color="#660000">Value</font>====
 ====<font color="#660000">Points</font>====
@@ -47,7 +101,7 @@ Represents a cell with (x,y) coordinates on a map/location. The coordinates of a
 ====<font color="#660000">Timer</font>====
 ====<font color="#660000">Logger</font>====
 ====<font color="#660000">Vector</font>====
-===<font color="#006600">Multipliable Objects</font>===
+===<font color="#006600">Single Objects</font>===
 ====<font color="#660000">Homunculus</font>====
 ====<font color="#660000">Mercenary</font>====
 ====<font color="#660000">Memory</font>====
