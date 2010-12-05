@@ -20,78 +20,52 @@ OK, i guess you are now ready. Lets get down to business.<br><br>
 Represents a cell with (x,y) coordinates on a map/location. The coordinates of a cell, which your character is currently occupying can always be checked using the */where* command.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Cell( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>*<br><br>
-      * *Arguments:*<br><br>
-        * <font color="#006666">*x*</font>
-        <u>Optional:</u> No<br>
-        <u>Type:</u> _number_<br>
-        <u>Accepted Values:</u> > 0<br>
-        <u>Description:</u> The X-coordinate of the cell.<br>
-        * <font color="#006666">*y*</font>
-        <u>Optional:</u> No<br>
-        <u>Type:</u> _number_<br>
-        <u>Accepted Values:</u> > 0<br>
-        <u>Description:</u> The Y-coordinate of the cell.<br>
-      * *Description:*
+      * *Arguments*<br><br>
+        * <font color="#006666">*x*</font> :: `number` ( > 0 )<br>
+        The X-coordinate of the cell.<br>
+        * <font color="#006666">*y*</font> :: `number` ( > 0 )<br>
+        The Y-coordinate of the cell.<br>
+      * *Description*
         Returns the _Cell_ object with (<font color="#006666">*x*</font>, <font color="#006666">*y*</font>) coordinates.
   * <u>*Fields*</u><br><br>
-      * <font color="#006666">*x*</font>
-      <u>Type:</u> _number_<br>
-      <u>Description:</u> The X-coordinate of the cell.<br>
-      * <font color="#006666">*y*</font>
-      <u>Type:</u> _number_<br>
-      <u>Description:</u> The Y-coordinate of the cell.<br>
-      * <font color="#006666">*occupier*</font>
-      <u>Type:</u> _Actor_ | _Owner_ | _Homunculus_ | _Mercenary_ | _nil_<br>
-      <u>Description:</u> The object, which is currently standing on the cell. Contains _nil_ if the cell is empty. In case on multiple occupiers contains only one of them.<br>
+      * <font color="#006666">*x*</font> :: `number`<br>
+      The X-coordinate of the cell.<br>
+      * <font color="#006666">*y*</font> :: `number`<br>
+      The Y-coordinate of the cell.<br>
+      * <font color="#006666">*occupier*</font> :: `Actor` | `Owner` | `Homunculus` | `Mercenary` | `nil`<br>
+      The object, which is currently standing on the cell. Contains `nil` if the cell is empty. In case on multiple occupiers contains only one of them.<br>
   * <u>*Regular Methods*</u><br>
     —<br>
   * <u>*_is_ Methods*</u><br><br>
-    * *<font color="#0052A3">is( <font color="#006666">...</font> )</font>*<br><br>
-      * *Arguments:*<br><br>
-        * <font color="#006666">*...*</font>
-        <u>Optional:</u> No<br>
-        <u>Type:</u> Every<br>
-        <u>Accepted Values:</u> All<br>
-        <u>Description:</u> An arbitrary series consisting of any values. For example: `is(1, 2, "abc")`.<br>
-      * *Description:*
-       
+    * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*…*</font>
+        An arbitrary series consisting of any values. For example: `is(1, 2, "abc")`.<br>
+      * *Description*
+       This method can receive any number of arguments of any type, but only certain values have meaning for it. The method returns _true_ if all given values are "telling" the truth about the current object. If among those values is at least one value that the method cannot interpret it will return _false_. Below is the list of types/values that the method can understand:<br><br>
+         * `Cell` — Returns _true_ if the given cell is the same as the current.
+         * `"visible"` — Returns _true_ if the current cell is in range of sight of your character.
+         * `"occupied"` — Returns _true_ if the current cell is occupied by some object.
+         * `"x;y"` — Returns _true_ if the current cell has specified (x,y) coordinates.
   * <u>*Operators*</u><br><br>
-    * *<font color="#0052A3"><font color="#006666">cell</font> + <font color="#006666">vector</font> `*` <font color="#006666">distance</font></font>*<br><br>
-      * *Returns:* _Cell_<br><br>
-      * *Arguments:*<br><br>
-        * <font color="#006666">*cell*</font>
-        <u>Optional:</u> No<br>
-        <u>Type:</u> _Cell_<br>
-        <u>Accepted Values:</u> All<br>
-        <u>Description:</u> An arbitrary _Cell_ object.<br>
-        * <font color="#006666">*vector*</font>
-        <u>Optional:</u> No<br>
-        <u>Type:</u> _Vector_<br>
-        <u>Accepted Values:</u> All<br>
-        <u>Description:</u>  An arbitrary _Vector_ object.<br>
-        * <font color="#006666">*distance*</font>
-        <u>Optional:</u> Yes<br>
-        <u>Type:</u> _number_<br>
-        <u>Accepted Values:</u> All<br>
-        <u>Default Value:</u> 1<br>
-        <u>Description:</u>  The distance, by which the *<font color="#006666">cell</font>* will be shifted in the direction of *<font color="#006666">vector</font>*. Negative values will shift it in the opposite direction.<br>
-      * *Description:*
-        This equation returns the cell, which is *<font color="#006666">distance</font>* cells away from the *<font color="#006666">cell</font>* in the direction defined by *<font color="#006666">vector</font>*.
-    * *<font color="#0052A3"><font color="#006666">cell</font> .. <font color="#006666">object</font></font>*<br><br>
-      * *Returns:* _number_<br><br>
-      * *Arguments:*<br><br>
-        * <font color="#006666">*cell*</font>
-        <u>Optional:</u> No<br>
-        <u>Type:</u> _Cell_<br>
-        <u>Accepted Values:</u> All<br>
-        <u>Description:</u> An arbitrary _Cell_ object.<br>
-        * <font color="#006666">*object*</font>
-        <u>Optional:</u> No<br>
-        <u>Type:</u> _Cell_ |  _Actor_ |  _Owner_ |  _Homunculus_ |  _Mercenary_<br>
-        <u>Accepted Values:</u> _Actor_ must be visible; No restrictions for others<br>
-        <u>Description:</u> Any in-game object, distance till which you want to know.<br>
-      * *Description:*
-        Returns the distance(in cells) between the <font color="#006666">*cell*</font> and the <font color="#006666">*object*</font>.
+    * *<font color="#0052A3"><font color="#006666">cell</font> + <font color="#006666">vector</font> `*` <font color="#5E5B00">distance</font></font>* :: `Cell`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*cell*</font> :: `Cell`<br>
+        An arbitrary `Cell` object.<br>
+        * <font color="#006666">*vector*</font> :: `Vector`<br>
+        An arbitrary `Vector` object.<br>
+        * <font color="#5E5B00">*distance*</font> | `1` :: _number_<br>
+        The distance, by which the *<font color="#006666">cell</font>* will be shifted in the direction of *<font color="#006666">vector</font>*. Negative values will shift it in the opposite direction.<br>
+      * *Description*
+        This equation returns the cell, which is *<font color="#5E5B00">distance</font>* cells away from the *<font color="#006666">cell</font>* in the direction defined by *<font color="#006666">vector</font>*.
+    * *<font color="#0052A3"><font color="#006666">cell</font> .. <font color="#006666">object</font></font>* :: `number` | `nil`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*cell*</font> :: `Cell`<br>
+        An arbitrary `Cell` object.<br>
+        * <font color="#006666">*object*</font> :: `Cell` | `Actor` ( must be visible ) | `Owner` |  `Homunculus` |  `Mercenary`<br>
+        Any in-game object, distance till which you want to know.<br>
+      * *Description*
+        Returns the distance(in cells) between the <font color="#006666">*cell*</font> and the <font color="#006666">*object*</font>. If the <font color="#006666">*object*</font> is an `Actor`, which is not visible, then returns `nil`.
 ====<font color="#660000">Actor</font>====
 ====<font color="#660000">Value</font>====
 ====<font color="#660000">Points</font>====
