@@ -99,12 +99,12 @@ RAICK can be configured using the `RAICK.Settings.lua` file. Currently RAICK has
   <u>Default:</u> `NO`<br>
   <u>Supported values:</u> `YES, NO, ON, OFF`<br>
 
-  Defines whether Logger objects react to */traceai* command status. This will be explained in the next chapter.
+  Defines whether Logger objects react to */traceai* command status. This setting is used for [http://code.google.com/p/raick/wiki/Manual#Logger Loggers].
   * *BotCommunication*
   <u>Default:</u> `OFF`<br>
   <u>Supported values:</u> `YES, NO, ON, OFF`<br>
 
-  Turns communication between homunculus and mercenary ON or OFF. This will be explained in the next chapter.
+  Turns communication between homunculus and mercenary ON or OFF. Explained [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary here].
 The names of settings and the values that they support are case insensitive, furthermore you can even separate different words with underscores. For example:
   * visionrange
   * ViSion`___`RanGE
