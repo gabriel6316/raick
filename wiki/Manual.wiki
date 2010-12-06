@@ -56,7 +56,7 @@ Represents a cell with (x,y) coordinates on a map/location. The coordinates of a
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Arguments*<br><br>
-        * <font color="#006666">*…*</font>
+        * <font color="#006666">*…* :: A series of values</font>
         An arbitrary series consisting of any values. For example: `is(1, 2, "abc")`.<br>
       * *Accepted Values*<br><br>
          * `Cell` - Returns `true` if the given cell is the same as the current.
@@ -65,7 +65,7 @@ Represents a cell with (x,y) coordinates on a map/location. The coordinates of a
          * `"x;y"` - Returns `true` if the current cell has specified (x,y) coordinates. The delimiter ; can be replaced with anything you want as long as it is not a number.  For example `"23;45"`, `"23|45"`.<br><br>
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
       * *Arguments*<br><br>
-        * <font color="#006666">*value*</font> :: `string`<br>
+        * <font color="#006666">*value*</font> :: `string` ( In table field syntax )<br>
         The name of the property you want to check.<br>
       * *Accepted Values*<br><br>
          * `visible` - See previous method.
