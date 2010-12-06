@@ -58,7 +58,7 @@ Represents a cell with (x,y) coordinates on a map/location. The coordinates of a
       * *Arguments*<br><br>
         * <font color="#006666">*…*</font>  :: A series of values
         An arbitrary series consisting of any values. For example: `is(1, 2, "abc")`.<br>
-      * *Accepted Types and Values*<br><br>
+      * *Accepted Types or Values*<br><br>
          * `Cell` - Returns `true` if the given cell is the same as the current.
          * `"visible"` - Returns `true` if the current cell is in range of sight of your character.
          * `"occupied"` - Returns `true` if the current cell is occupied by some actor.
