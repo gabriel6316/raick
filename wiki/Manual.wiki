@@ -1,7 +1,7 @@
 =<font color="#E07000">« Under construction »</font>=
 <br>
 =<font color="#003366">Reference Manual</font>=
-A reference manual is a place, where the developer(s) describes his creation in details. It is often a very dry and concrete document, reading which be quite boring. You can check out the [http://www.lua.org/manual/5.1/manual.html Lua documentation] for an example of a typical reference manual.<br>
+A reference manual is a place, where the developer describes his creation in details. It is often a very dry and concrete document, reading which can be quite boring. You can check out the [http://www.lua.org/manual/5.1/manual.html Lua documentation] for an example of a typical reference manual.<br>
 In this manual I'll try to keep a balance between technicality and lucidity of the content.
 ==<font color="#006666">Detailed Description of Objects</font>==
 Objects are basically what RAICK is made of. About 80% of what the framework offers is in one way or another related to them. They are divided into 2 categories:
@@ -10,16 +10,27 @@ Objects are basically what RAICK is made of. About 80% of what the framework off
  * Multipliable objects
  Can be created multiple times using the _constructor_, which located in a global variable with the same name as the type of the object(for example, constructor for object `Cell` is located in the global variable `Cell`). The constructor is nothing more than a function and like every function it can take arguments(for example, `Cell(20,30)` creates a `Cell` object with coordinates (20,30)).<br>
 Some objects allow operators to be used on them(you can distinguish them by the <u>*Operators*</u> subsection). For example, you may remember that we have used operator `..` to get the distance between your homunculus and its target in the [http://code.google.com/p/raick/wiki/GettingStarted#Back_to_Our_Activities Getting Started] guide.<br>
+You may also notice that the <u>*Constructors*</u> subsection is in plural. That is because objects can indeed have multiple constructors. Every constructor takes different number or types of arguments and based on that produces an object with desired properties. This can be best seen if you look at the [http://code.google.com/p/raick/wiki/Manual#Logger Logger] object.
 Objects that are direct representations of the in-game objects of Ragnarok(actors, cell, your homunculus/mercenary, your character) have 2 special tables inside each of them. One is called `prev`, the other `last`. The first one is used to store information about the object from the previous call of the AI by the client(remember that the data changes only between those calls). The information in the second table changes only when the current data is changed. For example:
   * The script has started and the AI is called for the first time. The current cell of your character is (15,23). The previous cell is `nil` and the last cell is also `nil` since there is no previous data available.
   * The second call. Your character does not move. The current cell is (15,23). The previous cell is now also (15,23), since this is the value of the previous call, but the last cell remains `nil`, because the was no change in the value.
   * The third call. Your character has moved. The current cell is now (16,24). The previous cell remains (15,23), but the last cell changes to (15,23), since the current value has changed and we now know that the last cell, on which our character has stepped was (15,23).
-OK, i guess you are now ready. Lets get down to business.<br><br>
+===<font color="#006600">A Few Words About the Syntax</font>===
+In the description below i use some syntactical aids to reduce the amount of unneeded repeating text making the manual more compact.<br>
+For constructors, operators and object methods:
+  * I use *<font color="#0052A3">blue</font>*.
+  * After the :: i specify the return type of the constructor/method/operator. If the constructor/method/operator can return different types in different situations(for example, `nil` if something is wrong), then those types are separated with | .
+For arguments and object fields:
+  * I use *<font color="#5E5B00">dark yellow</font>* for optional arguments(the ones that you can omit when calling a function/method/constructor) and *<font color="#006666">cyan</font>* for mandatory arguments and object fields.
+  * If the argument is optional, then i specify the default value(which is used if the argument is omitted) after the | .
+  * After the :: i specify the type of the argument/field. If the argument/field can have/contain different types, then those types are separated with | . If the argument is supposed to have not only a certain type, but also i certain value(for example, > 0), then the restriction is specified inside ( ) next to the type.
+<br>
+----
 ===<font color="#006600">Multipliable Objects</font>===
 ====<font color="#660000">Cell</font>====
 Represents a cell with (x,y) coordinates on a map/location. The coordinates of a cell, which your character is currently occupying can always be checked using the */where* command.
   * <u>*Constructors*</u><br><br>
-    * *<font color="#0052A3">Cell( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>*<br><br>
+    * *<font color="#0052A3">Cell( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>* :: `Cell`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*x*</font> :: `number` ( > 0 )<br>
         The X-coordinate of the cell.<br>
