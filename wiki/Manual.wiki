@@ -98,10 +98,10 @@ Represents an in-game character(monster, NPC or player character), which can be 
         ID of the actor.<br>
       * *Description*
         Returns an _Actor_ object, which represent an in-game character with given ID.
-  * <u>*Fields*</u><br><br>
-  * <u>*Regular Methods*</u><br>
-  * <u>*_is_ Methods*</u><br><br>
-  * <u>*Operators*</u><br><br>
+  * <u>*Fields*</u>
+  * <u>*Regular Methods*</u>
+  * <u>*_is_ Methods*</u>
+  * <u>*Operators*</u>
 ====<font color="#660000">Value</font>====
 ====<font color="#660000">Points</font>====
 ====<font color="#660000">Skill</font>====
