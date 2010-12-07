@@ -34,6 +34,36 @@ For arguments and object fields:
 ----
 ===<font color="#006600">Multipliable Objects</font>===
 ====<font color="#660000">Value</font>====
+The most primitive object in RAICK. It is used mainly to store the data about [http://code.google.com/p/raick/wiki/Manual#Actor actors]. Each object consists basically of a `number` and a `string`. In most cases the string is used to describe or translate the meaning of the number(ID), but you can also use the number, for example, to index the string or use only the string omitting the number. What i am saying is that it is just a `string`-`number` pair and it can be interpreted in many ways according to the place it is used in.<br>
+Later in this guide i will specify `Value` objects in the following manner: `"string" (number1, number2, ...)`. For example:
+    * `"Assassin" (12)` specifies a `Value` object with `"Assassin"` for a name and 12 for the number(ID).
+    * `"Attacking" (2, 9)` specifies 2 `Value` objects, both having `"Attacking"` for a name and 2, 9 for the ID respectively.
+In these examples i have specified `Value` objects that translate original ID's of a character type and an action type into human-readable strings and that is actually the main idea behind this object.
+  * <u>*Constructors*</u><br><br>
+    * *<font color="#0052A3">Value( <font color="#006666">name</font> , <font color="#5E5B00">id</font> )</font>* :: `Cell`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*name*</font> :: `string`<br>
+        Some name.<br>
+        * <font color="#5E5B00">*id*</font> | `0` :: `number`<br>
+        Some number, ID or index.<br>
+      * *Description*
+        Returns a `Value` object with given <font color="#006666">*name*</font> and <font color="#006666">*value*</font>.
+  * <u>*Fields*</u><br><br>
+      * <font color="#006666">*name*</font> :: `string`<br>
+      The name of the value.<br>
+      * <font color="#006666">*id*</font> :: `number`<br>
+      The ID of the value.<br>
+  * <u>*Regular Methods*</u><br>
+    —<br>
+  * <u>*_is_ Methods*</u><br><br>
+    * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
+      * *Accepted Types or Values*<br><br>
+         * `Value` - Returns `true` if the given value is the same as the current.
+         * `number` - Returns `true` if the `number` equals the <font color="#006666">*id*</font> of the current object.
+         * `string` - Returns `true` if the `string` equals the <font color="#006666">*name*</font> of the current object.<br><br>
+    * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
+      * *Accepted Values*<br><br>
+         * `string` - See previous method.
 ====<font color="#660000">Cell</font>====
 Represents a cell with (x,y) coordinates on the current map/location. The coordinates of a cell, which your character is currently occupying can always be checked using the */where* command.
   * <u>*Constructors*</u><br><br>
@@ -98,9 +128,9 @@ Represents an in-game character(monster, NPC or player character), which can be 
       Actors' ID.<br>
       * <font color="#006666">*status*</font> :: `Value`<br>
       Actors' current visibility status. Can be one of the following:<br><br>
-        * `"unknown" (0)` - The actor is outside of the vision range and the AI cannot get any data about it.
-        * `"hidden" (1)` - The actor is inside the vision range, but it is visually hidden(_Hiding_, _Clocking_ etc), which means that the AI cannot get its' location.
-        * `"visible" (2)` - The actor is visually observable.<br>
+        * `"Unknown" (0)` - The actor is outside of the vision range and the AI cannot get any data about it.
+        * `"Hidden" (1)` - The actor is inside the vision range, but it is visually hidden(_Hiding_, _Clocking_ etc), which means that the AI cannot get its' location.
+        * `"Visible" (2)` - The actor is visually observable.<br>
       * <font color="#006666">*prev.status*</font> :: `Value`<br>
       Actors' previous visibility status.<br>
       * <font color="#006666">*last.status*</font> :: `Value`<br>
@@ -113,18 +143,18 @@ Represents an in-game character(monster, NPC or player character), which can be 
       Actors' last cell.<br>
       * <font color="#006666">*action*</font> :: `Value`<br>
       Actors' current action. Can be one of the following:<br><br>
-        * `"standing" (0)` - The actor is standing.
-        * `"moving" (1)` - The actor is moving.
-        * `"attacking" (2, 9)` - The actor is attacking.
-        * `"dead" (3)` - The actor is dead.
-        * `"damaged" (4)` - The actor is being damaged.
-        * `"bending" (5)` - The actor is bending to place something on the ground or to pick something up.
-        * `"sitting" (6)` - The actor is sitting.
-        * `"casted" (7, 20, 21, 22, 23, 24, 26, 30, 31, 32, 33, 34, 35, 36, 38, 39, 40)` - The actor has casted/used a skill.
-        * `"casting" (8, 13, 18, 19, 28, 37, 41, 42)` - The actor is casting a skill.
-        * `"throwing" (12)` - The actor is throwing something.
-        * `"dancing" (16)` - The actor is dancing.
-        * `"performing" (17)` - The actor is performing a song.
+        * `"Standing" (0)` - The actor is standing.
+        * `"Moving" (1)` - The actor is moving.
+        * `"Attacking" (2, 9)` - The actor is attacking.
+        * `"Dead" (3)` - The actor is dead.
+        * `"Damaged" (4)` - The actor is being damaged.
+        * `"Bending" (5)` - The actor is bending to place something on the ground or to pick something up.
+        * `"Sitting" (6)` - The actor is sitting.
+        * `"Casted" (7, 20, 21, 22, 23, 24, 26, 30, 31, 32, 33, 34, 35, 36, 38, 39, 40)` - The actor has casted/used a skill.
+        * `"Casting" (8, 13, 18, 19, 28, 37, 41, 42)` - The actor is casting a skill.
+        * `"Throwing" (12)` - The actor is throwing something.
+        * `"Dancing" (16)` - The actor is dancing.
+        * `"Performing" (17)` - The actor is performing a song.
       * <font color="#006666">*prev.action*</font> :: `Value`<br>
       Actors' previous action.
       * <font color="#006666">*last.action*</font> :: `Value`<br>
