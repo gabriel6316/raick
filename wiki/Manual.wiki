@@ -12,10 +12,14 @@ Objects are basically what RAICK is made of. About 80% of what the framework off
 Some objects allow operators to be used on them(you can distinguish them by the <u>*Operators*</u> subsection). For example, you may remember that we have used operator `..` to get the distance between your homunculus and its target in the [http://code.google.com/p/raick/wiki/GettingStarted#Back_to_Our_Activities Getting Started] guide.<br>
 You may also notice that the <u>*Constructors*</u> subsection is in plural. That is because objects can indeed have multiple constructors. Every constructor takes different number or types of arguments and based on that produces an object with desired properties. A good example is the [http://code.google.com/p/raick/wiki/Manual#Logger Logger] object.<br>
 The <u>*_is_ Methods*</u> subsection is used to describe what types and values does the _is_ group of methods understand for the current object. They are used to gain yes/no answers about the object. The group consists of 2 methods: `is` and `isNot`, which in turn have 2 forms, making a total of 4 methods. They can be described as follows:
-  * First form of `is` method: `object.is(value1, value2, value3, ...)`
-  * Second form of `is` method: `object.is.value`
-  * First form of `isNot` method: `object.isNot(value1, value2, value3, ...)`
-  * Second form of `isNot` method: `object.isNot.value`
+  * First form of `is` method:
+  `object.is(value1, value2, value3, ...)`
+  * Second form of `is` method:
+  `object.is.value`
+  * First form of `isNot` method:
+  `object.isNot(value1, value2, value3, ...)`
+  * Second form of `isNot` method:
+  `object.isNot.value`
 The `object.isNot.value` method is just another way of writing `not object.is.value`. It is more readable, that's all. The first form of the `is`/`isNot` method can receive an arbitrary number of arguments of any type, but only certain values have meaning for it. The method returns `true` if all given values are "telling" the truth about the current object. If among those values is at least one value that the method cannot interpret(or which is "lying")  it will return `false`. The second form does the same, but can take only one `string` argument, which is passed to the method in a very original and convenient way. For example, `actor.is("visible")` is just another way of writing `actor.is.visible`. Although the second form is more restricted it is nonetheless faster to write and far easier to read and that's why i decided to introduce it. Last thing worth mentioning is that all string argument are case insensitive meaning that, for example, `actor.is("VISiBLe")` or `actor.is.ViSiBle` would also be accepted.<br>
 Objects that are direct representations of the in-game objects of Ragnarok(actors, cell, your homunculus/mercenary, your character) have 2 special tables inside each of them. One is called `prev`, the other `last`. The first one is used to store information about the object from the previous call of the AI by the client(remember that the data changes only between those calls). The information in the second table changes only when the current data is changed. For example:
   * The script has started and the AI is called for the first time. The current cell of your character is (15,23). The previous cell is `nil` and the last cell is also `nil` since there is no previous data available.
