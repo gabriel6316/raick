@@ -125,7 +125,10 @@ Represents an in-game character(monster, NPC or player character), which can be 
         * `"throwing" (12)` - The actor is throwing something.
         * `"dancing" (16)` - The actor is dancing.
         * `"performing" (17)` - The actor is performing a song.
-<br>
+      * <font color="#006666">*prev.action*</font> :: `Value`<br>
+      Actors' previous action.
+      * <font color="#006666">*last.action*</font> :: `Value`<br>
+      Actors' last action.
   * <u>*Regular Methods*</u><br><br>
     —<br>
   * <u>*_is_ Methods*</u><br><br>
