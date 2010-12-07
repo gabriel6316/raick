@@ -57,8 +57,6 @@ In these examples i have specified `Value` objects that translate original ID's 
       The name of the value.<br>
       * <font color="#006666">*id*</font> :: `number`<br>
       The ID of the value.<br>
-  * <u>*Regular Methods*</u><br>
-    —<br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types or Values*<br><br>
@@ -86,8 +84,6 @@ Represents a cell with (x,y) coordinates on the current map/location. The coordi
       The Y-coordinate of the cell.<br>
       * <font color="#006666">*occupier*</font> :: `Actor` | `Owner` | `Homunculus` | `Mercenary` | `nil`<br>
       The "live" object, which is currently standing on the cell. Contains `nil` if the cell is empty. In case on multiple occupiers contains only one of them.<br>
-  * <u>*Regular Methods*</u><br>
-    —<br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types or Values*<br><br>
@@ -163,8 +159,6 @@ Represents an in-game character(monster, NPC or player character), which can be 
       Actors' previous action.
       * <font color="#006666">*last.action*</font> :: `Value`<br>
       Actors' last action.
-  * <u>*Regular Methods*</u><br>
-    —<br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types or Values*<br><br>
