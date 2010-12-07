@@ -43,7 +43,7 @@ Represents a cell with (x,y) coordinates on the current map/location. The coordi
         * <font color="#006666">*y*</font> :: `number` ( > 0 )<br>
         The Y-coordinate of the cell.<br>
       * *Description*
-        Returns the _Cell_ object with (<font color="#006666">*x*</font>, <font color="#006666">*y*</font>) coordinates.
+        Returns a _Cell_ object with (<font color="#006666">*x*</font>, <font color="#006666">*y*</font>) coordinates.
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*x*</font> :: `number`<br>
       The X-coordinate of the cell.<br>
@@ -91,6 +91,17 @@ Represents a cell with (x,y) coordinates on the current map/location. The coordi
         Returns the distance(in cells) between the <font color="#006666">*cell*</font> and the <font color="#006666">*object*</font>. If the <font color="#006666">*object*</font> is an `Actor`, which is not visible, then returns `nil`.
 ====<font color="#660000">Actor</font>====
 Represents an in-game character(monster, NPC or player character), which can be distinguished by its' unique ID. `Owner`, `Homunculus` and `Mercenary` objects can also be called actors, but they are allocated into separate object, since they are _special_ actors meaning that you can get more data about them and send commands to some of them.
+  * <u>*Constructors*</u><br><br>
+    * *<font color="#0052A3">Actor( <font color="#5E5B00">id</font> )</font>* :: `Actor`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#5E5B00">*id*</font> | `0` :: `number` ( >= 0 )<br>
+        ID of the actor.<br>
+      * *Description*
+        Returns an _Actor_ object with <font color="#006666">*id*</font> ID.
+  * <u>*Fields*</u><br><br>
+  * <u>*Regular Methods*</u><br>
+  * <u>*_is_ Methods*</u><br><br>
+  * <u>*Operators*</u><br><br>
 ====<font color="#660000">Value</font>====
 ====<font color="#660000">Points</font>====
 ====<font color="#660000">Skill</font>====
