@@ -163,7 +163,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
       Actors' previous action.
       * <font color="#006666">*last.action*</font> :: `Value`<br>
       Actors' last action.
-  * <u>*Regular Methods*</u><br><br>
+  * <u>*Regular Methods*</u><br>
     —<br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
