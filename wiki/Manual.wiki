@@ -26,7 +26,7 @@ Objects that are direct representations of the in-game objects of Ragnarok(actor
   * The second call. Your character does not move. The current cell is (15,23). The previous cell is now also (15,23), since this is the value of the previous call, but the last cell remains `nil`, because the was no change in the value.
   * The third call. Your character has moved. The current cell is now (16,24). The previous cell remains (15,23), but the last cell changes to (15,23), since the current value has changed and we now know that the last cell, on which our character has stepped was (15,23).
 ===<font color="#006600">A Few Words About the Syntax</font>===
-In the description below i use some syntactical aids to reduce the amount of unneeded repeating text making the manual more compact.<br>
+In the description below i use some syntactical aids to reduce the amount of unneeded repeating text and make the manual more compact.<br>
 For constructors, operators and object methods:
   * I use *<font color="#0052A3">blue</font>*.
   * After the :: i specify the return type of the constructor/method/operator. If the constructor/method/operator can return different types in different situations(for example, `nil` if something is wrong), then those types are separated with | .
