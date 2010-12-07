@@ -97,7 +97,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
         * <font color="#5E5B00">*id*</font> | `0` :: `number` ( >= 0 )<br>
         ID of the actor.<br>
       * *Description*
-        Returns an _Actor_ object with <font color="#006666">*id*</font> ID.
+        Returns an _Actor_ object, which represent an in-game character with given ID.
   * <u>*Fields*</u><br><br>
   * <u>*Regular Methods*</u><br>
   * <u>*_is_ Methods*</u><br><br>
