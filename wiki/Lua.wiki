@@ -118,7 +118,7 @@ function    a.method(arg)
 end
 
 e = a.method(1) -- 'e' now holds value 1.
--- What you have seen right now is that i have defined a function inside a table.
+-- What you see above is a definition of a function inside a table.
 -- Technically speaking: i have created a function and put it under string key "method" of a table inside a global variable 'a'.
 -- The syntax 'something.something(arg1, arg2, ...)' is very widespread in modern programming languages. What does it mean?
 -- Well, be patient, i will certainly refer to it many times in the chapter about using RAICK.
@@ -230,8 +230,8 @@ c = 0
 
 -- This is probably the main loop, which you will be using in RAICK, .. 
 -- .. since it allows searching through sets of data like friend lists, target lists or the list of monsters, players and NPC's on the screen.
--- It has a bit some complex logic behind it, but i will tell you only the stuff that you need to know.
--- It the example below between 'in' and 'do' you see a function, which takes a table 'b' as an argument.
+-- It has a bit more complex logic behind it, but i will tell you only the stuff that you need to know.
+-- In the example below between 'in' and 'do' you see a function, which takes a table 'b' as an argument.
 -- This is a function from the Lua standard library(be patient, this will be covered in the next section), ..
 -- .. which assumes that the given table has all of its' values under numeric keys starting from 1.
 -- Knowing that it then starts passing one by one values from the table to the for loop.
