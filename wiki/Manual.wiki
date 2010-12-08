@@ -66,7 +66,7 @@ In these examples i have specified `Value` objects that translate original ID's 
       * *Accepted `string` Values* (They are checked if the given string does not equal <font color="#006666">*name*</font>)<br><br>
          * `"evolved[HomType]"` - Returns `true` if the current object is describing an evolved homunculus of type  `[HomType]`. For example: `"evolvedFilir"`, `"evolvedVanilmirth"`.
          * `"[HomType]Evolved"` - The same as the previous one, but here `evolved` is written after the type. For example: `"lifEvolved"`, `"amistrEvolved"`.
-         * `"[ScrollLvl][MercType]"` - Returns `true` if the current object is describing a mercenary of type [MercType], which is summoned from scroll of lvl [ScrollLvl]. For example: `"6Bowman"`, `"1fencer"`.
+         * `"[ScrollLvl][MercType]"` - Returns `true` if the current object is describing a mercenary of type `[MercType]`, which is summoned from scroll of lvl `[ScrollLvl]`. For example: `"6Bowman"`, `"1fencer"`.
          * `"[MercType][ScrollLvl]"` - The same as the previous one, except the lvl of the scroll is now in the back. For example: `"Lancer10"`, `"bowman3"`.<br><br>
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
       * *Accepted Values*<br><br>
