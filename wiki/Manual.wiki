@@ -23,7 +23,7 @@ The <u>*_is_ Methods*</u> subsection is used to describe what types and values d
 The first form of the `is` method can receive an arbitrary number of arguments of any type, but only certain values have meaning for it. The method returns `true` if at least one of the given values(as if all arguments were grouped  with `or`) is "telling" the truth about the current object. If all of the given values are either "lying" or are unknown to the method it will return `false`. The second form does the same, but can take only one `string` argument, which is passed to the method in a very original and convenient way. For example, `actor.is.visible` is just another way of writing `actor.is("visible")`. Although the second form is more restricted it is nonetheless faster to write and far easier to read and that's why i decided to introduce it.<br>
 The `not` version of the method can be defined as `not object.is(value1, value2, value3, ...)` or `not object.is.value` meaning that it is added just for convenience. This method returns `true` if all of the given values are "lying" about the current object or are unknown to it and `false`, if at least one of the value is "telling" the truth.
 <br>
-Last thing worth mentioning is that all string argument are case insensitive meaning that, for example, `actor.is("VISiBLe")` or `actor.is.ViSiBle` would also be accepted.<br><br>
+Last thing worth mentioning is that all string argument are case insensitive meaning that, for example, `actor.is("VISiBLe")` or `actor.is.ViSiBle` would also be accepted. Furthermore, they are delimiter insensitive, which means that `actor.is("a bad person")`, `actor.is("a_badPERSON")` or `actor.is.AbadPerson` would refer to the same thing.<br><br>
 Objects that are direct representations of the in-game objects of Ragnarok(actors, cell, your homunculus/mercenary, your character) have 2 special tables inside each of them. One is called `prev`, the other `last`. The first one is used to store information about the object from the previous call of the AI by the client(remember that the data changes only between those calls). The information in the second table changes only when the current data is changed. For example:
   * The script has started and the AI is called for the first time. The current cell of your character is (15,23). The previous cell is `nil` and the last cell is also `nil` since there is no previous data available.
   * The second call. Your character does not move. The current cell is (15,23). The previous cell is now also (15,23), since this is the value of the previous call, but the last cell remains `nil`, because the was no change in the value.
@@ -163,6 +163,8 @@ Represents an in-game character(monster, NPC or player character), which can be 
       Actors' last cell.<br>
       * <font color="#006666">*action*</font> :: `Value`<br>
       Actors' current action. Can be one of the following:<br><br>
+        * `"Unknown" (-1)`
+        The action is unknown to RAICK.
         * `"Standing" (0)`
         The actor is standing.
         * `"Moving" (1)`
@@ -198,15 +200,104 @@ Represents an in-game character(monster, NPC or player character), which can be 
       * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
       Actors' last target.<br>
       * <font color="#006666">*group*</font> :: `Value`<br>
-      Actors' type group. <br>
+      Actors' type group. Can be one of the following:<br><br>
+        * `"Unknown" (0)`
+        The group is unknown to RAICK.
+        * `"Player" (1)`
+        The actor is a player.
+        * `"Mob" (2)`
+        The actor is a monster.
+        * `"NPC" (3)`
+        The actor is an NPC.
+        * `"Homunculus" (4)`
+        The actor is a homunculus.
+        * `"Mercenary" (5)`
+        The actor is a mercenary.
+        * `"WoE Stone" (6)`
+        The actor is an emperium or any defense stone/barricade in WoE 2.0.
+        * `"WoE Guardian" (7)`
+        The actor is a guardian in the castle(not the one in the Thor Volcano).
       * <font color="#006666">*type*</font> :: `Value`<br>
-      Actors' type. <br>
+      Actors' type. Can be one of the following depending of the <font color="#006666">*group*</font>:<br><br>
+        * `"Unknown" (-1)`
+        The type is unknown to RAICK.
+        * For <font color="#006666">*group*</font> `"Player"`:<br><br>
+          * `"Novice" (0)`
+          * `"Swordman" (1)`
+          * `"Magician" (2)`
+          * `"Archer" (3)`
+          * `"Acolyte" (4)`
+          * `"Merchant" (5)`
+          * `"Thief" (6)`
+          * `"Knight" (7, 13)`
+          * `"Priest" (8)`
+          * `"Wizard" (9)`
+          * `"Blacksmith" (10)`
+          * `"Hunter" (11)`
+          * `"Assassin" (12)`
+          * `"Crusader" (14, 21)`
+          * `"Monk" (15)`
+          * `"Sage" (16)`
+          * `"Rogue" (17)`
+          * `"Alchemist" (18)`
+          * `"Bard" (19)`
+          * `"Dancer" (20)`
+          * `"Wedding" (22)` - The player is in a wedding dress/tuxedo.
+          * `"Super Novice" (23)`
+          * `"Gunslinger" (24)`
+          * `"Ninja" (25)`
+          * `"Xmas" (26)` - The player is wearing a Santa's costume.
+          * `"Summer" (27)` - The player is wearing beach shirt and shorts.
+          * `"Novice High" (4001)`
+          * `"Swordman High" (4002)`
+          * `"Magician High" (4003)`
+          * `"Archer High" (4004)`
+          * `"Acolyte High" (4005)`
+          * `"Merchant High" (4006)`
+          * `"Thief High" (4007)`
+          * `"Lord Knight" (4008, 4014)`
+          * `"High Priest" (4009)`
+          * `"High Wizard" (4010)`
+          * `"Whitesmith" (4011)`
+          * `"Sniper" (4012)`
+          * `"Assassin Cross" (4013)`
+          * `"Paladin" (4015, 4022)`
+          * `"Champion" (4016)`
+          * `"Professor" (4017)`
+          * `"Stalker" (4018)`
+          * `"Creator" (4019)`
+          * `"Clown" (4020)`
+          * `"Gypsy" (4021)`
+          * `"Baby Novice" (4023)`
+          * `"Baby Swordman" (4024)`
+          * `"Baby Magician" (4025)`
+          * `"Baby Archer" (4026)`
+          * `"Baby Acolyte" (4027)`
+          * `"Baby Merchant" (4028)`
+          * `"Baby Thief" (4029)`
+          * `"Baby Knight" (4030, 4036)`
+          * `"Baby Priest" (4031)`
+          * `"Baby Wizard" (4032)`
+          * `"Baby Blacksmith" (4033)`
+          * `"Baby Hunter" (4034)`
+          * `"Baby Assassin" (4035)`
+          * `"Baby Crusader" (4037, 4044)`
+          * `"Baby Monk" (4038)`
+          * `"Baby Sage" (4039)`
+          * `"Baby Rogue" (400)`
+          * `"Baby Alchemist" (4041)`
+          * `"Baby Bard" (4042)`
+          * `"Baby Dancer" (4043)`
+          * `"Super Baby" (4045)`
+          * `"Taekwon" (4046)`
+          * `"Star Gladiator" (4047, 4048)`
+          * `"Soul Linker" (4049)`
       * <font color="#006666">*vector*</font> :: `Vector`<br>
-      Actors' current motion/movement vector. <br>
+      Actors' current motion vector. This vector reflects the current movement direction of the actor. More about vectors [http://code.google.com/p/raick/wiki/Manual#Vector here].<br>
       * <font color="#006666">*prev.vector*</font> :: `Vector`<br>
-      Actors' previous motion/movement vector. <br>
+      Actors' previous motion vector.<br>
       * <font color="#006666">*last.vector*</font> :: `Vector`<br>
-      Actors' last motion/movement vector. <br>
+      Actors' last motion vector.<br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
