@@ -191,6 +191,13 @@ Represents an in-game character(monster, NPC or player character), which can be 
       Actors' previous action.
       * <font color="#006666">*last.action*</font> :: `Value`<br>
       Actors' last action.
+      * <font color="#006666">*target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
+      Actors' current target. Contains a blank actor(ID = 0) if the current actor has no targets. The target is set when you have visually observed that the actor has attacked someone or has started casting any kind of targeted skill. The target preserved until changed and is reseted(turned to blank actor), when the actor goes beyond your vision range.<br>
+      The target is saved until the 
+      * <font color="#006666">*prev.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
+      Actors' previous target.<br>
+      * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
+      Actors' previous target.<br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
