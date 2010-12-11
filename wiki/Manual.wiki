@@ -27,8 +27,7 @@ Last thing worth mentioning is that all string argument are case insensitive mea
 Objects that are direct representations of the in-game objects of Ragnarok(actors, cell, your homunculus/mercenary, your character) have 2 special tables inside each of them. One is called `prev`, the other `last`. The first one is used to store information about the object from the previous call of the AI by the client(remember that the data changes only between those calls). The information in the second table changes only when the current data is changed. For example:
   * The script has started and the AI is called for the first time. The current cell of your character is (15,23). The previous cell is `nil` and the last cell is also `nil` since there is no previous data available.
   * The second call. Your character does not move. The current cell is (15,23). The previous cell is now also (15,23), since this is the value of the previous call, but the last cell remains `nil`, because the was no change in the value.
-  * The third call. Your character has moved. The current cell is now (16,24). The previous cell remains (15,23), but the last cell changes to (15,23), since the current value has changed and we now know that the last cell, on which our character has stepped was (15,23).<br><br>
-----
+  * The third call. Your character has moved. The current cell is now (16,24). The previous cell remains (15,23), but the last cell changes to (15,23), since the current value has changed and we now know that the last cell, on which our character has stepped was (15,23).
 ===<font color="#006600">A Few Words About the Syntax</font>===
 In the description below i use some syntactical aids to reduce the amount of unneeded repeating text and make the manual more compact.<br>
 For constructors, operators and object methods:
