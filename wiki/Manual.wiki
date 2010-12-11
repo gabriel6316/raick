@@ -38,7 +38,7 @@ For arguments and object fields:
   * If the argument is optional, then i specify the default value(which is used if the argument is omitted) after the | .
   * After the :: i specify the type of the argument/field. If the argument/field can have/contain different types, then those types are separated with | . If the argument is supposed to have not only a certain type, but also i certain value(for example, > 0), then the restriction is specified inside ( ) next to the type.
 For strings with special format:
-  * I specify some variable part like so: `[partOfTheString]`. For example: `"abc[num]"`(where `[num]` is a number) would mean that i refer to strings with `abc` in the beginning and numbers after that, such as: `"abc123"`, `"abc9"` or `"abc0"`.
+  * I specify some variable part like so: `[partOfTheString]`. For example: `"abc[num]"`, where `[num]` is a number, would mean that i refer to strings with `abc` in the beginning and numbers after that, such as: `"abc123"`, `"abc9"` or `"abc0"`.
 <br>
 ----
 ===<font color="#006600">Multipliable Objects</font>===
