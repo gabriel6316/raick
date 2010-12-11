@@ -154,7 +154,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
       * <font color="#006666">*prev.status*</font> :: `Value`<br>
       Actors' previous visibility status.<br>
       * <font color="#006666">*last.status*</font> :: `Value`<br>
-      Actors' previous last status.<br>
+      Actors' last visibility status.<br>
       * <font color="#006666">*cell*</font> :: `Cell`<br>
       Actors' current cell.<br>
       * <font color="#006666">*prev.cell*</font> :: `Cell`<br>
@@ -196,7 +196,17 @@ Represents an in-game character(monster, NPC or player character), which can be 
       * <font color="#006666">*prev.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
       Actors' previous target.<br>
       * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      Actors' previous target.<br>
+      Actors' last target.<br>
+      * <font color="#006666">*group*</font> :: `Value`<br>
+      Actors' type group. <br>
+      * <font color="#006666">*type*</font> :: `Value`<br>
+      Actors' type. <br>
+      * <font color="#006666">*vector*</font> :: `Vector`<br>
+      Actors' current motion/movement vector. <br>
+      * <font color="#006666">*prev.vector*</font> :: `Vector`<br>
+      Actors' previous motion/movement vector. <br>
+      * <font color="#006666">*last.vector*</font> :: `Vector`<br>
+      Actors' last motion/movement vector. <br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
