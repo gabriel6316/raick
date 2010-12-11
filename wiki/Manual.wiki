@@ -20,11 +20,15 @@ The <u>*_is_ Methods*</u> subsection is used to describe what types and values d
   `object.isNot(value1, value2, value3, ...)`
   * Second form of `isNot` method:
   `object.isNot.value`
-The first form of the `is` method can receive an arbitrary number of arguments of any type, but only certain values have meaning for it. The method returns `true` if at least one of the given values is "telling" the truth about the current object. If all of the given values are either "lying" or are unknown to the method it will return `false`. The second form does the same, but can take only one `string` argument, which is passed to the method in a very original and convenient way. For example, `actor.is.visible` is just another way of writing `actor.is("visible")`. Although the second form is more restricted it is nonetheless faster to write and far easier to read and that's why i decided to introduce it. Last thing worth mentioning is that all string argument are case insensitive meaning that, for example, `actor.is("VISiBLe")` or `actor.is.ViSiBle` would also be accepted.<br><br>
+The first form of the `is` method can receive an arbitrary number of arguments of any type, but only certain values have meaning for it. The method returns `true` if at least one of the given values(as if all arguments were grouped  with `or`) is "telling" the truth about the current object. If all of the given values are either "lying" or are unknown to the method it will return `false`. The second form does the same, but can take only one `string` argument, which is passed to the method in a very original and convenient way. For example, `actor.is.visible` is just another way of writing `actor.is("visible")`. Although the second form is more restricted it is nonetheless faster to write and far easier to read and that's why i decided to introduce it.<br>
+The `not` version of the method can be defined as `not object.is(value1, value2, value3, ...)` or `not object.is.value` meaning that it is added just for convenience. This method returns `true` if all of the given values are "lying" about the current object or are unknown to it and `false`, if at least one of the value is "telling" the truth.
+<br>
+Last thing worth mentioning is that all string argument are case insensitive meaning that, for example, `actor.is("VISiBLe")` or `actor.is.ViSiBle` would also be accepted.<br><br>
 Objects that are direct representations of the in-game objects of Ragnarok(actors, cell, your homunculus/mercenary, your character) have 2 special tables inside each of them. One is called `prev`, the other `last`. The first one is used to store information about the object from the previous call of the AI by the client(remember that the data changes only between those calls). The information in the second table changes only when the current data is changed. For example:
   * The script has started and the AI is called for the first time. The current cell of your character is (15,23). The previous cell is `nil` and the last cell is also `nil` since there is no previous data available.
   * The second call. Your character does not move. The current cell is (15,23). The previous cell is now also (15,23), since this is the value of the previous call, but the last cell remains `nil`, because the was no change in the value.
-  * The third call. Your character has moved. The current cell is now (16,24). The previous cell remains (15,23), but the last cell changes to (15,23), since the current value has changed and we now know that the last cell, on which our character has stepped was (15,23).
+  * The third call. Your character has moved. The current cell is now (16,24). The previous cell remains (15,23), but the last cell changes to (15,23), since the current value has changed and we now know that the last cell, on which our character has stepped was (15,23).<br><br>
+----
 ===<font color="#006600">A Few Words About the Syntax</font>===
 In the description below i use some syntactical aids to reduce the amount of unneeded repeating text and make the manual more compact.<br>
 For constructors, operators and object methods:
@@ -34,6 +38,8 @@ For arguments and object fields:
   * I use *<font color="#5E5B00">dark yellow</font>* for optional arguments(the ones that you can omit when calling a function/method/constructor) and *<font color="#006666">cyan</font>* for mandatory arguments and object fields.
   * If the argument is optional, then i specify the default value(which is used if the argument is omitted) after the | .
   * After the :: i specify the type of the argument/field. If the argument/field can have/contain different types, then those types are separated with | . If the argument is supposed to have not only a certain type, but also i certain value(for example, > 0), then the restriction is specified inside ( ) next to the type.
+For strings with special format:
+  * I specify some variable part like so: `[partOfTheString]`. For example: `"abc[num]"`(where `[num]` is a number) would mean that i refer to strings with `abc` in the beginning and numbers after that, such as: `"abc123"`, `"abc9"` or `"abc0"`.
 <br>
 ----
 ===<font color="#006600">Multipliable Objects</font>===
@@ -44,7 +50,7 @@ Later in this guide i will specify `Value` objects in the following manner: `"st
     * `"Attacking" (2, 9)` specifies 2 `Value` objects, both having `"Attacking"` for a name and 2, 9 for the ID respectively.
 In these examples i have specified `Value` objects that translate original ID's of a character type and an action/motion type into human-readable strings and that is actually the main idea behind this object.
   * <u>*Constructors*</u><br><br>
-    * *<font color="#0052A3">Value( <font color="#006666">name</font> , <font color="#5E5B00">id</font> )</font>* :: `Cell`<br><br>
+    * *<font color="#0052A3">Value( <font color="#006666">name</font> , <font color="#5E5B00">id</font> )</font>* :: `Value`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*name*</font> :: `string`<br>
         Some name.<br>
@@ -60,17 +66,22 @@ In these examples i have specified `Value` objects that translate original ID's 
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
-         * `Value` - Returns `true` if the given value is the same as the current.
-         * `number` - Returns `true` if the `number` equals the <font color="#006666">*id*</font> of the current object.
-         * `string` - Returns `true` if the `string` equals the <font color="#006666">*name*</font> of the current object.<br><br>
+         * `Value`
+         Returns `true` if the given value is the same as the current.
+         * `number`
+         Returns `true` if the `number` equals the <font color="#006666">*id*</font> of the current object.
+         * `string`
+         Returns `true` if the `string` equals the <font color="#006666">*name*</font> of the current object.<br><br>
       * *Accepted `string` Values* (They are checked if the given string does not equal <font color="#006666">*name*</font>)<br><br>
-         * `"evolved[HomType]"` - Returns `true` if the current object is describing an evolved homunculus of type  `[HomType]`. For example: `"evolvedFilir"`, `"evolvedVanilmirth"`.
-         * `"[HomType]Evolved"` - The same as the previous one, but here `evolved` is written after the type. For example: `"lifEvolved"`, `"amistrEvolved"`.
-         * `"[ScrollLvl][MercType]"` - Returns `true` if the current object is describing a mercenary of type `[MercType]`, which is summoned from scroll of lvl `[ScrollLvl]`. For example: `"6Bowman"`, `"1fencer"`.
-         * `"[MercType][ScrollLvl]"` - The same as the previous one, except the lvl of the scroll is now in the back. For example: `"Lancer10"`, `"bowman3"`.<br><br>
-    * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
-      * *Accepted Values*<br><br>
-         * Any `string` - See previous method.
+         * `"evolved[HomType]"`
+         Returns `true` if the current object is describing an evolved homunculus of type  `[HomType]`. For example: `"evolvedFilir"`, `"evolvedVanilmirth"`.
+         * `"[HomType]Evolved"`
+         The same as the previous one, but here `evolved` is written after the type. For example: `"lifEvolved"`, `"amistrEvolved"`.
+         * `"[ScrollLvl][MercType]"`
+         Returns `true` if the current object is describing a mercenary of type `[MercType]`, which is summoned from scroll of lvl `[ScrollLvl]`. For example: `"6Bowman"`, `"1fencer"`.
+         * `"[MercType][ScrollLvl]"`
+         The same as the previous one, except the lvl of the scroll is now in the back. For example: `"Lancer10"`, `"bowman3"`.<br><br>
+    * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`
 ====<font color="#660000">Cell</font>====
 Represents a cell with (x,y) coordinates on the current map/location. The coordinates of a cell, which your character is currently occupying can always be checked using the */where* command.
   * <u>*Constructors*</u><br><br>
@@ -92,15 +103,16 @@ Represents a cell with (x,y) coordinates on the current map/location. The coordi
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
-         * `Cell` - Returns `true` if the given cell is the same as the current.<br><br>
+         * `Cell`
+         Returns `true` if the given cell is the same as the current.<br><br>
       * *Accepted `string` Values*<br><br>
-         * `"visible"` - Returns `true` if the current cell is in range of sight of your character.
-         * `"occupied"` - Returns `true` if the current cell is occupied by some actor.
-         * `"x;y"` - Returns `true` if the current cell has specified (x,y) coordinates. The delimiter ; can be replaced with anything you want as long as it is not a number.  For example `"23;45"`, `"23|45"`.<br><br>
+         * `"visible"`
+         Returns `true` if the current cell is in range of sight of your character.
+         * `"occupied"`
+         Returns `true` if the current cell is occupied by some actor.
+         * `"[x];[y]"`
+         Returns `true` if the current cell has specified (`[x]`,`[y]`) coordinates. The delimiter ; can be replaced with anything you want as long as it is not a number.  For example `"23;45"`, `"23|45"`.<br><br>
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
-      * *Accepted Values*<br><br>
-         * `visible` - See previous method.
-         * `occupied` - See previous method.
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">cell</font> + <font color="#006666">vector</font> `*` <font color="#5E5B00">distance</font></font>* :: `Cell`<br><br>
       * *Arguments*<br><br>
@@ -128,15 +140,18 @@ Represents an in-game character(monster, NPC or player character), which can be 
         * <font color="#5E5B00">*id*</font> | `0` :: `number` ( >= 0 )<br>
         ID of the actor.<br>
       * *Description*
-        Returns an _Actor_ object, which represent an in-game character with given ID.
+        Returns an `Actor` object, which represent an in-game character with given ID.
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br>
       Actors' ID.<br>
       * <font color="#006666">*status*</font> :: `Value`<br>
       Actors' current visibility status. Can be one of the following:<br><br>
-        * `"Unknown" (0)` - The actor is outside of the vision range and the AI cannot get any data about it.
-        * `"Hidden" (1)` - The actor is inside the vision range, but it is visually hidden(_Hiding_, _Clocking_ etc), which means that the AI cannot get its' location.
-        * `"Visible" (2)` - The actor is visually observable.<br>
+        * `"Unknown" (0)`
+        The actor is outside of the vision range and the AI cannot get any data about it.
+        * `"Hidden" (1)`
+        The actor is inside the vision range, but it is visually hidden(_Hiding_, _Clocking_ etc), which means that the AI cannot get its' location.
+        * `"Visible" (2)`
+        The actor is visually observable.<br>
       * <font color="#006666">*prev.status*</font> :: `Value`<br>
       Actors' previous visibility status.<br>
       * <font color="#006666">*last.status*</font> :: `Value`<br>
@@ -149,18 +164,30 @@ Represents an in-game character(monster, NPC or player character), which can be 
       Actors' last cell.<br>
       * <font color="#006666">*action*</font> :: `Value`<br>
       Actors' current action. Can be one of the following:<br><br>
-        * `"Standing" (0)` - The actor is standing.
-        * `"Moving" (1)` - The actor is moving.
-        * `"Attacking" (2, 9)` - The actor is attacking.
-        * `"Dead" (3)` - The actor is dead.
-        * `"Damaged" (4)` - The actor is being damaged.
-        * `"Bending" (5)` - The actor is bending to place something on the ground or to pick something up.
-        * `"Sitting" (6)` - The actor is sitting.
-        * `"Casted" (7, 20, 21, 22, 23, 24, 26, 30, 31, 32, 33, 34, 35, 36, 38, 39, 40)` - The actor has casted/used a skill.
-        * `"Casting" (8, 13, 18, 19, 28, 37, 41, 42)` - The actor is casting a skill.
-        * `"Throwing" (12)` - The actor is throwing something.
-        * `"Dancing" (16)` - The actor is dancing.
-        * `"Performing" (17)` - The actor is performing a song.
+        * `"Standing" (0)`
+        The actor is standing.
+        * `"Moving" (1)`
+        The actor is moving.
+        * `"Attacking" (2, 9)`
+        The actor is attacking.
+        * `"Dead" (3)`
+        The actor is dead.
+        * `"Damaged" (4)`
+        The actor is being damaged.
+        * `"Bending" (5)`
+        The actor is bending to place something on the ground or to pick something up.
+        * `"Sitting" (6)`
+        The actor is sitting.
+        * `"Casted" (7, 20, 21, 22, 23, 24, 26, 30, 31, 32, 33, 34, 35, 36, 38, 39, 40)`
+        The actor has casted/used a skill.
+        * `"Casting" (8, 13, 18, 19, 28, 37, 41, 42)`
+        The actor is casting a skill.
+        * `"Throwing" (12)`
+        The actor is throwing something.
+        * `"Dancing" (16)`
+        The actor is dancing.
+        * `"Performing" (17)`
+        The actor is performing a song.
       * <font color="#006666">*prev.action*</font> :: `Value`<br>
       Actors' previous action.
       * <font color="#006666">*last.action*</font> :: `Value`<br>
@@ -168,14 +195,16 @@ Represents an in-game character(monster, NPC or player character), which can be 
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
-         * `Actor` - Returns `true` if the given actor is the same as the current.
-         * `number` - Returns `true` if the current actor has the same ID.<br><br>
+         * `Actor`
+         Returns `true` if the given actor is the same as the current.
+         * `number`
+         Returns `true` if the current actor has the same ID.<br><br>
       * *Accepted `string` Values*<br><br>
-         * A string consisting of numbers only - Returns `true` if the current actor has the same ID.
-         * `"player"` - Returns `true` if the current actor is a player character.<br><br>
+         * `"[id]"`
+         Returns `true` if the current actors' ID equals `[id]`.
+         * `"player"`
+         Returns `true` if the current actor is a player character.<br><br>
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
-      * *Accepted Values*<br><br>
-         * `player` - See previous method.
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">actor</font> .. <font color="#006666">object</font></font>* :: `number` | `nil`<br><br>
       * *Arguments*<br><br>
