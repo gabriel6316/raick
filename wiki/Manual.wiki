@@ -132,7 +132,7 @@ Represents a cell with (x,y) coordinates on the current map/location. The coordi
       * *Description*
         Returns the distance(in cells) between <font color="#006666">*cell*</font> and <font color="#006666">*object*</font> or `nil` if <font color="#006666">*object*</font> is not visible.
 ====<font color="#660000">Actor</font>====
-Represents an in-game character(monster, NPC or player character), which can be distinguished by its' unique ID. `Owner`, `Homunculus` and `Mercenary` objects can also be called actors, but they are allocated into separate object, since they are _special_ actors meaning that you can get more data about them and send commands to some of them.
+Represents an in-game character(monster, NPC or player character), which can be distinguished by it's unique ID. `Owner`, `Homunculus` and `Mercenary` objects can also be called actors, but they are allocated into separate object, since they are _special_ actors meaning that you can get more data about them and send commands to some of them.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Actor( <font color="#5E5B00">id</font> )</font>* :: `Actor`<br><br>
       * *Arguments*<br><br>
@@ -142,27 +142,27 @@ Represents an in-game character(monster, NPC or player character), which can be 
         Returns an `Actor` object, which represent an in-game character with given ID.
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br>
-      Actors' ID.<br>
+      Actor's ID.<br>
       * <font color="#006666">*status*</font> :: `Value`<br>
-      Actors' current visibility status. Can be one of the following:<br><br>
+      Actor's current visibility status. Can be one of the following:<br><br>
         * `"Unknown" (0)`
         The actor is outside of the vision range and the AI cannot get any data about it.
         * `"Hidden" (1)`
-        The actor is inside the vision range, but it is visually hidden(_Hiding_, _Clocking_ etc), which means that the AI cannot get its' location.
+        The actor is inside the vision range, but it is visually hidden(_Hiding_, _Clocking_ etc), which means that the AI cannot get it's location.
         * `"Visible" (2)`
         The actor is visually observable.<br>
       * <font color="#006666">*prev.status*</font> :: `Value`<br>
-      Actors' previous visibility status.<br>
+      Actor's previous visibility status.<br>
       * <font color="#006666">*last.status*</font> :: `Value`<br>
-      Actors' last visibility status.<br>
+      Actor's last visibility status.<br>
       * <font color="#006666">*cell*</font> :: `Cell`<br>
-      Actors' current cell.<br>
+      Actor's current cell.<br>
       * <font color="#006666">*prev.cell*</font> :: `Cell`<br>
-      Actors' previous cell.<br>
+      Actor's previous cell.<br>
       * <font color="#006666">*last.cell*</font> :: `Cell`<br>
-      Actors' last cell.<br>
+      Actor's last cell.<br>
       * <font color="#006666">*action*</font> :: `Value`<br>
-      Actors' current action. Can be one of the following:<br><br>
+      Actor's current action. Can be one of the following:<br><br>
         * `"Unknown" (-1)`
         The action is unknown to RAICK.
         * `"Standing" (0)`
@@ -190,17 +190,17 @@ Represents an in-game character(monster, NPC or player character), which can be 
         * `"Performing" (17)`
         The actor is performing a song.
       * <font color="#006666">*prev.action*</font> :: `Value`<br>
-      Actors' previous action.
+      Actor's previous action.
       * <font color="#006666">*last.action*</font> :: `Value`<br>
-      Actors' last action.
+      Actor's last action.
       * <font color="#006666">*target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      Actors' current target. Contains a blank actor(ID = 0) if the current actor has no targets. The target is set when you have visually observed that the actor has attacked someone or has started casting any kind of targeted skill. The target is preserved until changed and is reseted(turned to blank actor), when the actor goes beyond your vision range.<br>
+      Actor's current target. Contains a blank actor(ID = 0) if the current actor has no targets. The target is set when you have visually observed that the actor has attacked someone or has started casting any kind of targeted skill. The target is preserved until changed and is reseted(turned to blank actor), when the actor goes beyond your vision range.<br>
       * <font color="#006666">*prev.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      Actors' previous target.<br>
+      Actor's previous target.<br>
       * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      Actors' last target.<br>
+      Actor's last target.<br>
       * <font color="#006666">*group*</font> :: `Value`<br>
-      Actors' type group. Can be one of the following:<br><br>
+      Actor's type group. Can be one of the following:<br><br>
         * `"Unknown" (0)`
         The group is unknown to RAICK.
         * `"Player" (1)`
@@ -216,9 +216,9 @@ Represents an in-game character(monster, NPC or player character), which can be 
         * `"WoE Stone" (6)`
         The actor is an emperium or any defense stone/barricade in WoE 2.0.
         * `"WoE Guardian" (7)`
-        The actor is a guardian in the castle(not the one in the Thor Volcano).
+        The actor is a guardian in the castle(not the one in the _Thor's Volcano_).
       * <font color="#006666">*type*</font> :: `Value`<br>
-      Actors' type. Can be one of the following depending of the <font color="#006666">*group*</font>:<br><br>
+      Actor's type. Can be one of the following depending of the <font color="#006666">*group*</font>:<br><br>
         * `"Unknown" (-1)`
         The type is unknown to RAICK.
         * For <font color="#006666">*group*</font> `"Player"`:<br><br>
@@ -291,13 +291,21 @@ Represents an in-game character(monster, NPC or player character), which can be 
           * `"Super Baby" (4045)`
           * `"Taekwon" (4046)`
           * `"Star Gladiator" (4047, 4048)`
-          * `"Soul Linker" (4049)`
+          * `"Soul Linker" (4049)`<br><br>
+        * For <font color="#006666">*group*</font> `"NPC"`:<br><br>
+          * `"Warp" (45)`
+            The portal between locations/maps(not the one from the _Warp Portal_ skill).
+          * `"Kafra" (112, 113, 114, 115, 116, 117, 423, 721, 791, 859, 860, 861)`
+          * `"Castle Flag" (111)`
+            The flag used in WoE 2.0 by the defending guild to teleport to different locations of the castle.
+          * `"Guild Flag" (772)`
+            The castle flag containing the emblem of the guild.<br><br>
       * <font color="#006666">*vector*</font> :: `Vector`<br>
-      Actors' current motion vector. This vector reflects the current movement direction of the actor. More about vectors [http://code.google.com/p/raick/wiki/Manual#Vector here].<br>
+      Actor's current motion vector. This vector reflects the current movement direction of the actor. More about vectors [http://code.google.com/p/raick/wiki/Manual#Vector here].<br>
       * <font color="#006666">*prev.vector*</font> :: `Vector`<br>
-      Actors' previous motion vector.<br>
+      Actor's previous motion vector.<br>
       * <font color="#006666">*last.vector*</font> :: `Vector`<br>
-      Actors' last motion vector.<br>
+      Actor's last motion vector.<br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
@@ -307,7 +315,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
          Returns `true` if the current actor has the same ID.<br><br>
       * *Accepted `string` Values*<br><br>
          * `"[id]"`
-         Returns `true` if the current actors' ID equals `[id]`.
+         Returns `true` if the current actor's ID equals `[id]`.
          * `"player"`
          Returns `true` if the current actor is a player character.<br><br>
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
