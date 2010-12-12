@@ -299,7 +299,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
           * `"Castle Flag" (111)`
           The flag used in WoE 2.0 by the defending guild to teleport to different locations of the castle.
           * `"Guild Flag" (772)`
-            The castle flag containing the emblem of the guild.<br><br>
+          The castle flag containing the emblem of the guild.<br><br>
       * <font color="#006666">*vector*</font> :: `Vector`<br>
       Actor's current motion vector. This vector reflects the current movement direction of the actor. More about vectors [http://code.google.com/p/raick/wiki/Manual#Vector here].<br>
       * <font color="#006666">*prev.vector*</font> :: `Vector`<br>
