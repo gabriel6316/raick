@@ -294,12 +294,31 @@ Represents an in-game character(monster, NPC or player character), which can be 
           * `"Soul Linker" (4049)`<br><br>
         * For <font color="#006666">*group*</font> `"NPC"`:<br><br>
           * `"Kafra" (112, 113, 114, 115, 116, 117, 423, 721, 791, 859, 860, 861)`
+          Kafra NPC.
           * `"Warp" (45)`
           The portal between locations/maps(not the one from the _Warp Portal_ skill).
           * `"Castle Flag" (111)`
           The flag used in WoE 2.0 by the defending guild to teleport to different locations of the castle.
           * `"Guild Flag" (772)`
           The castle flag containing the emblem of the guild.<br><br>
+        * For <font color="#006666">*group*</font> `"Homunculus"`:<br><br>
+          * `"Lif" (6001, 6005, 6009, 6013)`
+          * `"Amistr" (6002, 6006, 6010, 6014)`
+          * `"Filir" (6003, 6007, 6011, 6015)`
+          * `"Vanilmirth" (6004, 6008, 6012, 6016)`<br><br>
+        * For <font color="#006666">*group*</font> `"Mercenary"`:<br><br>
+          * `"Bowman" (6017, 6018, 6019, 6020, 6021, 6022, 6023, 6024, 6025, 6026)`
+          * `"Lancer" (6027, 6028, 6029, 6030, 6031, 6032, 6033, 6034, 6035, 6036)`
+          * `"Fencer" (6037, 6038, 6039, 6040, 6041, 6042, 6043, 6044, 6045, 6046)`<br><br>
+        * For <font color="#006666">*group*</font> `"WoE Stone"`:<br><br>
+          * `"Emperium" (1288)`
+          * `"Barricade" (1905, 1906)`
+          * `"Stone" (1907, 1908)`<br><br>
+        * For <font color="#006666">*group*</font> `"WoE Guardian"`:<br><br>
+          * `"WoE1 Swordman" (1286, 1287)`
+          * `"WoE1 Archer" (1285)`
+          * `"WoE2 Swordman" (1899)`
+          * `"WoE2 Archer" (1900)`<br><br>
       * <font color="#006666">*vector*</font> :: `Vector`<br>
       Actor's current motion vector. This vector reflects the current movement direction of the actor. More about vectors [http://code.google.com/p/raick/wiki/Manual#Vector here].<br>
       * <font color="#006666">*prev.vector*</font> :: `Vector`<br>
