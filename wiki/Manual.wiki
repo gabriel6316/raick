@@ -361,7 +361,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
 ====<font color="#660000">Points</font>====
 Represents your or your bot's HP or SP. It is very similar to the `Value` object, but has some extra fields and `is` method functionality allowing you to easily get all the information you need about those values.
   * <u>*Constructors*</u><br><br>
-    * *<font color="#0052A3">Points( <font color="#006666">current</font> , <font color="#5E5B00">max</font> )</font>* :: `Points`<br><br>
+    * *<font color="#0052A3">Points( <font color="#006666">current</font> , <font color="#006666">max</font> )</font>* :: `Points`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*current*</font> :: `number`<br>
         The current value of HP or SP(depending on what the object represents).<br>
