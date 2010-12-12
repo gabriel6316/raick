@@ -68,9 +68,9 @@ In these examples i have specified `Value` objects that translate original ID's 
          * `Value`
          Returns `true` if the given value is the same as the current.
          * `number`
-         Returns `true` if the `number` equals the <font color="#006666">*id*</font> of the current object.
+         Returns `true` if the given number equals the <font color="#006666">*id*</font> of the current object.
          * `string`
-         Returns `true` if the `string` equals the <font color="#006666">*name*</font> of the current object.<br><br>
+         Returns `true` if the given string equals the <font color="#006666">*name*</font> of the current object.
       * *Accepted `string` Values* (They are checked if the given string does not equal <font color="#006666">*name*</font>)<br><br>
          * `"evolved[HomType]"`
          Returns `true` if the current object is describing an evolved homunculus of type  `[HomType]`. For example: `"evolvedFilir"`, `"evolvedVanilmirth"`.
@@ -79,7 +79,7 @@ In these examples i have specified `Value` objects that translate original ID's 
          * `"[ScrollLvl][MercType]"`
          Returns `true` if the current object is describing a mercenary of type `[MercType]`, which is summoned from scroll of lvl `[ScrollLvl]`. For example: `"6Bowman"`, `"1fencer"`.
          * `"[MercType][ScrollLvl]"`
-         The same as the previous one, except the lvl of the scroll is now in the back. For example: `"Lancer10"`, `"bowman3"`.<br><br>
+         The same as the previous one, except the lvl of the scroll is now in the back. For example: `"Lancer10"`, `"bowman3"`.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`
 ====<font color="#660000">Cell</font>====
 Represents a cell with (x,y) coordinates on the current map/location. The coordinates of a cell, which your character is currently occupying can always be checked using the */where* command.
@@ -103,14 +103,14 @@ Represents a cell with (x,y) coordinates on the current map/location. The coordi
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
          * `Cell`
-         Returns `true` if the given cell is the same as the current.<br><br>
+         Returns `true` if the given cell is the same as the current.
       * *Accepted `string` Values*<br><br>
          * `"visible"`
          Returns `true` if the current cell is in range of sight of your character.
          * `"occupied"`
          Returns `true` if the current cell is occupied by some actor.
          * `"[x];[y]"`
-         Returns `true` if the current cell has specified (`[x]`,`[y]`) coordinates. The delimiter ; can be replaced with anything you want as long as it is not a number.  For example `"23;45"`, `"23|45"`.<br><br>
+         Returns `true` if the current cell has specified (`[x]`,`[y]`) coordinates. The delimiter ; can be replaced with anything you want as long as it is not a number.  For example `"23;45"`, `"23|45"`.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">cell</font> + <font color="#006666">vector</font> `*` <font color="#5E5B00">distance</font></font>* :: `Cell`<br><br>
@@ -342,12 +342,12 @@ Represents an in-game character(monster, NPC or player character), which can be 
          * `Actor`
          Returns `true` if the given actor is the same as the current.
          * `number`
-         Returns `true` if the current actor has the same ID.<br><br>
+         Returns `true` if the current actor has the same ID.
       * *Accepted `string` Values*<br><br>
          * `"[id]"`
          Returns `true` if the current actor's ID equals `[id]`.
          * `"player"`
-         Returns `true` if the current actor is a player character.<br><br>
+         Returns `true` if the current actor is a player character.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">actor</font> .. <font color="#006666">object</font></font>* :: `number` | `nil`<br><br>
@@ -359,6 +359,38 @@ Represents an in-game character(monster, NPC or player character), which can be 
       * *Description*
         Returns the distance(in cells) between <font color="#006666">*actor*</font> and <font color="#006666">*object*</font> or `nil` if at least one of them is not visible.
 ====<font color="#660000">Points</font>====
+Represents your or your bot's HP or SP. It is very similar to the `Value` object, but has some extra fields and `is` method functionality allowing you to easily get all the information you need about those values.
+  * <u>*Constructors*</u><br><br>
+    * *<font color="#0052A3">Points( <font color="#006666">current</font> , <font color="#5E5B00">max</font> )</font>* :: `Points`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*current*</font> :: `number`<br>
+        The current value of HP or SP(depending on what the object represents).<br>
+        * <font color="#006666">*max*</font> :: `number`<br>
+        The maximum value of HP or SP.<br>
+      * *Description*
+        Returns a `Points` object with given current and maximum values. This objects will represent the state of the HP or SP in the given moment of time. Normally, you would not need to create any of these objects yourself, but the constructor is still available incase you can think of a way to use this object for your own purposes.
+  * <u>*Fields*</u><br><br>
+      * <font color="#006666">*current*</font> :: `number`<br>
+      The current value of HP or SP.<br>
+      * <font color="#006666">*max*</font> :: `number`<br>
+      The maximum value of HP or SP.<br>
+      * <font color="#006666">*percent*</font> :: `number`<br>
+      The current percent value of HP or SP.<br>
+  * <u>*_is_ Methods*</u><br><br>
+    * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
+      * *Accepted Types*<br><br>
+         * `Points`
+         Returns `true` if the given object has the same <font color="#006666">*current*</font> and <font color="#006666">*max*</font> field values as the current one.
+         * `number`
+         Returns `true` if the given number equals the <font color="#006666">*current*</font> field value of the current object.
+      * *Accepted `string` Values*<br><br>
+         * `"full"`
+         Returns `true` if current object's <font color="#006666">*current*</font> value equals <font color="#006666">*max*</font>.
+         * `"[Operator][Value]"`
+         Returns `true` if current object's <font color="#006666">*current*</font> value fits the condition given inside the string. To be explained later.
+         * `"[Operator][Percent]"`
+         Returns `true` if current object's <font color="#006666">*percent*</font> value fits the condition given inside the string. To be explained later.
+    * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`
 ====<font color="#660000">Skill</font>====
 ====<font color="#660000">List</font>====
 ====<font color="#660000">Map</font>====
