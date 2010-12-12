@@ -293,7 +293,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
           * `"Star Gladiator" (4047, 4048)`
           * `"Soul Linker" (4049)`<br><br>
         * For <font color="#006666">*group*</font> `"Mob"`:
-        RAICK knows the names of pretty much all monsters. The list is always kept as up-to-date as possible. The names are identical to those used in the game, except for _Incarnation of Morroc_ mobs. Their names have been changed, so they could be distinguished from one another:<br><br>
+        RAICK knows the names of pretty much every monster. The list is always kept as up-to-date as possible. The names are identical to those used in the game, except for _Incarnation of Morroc_ mobs. Their names have been changed, so they could be distinguished from one another:<br><br>
           * `"Morroc Flying" (1918, 1922)`
           The winged one.
           * `"Morroc Golem" (1919, 1923)`
