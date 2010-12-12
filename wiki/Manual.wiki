@@ -293,11 +293,11 @@ Represents an in-game character(monster, NPC or player character), which can be 
           * `"Star Gladiator" (4047, 4048)`
           * `"Soul Linker" (4049)`<br><br>
         * For <font color="#006666">*group*</font> `"NPC"`:<br><br>
-          * `"Warp" (45)`
-            The portal between locations/maps(not the one from the _Warp Portal_ skill).
           * `"Kafra" (112, 113, 114, 115, 116, 117, 423, 721, 791, 859, 860, 861)`
+          * `"Warp" (45)`
+          The portal between locations/maps(not the one from the _Warp Portal_ skill).
           * `"Castle Flag" (111)`
-            The flag used in WoE 2.0 by the defending guild to teleport to different locations of the castle.
+          The flag used in WoE 2.0 by the defending guild to teleport to different locations of the castle.
           * `"Guild Flag" (772)`
             The castle flag containing the emblem of the guild.<br><br>
       * <font color="#006666">*vector*</font> :: `Vector`<br>
