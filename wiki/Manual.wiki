@@ -481,15 +481,15 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
       * *Arguments*<br><br>
         * <font color="#006666">*file*</font> :: `string`<br>
         The name of the file.<br>
-        * <font color="#5E5B00">*delay* | `0`</font> :: `number`<br>
+        * <font color="#5E5B00">*delay*</font> | `0` :: `number`<br>
         Logging delay.<br>
       * *Description*
 <br>
-    * *<font color="#0052A3">Logger( <font color="#006666">file</font> , <font color="#5E5B00">separator</font> )</font>* :: `Logger`<br><br>
+    * *<font color="#0052A3">Logger( <font color="#006666">file</font> , <font color="#5E5B00">delimiter</font> )</font>* :: `Logger`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*file*</font> :: `string`<br>
         The name of the file.<br>
-        * <font color="#5E5B00">*delimiter* | `""`</font> :: `string`<br>
+        * <font color="#5E5B00">*delimiter*</font> | `""` :: `string`<br>
         The string that is used as a delimiter between the values being logged.<br>
       * *Description*
 <br>
