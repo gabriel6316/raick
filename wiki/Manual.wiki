@@ -1,4 +1,4 @@
-=<font color="#E07000">« Under construction »</font>=
+=<font color="#E07000">« Draft »</font>=
 <br>
 =<font color="#003366">Reference Manual</font>=
 A reference manual is a place, where the developer describes his creation in details. It is often a very dry and concrete document, reading which can be quite boring. You can check out the [http://www.lua.org/manual/5.1/manual.html Lua documentation] for an example of a typical reference manual.<br>
