@@ -39,6 +39,10 @@ For arguments and object fields:
   * After the :: i specify the type of the argument/field. If the argument/field can have/contain different types, then those types are separated with | . If the argument is supposed to have not only a certain type, but also i certain value(for example, > 0), then the restriction is specified inside ( ) next to the type.
 For strings with specific format:
   * I specify the variable part like so: `[partOfTheString]`. For example: `"abc[num]"`, where `[num]` is a number, would mean that i refer to strings with `abc` in the beginning and numbers after that, such as: `"abc123"`, `"abc9"` or `"abc0"`.
+I also use pseudo-type names:
+  * `range` - to specify that the function can take an arbitrary number of arguments or return an arbitrary number of values.
+  * `any` - to specify value can be of any type.
+  * `self` - to specify that the method returns the reference to the same object it has been called from. For example, method `list.add(2).add(5).remove(1)` would add `2` and `5` to the list and then remove the 1'st elements from it leaving just 1 element `5`.
 <br>
 ----
 ===<font color="#006600">Multipliable Objects</font>===
@@ -119,7 +123,7 @@ Represents a cell with (x,y) coordinates on the current map/location. The coordi
         An arbitrary `Cell` object.<br>
         * <font color="#006666">*vector*</font> :: `Vector`<br>
         An arbitrary `Vector` object.<br>
-        * <font color="#5E5B00">*distance*</font> | `1` :: _number_<br>
+        * <font color="#5E5B00">*distance*</font> | `1` :: `number`<br>
         The distance, by which the *<font color="#006666">cell</font>* will be shifted in the direction of *<font color="#006666">vector</font>*. Negative values will shift it in the opposite direction.<br>
       * *Description*
         This equation returns the cell, which is *<font color="#5E5B00">distance</font>* cells away from the *<font color="#006666">cell</font>* in the direction defined by *<font color="#006666">vector</font>*.
@@ -484,7 +488,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
         * <font color="#5E5B00">*delay*</font> | `0` :: `number`<br>
         Logging delay.<br>
       * *Description*
-<br>
+        To be filled later.<br>
     * *<font color="#0052A3">Logger( <font color="#006666">file</font> , <font color="#5E5B00">delimiter</font> )</font>* :: `Logger`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*file*</font> :: `string`<br>
@@ -492,7 +496,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
         * <font color="#5E5B00">*delimiter*</font> | `""` :: `string`<br>
         The string that is used as a delimiter between the values being logged.<br>
       * *Description*
-<br>
+        To be filled later.<br>
     * *<font color="#0052A3">Logger( <font color="#006666">file</font> , <font color="#006666">delay</font> , <font color="#006666">delimiter</font> )</font>* :: `Logger`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*file*</font> :: `string`<br>
@@ -502,7 +506,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
         * <font color="#006666">*delimiter*</font> :: `string`<br>
         The string that is used as a delimiter between the values being logged.<br>
       * *Description*
-<br>
+        To be filled later.<br>
   * <u>*Methods*</u><br><br>
     * *<font color="#0052A3">timeToLog()</font>* :: `boolean`<br><br>
     * *<font color="#0052A3">resetTimer()</font>* :: `self`<br><br>
@@ -513,6 +517,54 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">clear()</font>* :: `self`<br><br>
     * *<font color="#0052A3">remove()</font>* :: `self`<br><br>
 ====<font color="#660000">Vector</font>====
+  * <u>*Constructors*</u><br><br>
+    * *<font color="#0052A3">Vector( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>* :: `Vector`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*x*</font> :: `number`<br>
+        The X-coordinate of the vector.<br>
+        * <font color="#006666">*y*</font> :: `number`<br>
+        The Y-coordinate of the vector.<br>
+      * *Description*
+        To be filled later.<br>
+    * *<font color="#0052A3">Vector( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>* :: `Vector`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*object1*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
+        The object, in relation to which the vector is calculated.<br>
+        * <font color="#006666">*object2*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
+        The object, which defines the direction of the vector in relation to <font color="#006666">*object1*</font>.<br>
+      * *Description*
+        To be filled later.<br>
+  * <u>*Fields*</u><br><br>
+      * <font color="#006666">*x*</font> :: `number`<br>
+      The normalized value of the vector's X-coordinate.<br>
+      * <font color="#006666">*y*</font> :: `number`<br>
+      The normalized value of the vector's Y-coordinate.<br>
+  * <u>*_is_ Methods*</u><br><br>
+    * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
+      * *Accepted Types*<br><br>
+         * `Vector`
+         Returns `true` if the given object has the same <font color="#006666">*x*</font> and <font color="#006666">*y*</font> field values as the current one.
+      * *Accepted `string` Values*<br><br>
+         * `"[x];[y]"`
+         Returns `true` if the current vector has specified (`[x]`,`[y]`) coordinates. The delimiter ; can be replaced with anything you want as long as it is not a number, dot or minus.  For example `"-1;2"`, `"0.252|1"`.
+    * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`
+  * <u>*Operators*</u><br><br>
+    * *<font color="#0052A3"><font color="#006666">cell</font> + <font color="#006666">vector</font> `*` <font color="#5E5B00">distance</font></font>* :: `Cell`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*cell*</font> :: `Cell`<br>
+        An arbitrary `Cell` object.<br>
+        * <font color="#006666">*vector*</font> :: `Vector`<br>
+        An arbitrary `Vector` object.<br>
+        * <font color="#5E5B00">*distance*</font> | `1` :: `number`<br>
+        The distance, by which the *<font color="#006666">cell</font>* will be shifted in the direction of *<font color="#006666">vector</font>*. Negative values will shift it in the opposite direction.<br>
+      * *Description*
+        This equation returns the cell, which is *<font color="#5E5B00">distance</font>* cells away from the *<font color="#006666">cell</font>* in the direction defined by *<font color="#006666">vector</font>*.
+    * *<font color="#0052A3">- <font color="#006666">vector</font></font>* :: `Vector`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*vector*</font> :: `Cell`<br>
+        An arbitrary `Vector` object.<br>
+      * *Description*
+        Returns a new `Vector` pointing to the opposite direction of <font color="#006666">*vector*</font>.
 ===<font color="#006600">Single Objects</font>===
 ====<font color="#660000">Homunculus</font>====
 ====<font color="#660000">Mercenary</font>====
