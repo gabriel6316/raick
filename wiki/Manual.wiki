@@ -547,7 +547,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
       * *Accepted `string` Values*<br><br>
          * `"[x];[y]"`
          Returns `true` if the current vector has specified (`[x]`,`[y]`) coordinates. The delimiter ; can be replaced with anything you want as long as it is not a number, dot or minus.  For example `"-1;2"`, `"0.252|1"`.
-    * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`
+    * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">cell</font> + <font color="#006666">vector</font> `*` <font color="#5E5B00">distance</font></font>* :: `Cell`<br><br>
       * *Arguments*<br><br>
