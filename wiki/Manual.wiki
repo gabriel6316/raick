@@ -676,8 +676,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">delete( <font color="#006666">n</font> )</font>* :: `self`<br><br>
     * *<font color="#0052A3">clear()</font>* :: `self`<br><br>
 ==<font color="#006666">Detailed Overview of Files</font>==
-===<font color="#006600">Variable-to-String Translation</font>===
-This is a common feature across all of RAICK's AI files, which is made to simplify and quicken the scripting process. Global variables with _special_ names are translated into strings. What this means is that, for example, if you are querying a global variable `visible`(and this variable contains `nil`- it has not been used or has been cleared after usage), then the result of the query will be string `"visible"`. So, how do you know which names are _special_? Here is the list:
+All of RAICK's AI files share one common feature, which simplifies and quickens the scripting process. The idea is quite simple: global variables with _special_ names are translated into strings. What this means is that, for example, if you are querying a global variable `visible`(and this variable contains `nil`- it has not been used or has been cleared after usage), then the result of the query will be string `"visible"`. So, how do you know which names are _special_? Here is the list:
   * Status names(<font color="#006666">*status*</font> field)
   * Group names(<font color="#006666">*group*</font> field)
   * Type names(<font color="#006666">*type*</font> field) _Every monster!_
