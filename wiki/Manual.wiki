@@ -568,26 +568,26 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
 ===<font color="#006600">Single Objects</font>===
 ====<font color="#660000">Owner</font>====
   * <u>*Fields*</u><br><br>
-      * <font color="#006666">*id*</font> :: `number`<br>
-      * <font color="#006666">*cell*</font> :: `Cell`<br>
-      * <font color="#006666">*prev.cell*</font> :: `Cell`<br>
-      * <font color="#006666">*last.cell*</font> :: `Cell`<br>
-      * <font color="#006666">*action*</font> :: `Value`<br>
-      * <font color="#006666">*prev.action*</font> :: `Value`<br>
-      * <font color="#006666">*last.action*</font> :: `Value`<br>
-      * <font color="#006666">*target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      * <font color="#006666">*prev.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      * <font color="#006666">*type*</font> :: `Value`<br>
-      * <font color="#006666">*vector*</font> :: `Vector`<br>
-      * <font color="#006666">*prev.vector*</font> :: `Vector`<br>
-      * <font color="#006666">*last.vector*</font> :: `Vector`<br>
-      * <font color="#006666">*hp*</font> :: `Points`<br>
-      * <font color="#006666">*prev.hp*</font> :: `Points`<br>
-      * <font color="#006666">*last.hp*</font> :: `Points`<br>
-      * <font color="#006666">*sp*</font> :: `Points`<br>
-      * <font color="#006666">*prev.sp*</font> :: `Points`<br>
-      * <font color="#006666">*last.sp*</font> :: `Points`<br>
+      * <font color="#006666">*id*</font> :: `number`<br><br>
+      * <font color="#006666">*cell*</font> :: `Cell`<br><br>
+      * <font color="#006666">*prev.cell*</font> :: `Cell`<br><br>
+      * <font color="#006666">*last.cell*</font> :: `Cell`<br><br>
+      * <font color="#006666">*action*</font> :: `Value`<br><br>
+      * <font color="#006666">*prev.action*</font> :: `Value`<br><br>
+      * <font color="#006666">*last.action*</font> :: `Value`<br><br>
+      * <font color="#006666">*target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
+      * <font color="#006666">*prev.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
+      * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
+      * <font color="#006666">*type*</font> :: `Value`<br><br>
+      * <font color="#006666">*vector*</font> :: `Vector`<br><br>
+      * <font color="#006666">*prev.vector*</font> :: `Vector`<br><br>
+      * <font color="#006666">*last.vector*</font> :: `Vector`<br><br>
+      * <font color="#006666">*hp*</font> :: `Points`<br><br>
+      * <font color="#006666">*prev.hp*</font> :: `Points`<br><br>
+      * <font color="#006666">*last.hp*</font> :: `Points`<br><br>
+      * <font color="#006666">*sp*</font> :: `Points`<br><br>
+      * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
+      * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
@@ -602,26 +602,26 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
         Returns the distance(in cells) between you and <font color="#006666">*object*</font> or `nil` if <font color="#006666">*object*</font> is an actor, which is not visible.
 ====<font color="#660000">Homunculus</font>====
   * <u>*Fields*</u><br><br>
-      * <font color="#006666">*id*</font> :: `number`<br>
-      * <font color="#006666">*cell*</font> :: `Cell`<br>
-      * <font color="#006666">*prev.cell*</font> :: `Cell`<br>
-      * <font color="#006666">*last.cell*</font> :: `Cell`<br>
-      * <font color="#006666">*action*</font> :: `Value`<br>
-      * <font color="#006666">*prev.action*</font> :: `Value`<br>
-      * <font color="#006666">*last.action*</font> :: `Value`<br>
-      * <font color="#006666">*target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      * <font color="#006666">*prev.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      * <font color="#006666">*type*</font> :: `Value`<br>
-      * <font color="#006666">*vector*</font> :: `Vector`<br>
-      * <font color="#006666">*prev.vector*</font> :: `Vector`<br>
-      * <font color="#006666">*last.vector*</font> :: `Vector`<br>
-      * <font color="#006666">*hp*</font> :: `Points`<br>
-      * <font color="#006666">*prev.hp*</font> :: `Points`<br>
-      * <font color="#006666">*last.hp*</font> :: `Points`<br>
-      * <font color="#006666">*sp*</font> :: `Points`<br>
-      * <font color="#006666">*prev.sp*</font> :: `Points`<br>
-      * <font color="#006666">*last.sp*</font> :: `Points`<br>
+      * <font color="#006666">*id*</font> :: `number`<br><br>
+      * <font color="#006666">*cell*</font> :: `Cell`<br><br>
+      * <font color="#006666">*prev.cell*</font> :: `Cell`<br><br>
+      * <font color="#006666">*last.cell*</font> :: `Cell`<br><br>
+      * <font color="#006666">*action*</font> :: `Value`<br><br>
+      * <font color="#006666">*prev.action*</font> :: `Value`<br><br>
+      * <font color="#006666">*last.action*</font> :: `Value`<br><br>
+      * <font color="#006666">*target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
+      * <font color="#006666">*prev.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
+      * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
+      * <font color="#006666">*type*</font> :: `Value`<br><br>
+      * <font color="#006666">*vector*</font> :: `Vector`<br><br>
+      * <font color="#006666">*prev.vector*</font> :: `Vector`<br><br>
+      * <font color="#006666">*last.vector*</font> :: `Vector`<br><br>
+      * <font color="#006666">*hp*</font> :: `Points`<br><br>
+      * <font color="#006666">*prev.hp*</font> :: `Points`<br><br>
+      * <font color="#006666">*last.hp*</font> :: `Points`<br><br>
+      * <font color="#006666">*sp*</font> :: `Points`<br><br>
+      * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
+      * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
@@ -636,26 +636,26 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
         Returns the distance(in cells) between your homunculus and <font color="#006666">*object*</font> or `nil` if <font color="#006666">*object*</font> is an actor, which is not visible.
 ====<font color="#660000">Mercenary</font>====
   * <u>*Fields*</u><br><br>
-      * <font color="#006666">*id*</font> :: `number`<br>
-      * <font color="#006666">*cell*</font> :: `Cell`<br>
-      * <font color="#006666">*prev.cell*</font> :: `Cell`<br>
-      * <font color="#006666">*last.cell*</font> :: `Cell`<br>
-      * <font color="#006666">*action*</font> :: `Value`<br>
-      * <font color="#006666">*prev.action*</font> :: `Value`<br>
-      * <font color="#006666">*last.action*</font> :: `Value`<br>
-      * <font color="#006666">*target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      * <font color="#006666">*prev.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      * <font color="#006666">*type*</font> :: `Value`<br>
-      * <font color="#006666">*vector*</font> :: `Vector`<br>
-      * <font color="#006666">*prev.vector*</font> :: `Vector`<br>
-      * <font color="#006666">*last.vector*</font> :: `Vector`<br>
-      * <font color="#006666">*hp*</font> :: `Points`<br>
-      * <font color="#006666">*prev.hp*</font> :: `Points`<br>
-      * <font color="#006666">*last.hp*</font> :: `Points`<br>
-      * <font color="#006666">*sp*</font> :: `Points`<br>
-      * <font color="#006666">*prev.sp*</font> :: `Points`<br>
-      * <font color="#006666">*last.sp*</font> :: `Points`<br>
+      * <font color="#006666">*id*</font> :: `number`<br><br>
+      * <font color="#006666">*cell*</font> :: `Cell`<br><br>
+      * <font color="#006666">*prev.cell*</font> :: `Cell`<br><br>
+      * <font color="#006666">*last.cell*</font> :: `Cell`<br><br>
+      * <font color="#006666">*action*</font> :: `Value`<br><br>
+      * <font color="#006666">*prev.action*</font> :: `Value`<br><br>
+      * <font color="#006666">*last.action*</font> :: `Value`<br><br>
+      * <font color="#006666">*target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
+      * <font color="#006666">*prev.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
+      * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
+      * <font color="#006666">*type*</font> :: `Value`<br><br>
+      * <font color="#006666">*vector*</font> :: `Vector`<br><br>
+      * <font color="#006666">*prev.vector*</font> :: `Vector`<br><br>
+      * <font color="#006666">*last.vector*</font> :: `Vector`<br><br>
+      * <font color="#006666">*hp*</font> :: `Points`<br><br>
+      * <font color="#006666">*prev.hp*</font> :: `Points`<br><br>
+      * <font color="#006666">*last.hp*</font> :: `Points`<br><br>
+      * <font color="#006666">*sp*</font> :: `Points`<br><br>
+      * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
+      * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
