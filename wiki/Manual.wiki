@@ -526,7 +526,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
         The Y-coordinate of the vector.<br>
       * *Description*
         To be filled later.<br>
-    * *<font color="#0052A3">Vector( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>* :: `Vector`<br><br>
+    * *<font color="#0052A3">Vector( <font color="#006666">object1</font> , <font color="#006666">object2</font> )</font>* :: `Vector`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*object1*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
         The object, in relation to which the vector is calculated.<br>
