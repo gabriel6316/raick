@@ -716,7 +716,7 @@ The memory file is automatically created and managed by RAICK. This is where you
 <br>
 ----
 ===<font color="#006600">On Startup</font>===
-The content of this file is run only once, when your AI is being loaded. This is the only file that is not pre-processed, meaning that everything you define here will be visible in all parts of your script exactly the way it is defined. Typically, you will use this file to put initial values to your variables or to define your own custom functions.
+The content of this file is run only once, when your AI is being loaded. This is the only file that is not pre-processed meaning that everything you define here will be visible in all parts of your script exactly the way it is defined. Typically, you will use this file to put initial values to your variables or to define your own custom functions.
 <br>
 ----
 ===<font color="#006600">Commands</font>===
@@ -742,7 +742,7 @@ There is also one hidden activity, to which your bot is switched if RAICK encoun
 ==<font color="#006666">Understanding RAICK Errors</font>==
 Whenever RAICK encounters an error inside your script or inside the framework itself it generates a descriptive report about the type and the cause of the error. This report is then showed to the user in the error window and documented to the `Logs & Errors/Error Logs.txt` file or to the `RAICK.Bugz.txt` file in case the error came from RAICK. Finally, your bot is switched to the _Safe Mode_ to cut-off the possibility of the error occurring again.<br>
 The error report may contain following rows:
-  * `[!] XXX [!]`
+  * `[!] ERROR TYPE [!]`
   The type of the error. Can be:
     * `ERROR IN SETTINGS`
     You have made an error in `RAICK.Settings.lua` file.
@@ -785,7 +785,7 @@ Just think about it! Basically, you can use only one AI to control both of your 
       * <font color="#006666">*value*</font> :: `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` |  `Points` |  `Skill` | `Vector`<br>
       The value that you want to send.<br>
     * *Description*
-      Calls the <font color="#006666">*message*</font> handler function defined in the `Messages` file of the cobot's AI passing the <font color="#006666">*value*</font> to it. If the handler function with this name(as always, case and delimiters don't count) is not defined, then nothing happens. During a single execution of the activity(call of the AI by the client) only one value can be sent using this method.
+      Calls the <font color="#006666">*message*</font> handler function defined in the `Messages` file of the cobot's AI passing the <font color="#006666">*value*</font> to it. If the handler function with this name(plus all case and delimiter insensitive variations) is not defined, then nothing happens. During a single execution of the activity(call of the AI by the client) only one value can be sent using this method.
 Using this method you can send values of specified data types to the opposite side. The second AI will receive them through handler functions defined in the `Messages` file. Every such function must be defined with one argument to be able to receive those values. For example:
 <code language="lua">
 -- Somewhere in the Homunculus AI:
