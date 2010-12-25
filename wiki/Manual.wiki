@@ -775,7 +775,7 @@ The error report may contain following rows:
 <br>
 ----
 ==<font color="#006666">Data Exchange Between Homunculus and Mercenary</font>==
-A truly unique feature of RAICK is the ability to unify two scripts in one. The framework makes bot communication painless and a joy to use.<br>
+A truly unique feature of RAICK is the ability to unify two scripts in one making bot communication painless and a joy to use.<br>
 So, here's how it works. First of all, you have to switch the `BotCommunication` setting `ON` and restart both of your scripts(_Character Select_ is the best way to do it, since mercenaries cannot be _Rest_'ed). The `Homunculus` object in the mercenary AI and the `Mercenary` object in the homunculus AI will now "come to live". They will fully replicate the "original" objects(all fields + all methods) from the corresponding AI's as long as the second bot(i call it _cobot_) is in range of vision. The fact that the cobot is in your sight can be checked through the `is` method: `is.active` returns `true` if the cobot is in range of sight. When the object is inactive the methods will not function and it won't contain any data.<br>
 Just think about it! Basically, you can use only one AI to control both of your bots! And there is even something extra! Besides having total control over the actions and the data of cobot you can also send messages to it. A message is just a way to send random data to the cobot. And here's how it works:<br>
   * If the communication is `ON`, then original bot objects get one extra method:<br><br>
