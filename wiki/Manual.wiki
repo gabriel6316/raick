@@ -740,7 +740,7 @@ There is also one hidden activity, to which your bot is switched if RAICK encoun
 <br>
 ----
 ==<font color="#006666">Understanding RAICK Errors</font>==
-Whenever RAICK encounters an error inside your script or inside the framework itself it generates the descriptive report about the type and the cause of the error. This report is then showed to the user in the error window and documented to the `Logs & Errors/Error Logs.txt` file or to the `RAICK.Bugz.txt` file in case the error came from RAICK. Finally, your bot is switched to the _Safe Mode_ to cut-off the possibility for the error to occur again.<br>
+Whenever RAICK encounters an error inside your script or inside the framework itself it generates a descriptive report about the type and the cause of the error. This report is then showed to the user in the error window and documented to the `Logs & Errors/Error Logs.txt` file or to the `RAICK.Bugz.txt` file in case the error came from RAICK. Finally, your bot is switched to the _Safe Mode_ to cut-off the possibility of the error occurring again.<br>
 The error report may contain following rows:
   * `[!] XXX [!]`
   The type of the error. Can be:
@@ -786,7 +786,7 @@ Just think about it! Basically, you can use only one AI to control both of your 
         * <font color="#006666">*value*</font> :: `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` |  `Points` |  `Skill` | `Vector`<br>
         The value that you want to send.<br>
       * *Description*
-        Calls the <font color="#006666">*message*</font> handler function defined in the `Messages` file of the cobot's AI passing the <font color="#006666">*value*</font> to it. If the handler function with this name(as always, case and delimiters don't count) is not defined, then nothing happens. During one execution of the activity only one value can be sent using this method.
+        Calls the <font color="#006666">*message*</font> handler function defined in the `Messages` file of the cobot's AI passing the <font color="#006666">*value*</font> to it. If the handler function with this name(as always, case and delimiters don't count) is not defined, then nothing happens. During a single execution of the activity(call of the AI by the client) only one value can be sent using this method.
   * Using this method you can send values of specified data types to the opposite side. The second AI will receive them through handler functions defined in the `Messages` file. Every such function must be defined with one argument to be able to receive those values. For example:
   <code language="lua">
 -- Somewhere in the Homunculus AI:
