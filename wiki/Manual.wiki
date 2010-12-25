@@ -770,7 +770,7 @@ The error report may contain following rows:
   The received/incorrect type or value of the argument.
   * `Solution`
   What RAICK will do or has done to fix the problem.
-  * `[!] ATTENTION [!] footer
+  * `[!] ATTENTION [!]` footer
   If you see a footer starting with this row, then the error is the bug of the framework, not your script. You should report about it as soon as possible.
 <br>
 ----
