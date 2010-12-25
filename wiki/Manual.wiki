@@ -433,7 +433,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">clear()</font>* :: `self`<br><br>
     * *<font color="#0052A3">clone()</font>* :: `List`<br><br>
     * *<font color="#0052A3">each()</font>* :: `function`<br><br>
-    * *<font color="#0052A3">elements( <font color="#006666">lvl</font> )</font>* :: `range`<br><br>
+    * *<font color="#0052A3">elements()</font>* :: `range`<br><br>
     * *<font color="#0052A3">get( <font color="#5E5B00">n</font> )</font>* :: `any`<br><br>
     * *<font color="#0052A3">add( <font color="#006666">v</font> )</font>* :: `self`<br><br>
     * *<font color="#0052A3">addList( <font color="#006666">l</font> )</font>* :: `self`<br><br>
@@ -776,4 +776,26 @@ The error report may contain following rows:
 ----
 ==<font color="#006666">Data Exchange Between Homunculus and Mercenary</font>==
 A truly unique feature of RAICK is the ability to unify two scripts in one. The framework makes bot communication painless and a joy to use.<br>
-So, here's how it works. First of all, you have to switch the `BotCommunication` setting `ON` and restart both of your scripts(_Character Select_ is the best way to do it, since mercenaries cannot be _Rest_'ed). The `Homunculus` object in the mercenary AI and the `Mercenary` object in the homunculus AI will now "come to live". They will fully replicate the "original" objects from the corresponding AI's as long as the second bot(i call it _cobot_) is in range of vision. The fact that the cobot is in your sight can be checked through the `is` method: `is.active` returns `true` if the cobot is in range of sight.
+So, here's how it works. First of all, you have to switch the `BotCommunication` setting `ON` and restart both of your scripts(_Character Select_ is the best way to do it, since mercenaries cannot be _Rest_'ed). The `Homunculus` object in the mercenary AI and the `Mercenary` object in the homunculus AI will now "come to live". They will fully replicate the "original" objects(all fields + all methods) from the corresponding AI's as long as the second bot(i call it _cobot_) is in range of vision. The fact that the cobot is in your sight can be checked through the `is` method: `is.active` returns `true` if the cobot is in range of sight. When the object is inactive the methods will not function and it won't contain any data.<br>
+Just think about it! Basically, you can use only one AI to control both of your bots! And there is even something extra! Besides having total control over the actions and the data of cobot you can also send messages to it. A message is just a way to send random data to the cobot. And here's how it works:<br>
+  * If the communication is `ON`, then original bot objects get one extra method:<br><br>
+    * *<font color="#0052A3">send.<font color="#006666">message</font>( <font color="#006666">value</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*message*</font> :: `string`<br>
+        The name of the message.<br>
+        * <font color="#006666">*value*</font> :: `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` |  `Points` |  `Skill` | `Vector`<br>
+        The value that you want to send.<br>
+      * *Description*
+        Calls the <font color="#006666">*message*</font> handler function defined in the `Messages` file of the cobot's AI passing the <font color="#006666">*value*</font> to it. If the handler function with this name(as always, case and delimiters don't count) is not defined, then nothing happens. During one execution of the activity only one value can be sent using this method.
+  * Using this method you can send values of specified data types to the opposite side. The second AI will receive them through handler functions defined in the `Messages` file. Every such function must be defined with one argument to be able to receive those values. For example:
+  <code language="lua">
+-- Somewhere in the Homunculus AI:
+Homun.send.killHim(actor)
+...
+-- In the Messages file of the Mercenary AI:
+function    KILL_HIM(enemy)
+
+    mainTarget = Memory.save("mainTarget", enemy)
+    Activity.switchTo.terminationOf(mainTarget)
+end
+</code>
