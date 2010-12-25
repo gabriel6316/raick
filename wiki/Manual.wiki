@@ -85,6 +85,8 @@ In these examples i have specified `Value` objects that translate original ID's 
          * `"[MercType][ScrollLvl]"`
          The same as the previous one, except the lvl of the scroll is now in the back. For example: `"Lancer10"`, `"bowman3"`.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`
+<br>
+----
 ====<font color="#660000">Cell</font>====
 Represents a cell with (x,y) coordinates on the current map/location. The coordinates of a cell, which your character is currently occupying can always be checked using the */where* command.
   * <u>*Constructors*</u><br><br>
@@ -135,6 +137,8 @@ Represents a cell with (x,y) coordinates on the current map/location. The coordi
         Any in-game object, distance till which you want to know.<br>
       * *Description*
         Returns the distance(in cells) between <font color="#006666">*cell*</font> and <font color="#006666">*object*</font> or `nil` if <font color="#006666">*object*</font> is an actor, which is not visible.
+<br>
+----
 ====<font color="#660000">Actor</font>====
 Represents an in-game character(monster, NPC or player character), which can be distinguished by it's unique ID. `Owner`, `Homunculus` and `Mercenary` objects can also be called actors, but they are allocated into separate object, since they are _special_ actors meaning that you can get more data about them and send commands to some of them.
   * <u>*Constructors*</u><br><br>
@@ -362,6 +366,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
         Any in-game object, distance till which you want to know.<br>
       * *Description*
         Returns the distance(in cells) between <font color="#006666">*actor*</font> and <font color="#006666">*object*</font> or `nil` if at least one of them is not visible.
+----
 ====<font color="#660000">Points</font>====
 Represents your or your bot's HP or SP. It is very similar to the `Value` object, but has some extra fields and `is` method functionality allowing you to easily get all the information you need about those values.
   * <u>*Constructors*</u><br><br>
@@ -395,6 +400,8 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
          * `"[Operator][Percent]%"`
          The same as previous one, but checks the <font color="#006666">*percent*</font> field. For example: `"56.7%"`, `"< 100%"`, `">=10.134323%"`.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`
+<br>
+----
 ====<font color="#660000">Skill</font>====
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Skill( <font color="#006666">id</font> )</font>* :: `Skill` | `nil`<br><br>
@@ -411,6 +418,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">sp( <font color="#5E5B00">lvl</font> )</font>* :: `number`<br><br>
     * *<font color="#0052A3">duration( <font color="#5E5B00">lvl</font> )</font>* :: `number`<br><br>
     * *<font color="#0052A3">delay( <font color="#5E5B00">lvl</font> )</font>* :: `number`<br><br>
+----
 ====<font color="#660000">List</font>====
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">List( <font color="#5E5B00">…</font> )</font>* :: `List`<br><br>
@@ -447,6 +455,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">replaceAll( <font color="#006666">v1</font> , <font color="#006666">v1</font> )</font>* :: `self`<br><br>
     * *<font color="#0052A3">replaceFirst( <font color="#006666">v1</font> , <font color="#006666">v2</font> , <font color="#5E5B00">n</font> )</font>* :: `self`<br><br>
     * *<font color="#0052A3">replaceLast( <font color="#006666">v1</font> , <font color="#006666">v2</font> , <font color="#5E5B00">n</font> )</font>* :: `self`<br><br>
+----
 ====<font color="#660000">Map</font>====
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Map( <font color="#5E5B00">…</font> )</font>* :: `Map`<br><br>
@@ -467,6 +476,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">put( <font color="#006666">k</font> , <font color="#006666">v</font> )</font>* :: `self`<br><br>
     * *<font color="#0052A3">contains( <font color="#006666">k</font> )</font>* :: `boolean`<br><br>
     * *<font color="#0052A3">containsValue( <font color="#006666">v</font> )</font>* :: `boolean`<br><br>
+----
 ====<font color="#660000">Timer</font>====
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Timer( <font color="#006666">t</font> )</font>* :: `Timer`<br><br>
@@ -479,6 +489,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">stopped()</font>* :: `boolean`<br><br>
     * *<font color="#0052A3">reset()</font>* :: `self`<br><br>
     * *<font color="#0052A3">timeouted()</font>* :: `boolean`<br><br>
+----
 ====<font color="#660000">Logger</font>====
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Logger( <font color="#006666">file</font> , <font color="#5E5B00">delay</font> )</font>* :: `Logger`<br><br>
@@ -516,6 +527,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">newLine()</font>* :: `self`<br><br>
     * *<font color="#0052A3">clear()</font>* :: `self`<br><br>
     * *<font color="#0052A3">remove()</font>* :: `self`<br><br>
+----
 ====<font color="#660000">Vector</font>====
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Vector( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>* :: `Vector`<br><br>
@@ -602,6 +614,8 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
         Any in-game object, distance till which you want to know.<br>
       * *Description*
         Returns the distance(in cells) between you and <font color="#006666">*object*</font> or `nil` if <font color="#006666">*object*</font> is an actor, which is not visible.
+<br>
+----
 ====<font color="#660000">Homunculus</font>====
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
@@ -636,6 +650,8 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
         Any in-game object, distance till which you want to know.<br>
       * *Description*
         Returns the distance(in cells) between your homunculus and <font color="#006666">*object*</font> or `nil` if <font color="#006666">*object*</font> is an actor, which is not visible.
+<br>
+----
 ====<font color="#660000">Mercenary</font>====
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
@@ -670,6 +686,8 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
         Any in-game object, distance till which you want to know.<br>
       * *Description*
         Returns the distance(in cells) between your mercenary and <font color="#006666">*object*</font> or `nil` if <font color="#006666">*object*</font> is an actor, which is not visible.
+<br>
+----
 ====<font color="#660000">Memory</font>====
   * <u>*Methods*</u><br><br>
     * *<font color="#0052A3">save( <font color="#006666">n</font> , <font color="#006666">v</font> )</font>* :: <font color="#006666">*v*</font><br><br>
@@ -677,7 +695,17 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">contains( <font color="#006666">n</font> )</font>* :: `boolean`<br><br>
     * *<font color="#0052A3">delete( <font color="#006666">n</font> )</font>* :: `self`<br><br>
     * *<font color="#0052A3">clear()</font>* :: `self`<br><br>
+----
+====<font color="#660000">Activity</font>====
+  * <u>*Fields*</u><br><br>
+      * <font color="#006666">*current*</font> :: `Value`<br><br>
+      * <font color="#006666">*last*</font> :: `Value`<br><br>
+  * <u>*Methods*</u><br><br>
+    * *<font color="#0052A3">switchTo.<font color="#006666">activity</font></font>* :: `self`<br><br>
+    * *<font color="#0052A3">changeArgument( <font color="#006666">n</font> , <font color="#006666">v</font> )</font>* :: `self`<br><br>
+----
 ==<font color="#006666">Detailed Overview of Files</font>==
+Partially this topic is covered in the [http://code.google.com/p/raick/wiki/GettingStarted#AI_Specific_Files Getting Started] chapter. I will just introduce the facts that'll complete the picture.<br>
 All of RAICK's AI files share one common feature, which simplifies and quickens the scripting process. The idea is quite simple: global variables with _special_ names are translated into strings. What this means is that, for example, if you are querying a global variable `visible`(and this variable contains `nil`- it has not been used or has been cleared after usage), then the result of the query will be string `"visible"`. So, how do you know which names are _special_? Here is the list:
   * Status names(<font color="#006666">*status*</font> field)
   * Group names(<font color="#006666">*group*</font> field)
@@ -699,7 +727,31 @@ Anything other than the handler functions will be ignored.
 ===<font color="#006600">Skills</font>===
 The file, where you define _handler_ functions that intercept commands to use a targeted skill. Upon creation it is also automatically filled with all available skill handlers. The second argument is always the skill level used and the first one is either a cell or an actor depending of the type of the skill: ground- or enemy-targeted.<br>
 Anything other than the handler functions will be ignored.
+<br>
+----
 ===<font color="#006600">Messages</font>===
+The file, where you define _handler_ functions that intercept messages sent from one AI script to another. This allows your bots to communicate with each other. You can read more about this wonderful feature in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section]
+<br>
+----
 ===<font color="#006600">Activities</font>===
+The final and the most important file is the one, where you define your activities. The first activity that you define is called _initial_. When you run your script for the first time RAICK does not know what is the current activity, since the memory is empty and so  it uses the first activity as the current one.<br>
+Two activity names are _special_: `pre` and `post`(plus all case and delimiter insensitive variations). The first one is called every time before the current activity function is called and the second one is called after the current activity executes. Typically, you would use those to define periodical events like casting self-support skills.<br>
+There is also one hidden activity, to which your bot is switched if RAICK encounters an error in your script. It this activity your bot will follow you and you will have an ability to manually use it's skills. You can think of it as a _Safe Mode_.
+<br>
+----
 ==<font color="#006666">Understanding RAICK Errors</font>==
+Whenever RAICK encounters an error inside your script or inside the framework itself it generates the descriptive report about the type and the cause of the error. This report is then showed to the user in the error window and documented to the `Logs & Errors/Error Logs.txt` file or to the `RAICK.Bugz.txt` file in case the error came from RAICK. Finally, your bot is switched to the _Safe Mode_ to cut-off the possibility for the error to occur again.<br>
+The error report can contain following rows:
+  * `[!] XXX [!]`
+  * `File`
+  * `Line`
+  * `Cause`
+  * `Function`/`Operator`
+  * `Argument`
+  * `Expected`
+  * `Got`
+  * `Solution`
+  * RAICK bug footer
+<br>
+----
 ==<font color="#006666">Data Exchange Between Homunculus and Mercenary</font>==
