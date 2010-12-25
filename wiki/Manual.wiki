@@ -794,7 +794,7 @@ Homun.send.killHim(actor)
 ...
 -- In the Messages file of the Mercenary AI:
 function    KILL_HIM(enemy)
-
+    
     mainTarget = Memory.save("mainTarget", enemy)
     Activity.switchTo.terminationOf(mainTarget)
 end
