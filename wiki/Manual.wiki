@@ -42,7 +42,7 @@ For strings with specific format:
 I also use pseudo-type names:
   * `range` - to specify that the function can take an arbitrary number of arguments or return an arbitrary number of values.
   * `any` - to specify value can be of any type.
-  * `self` - to specify that the method returns the reference to the same object it has been called from. For example, method `list.add(2).add(5).remove(1)` would add `2` and `5` to the list and then remove the 1'st elements from it leaving just 1 element `5`.
+  * `self` - to specify that the method returns the reference to the same object it has been called from. For example,  `list.add(2).add(5).remove(1)` would add `2` and `5` to the list and then remove the 1'st elements from it leaving just 1 element `5`.
 <br>
 ----
 ===<font color="#006600">Multipliable Objects</font>===
@@ -548,9 +548,9 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
         To be filled later.<br>
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*x*</font> :: `number`<br>
-      The normalized value of the vector's X-coordinate.<br>
+      The X-coordinate of the vector.<br>
       * <font color="#006666">*y*</font> :: `number`<br>
-      The normalized value of the vector's Y-coordinate.<br>
+      The Y-coordinate of the vector.<br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
@@ -604,6 +604,8 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
+         * `"full"`
+         Returns `true` if your character's HP and SP are full.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">owner</font> .. <font color="#006666">object</font></font>* :: `number` | `nil`<br><br>
@@ -640,6 +642,10 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
+         * `"full"`
+         Returns `true` if the homunculus' HP and SP are full.
+         * `"active"`
+         Returns `true` if the object is active. Explained in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">homun</font> .. <font color="#006666">object</font></font>* :: `number` | `nil`<br><br>
@@ -676,6 +682,11 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
+      * *Accepted `string` Values*<br><br>
+         * `"full"`
+         Returns `true` if the mercenaries HP and SP are full.
+         * `"active"`
+         Returns `true` if the object is active. Explained in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">merc</font> .. <font color="#006666">object</font></font>* :: `number` | `nil`<br><br>
@@ -689,20 +700,69 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
 <br>
 ----
 ====<font color="#660000">Memory</font>====
+The object for manipulating the memory. Values are saved under `string` keys just like in an ordinary table. I will refer to those strings as _memory variables_ or _entries_. As an exception to the common rule: memory variables are case and delimiter <u>sensitive</u>. Read more about the memory file [http://code.google.com/p/raick/wiki/Manual#0._Memory here].
   * <u>*Methods*</u><br><br>
     * *<font color="#0052A3">save( <font color="#006666">n</font> , <font color="#006666">v</font> )</font>* :: <font color="#006666">*v*</font><br><br>
-    * *<font color="#0052A3">get( <font color="#006666">n</font> , <font color="#006666">v</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*n*</font> :: `string`<br>
+        The name of the memory variable.<br>
+        * <font color="#006666">*v*</font> :: `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` | `Vector`<br>`List` ( `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` | `Vector` )<br>`Map` ( `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` | `Vector` )<br>
+        The value that needs to be saved.<br>
+      * *Description*
+        Saves <font color="#006666">*v*</font> to memory variable <font color="#006666">*n*</font> and return <font color="#006666">*v*</font> afterwards.
+    * *<font color="#0052A3">get( <font color="#006666">n</font> , <font color="#5E5B00">v</font> )</font>* :: `any` | <font color="#5E5B00">*v*</font> | `nil`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*n*</font> :: `string`<br>
+        The name of the memory variable.<br>
+        * <font color="#5E5B00">*v*</font> :: `any`<br>
+        The value that will be returned if <font color="#006666">*n*</font> does not exist in the memory.<br>
+      * *Description*
+        Returns the value that is saved to <font color="#006666">*n*</font> or <font color="#5E5B00">*v*</font> if no such entry exist or `nil` if no such entry exist and <font color="#5E5B00">*v*</font> is omitted.
     * *<font color="#0052A3">contains( <font color="#006666">n</font> )</font>* :: `boolean`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*n*</font> :: `string`<br>
+        The name of the memory variable.<br>
+      * *Description*
+        Returns `true` if the entry <font color="#006666">*n*</font> exist in the memory.
     * *<font color="#0052A3">delete( <font color="#006666">n</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*n*</font> :: `string`<br>
+        The name of the memory variable.<br>
+      * *Description*
+        Deletes entry <font color="#006666">*n*</font> from the memory.
     * *<font color="#0052A3">clear()</font>* :: `self`<br><br>
+      * *Description*
+        Clears the memory including RAICK service data like current activity or activity arguments(the values in script variables will still be available until the restart).
 ----
 ====<font color="#660000">Activity</font>====
+Through this object you can change the current activity of your homunculus/mercenary or to get information about the current or the last activity. Read more about activities [http://code.google.com/p/raick/wiki/Manual#5._Activities here].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*current*</font> :: `Value`<br><br>
-      * <font color="#006666">*last*</font> :: `Value`<br><br>
+      Contains the name of the current activity and it's sequential number(the first activity would get 1 and so on). This value "survives" the restart of the script, since it is automatically saved to memory.
+      * <font color="#006666">*last*</font> :: `Value` | `nil`<br><br>
+      Contains the name of the last activity(the one that your homunculus/mercenary was before the switching to the current activity) and it's sequential number or `nil` if the AI is run to the first time and there is historical data available.
   * <u>*Methods*</u><br><br>
-    * *<font color="#0052A3">switchTo.<font color="#006666">activity</font></font>* :: `self`<br><br>
+    * *<font color="#0052A3">switchTo.<font color="#006666">activity</font>( <font color="#5E5B00">…</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*activity*</font> :: `string`<br>
+        The name of the activity.<br>
+        * <font color="#5E5B00">*…*</font> :: `range` ( `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` |  `Points` |  `Skill` | `Vector` )<br>
+        A range of values with arbitrary number of elements.<br>
+      * *Description*
+        Switches your homunculus/mercenary to <font color="#006666">*activity*</font> activity with given arguments. Two <font color="#006666">*activity*</font> names have special meaning:<br><br>
+          * `initial`
+          Switches to the first state that is defined in the `Activities` file.
+          * `last`
+          Switches to the <font color="#006666">*last*</font> activity or does nothing if it is `nil`.
+        As always, <font color="#006666">*activity*</font> is case and delimiter insensitive.
     * *<font color="#0052A3">changeArgument( <font color="#006666">n</font> , <font color="#006666">v</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*n*</font> :: `string`<br>
+        The sequential number of the argument(starting from 1).<br>
+        * <font color="#006666">*v*</font> :: `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` |  `Points` |  `Skill` | `Vector`<br>
+        The new value of the argument.<br>
+      * *Description*
+        Changes the <font color="#006666">*n*</font>'th argument of the current activity to <font color="#006666">*v*</font>.
 ----
 ==<font color="#006666">Detailed Overview of Files</font>==
 Partially this topic is covered in the [http://code.google.com/p/raick/wiki/GettingStarted#AI_Specific_Files Getting Started] chapter. I will just introduce the facts that'll complete the picture.<br>
@@ -712,7 +772,9 @@ All of RAICK's AI files share one common feature, which simplifies and quickens 
   * Type names(<font color="#006666">*type*</font> field) ›› _! Every monster !_
 Like everywhere in RAICK the names are case and delimiter insensitive meaning that, for example, `"ma__Ya__--Pu__rple"` is the same as `"Maya Purple"`. This also concerns the names of handler functions and activities discussed below. For example: `"a_l_t_shift_TARGET"` and `"AltShiftTarget"` refer to the same handler function.
 ===<font color="#006600">0. Memory</font>===
-The memory file is automatically created and managed by RAICK. This is where your saved values are stored. If you open it, you will first of all see a header saying when the memory was last updated and how many percent of it's capacity is currently taken. The header is followed by the list of entries, each of them with it's own small header, which specifies the type of the value, as well as the number of elements if the value is a `List` or a `Map`. The file itself can be manually altered, but if you make any mistakes you won't be able to run your AI properly until you either fix the error or delete the memory file.
+The memory file is automatically created and managed by RAICK. This is where your saved values are stored. If you open it, you will first of all see a header saying when the memory was last updated and how many percent of it's capacity is currently taken. The header is followed by the list of entries, each of them with it's own small header, which specifies the type of the value, as well as the number of elements if the value is a `List` or a `Map`. Values between underscores like `_s_` are RAICK service memory entries- they should not be altered.
+<br>
+The file itself can be manually altered, but if you make any mistakes you won't be able to run your AI properly until you either fix the error or delete the memory file.
 <br>
 ----
 ===<font color="#006600">1. On Startup</font>===
@@ -734,9 +796,10 @@ The file, where you define _handler_ functions that intercept messages sent from
 <br>
 ----
 ===<font color="#006600">5. Activities</font>===
-The final and the most important file is the one, where you define your activities. The first activity that you define is called _initial_. When you run your script for the first time RAICK does not know what is the current activity, since the memory is empty and so  it uses the first activity as the current one.<br>
+The final and the most important file is the one, where you define your activities. The first activity that you define is called _initial_. When you run your script for the first time RAICK does not know what is the current activity(since the memory is empty), so it uses the first activity as the current one.<br>
 Two activity names are _special_: `pre` and `post`(plus all case and delimiter insensitive variations). The first one is called every time before the current activity function is called and the second one is called after the current activity executes. Typically, you would use those to define periodical events like casting self-support skills.<br>
-There is also one hidden activity, to which your bot is switched if RAICK encounters an error in your script. It this activity your bot will follow you and you will have an ability to manually use it's skills. You can think of it as a _Safe Mode_.
+There is also one hidden activity, to which your bot is switched if RAICK encounters an error in your script. It this activity your bot will follow you and you will have an ability to manually use it's skills. You can think of it as a _Safe Mode_.<br>
+Activities can take arguments, which are automatically saved to the memory.
 <br>
 ----
 ==<font color="#006666">Understanding RAICK Errors</font>==
