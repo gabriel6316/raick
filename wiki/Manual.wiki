@@ -410,7 +410,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
         The ID of the skill.<br>
       * *Description*
   * <u>*Fields*</u><br><br>
-      * <font color="#006666">*maxLvl*</font> :: `number`<br>
+      * <font color="#006666">*maxLevel*</font> :: `number`<br>
       The maximum level of the skill.<br>
       * <font color="#006666">*range*</font> :: `number` | `nil`<br>
       The range of the skill. Contains the maximum distance from the owner for skill to be usable incase of homunculus supportive skills like _Urgent Escape_. `nil` if the skill does not have any range restrictions.<br>
@@ -581,6 +581,8 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
 ----
 ===<font color="#006600">Single Objects</font>===
 ====<font color="#660000">Owner</font>====
+Represents your character.<br>
+Most of the fields repeat the ones that the `Actor` object has, since your mercenary is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
       * <font color="#006666">*cell*</font> :: `Cell`<br><br>
@@ -619,6 +621,8 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
 <br>
 ----
 ====<font color="#660000">Homunculus</font>====
+Represents your homunculus. This object is defined both in the homunculus and in the mercenary scripts, since RAICK support data exchange between scripts. Read more about data exchange in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
+Most of the fields repeat the ones that the `Actor` object has, since your mercenary is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
       * <font color="#006666">*cell*</font> :: `Cell`<br><br>
@@ -640,6 +644,32 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
       * <font color="#006666">*sp*</font> :: `Points`<br><br>
       * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
+  * <u>*Methods*</u><br><br>
+    * *<font color="#0052A3">goTo( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*v*</font> :: `Cell` | `Actor` | `Owner` | `Mercenary` | `Vector`<br>
+        The location or the object, to which the homunculus must go or the direction(vector) of it's movement.<br>
+        * <font color="#5E5B00">*n*</font> :: `number`<br>
+        The number of cells, by which the homunculus must advance in the direction specified by the location, object or vector.<br>
+      * *Description*
+        To be filled later.
+    * *<font color="#0052A3">hit( <font color="#006666">target</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*target*</font> :: `Actor`<br>
+        The target.<br>
+      * *Description*
+        Orders your homunculus to hit(attack with normal attacks) the specified target once.
+    * *<font color="#0052A3">use( <font color="#006666">skill</font> , <font color="#5E5B00">lvl</font> )</font>* :: `self`
+    * *<font color="#0052A3">use( <font color="#006666">skill</font> , <font color="#5E5B00">lvl</font> ).on( <font color="#006666">target</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*skill*</font> :: `Skill`<br>
+        The skill that you want your homunculus to use.<br>
+        * <font color="#5E5B00">*lvl*</font> :: `number` | <font color="#006666">*skill.maxLevel*</font><br>
+        The level of the skill.<br>
+        * <font color="#006666">*target*</font> :: `Actor`<br>
+        The target, on which the skill should be used.<br>
+      * *Description*
+        The first version of this method is used for non-targeted skills and the second one is for targeted ones. If the level of the skill is omitted uses the maximum level available.
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
          * `"full"`
@@ -659,6 +689,8 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
 <br>
 ----
 ====<font color="#660000">Mercenary</font>====
+Represents your mercenary. This object is defined both in the mercenary and in the homunculus scripts, since RAICK support data exchange between scripts. Read more about data exchange in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
+Most of the fields repeat the ones that the `Actor` object has, since your mercenary is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
       * <font color="#006666">*cell*</font> :: `Cell`<br><br>
@@ -680,6 +712,32 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
       * <font color="#006666">*sp*</font> :: `Points`<br><br>
       * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
+  * <u>*Methods*</u><br><br>
+    * *<font color="#0052A3">goTo( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*v*</font> :: `Cell` | `Actor` | `Owner` | `Homunculus` | `Vector`<br>
+        The location or the object, to which the mercenary must go or the direction(vector) of it's movement.<br>
+        * <font color="#5E5B00">*n*</font> :: `number`<br>
+        The number of cells, by which the mercenary must advance in the direction specified by the location, object or vector.<br>
+      * *Description*
+        To be filled later.
+    * *<font color="#0052A3">hit( <font color="#006666">target</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*target*</font> :: `Actor`<br>
+        The target.<br>
+      * *Description*
+        Orders your mercenary to hit(attack with normal attacks) the specified target once.
+    * *<font color="#0052A3">use( <font color="#006666">skill</font> , <font color="#5E5B00">lvl</font> )</font>* :: `self`
+    * *<font color="#0052A3">use( <font color="#006666">skill</font> , <font color="#5E5B00">lvl</font> ).on( <font color="#006666">target</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*skill*</font> :: `Skill`<br>
+        The skill that you want your mercenary to use.<br>
+        * <font color="#5E5B00">*lvl*</font> :: `number` | <font color="#006666">*skill.maxLevel*</font><br>
+        The level of the skill.<br>
+        * <font color="#006666">*target*</font> :: `Actor`<br>
+        The target, on which the skill should be used.<br>
+      * *Description*
+        The first version of this method is used for non-targeted skills and the second one is for targeted ones. If the level of the skill is omitted uses the maximum level available.
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted `string` Values*<br><br>
