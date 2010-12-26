@@ -403,23 +403,46 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
 <br>
 ----
 ====<font color="#660000">Skill</font>====
+Represents the skills that your bot can use. It is used either to get information about the skill or to order your bot to use it. Although this skills has a constructor you would not normally need to use it, because every skill object available can be accessed by it's name. For example if you query variables: `Devotion`, `TouchOfHeal`, `SBR44`, `MentalChange` they would all contain skill objects for those skills. RAICK even knows the synonyms and some shorter versions used by players: `Sacrifice`, `HealingHands`, `SBR`, `Mental`. All names are case and delimiter insensitive, which means that your can write `S_B_R` or `healing_HAND_S` and you would still get your objects.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Skill( <font color="#006666">id</font> )</font>* :: `Skill` | `nil`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*id*</font> :: `number`<br>
         The ID of the skill.<br>
       * *Description*
+        Returns the object, which represents the skill with the given ID or `nil` if no such skill exist.
   * <u>*Fields*</u><br><br>
+      * <font color="#006666">*id*</font> :: `number`<br>
+      The ID of the skill.<br>
+      * <font color="#006666">*name*</font> :: `string`<br>
+      The name of the skill.<br>
       * <font color="#006666">*maxLevel*</font> :: `number`<br>
       The maximum level of the skill.<br>
       * <font color="#006666">*range*</font> :: `number` | `nil`<br>
       The range of the skill. Contains the maximum distance from the owner for skill to be usable incase of homunculus supportive skills like _Urgent Escape_. `nil` if the skill does not have any range restrictions.<br>
   * <u>*Methods*</u><br><br>
     * *<font color="#0052A3">sp( <font color="#5E5B00">lvl</font> )</font>* :: `number`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#5E5B00">*lvl*</font> | <font color="#006666">*maxLevel*</font> :: `number`<br>
+        The level of the skill.<br>
+      * *Description*
+        Returns the amount SP needed to use the current skill of specified level.
     * *<font color="#0052A3">duration( <font color="#5E5B00">lvl</font> )</font>* :: `number`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#5E5B00">*lvl*</font> | <font color="#006666">*maxLevel*</font> :: `number`<br>
+        The level of the skill.<br>
+      * *Description*
+        Returns the duration of effect in milliseconds for the current skill of specified level. Returns 0 if the skill does not have a duration.
     * *<font color="#0052A3">delay( <font color="#5E5B00">lvl</font> )</font>* :: `number`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#5E5B00">*lvl*</font> | <font color="#006666">*maxLevel*</font> :: `number`<br>
+        The level of the skill.<br>
+      * *Description*
+        Returns the fixed delay in milliseconds(for example, after supportive skills like _Urgent Escape_) for the current skill of specified level. Returns 0 if the skill does not have a fixed delay.
+<br>
 ----
 ====<font color="#660000">List</font>====
+A simple list for storing multiple values and manipulating with them.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">List( <font color="#5E5B00">…</font> )</font>* :: `List`<br><br>
       * *Arguments*<br><br>
@@ -457,6 +480,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">replaceLast( <font color="#006666">v1</font> , <font color="#006666">v2</font> , <font color="#5E5B00">n</font> )</font>* :: `self`<br><br>
 ----
 ====<font color="#660000">Map</font>====
+Basically, an advanced version of the `table`. It's main advantage is that unlike the `table` it can be saved to memory.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Map( <font color="#5E5B00">…</font> )</font>* :: `Map`<br><br>
       * *Arguments*<br><br>
@@ -478,6 +502,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">containsValue( <font color="#006666">v</font> )</font>* :: `boolean`<br><br>
 ----
 ====<font color="#660000">Timer</font>====
+A simple timer for counting time periods inside the script.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Timer( <font color="#006666">t</font> )</font>* :: `Timer`<br><br>
       * *Arguments*<br><br>
@@ -491,6 +516,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">timeouted()</font>* :: `boolean`<br><br>
 ----
 ====<font color="#660000">Logger</font>====
+An advanced version of the */traceai* command.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Logger( <font color="#006666">file</font> , <font color="#5E5B00">delay</font> )</font>* :: `Logger`<br><br>
       * *Arguments*<br><br>
@@ -529,6 +555,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
     * *<font color="#0052A3">remove()</font>* :: `self`<br><br>
 ----
 ====<font color="#660000">Vector</font>====
+Represents directions and relative locations of objects in comparison to one another.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Vector( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>* :: `Vector`<br><br>
       * *Arguments*<br><br>
@@ -582,7 +609,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
 ===<font color="#006600">Single Objects</font>===
 ====<font color="#660000">Owner</font>====
 Represents your character.<br>
-Most of the fields repeat the ones that the `Actor` object has, since your character is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
+Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your character is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
       * <font color="#006666">*cell*</font> :: `Cell`<br><br>
@@ -622,7 +649,7 @@ Most of the fields repeat the ones that the `Actor` object has, since your chara
 ----
 ====<font color="#660000">Homunculus</font>====
 Represents your homunculus. This object is defined both in the homunculus and in the mercenary scripts, since RAICK support data exchange between scripts. Read more about data exchange in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
-Most of the fields repeat the ones that the `Actor` object has, since your homunculus is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
+Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your homunculus is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
       * <font color="#006666">*cell*</font> :: `Cell`<br><br>
@@ -690,7 +717,7 @@ Most of the fields repeat the ones that the `Actor` object has, since your homun
 ----
 ====<font color="#660000">Mercenary</font>====
 Represents your mercenary. This object is defined both in the mercenary and in the homunculus scripts, since RAICK support data exchange between scripts. Read more about data exchange in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
-Most of the fields repeat the ones that the `Actor` object has, since your mercenary is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
+Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your mercenary is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
       * <font color="#006666">*cell*</font> :: `Cell`<br><br>
