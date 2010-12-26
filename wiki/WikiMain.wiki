@@ -1,4 +1,3 @@
-
 =<font color="#003366">Table of Contents for R.A.I.C.K. Wikipedia</font>=
 
 <font size="5">
@@ -6,7 +5,7 @@
   # [History History of the Project]<font size="4">
     * _[http://code.google.com/p/raick/wiki/History#H.A.I.C.K. H.A.I.C.K.]
     * [http://code.google.com/p/raick/wiki/History#R.A.I.C.K._v1 R.A.I.C.K. v1]
-    * [http://code.google.com/p/raick/wiki/History#Going_International_with_R.A.I.C.K._v2 Going International with R.A.I.C.K. v2]_</font>
+    * [http://code.google.com/p/raick/wiki/History#Going_International_with_R.A.I.C.K._v2 Going International with R.A.I.C.K. v2]_</font><br/><br/>
   # [Lua Lua and the ABC of Programming]<font size="4">
     * _[http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]
     * [http://code.google.com/p/raick/wiki/Lua#Building_Blocks_of_Lua Building Blocks of Lua]<font size="3">
@@ -17,7 +16,7 @@
       * [http://code.google.com/p/raick/wiki/Lua#Conditions_&_Booleans Conditions & Booleans]
       * [http://code.google.com/p/raick/wiki/Lua#Loops Loops]
       * [http://code.google.com/p/raick/wiki/Lua#Standard_Libraries Standard Libraries]
-      * [http://code.google.com/p/raick/wiki/Lua#The_Hard_Part:_Objects_and_Primitive_Types The Hard Part: Objects and Primitive Types]_*</font></font>
+      * [http://code.google.com/p/raick/wiki/Lua#The_Hard_Part:_Objects_and_Primitive_Types The Hard Part: Objects and Primitive Types]_*</font></font><br/><br/>
   # [GettingStarted Getting Started]<font size="4">
     * _[http://code.google.com/p/raick/wiki/GettingStarted#Installation Installation]
     * [http://code.google.com/p/raick/wiki/GettingStarted#Files_&_Folders Files & Folders]<font size="3">
@@ -33,8 +32,36 @@
       * [http://code.google.com/p/raick/wiki/GettingStarted#Automated_Target_Selection Automated Target Selection]
       * [http://code.google.com/p/raick/wiki/GettingStarted#The_Final_Touch The Final Touch]
       * [http://code.google.com/p/raick/wiki/GettingStarted#It%27s_Done! It's Done!]
-      * [http://code.google.com/p/raick/wiki/GettingStarted#Appendix Appendix]*</font>_</font>
-  # [Manual Reference Manual]<font color="gray">
+      * [http://code.google.com/p/raick/wiki/GettingStarted#Appendix Appendix]*</font>_</font><br/><br/>
+  # [Manual Reference Manual]<font size="4">
+    * _[http://code.google.com/p/raick/wiki/Manual#Detailed_Description_of_Objects Detailed Description of Objects]<font size="3">
+      * *[http://code.google.com/p/raick/wiki/Manual#A_Few_Words_About_the_Syntax A Few Words About the Syntax]
+      * [http://code.google.com/p/raick/wiki/Manual#Multipliable_Objects Multipliable Objects]*_
+        * [http://code.google.com/p/raick/wiki/Manual#Value Value]
+        * [http://code.google.com/p/raick/wiki/Manual#Cell Cell]
+        * [http://code.google.com/p/raick/wiki/Manual#Actor Actor]
+        * [http://code.google.com/p/raick/wiki/Manual#Points Points]
+        * [http://code.google.com/p/raick/wiki/Manual#Skill Skill]
+        * [http://code.google.com/p/raick/wiki/Manual#List List]
+        * [http://code.google.com/p/raick/wiki/Manual#Map Map]
+        * [http://code.google.com/p/raick/wiki/Manual#Timer Timer]
+        * [http://code.google.com/p/raick/wiki/Manual#Logger Logger]
+        * [http://code.google.com/p/raick/wiki/Manual#Vector Vector]
+      * _*[http://code.google.com/p/raick/wiki/Manual#Single_Objects Single Objects]*_
+        * [http://code.google.com/p/raick/wiki/Manual#Owner Owner]
+        * [http://code.google.com/p/raick/wiki/Manual#Homunculus Homunculus]
+        * [http://code.google.com/p/raick/wiki/Manual#Mercenary Mercenary]
+        * [http://code.google.com/p/raick/wiki/Manual#Memory Memory]
+        * [http://code.google.com/p/raick/wiki/Manual#Activity Activity]</font>
+    * _[http://code.google.com/p/raick/wiki/Manual#Detailed_Overview_of_Files Detailed Overview of Files]<font size="3">
+      * *[http://code.google.com/p/raick/wiki/Manual#0._Memory Memory]
+      * [http://code.google.com/p/raick/wiki/Manual#1._On_Startup On Startup]
+      * [http://code.google.com/p/raick/wiki/Manual#2._Commands Commands]
+      * [http://code.google.com/p/raick/wiki/Manual#3._Skills Skills]
+      * [http://code.google.com/p/raick/wiki/Manual#4._Messages Messages]
+      * [http://code.google.com/p/raick/wiki/Manual#5._Activities Activities]*</font>
+    * [http://code.google.com/p/raick/wiki/Manual#Understanding_RAICK_Errors Understanding RAICK Errors]
+    * [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary Data Exchange Between Homunculus and Mercenary]</font>_<br/><br/><font color="gray">
   # Mastering RAICK
 </font>
 </font>
