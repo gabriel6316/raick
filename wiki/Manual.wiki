@@ -711,29 +711,29 @@ All of RAICK's AI files share one common feature, which simplifies and quickens 
   * Group names(<font color="#006666">*group*</font> field)
   * Type names(<font color="#006666">*type*</font> field) ›› _! Every monster !_
 Like everywhere in RAICK the names are case and delimiter insensitive meaning that, for example, `"ma__Ya__--Pu__rple"` is the same as `"Maya Purple"`. This also concerns the names of handler functions and activities discussed below. For example: `"a_l_t_shift_TARGET"` and `"AltShiftTarget"` refer to the same handler function.
-===<font color="#006600">Memory</font>===
+===<font color="#006600">0. Memory</font>===
 The memory file is automatically created and managed by RAICK. This is where your saved values are stored. If you open it, you will first of all see a header saying when the memory was last updated and how many percent of it's capacity is currently taken. The header is followed by the list of entries, each of them with it's own small header, which specifies the type of the value, as well as the number of elements if the value is a `List` or a `Map`. The file itself can be manually altered, but if you make any mistakes you won't be able to run your AI properly until you either fix the error or delete the memory file.
 <br>
 ----
-===<font color="#006600">On Startup</font>===
+===<font color="#006600">1. On Startup</font>===
 The content of this file is run only once, when your AI is being loaded. This is the only file that is not pre-processed meaning that everything you define here will be visible in all parts of your script exactly the way it is defined. Typically, you will use this file to put initial values to your variables or to define your own custom functions.
 <br>
 ----
-===<font color="#006600">Commands</font>===
+===<font color="#006600">2. Commands</font>===
 The file, where you define _handler_ functions that intercept `Ctrl + Something` or `Alt + Something` commands. Upon creation it is automatically filled with all available command handlers. The usage is straightforward: the name refers to the key combination and the arguments are either the cell or the target actor that you click on.<br>
 Anything other than the handler functions will be ignored.
 <br>
 ----
-===<font color="#006600">Skills</font>===
+===<font color="#006600">3. Skills</font>===
 The file, where you define _handler_ functions that intercept commands to use a targeted skill. Upon creation it is also automatically filled with all available skill handlers. The second argument is always the skill level used and the first one is either a cell or an actor depending of the type of the skill: ground- or enemy-targeted.<br>
 Anything other than the handler functions will be ignored.
 <br>
 ----
-===<font color="#006600">Messages</font>===
+===<font color="#006600">4. Messages</font>===
 The file, where you define _handler_ functions that intercept messages sent from one AI script to another. This allows your bots to communicate with each other. You can read more about this wonderful feature in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section]
 <br>
 ----
-===<font color="#006600">Activities</font>===
+===<font color="#006600">5. Activities</font>===
 The final and the most important file is the one, where you define your activities. The first activity that you define is called _initial_. When you run your script for the first time RAICK does not know what is the current activity, since the memory is empty and so  it uses the first activity as the current one.<br>
 Two activity names are _special_: `pre` and `post`(plus all case and delimiter insensitive variations). The first one is called every time before the current activity function is called and the second one is called after the current activity executes. Typically, you would use those to define periodical events like casting self-support skills.<br>
 There is also one hidden activity, to which your bot is switched if RAICK encounters an error in your script. It this activity your bot will follow you and you will have an ability to manually use it's skills. You can think of it as a _Safe Mode_.
