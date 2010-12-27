@@ -556,7 +556,7 @@ end
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
 ----
 ====<font color="#660000">Map</font>====
-Basically, an advanced version of the `table`. It's main advantage is that unlike the `table` it can be saved to memory. The map can be accessed either through the methods: `map.put("a",1)`, `map.get("a") or like an ordinary `table`: `map["a"] = 1`, `map["a"], `map.a = 1`, `map.a`. Just remember that using square brackets you cannot query values stored under string keys that are identical to method names.
+Basically, an advanced version of the `table`. It's main advantage is that unlike the `table` it can be saved to memory. The map can be accessed either through the methods: `map.put("a",1)`, `map.get("a")` or like an ordinary `table`: `map["a"] = 1`, `map["a"]`, `map.a = 1`, `map.a`. Just remember that using square brackets you cannot query values stored under string keys that are identical to method names.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Map( <font color="#5E5B00">…</font> )</font>* :: `Map`<br><br>
       * *Arguments*<br><br>
@@ -659,9 +659,9 @@ An advanced version of the `TraceAI` function(the one that produces output for c
       * *Description*
         Creates a new `Logger`, which will write to the specified file with the specified delay, using the specified delimiter.<br>
   * <u>*Methods*</u><br><br>
-    * *<font color="#0052A3">timeToLog()</font>* :: `boolean`<br><br>
+    * *<font color="#0052A3">timeToLog()</font>* :: `boolean`
     Returns `true` if the delay since the last log has ended.
-    * *<font color="#0052A3">resetTimer()</font>* :: `self`<br><br>
+    * *<font color="#0052A3">resetTimer()</font>* :: `self`
     Resets the delay timer.
     * *<font color="#0052A3">log( <font color="#006666">*…*</font> )</font>* :: `self`<br><br>
       * *Arguments*<br><br>
