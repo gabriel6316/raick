@@ -541,7 +541,7 @@ A simple timer for counting time intervals inside the script.
     Restarts the timer.
     * *<font color="#0052A3">timeouted()</font>* :: `boolean`<br>
     Returns `true` if the timer has stopped "ticking" and restarts it. Otherwise, returns `false` and does nothing.
-<br><br>
+<br>
 ----
 ====<font color="#660000">Logger</font>====
 An advanced version of the */traceai* command.
