@@ -661,6 +661,7 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
+      * *Accepted `string` Values*<br><br>
          * `"full"`
          Returns `true` if your character's HP and SP are full.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
@@ -727,6 +728,7 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
         The first version of this method is used for non-targeted skills and the second one is for targeted ones. If the level of the skill is omitted uses the maximum level available.
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
+      * *Accepted `string` Values*<br><br>
          * `"full"`
          Returns `true` if the homunculus' HP and SP are full.
          * `"active"`
