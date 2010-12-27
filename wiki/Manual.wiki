@@ -454,17 +454,17 @@ A simple list for storing multiple values and manipulating with them.
       * <font color="#006666">*size*</font> :: `number`<br>
       The number of elements in the list.<br>
   * <u>*Methods*</u><br><br>
-    * *<font color="#0052A3">clear()</font>* :: `self`<br><br>
+    * *<font color="#0052A3">clear()</font>* :: `self`<br>
     Clears the list.
-    * *<font color="#0052A3">clone()</font>* :: `List`<br><br>
+    * *<font color="#0052A3">clone()</font>* :: `List`<br>
     Returns a copy of the list.
-    * *<font color="#0052A3">each()</font>* :: `function`<br><br>
+    * *<font color="#0052A3">each()</font>* :: `function`<br>
     Returns an _iteration function_ for the current list. All you need to know about this function is that it used to go through the list using the `for` loop like so:
     <code language="lua">
 for index, value in list.each() do
 end
 </code>
-    * *<font color="#0052A3">elements()</font>* :: `range`<br><br>
+    * *<font color="#0052A3">elements()</font>* :: `range`<br>
     Returns the content of the list as a range of elements(as if the values were written one after another with commas between them).
     * *<font color="#0052A3">get( <font color="#5E5B00">n</font> )</font>* :: `any`<br><br>
       * *Arguments*<br><br>
@@ -498,7 +498,7 @@ Basically, an advanced version of the `table`. It's main advantage is that unlik
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Map( <font color="#5E5B00">…</font> )</font>* :: `Map`<br><br>
       * *Arguments*<br><br>
-        * <font color="#5E5B00">*…*</font> :: `range` (should not contain `nil`'s)<br>
+        * <font color="#5E5B00">*…*</font> :: `range` (must not contain `nil`'s)<br>
         A range of values of any type with even number of elements. If odd, then the last element is not counted.<br>
       * *Description*
         Returns a new `Map` object containing the specified key-value pairs or an empty map if the number of given values is less than 2.
@@ -506,11 +506,11 @@ Basically, an advanced version of the `table`. It's main advantage is that unlik
       * <font color="#006666">*size*</font> :: `number`<br>
       The number of elements in the map.<br>
   * <u>*Methods*</u><br><br>
-    * *<font color="#0052A3">clear()</font>* :: `self`<br><br>
+    * *<font color="#0052A3">clear()</font>* :: `self`<br>
     Clears the map.
-    * *<font color="#0052A3">clone()</font>* :: `Map`<br><br>
+    * *<font color="#0052A3">clone()</font>* :: `Map`<br>
     Returns a copy of the map.
-    * *<font color="#0052A3">each()</font>* :: `function`<br><br>
+    * *<font color="#0052A3">each()</font>* :: `function`<br>
     Returns an _iteration function_ for the current map. All you need to know about this function is that it used to go through the map using the `for` loop like so:
     <code language="lua">
 for index, key, value in map.each() do
@@ -533,13 +533,13 @@ A simple timer for counting time intervals inside the script.
       * *Description*
         Returns a new `Timer` object with the given countdown period. By default, the new timer is not "turned on". If you want the timer to start "ticking" right from the moment of creation use `reset` method like so: `Timer(3000).reset()`.
   * <u>*Methods*</u><br><br>
-    * *<font color="#0052A3">stop()</font>* :: `self`<br><br>
+    * *<font color="#0052A3">stop()</font>* :: `self`<br>
     Clears the map.
-    * *<font color="#0052A3">stopped()</font>* :: `boolean`<br><br>
+    * *<font color="#0052A3">stopped()</font>* :: `boolean`<br>
     Returns `true` if the timer has stopped "ticking".
-    * *<font color="#0052A3">reset()</font>* :: `self`<br><br>
+    * *<font color="#0052A3">reset()</font>* :: `self`<br>
     Restarts the timer.
-    * *<font color="#0052A3">timeouted()</font>* :: `boolean`<br><br>
+    * *<font color="#0052A3">timeouted()</font>* :: `boolean`<br>
     Returns `true` if the timer has stopped "ticking" and restarts it. Otherwise, returns `false` and does nothing.
 ----
 ====<font color="#660000">Logger</font>====
