@@ -535,25 +535,100 @@ end
       * *Description*
         Looks through all objects of the current list, between which the distance can be calculated and returns the farthest object from <font color="#006666">*v*</font> or `nil` if the list does not contain any objects of that kind.
     * *<font color="#0052A3">expand()</font>* :: `self`
-    After calling this method the following methods appear in the list.
+    After calling this method following methods appear in the list.
     * *<font color="#0052A3">filter( <font color="#006666">f</font> )</font>* :: `List`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*f*</font> :: `function`<br>
+        The filtering function.<br>
+      * *Description*
+        Returns a new list containing only the values approved by the given filter. Allows filtering out certain data without the use of loops. The filtering function receives one argument and must return `true` if the value is approved and `false` otherwise. For example:
+        <code language="lua">
+list = List(1,2,3)
+
+function    filter(value)
+    
+    if value > 1 then
+        return true
+    else
+        return false
+    end
+end
+
+filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
+</code>
     * *<font color="#0052A3">filterOne( <font color="#006666">f</font> )</font>* :: `any`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*f*</font> :: `function`<br>
+        The filtering function.<br>
+      * *Description*
+        Returns the first value that is approved by the given filter.
     * *<font color="#0052A3">forEach( <font color="#006666">f</font> )</font>* :: `Map`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*f*</font> :: `function`<br>
+        The transformation function.<br>
+      * *Description*
+        Returns a map, where results of applying <font color="#006666">*f*</font> for each element of the list are stores under those elements(element of the list are _keys_ and corresponding transformation results are _values_). The transformation function receives one argument and must return any value, which will be the result of the transformation.
     * *<font color="#0052A3">removeFirst( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*v*</font> :: `any`<br>
+        The value that is removed.<br>
+        * <font color="#5E5B00">*n*</font> | `1` :: `number`<br>
+        The number of removes.<br>
+      * *Description*
+        Removes <font color="#5E5B00">*n*</font> occurrences of <font color="#006666">*v*</font> starting from the back of the list.
     * *<font color="#0052A3">removeLast( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*v*</font> :: `any`<br>
+        The value that is removed.<br>
+        * <font color="#5E5B00">*n*</font> | `1` :: `number`<br>
+        The number of removes.<br>
+      * *Description*
+        Removes <font color="#5E5B00">*n*</font> occurrences of <font color="#006666">*v*</font> starting from the back of the list.
     * *<font color="#0052A3">replace( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
-    * *<font color="#0052A3">replaceAll( <font color="#006666">v1</font> , <font color="#006666">v1</font> )</font>* :: `self`
+      * *Arguments*<br><br>
+        * <font color="#006666">*v*</font> :: `any`<br>
+        The replacement value.<br>
+        * <font color="#5E5B00">*n*</font> | <font color="#006666">*size*</font> :: `number`<br>
+        The number of the element.<br>
+      * *Description*
+        Replaces the <font color="#5E5B00">*n*</font>'th value of the list with <font color="#006666">*v*</font>.
+    * *<font color="#0052A3">replaceAll( <font color="#006666">v1</font> , <font color="#006666">v2</font> )</font>* :: `self`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*v1*</font> :: `any`<br>
+        The value that is replaced.<br>
+        * <font color="#006666">*v2*</font> :: `any`<br>
+        The replacement value for <font color="#006666">*v1*</font>.<br>
+      * *Description*
+        Replaces all occurrences of <font color="#006666">*v1*</font> with <font color="#006666">*v2*</font>.
     * *<font color="#0052A3">replaceFirst( <font color="#006666">v1</font> , <font color="#006666">v2</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*v1*</font> :: `any`<br>
+        The value that is replaced.<br>
+        * <font color="#006666">*v2*</font> :: `any`<br>
+        The replacement value for <font color="#006666">*v1*</font>.<br>
+        * <font color="#5E5B00">*n*</font> | `1` :: `number`<br>
+        The number of replacements.<br>
+      * *Description*
+        Replaces <font color="#5E5B00">*n*</font> occurrences of <font color="#006666">*v1*</font> with <font color="#006666">*v2*</font> starting from the beginning of the list.
     * *<font color="#0052A3">replaceLast( <font color="#006666">v1</font> , <font color="#006666">v2</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*v1*</font> :: `any`<br>
+        The value that is replaced.<br>
+        * <font color="#006666">*v2*</font> :: `any`<br>
+        The replacement value for <font color="#006666">*v1*</font>.<br>
+        * <font color="#5E5B00">*n*</font> | `1` :: `number`<br>
+        The number of replacements.<br>
+      * *Description*
+        Replaces <font color="#5E5B00">*n*</font> occurrences of <font color="#006666">*v1*</font> with <font color="#006666">*v2*</font> starting from the back of the list.
 ----
 ====<font color="#660000">Map</font>====
 Basically, an advanced version of the `table`. It's main advantage is that unlike the `table` it can be saved to memory. The map can be accessed either through the methods: `map.put("a",1)`, `map.get("a")` or like an ordinary `table`: `map["a"] = 1`, `map["a"]`, `map.a = 1`, `map.a`. Just remember that using square brackets you cannot query values stored under string keys that are identical to method names.
@@ -681,7 +756,7 @@ An advanced version of the `TraceAI` function(the one that produces output for c
     Deletes the <font color="#006666">*file*</font>.
 ----
 ====<font color="#660000">Vector</font>====
-Represents directions and relative locations of objects in comparison to one another.
+Represents directions and locations of objects in relation to one another. Probably, the most hard-to-understand object, since it is directly related to math.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Vector( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>* :: `Vector`<br><br>
       * *Arguments*<br><br>
@@ -690,7 +765,7 @@ Represents directions and relative locations of objects in comparison to one ano
         * <font color="#006666">*y*</font> :: `number`<br>
         The Y-coordinate of the vector.<br>
       * *Description*
-        To be filled later.<br>
+        Return a new `Vector` pointing in direction specified by (<font color="#006666">*x*</font>,<font color="#006666">*y*</font>) coordinates.<br>
     * *<font color="#0052A3">Vector( <font color="#006666">object1</font> , <font color="#006666">object2</font> )</font>* :: `Vector`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*object1*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
@@ -698,7 +773,7 @@ Represents directions and relative locations of objects in comparison to one ano
         * <font color="#006666">*object2*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
         The object, which defines the direction of the vector in relation to <font color="#006666">*object1*</font>.<br>
       * *Description*
-        To be filled later.<br>
+        Return a new `Vector` pointing in direction specified by <font color="#006666">*object2*</font> in relation to <font color="#006666">*object1*</font>.<br>
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*x*</font> :: `number`<br>
       The X-coordinate of the vector.<br>
@@ -757,6 +832,14 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
       * <font color="#006666">*sp*</font> :: `Points`<br><br>
       * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
+      * <font color="#006666">*surround*</font> :: `List`<br><br>
+      All actors that are currently visible on the screen(in range of vision).
+      * <font color="#006666">*prev.surround*</font> :: `List`<br><br>
+      All actors that were visible on the screen(in range of vision) in the previous moment of time.
+      * <font color="#006666">*fullSurround*</font> :: `List`<br><br>
+      All actors that are currently on the screen(in range of vision).
+      * <font color="#006666">*prev.fullSurround*</font> :: `List`<br><br>
+      All actors that were on on the screen(in range of vision) in the previous moment of time.
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted `string` Values*<br><br>
@@ -775,7 +858,7 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
 <br>
 ----
 ====<font color="#660000">Homunculus</font>====
-Represents your homunculus. This object is defined both in the homunculus and in the mercenary scripts, since RAICK support data exchange between scripts. Read more about data exchange in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
+Represents your homunculus. This object is defined both in the homunculus and in the mercenary scripts, since RAICK support data exchange between scripts. Read more about it in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
 Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your homunculus is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
@@ -852,7 +935,7 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
 <br>
 ----
 ====<font color="#660000">Mercenary</font>====
-Represents your mercenary. This object is defined both in the mercenary and in the homunculus scripts, since RAICK support data exchange between scripts. Read more about data exchange in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
+Represents your mercenary. This object is defined both in the mercenary and in the homunculus scripts, since RAICK support data exchange between scripts. Read more about it in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
 Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your mercenary is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
