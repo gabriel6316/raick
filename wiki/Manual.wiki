@@ -1050,7 +1050,7 @@ The object for manipulating the memory. Values are saved under `string` keys jus
         * <font color="#006666">*n*</font> :: `string`<br>
         The name of the memory variable.<br>
         * <font color="#006666">*v*</font> :: `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` | `Vector`<br>`List` ( `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` | `Vector` )<br>`Map` ( `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` | `Vector` )<br>
-        The value that needs to be saved.<br>
+        The value that needs to be saved. The type restriction above says that only the mentioned types can be saved to the memory and if you want to save a `List` or a `Map`, then they also must contains only those types.<br>
       * *Description*
         Saves <font color="#006666">*v*</font> to memory variable <font color="#006666">*n*</font> and return <font color="#006666">*v*</font> afterwards.
     * *<font color="#0052A3">get( <font color="#006666">n</font> , <font color="#5E5B00">v</font> )</font>* :: `any` | <font color="#5E5B00">*v*</font> | `nil`<br><br>
