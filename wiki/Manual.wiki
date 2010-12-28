@@ -802,11 +802,19 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
     * *<font color="#0052A3">goTo( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*v*</font> :: `Cell` | `Actor` | `Owner` | `Mercenary` | `Vector`<br>
-        The location or the object, to which the homunculus must go or the direction(vector) of it's movement.<br>
+        The location or the in-game character, to which the homunculus must go or the direction(vector) of it's movement.<br>
         * <font color="#5E5B00">*n*</font> :: `number`<br>
         The number of cells, by which the homunculus must advance in the direction specified by the location, object or vector.<br>
       * *Description*
-        To be filled later.
+        Orders your homunculus to go to the specified cell or to the cell, on which the specified object stand on or in the direction specified by the vector. The second argument is used to modify the length of path that the homunculus is allowed to go through. If <font color="#006666">*v*</font> is a `Vector`, then <font color="#5E5B00">*n*</font> specified the number of cells that the homunculus should go through in the direction of the vector. In other cases:
+          * <font color="#5E5B00">*n*</font> is a fractional value between 0 and 1
+          The homunculus will go through (<font color="#5E5B00">*n*</font> * 100)% of the path.
+          * <font color="#5E5B00">*n*</font> is a fractional value between -1 and 0
+          The homunculus will go through ((1 + <font color="#5E5B00">*n*</font>) * 100)% of the path.
+          * <font color="#5E5B00">*n*</font> >= 1
+          The homunculus will go through <font color="#5E5B00">*n*</font> cells along of the path.
+          * <font color="#5E5B00">*n*</font> <= -1
+          The homunculus will keep <font color="#5E5B00">*n*</font> cells away from <font color="#006666">*v*</font>.
     * *<font color="#0052A3">hit( <font color="#006666">target</font> )</font>* :: `self`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*target*</font> :: `Actor`<br>
@@ -868,14 +876,15 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
       * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
   * <u>*Methods*</u><br><br>
-    * *<font color="#0052A3">goTo( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`<br><br>
-      * *Arguments*<br><br>
-        * <font color="#006666">*v*</font> :: `Cell` | `Actor` | `Owner` | `Homunculus` | `Vector`<br>
-        The location or the object, to which the mercenary must go or the direction(vector) of it's movement.<br>
-        * <font color="#5E5B00">*n*</font> :: `number`<br>
-        The number of cells, by which the mercenary must advance in the direction specified by the location, object or vector.<br>
-      * *Description*
-        To be filled later.
+        Orders your mercenary to go to the specified cell or to the cell, on which the specified object stand on or in the direction specified by the vector. The second argument is used to modify the length of path that the mercenary is allowed to go through. If <font color="#006666">*v*</font> is a `Vector`, then <font color="#5E5B00">*n*</font> specified the number of cells that the mercenary should go through in the direction of the vector. In other cases:
+          * <font color="#5E5B00">*n*</font> is a fractional value between 0 and 1
+          The mercenary will go through (<font color="#5E5B00">*n*</font> * 100)% of the path.
+          * <font color="#5E5B00">*n*</font> is a fractional value between -1 and 0
+          The mercenary will go through ((1 + <font color="#5E5B00">*n*</font>) * 100)% of the path.
+          * <font color="#5E5B00">*n*</font> >= 1
+          The mercenary will go through <font color="#5E5B00">*n*</font> cells along of the path.
+          * <font color="#5E5B00">*n*</font> <= -1
+          The mercenary will keep <font color="#5E5B00">*n*</font> cells away from <font color="#006666">*v*</font>.
     * *<font color="#0052A3">hit( <font color="#006666">target</font> )</font>* :: `self`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*target*</font> :: `Actor`<br>
