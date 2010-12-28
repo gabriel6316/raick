@@ -368,6 +368,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
         Any in-game object, distance till which you want to know.<br>
       * *Description*
         Returns the distance(in cells) between <font color="#006666">*actor*</font> and <font color="#006666">*object*</font> or `nil` if at least one of them is not visible.
+<br>
 ----
 ====<font color="#660000">Points</font>====
 Represents your or your bot's HP or SP. It is very similar to the `Value` object, but has some extra fields and `is` method functionality allowing you to easily get all the information you need about those values.
@@ -545,7 +546,7 @@ end
         Returns a new list containing only the values approved by the given filter. Allows filtering out certain data without the use of loops. The filtering function receives one argument and must return `true` if the value is approved and `false` otherwise. For example:
         <code language="lua">
 list = List(1,2,3)
-
+  
 function    filter(value)
     
     if value > 1 then
@@ -554,7 +555,7 @@ function    filter(value)
         return false
     end
 end
-
+  
 filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
 </code>
     * *<font color="#0052A3">filterOne( <font color="#006666">f</font> )</font>* :: `any`
@@ -570,7 +571,7 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
         * <font color="#006666">*f*</font> :: `function`<br>
         The transformation function.<br>
       * *Description*
-        Returns a map, where results of applying <font color="#006666">*f*</font> for each element of the list are stores under those elements(element of the list are _keys_ and corresponding transformation results are _values_). The transformation function receives one argument and must return any value, which will be the result of the transformation.
+        Returns a map, where results of applying <font color="#006666">*f*</font> for each element of the list are stored under those elements(element of the list are _keys_ and the corresponding transformation results are _values_). The transformation function receives one argument and must return any value, which will be the result of the transformation.
     * *<font color="#0052A3">removeFirst( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
@@ -629,6 +630,7 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
         The number of replacements.<br>
       * *Description*
         Replaces <font color="#5E5B00">*n*</font> occurrences of <font color="#006666">*v1*</font> with <font color="#006666">*v2*</font> starting from the back of the list.
+<br>
 ----
 ====<font color="#660000">Map</font>====
 Basically, an advanced version of the `table`. It's main advantage is that unlike the `table` it can be saved to memory. The map can be accessed either through the methods: `map.put("a",1)`, `map.get("a")` or like an ordinary `table`: `map["a"] = 1`, `map["a"]`, `map.a = 1`, `map.a`. Just remember that using square brackets you cannot query values stored under string keys that are identical to method names.
@@ -683,6 +685,7 @@ end
         The value in the map.<br>
       * *Description*
         Returns `true` if the given value is stored somewhere in the map.
+<br>
 ----
 ====<font color="#660000">Timer</font>====
 A simple timer for counting time intervals inside the script.
@@ -754,9 +757,24 @@ An advanced version of the `TraceAI` function(the one that produces output for c
     Clear the <font color="#006666">*file*</font>.
     * *<font color="#0052A3">remove()</font>* :: `self`
     Deletes the <font color="#006666">*file*</font>.
+<br>
 ----
 ====<font color="#660000">Vector</font>====
-Represents directions and locations of objects in relation to one another. Probably, the most hard-to-understand object, since it is directly related to math.
+Represents directions and positions of objects in relation to one another. Probably, the most hard-to-understand object, since it is directly related to math, but, actually, it is a very simple concept. Maps/locations in RO can be interpreted as 2D coordinate plains. No matter how you rotate your camera the plain remains the same: the direction of X-coordinate growth is the north and the Y-coordinate growth is the east. Suppose, you want to specify a direction of movement: what would you do? Well, one way of doing it is by "drawing an arrow" between 2 points. In math such arrow is called a _vector_. The "tail" of the vector will anyway be always static, so let's fix it's value to (0,0). Now we can easily define directions using only one point:
+<code language="lua">
+vector1 = Vector(1,0) -- Points to east: an arrow from point (0,0) till (1,0)
+  
+vector2 = Vector(3,-10) -- Points to south-east
+</code>
+You're probably wondering how can vectors be used? Well, RAICK allows you to manipulate them with great ease! You can take a vector and a cell and calculate a new cell, which will be `n` cells away in the direction of the vector. For example, all actors including your owner have a motion vector. If you want your homunculus to stay behind the owner at a distance of 2 cells you can write something like this: `Homun.goTo(Owner.cell - Owner.vector * 2)`. This will tell your homunculus to go to a cell that is 2 cells away from where the owner is currently standing in the opposite direction of his current movement.<br>
+Another way of defining vectors is by using 2 objects/cells. The idea is the same: you are drawing an "arrow" from one object to another, except what you get is a _relational_ vector, which will define not the direction, but the position of one object in relation to another. A great example of this concept is putting traps right underneath the enemy feet:
+<code language="lua">
+vector = Vector(enemy, Merc) -- If the enemy is moving at us, then this vector will point in the direction of the movement
+  
+if Merc .. enemy <= 5 then -- If the enemy has gotten too close to the mercenary, then ..
+    Merc.use(LandMine).on(enemy.cell + vector * 2) -- .. we put a mine between the bowman and the enemy.
+end
+</code>
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Vector( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>* :: `Vector`<br><br>
       * *Arguments*<br><br>
@@ -773,7 +791,7 @@ Represents directions and locations of objects in relation to one another. Proba
         * <font color="#006666">*object2*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
         The object, which defines the direction of the vector in relation to <font color="#006666">*object1*</font>.<br>
       * *Description*
-        Return a new `Vector` pointing in direction specified by <font color="#006666">*object2*</font> in relation to <font color="#006666">*object1*</font>.<br>
+        Return a new `Vector` pointing in direction specified by <font color="#006666">*object2*</font> in relation to <font color="#006666">*object1*</font>(an "arrow" drawn from <font color="#006666">*object1*</font> till <font color="#006666">*object2*</font>).<br>
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*x*</font> :: `number`<br>
       The X-coordinate of the vector.<br>
@@ -785,6 +803,24 @@ Represents directions and locations of objects in relation to one another. Proba
          * `Vector`
          Returns `true` if the given object has the same <font color="#006666">*x*</font> and <font color="#006666">*y*</font> field values as the current one.
       * *Accepted `string` Values*<br><br>
+         * `"none"`
+         Returns `true` if the current vector has (0,0) coordinates.
+         * `"north"`
+         Returns `true` if the current vector is pointing to north of the current location/map.
+         * `"south"`
+         Returns `true` if the current vector is pointing to south of the current location/map.
+         * `"west"`
+         Returns `true` if the current vector is pointing to west of the current location/map.
+         * `"east"`
+         Returns `true` if the current vector is pointing to east of the current location/map.
+         * `"northWest"`
+         Returns `true` if the current vector is pointing to north-west of the current location/map.
+         * `"southWest"`
+         Returns `true` if the current vector is pointing to south-west of the current location/map.
+         * `"northEast"`
+         Returns `true` if the current vector is pointing to north-east of the current location/map.
+         * `"southEast"`
+         Returns `true` if the current vector is pointing to south-east of the current location/map.
          * `"[x];[y]"`
          Returns `true` if the current vector has specified (`[x]`,`[y]`) coordinates. The delimiter ; can be replaced with anything you want as long as it is not a number, dot or minus.  For example `"-1;2"`, `"0.252|1"`.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
@@ -808,6 +844,10 @@ Represents directions and locations of objects in relation to one another. Proba
 <br>
 ----
 ===<font color="#006600">Single Objects</font>===
+All single objects have multiple global variables defined for them to free you from the labor of writing long names like `Mercenary` or `Homunculus`. Shorter versions start from the third letter of the type name. For example, `Owner` object has 3 variables:
+   * Own
+   * Owne
+   * Owner
 ====<font color="#660000">Owner</font>====
 Represents your character.<br>
 Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your character is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
@@ -832,13 +872,13 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
       * <font color="#006666">*sp*</font> :: `Points`<br><br>
       * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
-      * <font color="#006666">*surround*</font> :: `List`<br><br>
+      * <font color="#006666">*surround*</font> :: `List`
       All actors that are currently visible on the screen(in range of vision).
-      * <font color="#006666">*prev.surround*</font> :: `List`<br><br>
+      * <font color="#006666">*prev.surround*</font> :: `List`
       All actors that were visible on the screen(in range of vision) in the previous moment of time.
-      * <font color="#006666">*fullSurround*</font> :: `List`<br><br>
+      * <font color="#006666">*fullSurround*</font> :: `List`
       All actors that are currently on the screen(in range of vision).
-      * <font color="#006666">*prev.fullSurround*</font> :: `List`<br><br>
+      * <font color="#006666">*prev.fullSurround*</font> :: `List`
       All actors that were on on the screen(in range of vision) in the previous moment of time.
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
@@ -1037,6 +1077,7 @@ The object for manipulating the memory. Values are saved under `string` keys jus
         Deletes entry <font color="#006666">*n*</font> from the memory.
     * *<font color="#0052A3">clear()</font>* :: `self`
     Clears the memory including RAICK service data like current activity or activity arguments(the values in script variables will still be available until the restart).
+<br>
 ----
 ====<font color="#660000">Activity</font>====
 Through this object you can change the current activity of your homunculus/mercenary or to get information about the current or the last activity. Read more about activities [http://code.google.com/p/raick/wiki/Manual#5._Activities here].
@@ -1067,6 +1108,7 @@ Through this object you can change the current activity of your homunculus/merce
         The new value of the argument.<br>
       * *Description*
         Changes the <font color="#006666">*n*</font>'th argument of the current activity to <font color="#006666">*v*</font>.
+<br>
 ----
 ==<font color="#006666">Detailed Overview of Files</font>==
 Partially this topic is covered in the [http://code.google.com/p/raick/wiki/GettingStarted#AI_Specific_Files Getting Started] chapter. I will just introduce the facts that'll complete the picture.<br>
