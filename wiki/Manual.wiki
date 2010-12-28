@@ -772,7 +772,7 @@ Another way of defining vectors is by using 2 objects/cells. The idea is the sam
 vector = Vector(enemy, Merc) -- If the enemy is moving at us, then this vector will point in the direction of the movement
   
 if Merc .. enemy <= 5 then -- If the enemy has gotten too close to the mercenary, then ..
-    Merc.use(LandMine).on(enemy.cell + vector * 2) -- .. we put a mine between the bowman and the enemy.
+    Merc.use(LandMine).on(enemy.cell + vector `*` 2) -- .. we put a mine between the bowman and the enemy.
 end
 </code>
   * <u>*Constructors*</u><br><br>
