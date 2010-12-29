@@ -809,7 +809,7 @@ if Merc .. enemy <= 5 then -- If the enemy has gotten too close to the mercenary
     Merc.use(LandMine).on(enemy.cell + vector `*` 2) -- .. we put a mine between the bowman and the enemy.
 end
 </code>
-One final thing about vectors: 2 vectors with different coordinates can point to the same direction. How is that possible? It comes from the fact that you can define vectors with different _length_. For example: (1,1.5), (2,3), (4,6) would all point in the same direction, but if you draw them on a piece of paper you would see that they have different lengths. In math the length of the vector does indeed matter, but in RAICK it has no use meaning that for RAICK they are the same(when comparing them using the `==` operator or the `is` method).
+One final thing about vectors: 2 vectors with different coordinates can point in the same direction. How is that possible? It comes from the fact that you can define vectors with different _length_. For example: (1,1.5), (2,3), (4,6) would all point in the same direction, but if you draw them on a piece of paper you would see that they have different lengths. In math the length of the vector does indeed matter, but in RAICK it has no use meaning that for RAICK they are the same(when comparing them using the `==` operator or the `is` method).
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Vector( <font color="#5E5B00">x</font> , <font color="#5E5B00">y</font> )</font>* :: `Vector`<br><br>
       * *Arguments*<br><br>
@@ -826,7 +826,7 @@ One final thing about vectors: 2 vectors with different coordinates can point to
         * <font color="#006666">*object2*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
         The object, which defines the direction of the vector in relation to <font color="#006666">*object1*</font>.<br>
       * *Description*
-        Return a new `Vector` pointing in direction specified by <font color="#006666">*object2*</font> in relation to <font color="#006666">*object1*</font>(an "arrow" drawn from <font color="#006666">*object1*</font> till <font color="#006666">*object2*</font>) or `nil` if at least one of the objects in not visible.<br>
+        Return a new `Vector` pointing in the direction specified by <font color="#006666">*object2*</font> in relation to <font color="#006666">*object1*</font>(an "arrow" drawn from <font color="#006666">*object1*</font> till <font color="#006666">*object2*</font>) or `nil` if at least one of the objects in not visible.<br>
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*x*</font> :: `number`<br>
       The X-coordinate of the vector.<br>
