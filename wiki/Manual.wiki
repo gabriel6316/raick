@@ -770,7 +770,7 @@ actor = Actor(100)
 logger.log("an actor:",actor,"and a list:",list)
 </code>
         Would output:<br><br>
-        `> Week, Day Month, Year | Hours:Minutes:Seconds > an actor: Actor[ id=100 ] and a list: `<br>`List[ size=3 ]:`<br>`( 1 )`<br>`( 2 )`<br>`( "abc" )`<br><br>
+        `> Week, Day Month, Year | Hours:Minutes:Seconds > an actor: Actor[ id=100 ] and a list: `<br>`List[ size=3 ]:`<br>`    ( 1 )`<br>`    ( 2 )`<br>`    ( "abc" )`<br><br>
         Does nothing if */traceai* is has been turned off during startup(only when `LoggerUseTraceAI` is `ON`) of AI or the delay since last log has not ended yet. 
     * *<font color="#0052A3">write( <font color="#006666">*…*</font> )</font>* :: `self`
     The same as the previous method, except it does not put a timestamp and is not affected by the delay.
