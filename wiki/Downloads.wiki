@@ -7,6 +7,10 @@
 <br><br>
 =<font color="#003366">Change Log</font>=
 ----
+===<font color="#A30000">29.12.10</font> | <font color="#006600">2.0.1</font>===
+  * `List` and `Map` objects now also have `is` methods.
+  * Minor bug fixes and performance enchantments.
+----
 ===<font color="#A30000">13.11.10</font> | <font color="#006600">2.0.0</font>===
   * Release of the full version(still needs some testing).
 ----
