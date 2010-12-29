@@ -4,11 +4,11 @@ In this manual I'll try to keep a balance between technicality and lucidity of t
 ==<font color="#006666">Detailed Description of Objects</font>==
 Objects are basically what RAICK is made of. About 80% of what the framework offers is in one way or another related to them. They are divided into 2 categories:
  * Single objects
- Exist only in one exemplar, which is automatically created upon startup of your script.
+ Exist only in a single exemplar, which is automatically created upon startup of your script.
  * Multipliable objects
- Can be created multiple times using the _constructor_, which located in a global variable with the same name as the type of the object(for example, constructor for object `Cell` is located in the global variable `Cell`). The constructor is nothing more than a function and like every function it can take arguments(for example, `Cell(20,30)` creates a `Cell` object with coordinates (20,30)).<br>
+ Can be created an arbitrary number of times using the _constructor_, which is located in a global variable with the same name as the type of the object(for example, constructor for object `Cell` is located in the global variable `Cell`). The constructor is nothing more than a function and like every function it can take arguments(for example, `Cell(20,30)` creates a `Cell` object with coordinates (20,30)).<br>
 Some objects allow operators to be used on them(you can distinguish them by the <u>*Operators*</u> subsection). For example, you may remember that we have used operator `..` to get the distance between your homunculus and its target in the [http://code.google.com/p/raick/wiki/GettingStarted#Back_to_Our_Activities Getting Started] guide.<br>
-You may also notice that the <u>*Constructors*</u> subsection is in plural. That is because objects can indeed have multiple constructors. Every constructor takes different number or types of arguments and based on that produces an object with desired properties. A good example is the [http://code.google.com/p/raick/wiki/Manual#Logger Logger] object.<br>
+You may also notice that the <u>*Constructors*</u> subsection is in plural. That is because objects can indeed have multiple constructors. Every constructor takes a different number/types of arguments and based on that produces an object with desired properties. A good example is the [http://code.google.com/p/raick/wiki/Manual#Logger Logger] object.<br>
 The <u>*_is_ Methods*</u> subsection is used to describe what types and values does the _is_ group of methods understand for the current object. They are used to gain yes/no answers about the object. The group consists of 2 methods: `is` and `isNot`, which in turn have 2 forms, making a total of 4 methods. They can be described as follows:
   * First form of `is` method:
   `object.is(value1, value2, value3, ...)`
@@ -18,8 +18,8 @@ The <u>*_is_ Methods*</u> subsection is used to describe what types and values d
   `object.isNot(value1, value2, value3, ...)`
   * Second form of `isNot` method:
   `object.isNot.value`
-The first form of the `is` method can receive an arbitrary number of arguments of any type, but only certain values have meaning for it. The method returns `true` if at least one of the given values(as if all arguments were grouped  with `or`) is "telling" the truth about the current object. If all of the given values are either "lying" or are unknown to the method it will return `false`. The second form does the same, but can take only one `string` argument, which is passed to the method in a very original and convenient way. For example, `actor.is.visible` is just another way of writing `actor.is("visible")`. Although the second form is more restricted it is nonetheless faster to write and far easier to read and that's why i decided to introduce it.<br>
-The `isNot` method is the opposite of `is`. It returns `true` if all of the given values are "lying" about the current object or are unknown to the method and `false`, if at least one of the value is "telling" the truth.
+The first form of the `is` method can receive an arbitrary number of arguments of any type, but only certain values have meaning for it. The method returns `true` if at least one of the given values(as if all arguments were grouped  with `or`) is "telling" the truth about the current object. If all given values are either "lying" or are unknown to the method it will return `false`. The second form does the same, but can take only one `string` argument, which is passed to the method in a very original and convenient way. For example, `actor.is.visible` is just another way of writing `actor.is("visible")`. Although the second form is more restricted it is nonetheless faster to write and far easier to read and that's why i decided to introduce it.<br>
+The `isNot` method is the opposite of `is`. It returns `true` if all given values are "lying" about the current object or are unknown to the method and `false`, if at least one of the value is "telling" the truth.
 <br>
 Last thing worth mentioning is that all string argument are case insensitive meaning that, for example, `actor.is("VISiBLe")` or `actor.is.ViSiBle` would also be accepted. Furthermore, they are delimiter insensitive, which means that `actor.is("a bad person")`, `actor.is("a_badPERSON")` or `actor.is.AbadPerson` would refer to the same thing.<br><br>
 Objects that are direct representations of the in-game objects of Ragnarok(actors, cell, your homunculus/mercenary, your character) have 2 special tables inside each of them. One is called `prev`, the other `last`. The first one is used to store information about the object from the previous call of the AI by the client(remember that the data changes only between those calls). The information in the second table changes only when the current data is changed. For example:
@@ -37,15 +37,15 @@ For arguments and object fields:
   * After the :: i specify the type of the argument/field. If the argument/field can have/contain different types, then those types are separated with | . If the argument is supposed to have not only a certain type, but also i certain value(for example, > 0), then the restriction is specified inside ( ) next to the type.
 For strings with specific format:
   * I specify the variable part like so: `[partOfTheString]`. For example: `"abc[num]"`, where `[num]` is a number, would mean that i refer to strings with `abc` in the beginning and numbers after that, such as: `"abc123"`, `"abc9"` or `"abc0"`.
-I also use pseudo-type names:
+I also use self-made pseudo-types to more specifically identify some return values or arguments:
   * `range` - to specify that the function can take an arbitrary number of arguments or return an arbitrary number of values.
-  * `any` - to specify value can be of any type.
+  * `any` - to specify that the value can be of any type.
   * `self` - to specify that the method returns the reference to the same object it has been called from. For example,  `list.add(2).add(5).remove(1)` would add `2` and `5` to the list and then remove the 1'st elements from it leaving just 1 element `5`.
 <br>
 ----
 ===<font color="#006600">Multipliable Objects</font>===
 ====<font color="#660000">Value</font>====
-The most primitive object in RAICK. It is used mainly to store the data about [http://code.google.com/p/raick/wiki/Manual#Actor actors]. Each object consists basically of a `number` and a `string`. In most cases the string is used to describe or translate the meaning of the number(ID), but you can also use the number, for example, to index the string or use only the string without the number. What i am saying is that it is just a `string`-`number` pair and it can be interpreted in many ways according to the place or situation it is used in.<br>
+The most primitive object in RAICK. It is used mainly to store the data about [http://code.google.com/p/raick/wiki/Manual#Actor actors]. Each object consists of a `number` and a `string`. In most cases the string is used to describe or translate the meaning of the number(ID), but you can also use the number, for example, to index the string or use only the string without the number. What i am saying is that it is just a `string`-`number` pair and it can be interpreted in many ways according to the place or situation it is used in.<br>
 Later in this guide i will specify `Value` objects in the following manner: `"string" (number1, number2, ...)`. For example:
     * `"Assassin" (12)` specifies a `Value` object with `"Assassin"` for a name and 12 for the number(ID).
     * `"Attacking" (2, 9)` specifies 2 `Value` objects, both having `"Attacking"` for a name and 2, 9 for the ID respectively.
@@ -404,7 +404,9 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
 <br>
 ----
 ====<font color="#660000">Skill</font>====
-Represents the skills that your bot can use. It is used either to get information about the skill or to order your bot to use it. Although this skills has a constructor you would not normally need to use it, because every skill object available can be accessed by it's name. For example if you query variables: `Devotion`, `TouchOfHeal`, `SBR44`, `MentalChange` they would all contain skill objects for those skills. RAICK even knows the synonyms and some shorter versions used by players: `Sacrifice`, `HealingHands`, `SBR`, `Mental`. All names are case and delimiter insensitive, which means that your can write `S_B_R` or `healing_HAND_S` and you would still get your objects.
+Represents the skills that your bot can use. It is used either to get information about the skill or to order your bot to use it. Although this skills has a constructor you would not normally need to use it, because every skill object available can be accessed by it's name. For example if you query variables: `Devotion`, `TouchOfHeal`, `SBR44`, `MentalChange` they would all contain skill objects for those skills. RAICK even knows the synonyms and some shorter versions used by players: `Sacrifice`, `HealingHands`, `SBR`, `Mental`.
+<br>
+All names are case and delimiter insensitive, which means that your can write `S_B_R` or `healing_HAND_S` and you would still get your objects.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Skill( <font color="#006666">id</font> )</font>* :: `Skill` | `nil`<br><br>
       * *Arguments*<br><br>
@@ -443,7 +445,7 @@ Represents the skills that your bot can use. It is used either to get informatio
 <br>
 ----
 ====<font color="#660000">List</font>====
-A simple list for storing multiple values and manipulating with them.
+A simple list for storing multiple values and manipulating them.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">List( <font color="#5E5B00">…</font> )</font>* :: `List`<br><br>
       * *Arguments*<br><br>
@@ -502,7 +504,7 @@ end
         * <font color="#006666">*l*</font> :: `List`<br>
         The list of values that need to be removes from the current list.<br>
       * *Description*
-        Removes elements from the current list that exist in <font color="#006666">*l*</font>.
+        Removes all elements from the current list that exist in <font color="#006666">*l*</font>.
     * *<font color="#0052A3">removeAll( <font color="#006666">v</font> )</font>* :: `self`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*v*</font> :: `any`<br>
@@ -556,6 +558,7 @@ end
   
 filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
 </code>
+        You can define filters in the `On Startup` file.
     * *<font color="#0052A3">filterOne( <font color="#006666">f</font> )</font>* :: `any`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
@@ -632,11 +635,11 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
-         * `Map`
-         Returns `true` if the given map has the same values stored under the same keys.
+         * `List`
+         Returns `true` if the given list contains the same elements(order does not count).
       * *Accepted `string` Values*<br><br>
          * `"empty"`
-         Returns `true` if the current map is empty.
+         Returns `true` if the current list is empty.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
 ----
 ====<font color="#660000">Map</font>====
@@ -644,7 +647,7 @@ Basically, an advanced version of the `table`. It's main advantage is that unlik
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Map( <font color="#5E5B00">…</font> )</font>* :: `Map`<br><br>
       * *Arguments*<br><br>
-        * <font color="#5E5B00">*…*</font> :: `range` ( must not contain `nil`'s )<br>
+        * <font color="#5E5B00">*…*</font> :: `range` ( must not contain `nil`'s for odd elements )<br>
         A range of values of any type with an even number of elements. If the number is odd, then the last element is not counted.<br>
       * *Description*
         Returns a new `Map` object containing the specified key-value pairs or an empty map if the number of given values is less than 2.
@@ -695,11 +698,11 @@ end
   * <u>*_is_ Methods*</u><br><br>
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
-         * `List`
-         Returns `true` if the given list contains the same elements(order does not count).
+         * `Map`
+         Returns `true` if the given map has the same values stored under the same keys.
       * *Accepted `string` Values*<br><br>
          * `"empty"`
-         Returns `true` if the current list is empty.
+         Returns `true` if the current map is empty.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
 ----
 ====<font color="#660000">Timer</font>====
@@ -724,11 +727,13 @@ A simple timer for counting time intervals inside the script.
 ----
 ====<font color="#660000">Logger</font>====
 An advanced version of the `TraceAI` function(the one that produces output for command */traceai*). Can output any object(even lists inside maps and so on) and data type to the specified file. A very useful tool for tracing the work of your script. This object also reacts to */traceai* command(if the `LoggerUseTraceAI` [http://code.google.com/p/raick/wiki/GettingStarted#Settings setting] is `ON`), but only on startup: if */traceai* is turned off when the AI is being launched, then all loggers won't write anything. You would have to turn on */traceai* and restart your AI to enable loggers again.
+<br>
+All loggers create their files in the `Logs & Errors` folder.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Logger( <font color="#006666">file</font> , <font color="#5E5B00">delay</font> )</font>* :: `Logger`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*file*</font> :: `string`<br>
-        The name of the file, which will be created in the `Logs & Errors` folder of your AI.<br>
+        The name of the file.<br>
         * <font color="#5E5B00">*delay*</font> | `0` :: `number`<br>
         Logging delay(used in method <font color="#0052A3">*log()*</font>).<br>
       * *Description*
@@ -736,7 +741,7 @@ An advanced version of the `TraceAI` function(the one that produces output for c
     * *<font color="#0052A3">Logger( <font color="#006666">file</font> , <font color="#5E5B00">delimiter</font> )</font>* :: `Logger`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*file*</font> :: `string`<br>
-        The name of the file, which will be created in the `Logs & Errors` folder of your AI.<br>
+        The name of the file.<br>
         * <font color="#5E5B00">*delimiter*</font> | `""` :: `string`<br>
         The string that is used as a delimiter between the values being logged(used in methods <font color="#0052A3">*log()*</font> and <font color="#0052A3">*write()*</font>).<br>
       * *Description*
@@ -744,7 +749,7 @@ An advanced version of the `TraceAI` function(the one that produces output for c
     * *<font color="#0052A3">Logger( <font color="#006666">file</font> , <font color="#006666">delay</font> , <font color="#006666">delimiter</font> )</font>* :: `Logger`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*file*</font> :: `string`<br>
-        The name of the file, which will be created in the `Logs & Errors` folder of your AI.<br>
+        The name of the file.<br>
         * <font color="#006666">*delay*</font> :: `number`<br>
         Logging delay(used in method <font color="#0052A3">*log()*</font>).<br>
         * <font color="#006666">*delimiter*</font> :: `string`<br>
@@ -770,7 +775,7 @@ actor = Actor(100)
 logger.log("an actor:",actor,"and a list:",list)
 </code>
         Would output:<br><br>
-        `> Week, Day Month, Year | Hours:Minutes:Seconds > an actor: Actor[ id=100 ] and a list: `<br>
+        `> Week, DD Month, YYYY | HH:MM:SS > an actor: Actor[ id=100 ] and a list: `<br>
         `List[ size=3 ]:`
           `( 1 )`<br>
           `( 2 )`<br>
@@ -789,11 +794,11 @@ logger.log("an actor:",actor,"and a list:",list)
 <br>
 ----
 ====<font color="#660000">Vector</font>====
-Represents directions and positions of objects in relation to one another. Probably, the most hard-to-understand object, since it is directly related to math, but, actually, it is a very simple concept. Maps/locations in RO can be interpreted as 2D coordinate plains. No matter how you rotate your camera the plain remains the same: the direction of X-coordinate growth is the north and the Y-coordinate growth is the east. Suppose, you want to specify a direction of movement: what would you do? Well, one way of doing it is by "drawing an arrow" between 2 points. In math such arrow is called a _vector_. The "tail" of the vector will anyway be always static, so let's fix it's value to (0,0). Now we can easily define directions using only one point:
+Represents directions and positions of objects in relation to one another. Probably, the most hard-to-understand object, since it is directly related to math, but, actually, it is a very simple concept. Maps/locations in RO can be interpreted as 2D coordinate plains. No matter how you rotate your camera the plain remains the same: the direction of X-coordinate growth is the east and the Y-coordinate growth is the north. Suppose, you want to specify a direction of movement: what would you do? Well, one way of doing it is by "drawing an arrow" between 2 points. In math such arrows are called _vectors_. The "tail" of the vector will anyway be always static, so let's fix it's value to (0,0). Now we can easily define directions using only one point:
 <code language="lua">
-vector1 = Vector(1,0) -- Points to east: an arrow from point (0,0) till (1,0)
+vector1 = Vector(1,0) -- Points to the east: an arrow from point (0,0) till (1,0)
   
-vector2 = Vector(3,-10) -- Points to south-east
+vector2 = Vector(3,-10) -- Points to the south-east
 </code>
 You're probably wondering how can vectors be used? Well, RAICK allows you to manipulate them with great ease! You can take a vector and a cell and calculate a new cell, which will be `n` cells away in the direction of the vector. For example, all actors including your owner have a motion vector. If you want your homunculus to stay behind the owner at a distance of 2 cells you can write something like this: `Homun.goTo(Owner.cell - Owner.vector * 2)`. This will tell your homunculus to go to a cell that is 2 cells away from where the owner is currently standing in the opposite direction of his current movement.<br>
 Another way of defining vectors is by using 2 objects/cells. The idea is the same: you are drawing an "arrow" from one object to another, except what you get is a _relational_ vector, which will define not the direction, but the position of one object in relation to another. A great example of this concept is putting traps right underneath the enemy feet:
@@ -804,15 +809,16 @@ if Merc .. enemy <= 5 then -- If the enemy has gotten too close to the mercenary
     Merc.use(LandMine).on(enemy.cell + vector `*` 2) -- .. we put a mine between the bowman and the enemy.
 end
 </code>
+One final thing about vectors: 2 vectors with different coordinates can point to the same direction. How is that possible? It comes from the fact that you can define vectors with different _length_. For example: (1,1.5), (2,3), (4,6) would all point in the same direction, but if you draw them on a piece of paper you would see that they have different lengths. In math the length of the vector does indeed matter, but in RAICK it has no use meaning that for RAICK they are the same(when comparing them using the `==` operator or the `is` method).
   * <u>*Constructors*</u><br><br>
-    * *<font color="#0052A3">Vector( <font color="#006666">x</font> , <font color="#006666">y</font> )</font>* :: `Vector`<br><br>
+    * *<font color="#0052A3">Vector( <font color="#5E5B00">x</font> , <font color="#5E5B00">y</font> )</font>* :: `Vector`<br><br>
       * *Arguments*<br><br>
-        * <font color="#006666">*x*</font> :: `number`<br>
+        * <font color="#5E5B00">*x*</font> :: `number` | `0`<br>
         The X-coordinate of the vector.<br>
-        * <font color="#006666">*y*</font> :: `number`<br>
+        * <font color="#5E5B00">*y*</font> :: `number`| `0`<br>
         The Y-coordinate of the vector.<br>
       * *Description*
-        Return a new `Vector` pointing in direction specified by (<font color="#006666">*x*</font>,<font color="#006666">*y*</font>) coordinates.<br>
+        Return a new `Vector` pointing in direction specified by (<font color="#5E5B00">*x*</font>,<font color="#5E5B00">*y*</font>) coordinates. If both coordinates are not specified, then returns a _null vector_, which indicates an absence of a direction(for example, "standing" is case of a motion vector).<br>
     * *<font color="#0052A3">Vector( <font color="#006666">object1</font> , <font color="#006666">object2</font> )</font>* :: `Vector` | `nil`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*object1*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
@@ -830,7 +836,7 @@ end
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
          * `Vector`
-         Returns `true` if the given vector has the same <font color="#006666">*x*</font> and <font color="#006666">*y*</font> field values as the current one.
+         Returns `true` if the given vector is pointing in the same direction as the current one.
       * *Accepted `string` Values*<br><br>
          * `"none"`
          Returns `true` if the current vector has (0,0) coordinates.
@@ -851,7 +857,7 @@ end
          * `"southEast"`
          Returns `true` if the current vector is pointing to south-east of the current location/map.
          * `"[x];[y]"`
-         Returns `true` if the current vector has specified (`[x]`,`[y]`) coordinates. The delimiter ; can be replaced with anything you want as long as it is not a number, dot or minus.  For example `"-1;2"`, `"0.252|1"`.
+         Returns `true` if the current vector is pointing in the same direction as the vector with (`[x]`,`[y]`) coordinates. The delimiter ; can be replaced with anything you want as long as it is not a number, dot or minus.  For example `"-1;2"`, `"0.252|1"`.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">cell</font> + <font color="#006666">vector</font> `*` <font color="#5E5B00">distance</font></font>* :: `Cell`<br><br>
@@ -1044,12 +1050,12 @@ The object for manipulating the memory. Values are saved under `string` keys jus
 <br>
 ----
 ====<font color="#660000">Activity</font>====
-Through this object you can change the current activity of your homunculus/mercenary or to get information about the current or the last activity. Read more about activities [http://code.google.com/p/raick/wiki/Manual#5._Activities here].
+Through this object you can change the current activity of your homunculus/mercenary or get information about the current or the last activity. Read more about activities [http://code.google.com/p/raick/wiki/Manual#5._Activities here].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*current*</font> :: `Value`<br><br>
       Contains the name of the current activity and it's sequential number(the first activity would get 1 and so on). This value "survives" the restart of the script, since it is automatically saved to memory.
       * <font color="#006666">*last*</font> :: `Value` | `nil`<br><br>
-      Contains the name of the last activity(the one that your homunculus/mercenary was before the switching to the current activity) and it's sequential number or `nil` if the AI is run to the first time and there is historical data available.
+      Contains the name of the last activity(the one that your homunculus/mercenary was before the switching to the current activity) and it's sequential number or `nil` if the AI is run for the first time and there is historical data available.
   * <u>*Methods*</u><br><br>
     * *<font color="#0052A3">switchTo.<font color="#006666">activity</font>( <font color="#5E5B00">…</font> )</font>* :: `self`<br><br>
       * *Arguments*<br><br>
@@ -1080,7 +1086,7 @@ All of RAICK's AI files share one common feature, which simplifies and quickens 
   * Status names(<font color="#006666">*status*</font> field)
   * Group names(<font color="#006666">*group*</font> field)
   * Type names(<font color="#006666">*type*</font> field) ›› _! Every monster !_
-Like everywhere in RAICK the names are case and delimiter insensitive meaning that, for example, `"ma__Ya__--Pu__rple"` is the same as `"Maya Purple"`. This also concerns the names of handler functions and activities discussed below. For example: `"a_l_t_shift_TARGET"` and `"AltShiftTarget"` refer to the same handler function.
+Like everywhere in RAICK the names are case and delimiter insensitive meaning that, for example, `ma__Ya__--Pu__rple` is the same as `MayaPurple`. This also concerns the names of handler functions and activities discussed below. For example: `a_l_t_shift_TARGET` and `AltShiftTarget` refer to the same handler function.
 ===<font color="#006600">0. Memory</font>===
 The memory file is automatically created and managed by RAICK. This is where your saved values are stored. If you open it, you will first of all see a header saying when the memory was last updated and how many percent of it's capacity is currently taken. The header is followed by the list of entries, each of them with it's own small header, which specifies the type of the value, as well as the number of elements if the value is a `List` or a `Map`. Values between underscores like `_s_` are RAICK service memory entries- they should not be altered.
 <br>
