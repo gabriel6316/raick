@@ -629,6 +629,15 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
       * *Description*
         Replaces <font color="#5E5B00">*n*</font> occurrences of <font color="#006666">*v1*</font> with <font color="#006666">*v2*</font> starting from the back of the list.
 <br>
+  * <u>*_is_ Methods*</u><br><br>
+    * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
+      * *Accepted Types*<br><br>
+         * `Map`
+         Returns `true` if the given map has the same values stored under the same keys.
+      * *Accepted `string` Values*<br><br>
+         * `"empty"`
+         Returns `true` if the current map is empty.
+    * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
 ----
 ====<font color="#660000">Map</font>====
 Basically, an advanced version of the `table`. It's main advantage is that unlike the `table` it can be saved to memory. The map can be accessed either through the methods: `map.put("a",1)`, `map.get("a")` or like an ordinary `table`: `map["a"] = 1`, `map["a"]`, `map.a = 1`, `map.a`. Just remember that using square brackets you cannot query values stored under string keys that are identical to method names.
@@ -682,8 +691,16 @@ end
         * <font color="#006666">*v*</font> :: `any`<br>
         The value in the map.<br>
       * *Description*
-        Returns `true` if the given value is stored somewhere in the map.
-<br>
+        Returns `true` if the given value is stored somewhere in the map.<br>
+  * <u>*_is_ Methods*</u><br><br>
+    * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
+      * *Accepted Types*<br><br>
+         * `List`
+         Returns `true` if the given list contains the same elements(order does not count).
+      * *Accepted `string` Values*<br><br>
+         * `"empty"`
+         Returns `true` if the current list is empty.
+    * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
 ----
 ====<font color="#660000">Timer</font>====
 A simple timer for counting time intervals inside the script.
@@ -706,7 +723,7 @@ A simple timer for counting time intervals inside the script.
 <br>
 ----
 ====<font color="#660000">Logger</font>====
-An advanced version of the `TraceAI` function(the one that produces output for command */traceai*). Can output any object(even lists inside maps and so on) and data type to the specified file. A very useful tool for tracing the work of your script. This object also reacts to */traceai* command(if the `LoggerUseTraceAI` setting is `ON`), but only on startup: if */traceai* is turned off when the AI is being launched, then all loggers won't write anything. You would have to turn on */traceai* and restart your AI to enable loggers again.
+An advanced version of the `TraceAI` function(the one that produces output for command */traceai*). Can output any object(even lists inside maps and so on) and data type to the specified file. A very useful tool for tracing the work of your script. This object also reacts to */traceai* command(if the `LoggerUseTraceAI` [http://code.google.com/p/raick/wiki/GettingStarted#Settings setting] is `ON`), but only on startup: if */traceai* is turned off when the AI is being launched, then all loggers won't write anything. You would have to turn on */traceai* and restart your AI to enable loggers again.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Logger( <font color="#006666">file</font> , <font color="#5E5B00">delay</font> )</font>* :: `Logger`<br><br>
       * *Arguments*<br><br>
@@ -744,7 +761,17 @@ An advanced version of the `TraceAI` function(the one that produces output for c
         * <font color="#006666">*…*</font> :: `range`<br>
         A range of values of any type.<br>
       * *Description*
-        Writes the current timestamp("date + time" string) to the <font color="#006666">*file*</font> and(after that) textual representations of given values separating them with <font color="#006666">*delimiter*</font>. Does nothing if */traceai* is has been turned off during startup of AI or the delay since last log has not ended yet.
+        Writes the current timestamp("date + time" string) to the <font color="#006666">*file*</font> and(after that) textual representations of given values separating them with <font color="#006666">*delimiter*</font>. For example:
+        <code language="lua">
+logger = Logger("log.txt"," ")
+list = List(1,2,"abc")
+actor = Actor(100)
+  
+logger.log("an actor:",actor,"and a list:",list)
+</code>
+        Would output:<br><br>
+        `> Week, Day Month, Year | Hours:Minutes:Seconds > an actor: Actor[ id=100 ] and a list: `<br>`List[ size=3 ]:`<br>`( 1 )`<br>`( 2 )`<br>`( "abc" )`<br><br>
+        Does nothing if */traceai* is has been turned off during startup(only when `LoggerUseTraceAI` is `ON`) of AI or the delay since last log has not ended yet. 
     * *<font color="#0052A3">write( <font color="#006666">*…*</font> )</font>* :: `self`
     The same as the previous method, except it does not put a timestamp and is not affected by the delay.
     * *<font color="#0052A3">putTimestamp()</font>* :: `self`
@@ -782,14 +809,14 @@ end
         The Y-coordinate of the vector.<br>
       * *Description*
         Return a new `Vector` pointing in direction specified by (<font color="#006666">*x*</font>,<font color="#006666">*y*</font>) coordinates.<br>
-    * *<font color="#0052A3">Vector( <font color="#006666">object1</font> , <font color="#006666">object2</font> )</font>* :: `Vector`<br><br>
+    * *<font color="#0052A3">Vector( <font color="#006666">object1</font> , <font color="#006666">object2</font> )</font>* :: `Vector` | `nil`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*object1*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
         The object, in relation to which the vector is calculated.<br>
         * <font color="#006666">*object2*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
         The object, which defines the direction of the vector in relation to <font color="#006666">*object1*</font>.<br>
       * *Description*
-        Return a new `Vector` pointing in direction specified by <font color="#006666">*object2*</font> in relation to <font color="#006666">*object1*</font>(an "arrow" drawn from <font color="#006666">*object1*</font> till <font color="#006666">*object2*</font>).<br>
+        Return a new `Vector` pointing in direction specified by <font color="#006666">*object2*</font> in relation to <font color="#006666">*object1*</font>(an "arrow" drawn from <font color="#006666">*object1*</font> till <font color="#006666">*object2*</font>) or `nil` if at least one of the objects in not visible.<br>
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*x*</font> :: `number`<br>
       The X-coordinate of the vector.<br>
@@ -799,7 +826,7 @@ end
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted Types*<br><br>
          * `Vector`
-         Returns `true` if the given object has the same <font color="#006666">*x*</font> and <font color="#006666">*y*</font> field values as the current one.
+         Returns `true` if the given vector has the same <font color="#006666">*x*</font> and <font color="#006666">*y*</font> field values as the current one.
       * *Accepted `string` Values*<br><br>
          * `"none"`
          Returns `true` if the current vector has (0,0) coordinates.
@@ -870,6 +897,8 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
       * <font color="#006666">*sp*</font> :: `Points`<br><br>
       * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
+      * <font color="#006666">*visionRange*</font> :: `number`
+      The vision range that is defined using the `VisionRange` [http://code.google.com/p/raick/wiki/GettingStarted#Settings setting].
       * <font color="#006666">*surround*</font> :: `List`
       All actors that are currently visible on the screen(in range of vision).
       * <font color="#006666">*prev.surround*</font> :: `List`
