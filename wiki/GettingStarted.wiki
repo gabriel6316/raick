@@ -1,11 +1,11 @@
 =<font color="#003366">Getting Started</font>=
 ==<font color="#006666">Installation</font>==
-First things first, you need to let RAICK install itself. Unlike other AI scripts RAICK is packaged into a single file. This file contains all of the logic needed to create the initial folder and file structure.<br>
-  * To install RAICK you first need to decide where to put it. A typical place for custom scripts is the `USER_AI` folder, but you are not limited to a specific place. Once the `RAICK.lua` file is in place, open your `AI.lua` or `AI_M.lua` file in either `AI` or `AI/USER_AI` folder(depending on what */hoai* setting you are planning to use) and put a single line of code there:
+First things first, you need to let RAICK install itself. Unlike other AI scripts, RAICK is packaged into a single file. This file contains all of the logic needed to create the initial folder and file structure.<br>
+  * To install RAICK you first need to decide where to put it. A typical place for custom scripts is the `USER_AI` folder, but you are not limited to a specific place. Once the `RAICK.lua` file is in place, open your `AI.lua` or `AI_M.lua` file in either `AI` or `AI/USER_AI` folder(depending on what */hoai* / */meai* setting you are planning to use) and put a single line of code there:
   <code language="lua">
 require "./AI/USER_AI/RAICK.lua"
 </code>
-  This line of code assumes that you have put `RAICK.lua` to the `USER_AI` folder. The dot represents the folder of your Rangarok client. You could have also written the full path to RAICK:
+  This line of code assumes that you have put `RAICK.lua` into the `USER_AI` folder. The dot represents the folder of your Rangarok client. You could have also written the full path to RAICK:
   <code language="lua">
 require "C:/Program Files/Gravity/Ragnarok/AI/USER_AI/RAICK.lua" -- Of course, you should put the actual path to your client if it is somewhere else
 </code>
@@ -52,7 +52,7 @@ The schema below illustrates the full set of files and folders that RAICK can cr
 Most of them are created during installation, others during runtime, when needed. You can see that homunculus and mercenary scripts are separated into different folders for easier management.<br><br>
 ===<font color="#006600">Common Files</font>===
   * <u>*RAICK.Bugz.txt* file</u>
-  This file is created(and later updated) when RAICK encounters a bug inside itself. The entry will contain the time when the error occurred and a copy of the error window. This is possible, because RAICK is smart enough to classify errors and can even distinguish between errors that occurred in your script from the ones that occurred inside the framework.
+  This file is created(and later updated) when RAICK encounters a bug inside itself. The entry will contain the time when the error occurred and a copy of the error window. This is possible, because RAICK is smart enough to classify errors and can even distinguish errors that occurred in your script from the ones that occurred inside the framework.
   * <u>*RAICK.Settings.lua* file</u>
   This file is used to configure RAICK. See [http://code.google.com/p/raick/wiki/GettingStarted#Settings Settings] for more information.
   * <u>*RAICK.Uninstaller.bat* file</u>
@@ -105,10 +105,10 @@ RAICK can be configured using the `RAICK.Settings.lua` file. Currently RAICK has
   <u>Supported values:</u> `YES, NO, ON, OFF`<br>
 
   Turns communication between homunculus and mercenary ON or OFF. Explained [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary here].
-The names of settings and the values that they support are case insensitive, furthermore you can even separate different words with underscores. For example:
+The names of settings and the values that they support are case insensitive, furthermore you can even separate different words and letters with underscores. For example:
   * visionrange
   * ViSion`___`RanGE
-  * VISION`_`RANGE
+  * VISI_ON`_`RAN_GE
   * VisionRange
 Would all refer to the same setting. The same is with values:
   * Yes
@@ -125,7 +125,7 @@ The best way to learn something in programming is by doing practical exercises o
 ----
 ===<font color="#006600">Some Extra Knowledge: Objects in RAICK</font>===
 As much as would like to dig into the scripting process right away i can't leave this topic without attention, since roughly it is what RAICK is made of.<br>
-From the chapter about Lua your know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the _object_ is not only some value that stores its reference in a variable, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
+From the [http://code.google.com/p/raick/wiki/Lua#The_Hard_Part:_Objects_and_Primitive_Types chapter about Lua] you know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the _object_ is not only some value that stores its reference in a variable, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
 <code language="lua">
 -- This is a standard function from Gravity, which allows us to order the homunculus to go to a cell with (x,y) coordinates.
 -- 'homunID' is the ID of your homunculus and (x,y) are coordinates of the destination cell.
@@ -148,7 +148,7 @@ You can see that instead of writing a lot of separate functions that take their 
 Instead of:<br>
   _Function, make homunculus with this ID do that_<br>
 This approach allows us to have a more organized, understandable and maintainable code and that is why objects are used in programming.<br>
-So let's now sum up everything that we know about objects(as a general concept in programming):
+So, let's now sum up everything that we know about objects(as a general concept in programming):
   * Are values that are stored in variables as references
   * Are created using a special command/function(that can also take arguments as you will see later)
   * Can contain functions inside themselves(those functions are called _methods_ and in Lua they are just function values under string keys in a table)
@@ -239,7 +239,7 @@ end
 Nothing to comment here.<br><br>
 ----
 ===<font color="#006600">Back to Our Activities</font>===
-The preparation work is done, it is now time to think about how we are going to use the selected target. Obviously, we want to kill it. I propose that we make another activity just for this cause:
+The preparational work is done, it is now time to think about how we are going to use the selected target. Obviously, we want to kill it. I propose that we make another activity just for this cause:
 <code language="lua">
 function    Main()
 
