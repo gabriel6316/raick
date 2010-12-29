@@ -59,7 +59,7 @@ Most of them are created during installation, others during runtime, when needed
   Run this file if you want to uninstall RAICK. All files that have been created during installation will be deleted.<br>
 ===<font color="#006600">AI Specific Files</font>===
   * <u>*Homunculus Script* folder</u>
-  The structure of the folder is designed for maximum efficiency and convenience. Files are numbered to mimic the order in which they are loaded upon startup of AI and also how they are processed later, when the client starts calling the script.
+  The structure of the folder is designed for maximum efficiency and convenience. Files are numbered to mimic the order in which they are loaded on startup of AI and also how they are processed later, when the client starts calling the script.
     * <u>*Logs & Errors* folder</u><br><br>
       * <u>*Error History.txt* file</u>
       This file is created(and later updated) when RAICK encounters an error inside your script. The entry will contain the time when the error occurred and a copy of the error window.
@@ -74,7 +74,7 @@ Most of them are created during installation, others during runtime, when needed
     * <u>*`[`4`]` Messages.lua* file</u>
     In this file you can also define handlers like in two previous ones, but in this case they are meant to intercept messages that bots send to each other. This is a unique feature of RAICK that allows exchanging arbitrary data between homunculus and mercenary AI's.
     * <u>*`[`5`]` Activities.lua* file</u>
-    The "heart" of your AI. Here you must define activities that you want your homunculus/mercenary to perform. Activities(also known as _states_ in most AI's) is just a way to divide your script into logical parts. Each activity is basically a set of actions, which are logically grouped under some name. For example, the basic set of activities could be:
+    The "heart" of your AI. Here you must define activities that you want your homunculus/mercenary to perform. Activities(also known as _states_ in most AI's) is just a way of dividing your script into logical parts. Each activity is, basically, a set of actions, which are logically grouped under some name. For example, the basic set of activities could be:
       * _Passive_ - Don't react to anything. Just follow the owner.
       * _Active_ - If a monster is in sight then start chasing it(switch to _Chase_ activity), if not then follow owner.
       * _Chase_ - Chase the monster until you get close enough and then start attacking it(switch to _Attack_ activity).
@@ -179,7 +179,7 @@ mainTarget = Actor()
 </code>
 
 What we have done is we have put a blank actor as a default value for the target. It is the first/initial value that this variable will have when the script starts and it will signal that we have not got a target at the moment. If we haven't had done this, then the default value would have been `nil`, which would force us to check this variable for `nil` every time we read it.<br>
-The first step is made, let's now turn to the "main course"- the `Activities` file. As you can see one activity is already defined here. It serves mainly as an example. In this activity your homunculus would just follow you. This is certainly too simple for us so let's modify it.<br>
+The first step is made, let's now turn to the "main course"- the `Activities` file. As you can see one activity is already defined here. It serves mainly as an example. In this activity your homunculus would just follows you. This is obviously too simple for us so let's modify it.<br>
 To begin we need at least 2 activities:
 <code language="lua">
 function    Main()
@@ -219,7 +219,7 @@ Instead of:
 something.is("name")
 </code>
 
-The first variant in definitely easier to read and faster to write. All RAICK objects have this method(and its opposite "twin brother" `isNot`) in common and later i will show you what other tricks can be performed using it.<br>
+The first variant in definitely easier to read and faster to write. Most of RAICK's objects have this method(and its opposite "twin brother" `isNot`) in common and later i will show you what other tricks can be performed using it.<br>
 If we drop the technical details, then what `Activity.current.is.Main` does is it just gives us `true` if current activity is `Main`. Quite obvious, isn't it? Other lines are also pretty much self-explainable. The `switchTo` field contains a table, which holds functions that allow us to switch between activities.<br>
 So, we can change modes now, but that doesn't give us anything without a target to attack, since passive mode is made mainly to stop homunculus/mercenary from attacking the target. We will deal with this issue in the next section.
 <br><br>
