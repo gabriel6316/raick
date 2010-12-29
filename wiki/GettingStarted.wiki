@@ -59,7 +59,7 @@ Most of them are created during installation, others during runtime, when needed
   Run this file if you want to uninstall RAICK. All files that have been created during installation will be deleted.<br>
 ===<font color="#006600">AI Specific Files</font>===
   * <u>*Homunculus Script* folder</u>
-  The structure of the folder is designed for maximum efficiency and convenience. Files are numbered to mimic the order in which they are loaded on startup of AI and also how they are processed later, when the client starts calling the script.
+  The structure of the folder is designed for maximum efficiency and convenience. Files are numbered to mimic the order, in which they are loaded upon startup of the AI and also how they are processed later, when the client starts calling the script.
     * <u>*Logs & Errors* folder</u><br><br>
       * <u>*Error History.txt* file</u>
       This file is created(and later updated) when RAICK encounters an error inside your script. The entry will contain the time when the error occurred and a copy of the error window.
