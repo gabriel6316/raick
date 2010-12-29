@@ -1,8 +1,8 @@
 =<font color="#003366">Lua and the ABC of Programming</font>=
-Now, this is not a guide on programming. This is just the basic knowledge, which will help you understand how RAICK works. It is mainly theoretical stuff, which may seem too abstracted from the actual AI, but be patient- this is the basis, which you need to know and understand before we dig into the real thing.
+Now, this is not a guide on programming. This is just the basic knowledge that will help you understand how RAICK works. It is mainly theoretical stuff, which may seem too abstracted from the actual AI, but be patient- you must have a strong foundation before we dig into the real thing.
 ==<font color="#006666">Client & Script</font>==
-As you probably already know from your experience with AI's the entry point for any AI script is the `AI.lua`/`AI_M.lua` file. This is a regular text file, using which your Ragnarok game client makes(every time your homunculus/mercenary enters the screen) a small program(the AI) that(every time it is called/asked) tells the client what actions should your homunculus/mercenary perform based on the data that the client provides it with. This happens multiple times per second and that's how the AI actually works. When your homunculus/mercenary leaves the screen for some reason(death, _Rest/Vaporize_ skill etc) the AI program is stopped and thrown away with all of its data. Once the the homunculus/mercenary will appear on the screen again the client will make a fresh AI program from the AI text file and the cycle will continue.
-So, from all of this you should remember the following:
+As you probably already know from your experience with AI's the entry point for any AI script is the `AI.lua` / `AI_M.lua` file. This is a regular text file, using which your Ragnarok game client makes(every time your homunculus/mercenary enters the screen) a small program(the AI) that(every time it is called/asked) tells the client what actions should your homunculus/mercenary perform based on the data that the client provides it with. This happens multiple times per second and that's how the AI actually works. When your homunculus/mercenary leaves the screen for some reason(death, _Rest/Vaporize_ skill etc) the AI program is stopped and thrown away with all of its data. Once the the homunculus/mercenary will appear on the screen again the client will make a fresh AI program from the AI text file and the cycle will continue.<br>
+So, let's review:
   * The script text file is loaded only when the bot re-enters the screen(respawnes)
   * The client works with the program(which it made during respawn), not with the text file itself
   * The script text file is not used by the client the rest of the time(you can delete and modify it without any harm)
@@ -16,9 +16,9 @@ All programming languages have three basic concepts in common:
   * Types
   * Values
   * Variables
-And they are actually a lot simpler than they sound.
+And they are a lot simpler than they sound.
 
-*Types* are used to categorize data. For example in Lua:
+*Types* are used to categorize data. For example, in Lua:
   * `1, 42309483209.3129083219038, -9999999999999999` are all of type _number_
   * `"this is a message"` and `'this is another message'` are of type _string_(a message consisting of characters)
 The number of types that come with the language are often quite limited, but they are very versatile and using them you can define your own ones.
@@ -34,7 +34,7 @@ So, to summarize. Types are names for sets of data(values) with common propertie
 <br><br>
 Suppose we have our values, which we have divided into groups(types). The obvious question is: where do we store them? And here is when *variables* enter the scene to help us out. They are just "boxes" with names, where you can store any value of any data type you like. This way you can transfer data between different parts of your script.
 <br>
-The last thing you need to know is that there are two kinds of variables: *local* and *global*. Global ones(as their name suggests) could be used in every part of your script- they are visible everywhere. As for local ones, they are visible only in a small area. Nothing will stop you from using only global variables in your script. Using local ones just helps to keep the global namespace clean. Examples:
+The last thing you need to know is that there are two kinds of variables: *local* and *global*. Global ones(as their name suggests) could be used in every part of your script- they are visible everywhere. As for local ones, they are visible only in a small area. Nothing will stop you from using <u>only</u> global variables in your script. Using local ones just helps to keep the global namespace clean. Examples:
 <code language="lua">
 a = 1 -- Putting 1 to variable 'a'.
 b = 2 + 3 -- Adding two numbers and writing result to 'b'.
@@ -42,14 +42,14 @@ a = b - 2.5 -- Here we take the value from the variable 'b' and subtract 2.5 fro
 a = a `*` 5 -- And here we multiply the value in the variable by 5.
 
 --[[
-There are certain rules for naming variables. The name can contain letters, numbers and underscopes(`_`), but cannot start with a number. For example:
+There are certain rules for naming variables. The name can contain letters, numbers and underscores(`_`), but cannot start with a number. For example:
 `____`a`____` is a valid name
 `_`123 is a valid name
 123abc is not a valid name
 abc$$$ is not a valid name
 --]]
 
-str1 = "a string" -- Typically we define a string between double quotes, ..
+str1 = "a string" -- Typically, we define a string between double quotes, ..
 str2 = 'another string' -- .. but single quotes are also permitted.
 str3 = str1 .. str2 -- Operator '..' allows us to "glue"(concatenate) two strings together. The result is: "a stringanother string".
 </code>
@@ -125,7 +125,7 @@ e = a.method(1) -- 'e' now holds value 1.
 </code><br><br>
 ----
 ===<font color="#006600">nil</font>===
-Before we continue i would like to say a few words about one important type, which is *nil*. This is a special type, which has only one value- `nil`. This value signals the absence of any other value. For example, if you refer to a variable that you have not used before it will contain `nil`. You can also use `nil` to delete anything from a variable or from under a table key.<br><br>
+Before we continue i would like to say a few words about one important type, which is *nil*. This is a special type, which has only one value- `nil`. This value specifies the absence of any other value. For example, if you refer to a variable that you have not used before it will contain `nil`. You can also use `nil` to delete anything from a variable or from under a table key.<br><br>
 ----
 ===<font color="#006600">Conditions & Booleans</font>===
 So far we have seen programming as a process of writing lines of code that get executed inside some main function, which is being initially called by someone(in our case- the Ragnarok client). What if we want to execute a certain line only when a certain condition is satisfied? We need a way to define conditions and some structure that would interpret them. This structure is known in programming as the *if statement*. It takes a condition, which can return either `true` or `false` and executes the enclosed code based on this value. Now, hold on a second! `true` or `false`? What's that? Well, those are values of type *boolean*. This type has only those 2 values. They are used in cases where you need to know if the result is: positive or negative, yes or no, on or off, true or false etc. That's why they are ideal for *conditional expressions*. Those are expressions similar to arithmetic ones like `2 * 3 + 5`, only they deal with logical and comparison operators and return `true` or `false` instead of a numeric result. Let's make things clear using examples:
@@ -208,7 +208,7 @@ end
 </code><br><br>
 ----
 ===<font color="#006600">Loops</font>===
-The final structure you need to know about is the *loop*. This structure is very similar to the if statement, only in this case the code gets executed over and over again while the conditional expression is true. There are many types of loops in Lua, but with RAICK you will actually need to know only one of them- the *for* loop. This loop has 2 ways of using it. Let's examine both of them in the following example:
+The final structure you need to know about is the *loop*. This structure is very similar to the if statement, only in this case the code gets executed over and over again while the conditional expression is `true`. There are many types of loops in Lua, but with RAICK you will actually need to know only one of them- the *for* loop. This loop has 2 ways of using it. Let's examine both of them in the following example:
 <code language="lua">
 a = 0
 
@@ -280,8 +280,8 @@ Another useful function is `math.random`. It takes 2 numeric(can be negative) ar
 <code language="lua">
 rand = math.random(-3, 2) -- Returns -3, -2, -1, 0, 1 or 2 randomly.
 </code>
-Random is often useful in programming. The main use for it in AI scripts is the so called "dance attack".<br>
-These are just some examples of the standard functions. This is just a short overview of Lua, so i am not doing to cover the rest of them(and they are quite useless for you anyway).<br><br>
+Random is often useful in programming. The main use for it in AI scripts is the, so called, "dance attack".<br>
+These are just some examples of standard functions. This is just a short overview of Lua, so i am not doing to cover the rest of them(and they are quite useless for you anyway).<br><br>
 ----
 ===<font color="#006600">The Hard Part: Objects and Primitive Types</font>===
 OK, we are almost done! I don't know if this is actually the hardest part, but it tends to be quite confusing for most people. I just want you to try to understand it, since it is a very important issue, especially with RAICK.<br>
