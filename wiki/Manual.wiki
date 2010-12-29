@@ -706,7 +706,7 @@ A simple timer for counting time intervals inside the script.
 <br>
 ----
 ====<font color="#660000">Logger</font>====
-An advanced version of the `TraceAI` function(the one that produces output for command */traceai*). Can output any object(even lists inside maps and so on) and data type to the specified file. A very useful tool for tracing the work of your script. This object also reacts to */traceai* command, but only on startup: if */traceai* is turned off when the AI is being launched, then all loggers won't write anything. You would have to turn on */traceai* and restart your AI to enable loggers again.
+An advanced version of the `TraceAI` function(the one that produces output for command */traceai*). Can output any object(even lists inside maps and so on) and data type to the specified file. A very useful tool for tracing the work of your script. This object also reacts to */traceai* command(if the `LoggerUseTraceAI` setting is `ON`), but only on startup: if */traceai* is turned off when the AI is being launched, then all loggers won't write anything. You would have to turn on */traceai* and restart your AI to enable loggers again.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Logger( <font color="#006666">file</font> , <font color="#5E5B00">delay</font> )</font>* :: `Logger`<br><br>
       * *Arguments*<br><br>
@@ -895,9 +895,10 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
         Returns the distance(in cells) between you and <font color="#006666">*object*</font> or `nil` if <font color="#006666">*object*</font> is an actor, which is not visible.
 <br>
 ----
-====<font color="#660000">Homunculus</font>====
-Represents your homunculus. This object is defined both in the homunculus and in the mercenary scripts, since RAICK support data exchange between scripts. Read more about it in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
-Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your homunculus is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
+====<font color="#660000">Homunculus / Mercenary</font>====
+I will unify the description of those objects, since they are identical.<br>
+These objects represent your homunculus/mercenary. They are defined in both the homunculus and in the mercenary script, since RAICK support data exchange between scripts. Read more about it in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
+Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your homunculus/mercenary is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
       * <font color="#006666">*cell*</font> :: `Cell`<br><br>
@@ -919,34 +920,36 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
       * <font color="#006666">*sp*</font> :: `Points`<br><br>
       * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
+      * <font color="#006666">*hit.range*</font> :: `number`<br><br>
+      The range of a normal attack in cells.
   * <u>*Methods*</u><br><br>
     * *<font color="#0052A3">goTo( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`<br><br>
       * *Arguments*<br><br>
-        * <font color="#006666">*v*</font> :: `Cell` | `Actor` | `Owner` | `Mercenary` | `Vector`<br>
-        The location or the in-game character, to which the homunculus must go or the direction(vector) of it's movement.<br>
+        * <font color="#006666">*v*</font> :: `Cell` | `Actor` | `Owner` | `Mercenary`/`Homunculus` | `Vector`<br>
+        The location or the in-game character, to which the homunculus/mercenary must go or the direction(vector) of it's movement.<br>
         * <font color="#5E5B00">*n*</font> :: `number`<br>
-        The number of cells, by which the homunculus must advance in the direction specified by the location, object or vector.<br>
+        The number of cells, by which the homunculus/mercenary must advance in the direction specified by the location, object or vector.<br>
       * *Description*
-        Orders your homunculus to go to the specified cell or to the cell, on which the specified object stand on or in the direction specified by the vector. The second argument is used to modify the length of path that the homunculus is allowed to go through. If <font color="#006666">*v*</font> is a `Vector`, then <font color="#5E5B00">*n*</font> specifies the number of cells that the homunculus should go through in the direction of the vector. In other cases:<br><br>
+        Orders your homunculus/mercenary to go to the specified cell or to the cell, on which the specified object stand on or in the direction specified by the vector. The second argument is used to modify the length of path that the homunculus/mercenary is allowed to go through. If <font color="#006666">*v*</font> is a `Vector`, then <font color="#5E5B00">*n*</font> specifies the number of cells that the homunculus/mercenary should go through in the direction of the vector. In other cases:<br><br>
           * <font color="#5E5B00">*n*</font> is a fractional value between 0 and 1
-          The homunculus will go through (<font color="#5E5B00">*n*</font> `*` 100)% of the path.
+          The homunculus/mercenary will go through (<font color="#5E5B00">*n*</font> `*` 100)% of the path.
           * <font color="#5E5B00">*n*</font> is a fractional value between -1 and 0
-          The homunculus will go through ((1 + <font color="#5E5B00">*n*</font>) `*` 100)% of the path.
+          The homunculus/mercenary will go through ((1 + <font color="#5E5B00">*n*</font>) `*` 100)% of the path.
           * <font color="#5E5B00">*n*</font> >= 1
-          The homunculus will go through <font color="#5E5B00">*n*</font> cells along of the path.
+          The homunculus/mercenary will go through <font color="#5E5B00">*n*</font> cells along of the path.
           * <font color="#5E5B00">*n*</font> <= -1
-          The homunculus will keep <font color="#5E5B00">*n*</font> cells away from <font color="#006666">*v*</font>.
+          The homunculus/mercenary will keep <font color="#5E5B00">*n*</font> cells away from <font color="#006666">*v*</font>.
     * *<font color="#0052A3">hit( <font color="#006666">target</font> )</font>* :: `self`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*target*</font> :: `Actor`<br>
         The target.<br>
       * *Description*
-        Orders your homunculus to hit(attack with normal attacks) the specified target once.
+        Orders your homunculus/mercenary to hit(attack with normal attacks) the specified target once.
     * *<font color="#0052A3">use( <font color="#006666">skill</font> , <font color="#5E5B00">lvl</font> )</font>* :: `self`
     * *<font color="#0052A3">use( <font color="#006666">skill</font> , <font color="#5E5B00">lvl</font> ).on( <font color="#006666">target</font> )</font>* :: `self`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*skill*</font> :: `Skill`<br>
-        The skill that you want your homunculus to use.<br>
+        The skill that you want your homunculus/mercenary to use.<br>
         * <font color="#5E5B00">*lvl*</font> :: `number` | <font color="#006666">*skill.maxLevel*</font><br>
         The level of the skill.<br>
         * <font color="#006666">*target*</font> :: `Actor`<br>
@@ -957,89 +960,19 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
     * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
       * *Accepted `string` Values*<br><br>
          * `"full"`
-         Returns `true` if the homunculus' HP and SP are full.
+         Returns `true` if homunculus'/mercenaries HP and SP are full.
          * `"active"`
          Returns `true` if the object is active. Explained in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
   * <u>*Operators*</u><br><br>
-    * *<font color="#0052A3"><font color="#006666">homun</font> .. <font color="#006666">object</font></font>* :: `number` | `nil`<br><br>
+    * *<font color="#0052A3"><font color="#006666">homun/merc</font> .. <font color="#006666">object</font></font>* :: `number` | `nil`<br><br>
       * *Arguments*<br><br>
-        * <font color="#006666">*homun*</font> :: `Homunculus`<br>
-        The `Homunculus` object.<br>
+        * <font color="#006666">*homun/merc*</font> :: `Homunculus`/`Mercenary`<br>
+        The `Homunculus`/`Mercenary` object.<br>
         * <font color="#006666">*object*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
         Any in-game object, distance till which you want to know.<br>
       * *Description*
-        Returns the distance(in cells) between your homunculus and <font color="#006666">*object*</font> or `nil` if <font color="#006666">*object*</font> is an actor, which is not visible.
-<br>
-----
-====<font color="#660000">Mercenary</font>====
-Represents your mercenary. This object is defined both in the mercenary and in the homunculus scripts, since RAICK support data exchange between scripts. Read more about it in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
-Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your mercenary is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
-  * <u>*Fields*</u><br><br>
-      * <font color="#006666">*id*</font> :: `number`<br><br>
-      * <font color="#006666">*cell*</font> :: `Cell`<br><br>
-      * <font color="#006666">*prev.cell*</font> :: `Cell`<br><br>
-      * <font color="#006666">*last.cell*</font> :: `Cell`<br><br>
-      * <font color="#006666">*action*</font> :: `Value`<br><br>
-      * <font color="#006666">*prev.action*</font> :: `Value`<br><br>
-      * <font color="#006666">*last.action*</font> :: `Value`<br><br>
-      * <font color="#006666">*target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
-      * <font color="#006666">*prev.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
-      * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br><br>
-      * <font color="#006666">*type*</font> :: `Value`<br><br>
-      * <font color="#006666">*vector*</font> :: `Vector`<br><br>
-      * <font color="#006666">*prev.vector*</font> :: `Vector`<br><br>
-      * <font color="#006666">*last.vector*</font> :: `Vector`<br><br>
-      * <font color="#006666">*hp*</font> :: `Points`<br><br>
-      * <font color="#006666">*prev.hp*</font> :: `Points`<br><br>
-      * <font color="#006666">*last.hp*</font> :: `Points`<br><br>
-      * <font color="#006666">*sp*</font> :: `Points`<br><br>
-      * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
-      * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
-  * <u>*Methods*</u><br><br>
-        Orders your mercenary to go to the specified cell or to the cell, on which the specified object stand on or in the direction specified by the vector. The second argument is used to modify the length of path that the mercenary is allowed to go through. If <font color="#006666">*v*</font> is a `Vector`, then <font color="#5E5B00">*n*</font> specifies the number of cells that the mercenary should go through in the direction of the vector. In other cases:<br><br>
-          * <font color="#5E5B00">*n*</font> is a fractional value between 0 and 1
-          The mercenary will go through (<font color="#5E5B00">*n*</font> `*` 100)% of the path.
-          * <font color="#5E5B00">*n*</font> is a fractional value between -1 and 0
-          The mercenary will go through ((1 + <font color="#5E5B00">*n*</font>) `*` 100)% of the path.
-          * <font color="#5E5B00">*n*</font> >= 1
-          The mercenary will go through <font color="#5E5B00">*n*</font> cells along of the path.
-          * <font color="#5E5B00">*n*</font> <= -1
-          The mercenary will keep <font color="#5E5B00">*n*</font> cells away from <font color="#006666">*v*</font>.
-    * *<font color="#0052A3">hit( <font color="#006666">target</font> )</font>* :: `self`<br><br>
-      * *Arguments*<br><br>
-        * <font color="#006666">*target*</font> :: `Actor`<br>
-        The target.<br>
-      * *Description*
-        Orders your mercenary to hit(attack with normal attacks) the specified target once.
-    * *<font color="#0052A3">use( <font color="#006666">skill</font> , <font color="#5E5B00">lvl</font> )</font>* :: `self`
-    * *<font color="#0052A3">use( <font color="#006666">skill</font> , <font color="#5E5B00">lvl</font> ).on( <font color="#006666">target</font> )</font>* :: `self`<br><br>
-      * *Arguments*<br><br>
-        * <font color="#006666">*skill*</font> :: `Skill`<br>
-        The skill that you want your mercenary to use.<br>
-        * <font color="#5E5B00">*lvl*</font> :: `number` | <font color="#006666">*skill.maxLevel*</font><br>
-        The level of the skill.<br>
-        * <font color="#006666">*target*</font> :: `Actor`<br>
-        The target, on which the skill should be used.<br>
-      * *Description*
-        The first version of this method is used for non-targeted skills and the second one is for targeted ones. If the level of the skill is omitted uses the maximum level available.
-  * <u>*_is_ Methods*</u><br><br>
-    * *<font color="#0052A3">is( <font color="#006666">…</font> )</font>* , *<font color="#0052A3">isNot( <font color="#006666">…</font> )</font>* :: `boolean`<br><br>
-      * *Accepted `string` Values*<br><br>
-         * `"full"`
-         Returns `true` if the mercenaries HP and SP are full.
-         * `"active"`
-         Returns `true` if the object is active. Explained in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].
-    * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
-  * <u>*Operators*</u><br><br>
-    * *<font color="#0052A3"><font color="#006666">merc</font> .. <font color="#006666">object</font></font>* :: `number` | `nil`<br><br>
-      * *Arguments*<br><br>
-        * <font color="#006666">*merc*</font> :: `Mercenary`<br>
-        The `Mercenary` object.<br>
-        * <font color="#006666">*object*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-        Any in-game object, distance till which you want to know.<br>
-      * *Description*
-        Returns the distance(in cells) between your mercenary and <font color="#006666">*object*</font> or `nil` if <font color="#006666">*object*</font> is an actor, which is not visible.
+        Returns the distance(in cells) between your homunculus/mercenary and <font color="#006666">*object*</font> or `nil` if <font color="#006666">*object*</font> is an actor, which is not visible.
 <br>
 ----
 ====<font color="#660000">Memory</font>====
