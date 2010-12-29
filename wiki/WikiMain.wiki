@@ -50,8 +50,7 @@
         * [http://code.google.com/p/raick/wiki/Manual#Vector Vector]
       * _*[http://code.google.com/p/raick/wiki/Manual#Single_Objects Single Objects]*_
         * [http://code.google.com/p/raick/wiki/Manual#Owner Owner]
-        * [http://code.google.com/p/raick/wiki/Manual#Homunculus Homunculus]
-        * [http://code.google.com/p/raick/wiki/Manual#Mercenary Mercenary]
+        * [http://code.google.com/p/raick/wiki/Manual#Homunculus_/_Mercenary Homunculus / Mercenary]
         * [http://code.google.com/p/raick/wiki/Manual#Memory Memory]
         * [http://code.google.com/p/raick/wiki/Manual#Activity Activity]</font>
     * _[http://code.google.com/p/raick/wiki/Manual#Detailed_Overview_of_Files Detailed Overview of Files]<font size="3">
