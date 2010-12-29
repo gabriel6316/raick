@@ -920,7 +920,7 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
       * <font color="#006666">*sp*</font> :: `Points`<br><br>
       * <font color="#006666">*prev.sp*</font> :: `Points`<br><br>
       * <font color="#006666">*last.sp*</font> :: `Points`<br><br>
-      * <font color="#006666">*hit.range*</font> :: `number`<br><br>
+      * <font color="#006666">*hit.range*</font> :: `number`
       The range of a normal attack in cells.
   * <u>*Methods*</u><br><br>
     * *<font color="#0052A3">goTo( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`<br><br>
