@@ -138,7 +138,7 @@ Represents a cell with (x,y) coordinates on the current map/location. The coordi
 <br>
 ----
 ====<font color="#660000">Actor</font>====
-Represents an in-game character(monster, NPC or player character), which can be distinguished by it's unique ID. `Owner`, `Homunculus` and `Mercenary` objects can also be called actors, but they are allocated into separate object, since they are _special_ actors meaning that you can get more data about them and send commands to some of them.
+Represents an in-game character(monster, NPC or player character), which can be distinguished by it's unique ID. `Owner`, `Homunculus` and `Mercenary` objects can also be called actors, but they are allocated into separate objects, since they are _special_ actors(you can get more data about them and send commands to some of them).
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Actor( <font color="#5E5B00">id</font> )</font>* :: `Actor`<br><br>
       * *Arguments*<br><br>
