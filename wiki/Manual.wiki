@@ -936,7 +936,7 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
 ----
 ====<font color="#660000">Homunculus / Mercenary</font>====
 I will unify descriptions of these objects, since they are identical.<br>
-They represent your homunculus/mercenary and are both defined in the homunculus and in the mercenary scripts, since RAICK support data exchange between scripts. Read more about it in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
+They represent your homunculus/mercenary and are both defined in the homunculus and in the mercenary AI's, since RAICK support data exchange between scripts. Read more about it in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
 Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your homunculus/mercenary is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
