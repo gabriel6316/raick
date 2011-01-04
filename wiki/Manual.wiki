@@ -643,7 +643,7 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
 ----
 ====<font color="#660000">Map</font>====
-Basically, an advanced version of the `table`. It's main advantage is that unlike the `table` it can be saved to memory. The map can be accessed either through the methods: `map.put("a",1)`, `map.get("a")` or like an ordinary `table`: `map["a"] = 1`, `map["a"]`, `map.a = 1`, `map.a`. Just remember that using square brackets you cannot query values stored under string keys that are identical to method names.
+Basically, an advanced version of the `table`. It's main advantage is that unlike the `table` it can be saved to memory. The map can be accessed either through methods: `map.put("a",1)`, `map.get("a")` or like an ordinary `table`: `map["a"] = 1`, `map["a"]`, `map.a = 1`, `map.a`. Just remember that using square brackets you cannot query values stored under string keys that are identical to method names.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Map( <font color="#5E5B00">…</font> )</font>* :: `Map`<br><br>
       * *Arguments*<br><br>
@@ -935,8 +935,8 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
 <br>
 ----
 ====<font color="#660000">Homunculus / Mercenary</font>====
-I will unify the description of those objects, since they are identical.<br>
-These objects represent your homunculus/mercenary. They are defined in both the homunculus and in the mercenary script, since RAICK support data exchange between scripts. Read more about it in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
+I will unify descriptions of these objects, since they are identical.<br>
+They represent your homunculus/mercenary. They both are defined in the homunculus and in the mercenary scripts, since RAICK support data exchange between scripts. Read more about it in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
 Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your homunculus/mercenary is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
