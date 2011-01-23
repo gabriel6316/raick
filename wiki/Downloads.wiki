@@ -7,6 +7,9 @@
 <br><br>
 =<font color="#003366">Change Log</font>=
 ----
+===<font color="#A30000">23.01.11</font> | <font color="#006600">2.0.2</font>===
+  * Fixed some bugs regarding actor classification by group and by type.
+----
 ===<font color="#A30000">29.12.10</font> | <font color="#006600">2.0.1</font>===
   * `List` and `Map` objects now also have `is` methods.
   * Minor bug fixes and performance enchantments.
