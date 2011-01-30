@@ -262,7 +262,7 @@ A *standard library* is nothing more than a set of predefined functions that com
 <code language="lua">
 require "./AI/USER_AI/RAICK.lua" -- This is also how you attach RAICK to the AI.lua/AI_M.lua.
 </code>
-Sometimes you need to know what type is the given value. It this case `type` function is very useful. It return the name of the type in form of a string. For example:
+Sometimes you need to know what type is the given value. It this case `type` function is very useful. It returns the name of the type in form of a string. For example:
 <code language="lua">
 a = 1
 b = "abc"
