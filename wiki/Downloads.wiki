@@ -1,5 +1,5 @@
 <p align="middle">
-[http://raick.googlecode.com/files/RAICK.lua http://img525.imageshack.us/img525/7378/getlatest.png]
+[http://raick.googlecode.com/files/RAICK.lua http://img204.imageshack.us/img204/7378/getlatest.png]
 <br><br><br><br>
 <p align="middle">
 <font size="7">*[http://code.google.com/p/raick/wiki/GettingStarted#Installation How to Install ››]*</font><br><br><br><br>
