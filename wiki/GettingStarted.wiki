@@ -1,7 +1,7 @@
 =<font color="#003366">Getting Started</font>=
 ==<font color="#006666">Installation</font>==
 First things first, you need to let RAICK install itself. Unlike other AI scripts, RAICK is packaged into a single file. This file contains all of the logic needed to create the initial folder and file structure.<br>
-  * To install RAICK you first need to decide where to put it. A typical place for custom scripts is the `USER_AI` folder, but you are not limited to a specific place. Once the `RAICK.lua` file is in place, open your `AI.lua` or `AI_M.lua` file in either `AI` or `AI/USER_AI` folder(depending on what */hoai* / */meai* setting you are planning to use) and put a single line of code there:
+  * To install RAICK you first need to decide where to put it. A typical place for custom scripts is the `USER_AI` folder, but you are not limited to a specific place. Once the `RAICK.lua` file is in place, open your `AI.lua` or `AI_M.lua` file in either `AI` or `AI/USER_AI` folder(depending on what */hoai* or */meai* setting you are planning to use) and put a single line of code there(all other code must be removed):
   <code language="lua">
 require "./AI/USER_AI/RAICK.lua"
 </code>
@@ -14,7 +14,7 @@ require "C:/Program Files/Gravity/Ragnarok/AI/USER_AI/RAICK.lua" -- Of course, y
 require "C:/RAICK.lua"
 </code>
   In this case all files and folders will be created right on the `C:/` disk.<br>
-  * Once `RAICK.lua` is linked with the `AI.lua` or `AI_M.lua` file you'll just need to launch the script from the game(activate your homunculus/mercenary). For a moment you will see a command-prompt window, which will signal that the installation has been performed.
+  * Once `RAICK.lua` is linked with the `AI.lua` or `AI_M.lua` file you'll just need to launch the script from the game(activate your homunculus/mercenary). For a moment you will see a command-prompt window indicating that the installation has been performed.
   _Note: I have not tested RAICK on Windows Vista and 7. I you find that it does not work on them, then let me know as soon as possible._
   * When a new version of RAICK is released you'll just need to replace the `RAICK.lua` file to update the framework.
   _Note: If you have been using the beta version then it is best if you replace `RAICK.lua` with the new file, run it and uninstall RAICK using the created uninstaller(the beta version didn't have one). After that install the script again._<br><br>
