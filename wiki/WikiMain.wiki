@@ -1,7 +1,6 @@
+=<font color="#003366" face="Century Gothic">Table of Contents for R.A.I.C.K. Wikipedia</font>=
 
-=<font color="#003366">Table of Contents for R.A.I.C.K. Wikipedia</font>=
-
-<font size="5">
+<font size="5" face="Century Gothic">
   * [CodeEditor Lua Code Editor]
   # [History History of the Project]<font size="4">
     * _[http://code.google.com/p/raick/wiki/History#H.A.I.C.K. H.A.I.C.K.]
