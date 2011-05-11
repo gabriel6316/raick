@@ -726,7 +726,7 @@ A simple timer for counting time intervals inside the script.
 <br>
 ----
 ====<font color="#660000">Logger</font>====
-An advanced version of the `TraceAI` function(the one that produces output for command */traceai*). Can output any object(even lists inside maps and so on) and data type to the specified file. A very useful tool for tracing the work of your script. This object also reacts to */traceai* command(if the `LoggerUseTraceAI` [http://code.google.com/p/raick/wiki/GettingStarted#Settings setting] is `ON`), but only on startup: if */traceai* is turned off when the AI is being launched, then all loggers won't write anything. You would have to turn on */traceai* and restart your AI to enable loggers again.
+An advanced version of the `TraceAI` function(the one that produces output for command */traceai*). Can output any object(even lists inside maps and so on) and data type to the specified file. A very useful tool for tracing the work of your script. This object also reacts to */traceai* command(if the `LoggersUseTraceAI` [http://code.google.com/p/raick/wiki/GettingStarted#Settings setting] is `ON`), but only on startup: if */traceai* is turned off when the AI is being launched, then all loggers won't write anything. You would have to turn on */traceai* and restart your AI to enable loggers again.
 <br>
 All loggers create their files in the `Logs & Errors` folder.
   * <u>*Constructors*</u><br><br>
@@ -780,7 +780,7 @@ logger.log("an actor:",actor,"and a list:",list)
           `( 1 )`<br>
           `( 2 )`<br>
           `( "abc" )`<br>
-        Does nothing if */traceai* is has been turned off during startup(only when `LoggerUseTraceAI` is `ON`) of AI or the delay since last log has not ended yet. 
+        Does nothing if */traceai* is has been turned off during startup(only when `LoggersUseTraceAI` is `ON`) of AI or the delay since last log has not ended yet. 
     * *<font color="#0052A3">write( <font color="#006666">*…*</font> )</font>* :: `self`
     The same as the previous method, except it does not put a timestamp and is not affected by the delay.
     * *<font color="#0052A3">putTimestamp()</font>* :: `self`
