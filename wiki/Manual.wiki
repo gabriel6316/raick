@@ -1099,8 +1099,8 @@ If want to add your own script files to this file using `require`(for example, s
 <code language="lua">
 require "XXX" -- You don't have to write neither the prefix nor the extension of the file!
 </code>
-This way you will not break the ordering of files and make your own little library a logical part of RAICK.
-<br>
+This way you will not break the ordering of files and make your own little library a logical part of the whole framework.
+<br><br>
 ----
 ===<font color="#006600">2. Commands</font>===
 The file, where you define _handler_ functions that intercept `Ctrl + Something` or `Alt + Something` commands. Upon creation it is automatically filled with all available command handlers. The usage is straightforward: the name refers to the key combination and the arguments are either the cell or the target actor that you click on.<br>
