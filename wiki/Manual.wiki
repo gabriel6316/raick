@@ -975,7 +975,7 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
           * <font color="#5E5B00">*n*</font> is a fractional value between -1 and 0
           The homunculus/mercenary will go through ((1 + <font color="#5E5B00">*n*</font>) `*` 100)% of the path.
           * <font color="#5E5B00">*n*</font> >= 1
-          The homunculus/mercenary will go through <font color="#5E5B00">*n*</font> cells along of the path.
+          The homunculus/mercenary will go through <font color="#5E5B00">*n*</font> cells along the path.
           * <font color="#5E5B00">*n*</font> <= -1
           The homunculus/mercenary will keep <font color="#5E5B00">*n*</font> cells away from <font color="#006666">*v*</font>.
     * *<font color="#0052A3">hit( <font color="#006666">target</font> )</font>* :: `self`<br><br>
