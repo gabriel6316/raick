@@ -572,7 +572,7 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
         * <font color="#006666">*f*</font> :: `function`<br>
         The transformation function.<br>
       * *Description*
-        Returns a map, where results of applying <font color="#006666">*f*</font> for each element of the list are stored under those elements(element of the list are _keys_ and the corresponding transformation results are _values_). The transformation function receives one argument and must return any value, which will be the result of the transformation.
+        Returns a map, where results of applying <font color="#006666">*f*</font> for each element of the list are stored under those elements(elements of the list are _keys_ and the corresponding transformation results are _values_). The transformation function receives one argument and must return any value, which will be the result of the transformation.
     * *<font color="#0052A3">removeFirst( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
@@ -581,7 +581,7 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
         * <font color="#5E5B00">*n*</font> | `1` :: `number`<br>
         The number of removes.<br>
       * *Description*
-        Removes <font color="#5E5B00">*n*</font> occurrences of <font color="#006666">*v*</font> starting from the back of the list.
+        Removes <font color="#5E5B00">*n*</font> occurrences of <font color="#006666">*v*</font> starting from the beginning of the list.
     * *<font color="#0052A3">removeLast( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
     _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
