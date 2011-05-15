@@ -32,7 +32,7 @@ Most of them are created during installation, others during runtime, when needed
   * <u>*RAICK.Uninstaller.bat* file</u>
   Run this file if you want to uninstall RAICK. All files that have been created during installation will be deleted.<br>
 ===<font color="#006600">AI Specific Files</font>===
-  * <u>*Homunculus Script* folder</u>
+  * <u>*Homunculus AI* folder</u>
   The structure of the folder is designed for maximum efficiency and convenience. Files are numbered to mimic the order, in which they are loaded upon startup of the AI and also how they are processed later, when the client starts calling the script.
     * <u>*Logs & Errors* folder</u><br><br>
       * <u>*Error History.txt* file</u>
@@ -54,7 +54,7 @@ Most of them are created during installation, others during runtime, when needed
       * _Chase_ - Chase the monster until you get close enough and then start attacking it(switch to _Attack_ activity).
       * _Attack_ - Attack the monster until it is killed or no longer in sight and then start looking for the next one(switch to _Active_ activity).
     Now, all you need to do is put these words into code and you have yourself a primitive AI.
-  * <u>*Mercenary Script* folder</u>
+  * <u>*Mercenary AI* folder</u>
   This folder basically mirrors the *Homunculus Script* folder. The only difference is that the *`[`3`]` Skills.lua* file is divided into separate parts, since mercenaries have a lot more targeted skills than homunculi do.<br><br>
 ----
 ==<font color="#006666">Settings</font>==
