@@ -19,35 +19,10 @@ require "C:/RAICK.lua"
 <br><br>
 ----
 ==<font color="#006666">Files & Folders</font>==
-The schema below illustrates the full set of files and folders that RAICK can create:
-<pre>
--\
- |-\ "Homunculus Script"
-   |-\ "Logs & Errors"
-     |- "Error History.txt"
-   |- "`[0]` Memory.lua"
-   |- "`[1]` On Startup.lua"
-   |- "`[2]` Commands.lua"
-   |- "`[3]` Skills.lua"
-   |- "`[4]` Messages.lua"
-   |- "`[5]` Activities.lua"
- |-\ "Mercenary Script"
-   |-\ "Logs & Errors"
-     |- "Error History.txt"
-   |- "`[0]` Memory.lua"
-   |- "`[1]` On Startup.lua"
-   |- "`[2]` Commands.lua"
-   |- "`[3]` 1. Common Skills.lua"
-   |- "`[3]` 2. Bowman Skills.lua"
-   |- "`[3]` 3. Fencer Skills.lua"
-   |- "`[3]` 4. Lancer Skills.lua"
-   |- "`[4]` Messages.lua"
-   |- "`[5]` Activities.lua"
- |- "RAICK.Bugz.txt
- |- "RAICK.lua"
- |- "RAICK.Settings.lua"
- |- "RAICK.Uninstaller.bat"
-</pre>
+The image below illustrates the full set of files and folders that RAICK can create:
+<br><br>
+<img src="http://img715.imageshack.us/img715/9427/fileso.png" align="left"/>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 Most of them are created during installation, others during runtime, when needed. You can see that homunculus and mercenary scripts are separated into different folders for easier management.<br><br>
 ===<font color="#006600">Common Files</font>===
   * <u>*RAICK.Bugz.txt* file</u>
