@@ -1095,7 +1095,7 @@ The file itself can be manually altered, but if you make any mistakes you won't 
 ----
 ===<font color="#006600">1. On Startup</font>===
 The content of this file is run only once, when your AI is being loaded. This is the only file that is not pre-processed meaning that everything you define here will be visible in all parts of your script exactly the way it is defined. Typically, you will use this file to put initial values to your variables or to define your own custom functions.<br>
-If want to add your own script files to this file using `require`(for example, some functions from your self-made library), then RAICK offers a convenient way of doing so. You just have to name your file `"[1] XXX.lua"`(where XXX if the name you want) and then add a call to the `require` function somewhere in the `On Startup` file like so:
+If you want to add your own script files to this file using `require`(for example, some functions from your self-made library), then RAICK offers a convenient way of doing so. You just have to name your file `"[1] XXX.lua"`(where XXX if the name you want) and then add a call to the `require` function somewhere in the `On Startup` file like so:
 <code language="lua">
 require "XXX" -- You don't have to write neither the prefix nor the extension of the file!
 </code>
