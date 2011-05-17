@@ -27,7 +27,7 @@ Objects that are direct representations of the in-game objects of Ragnarok(actor
   * The second call. Your character does not move. The current cell is (15,23). The previous cell is now also (15,23), since this is the value of the previous call, but the last cell remains `nil`, because the was no change in the value.
   * The third call. Your character has moved. The current cell is now (16,24). The previous cell remains (15,23), but the last cell changes to (15,23), since the current value has changed and we now know that the last cell, on which our character has stepped was (15,23).
 ===<font color="#006600">A Few Words About the Syntax</font>===
-In the description below i use some syntactical aids to reduce the amount of unnecessary repeating text and make the manual more compact.<br>
+In the description below i use some syntactical aids to reduce the amount of unnecessary repeating text and to make the manual more compact.<br>
 For constructors, operators and object methods:
   * I use *<font color="#0052A3">blue</font>*.
   * After the :: i specify the return type or value of the constructor/method/operator. If the constructor/method/operator can return different types in different situations(for example, `nil` if something is wrong), then those types are separated with | .
@@ -37,8 +37,8 @@ For arguments and object fields:
   * After the :: i specify the type of the argument/field. If the argument/field can have/contain different types, then those types are separated with | . If the argument is supposed to have not only a certain type, but also i certain value(for example, > 0), then the restriction is specified inside ( ) next to the type.
 For strings with specific format:
   * I specify the variable part like so: `[partOfTheString]`. For example: `"abc[num]"`, where `[num]` is a number, would mean that i refer to strings with `abc` in the beginning and numbers after that, such as: `"abc123"`, `"abc9"` or `"abc0"`.
-I also use self-made pseudo-types to more specifically identify some return values or arguments:
-  * `range` - to specify that the function can take an arbitrary number of arguments or return an arbitrary number of values.
+I also use imaginary types to more specifically identify some return values or arguments:
+  * `sequence` - to specify that the function can take an arbitrary number of arguments or return an arbitrary number of values.
   * `any` - to specify that the value can be of any type.
   * `self` - to specify that the method returns the reference to the same object it has been called from. For example,  `list.add(2).add(5).remove(1)` would add `2` and `5` to the list and then remove the 1'st elements from it leaving just 1 element `5`.
 <br>
@@ -449,8 +449,8 @@ A simple list for storing multiple values and manipulating them.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">List( <font color="#5E5B00">…</font> )</font>* :: `List`<br><br>
       * *Arguments*<br><br>
-        * <font color="#5E5B00">*…*</font> :: `range`<br>
-        A range of values of any type.<br>
+        * <font color="#5E5B00">*…*</font> :: `sequence`<br>
+        A sequence of values of any type.<br>
       * *Description*
         Returns a new `List` object containing the specified values or an empty list if no values are given.
   * <u>*Fields*</u><br><br>
@@ -467,8 +467,8 @@ A simple list for storing multiple values and manipulating them.
 for index, value in list.each() do
 end
 </code>
-    * *<font color="#0052A3">elements()</font>* :: `range`<br>
-    Returns the content of the list as a range of elements(as if the values were written one after another with commas between them).
+    * *<font color="#0052A3">elements()</font>* :: `sequence`<br>
+    Returns the content of the list as a sequence of elements(as if the values were written one after another with commas between them).
     * *<font color="#0052A3">get( <font color="#5E5B00">n</font> )</font>* :: `any` | `nil`<br><br>
       * *Arguments*<br><br>
         * <font color="#5E5B00">*n*</font> | <font color="#006666">*size*</font> :: `number`<br>
@@ -647,8 +647,8 @@ Basically, an advanced version of the `table`. It's main advantage is that unlik
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Map( <font color="#5E5B00">…</font> )</font>* :: `Map`<br><br>
       * *Arguments*<br><br>
-        * <font color="#5E5B00">*…*</font> :: `range` ( must not contain `nil`'s for odd elements )<br>
-        A range of values of any type with an even number of elements. If the number is odd, then the last element is not counted.<br>
+        * <font color="#5E5B00">*…*</font> :: `sequence` ( must not contain `nil`'s for odd elements )<br>
+        A sequence of values of any type with an even number of elements. If the number is odd, then the last element is not counted.<br>
       * *Description*
         Returns a new `Map` object containing the specified key-value pairs or an empty map if the number of given values is less than 2.
   * <u>*Fields*</u><br><br>
@@ -763,8 +763,8 @@ All loggers create their files in the `Logs & Errors` folder.
     Resets the delay timer.
     * *<font color="#0052A3">log( <font color="#006666">*…*</font> )</font>* :: `self`<br><br>
       * *Arguments*<br><br>
-        * <font color="#006666">*…*</font> :: `range`<br>
-        A range of values of any type.<br>
+        * <font color="#006666">*…*</font> :: `sequence`<br>
+        A sequence of values of any type.<br>
       * *Description*
         Writes the current timestamp("date + time" string) to the <font color="#006666">*file*</font> and(after that) textual representations of given values separating them with <font color="#006666">*delimiter*</font>. For example:
         <code language="lua">
@@ -1061,8 +1061,8 @@ Through this object you can change the current activity of your homunculus/merce
       * *Arguments*<br><br>
         * <font color="#006666">*activity*</font> :: `string`<br>
         The name of the activity.<br>
-        * <font color="#5E5B00">*…*</font> :: `range` ( `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` |  `Points` |  `Skill` | `Vector` )<br>
-        A range of values with arbitrary number of elements.<br>
+        * <font color="#5E5B00">*…*</font> :: `sequence` ( `number` | `string` | `boolean` | `Value` | `Cell` | `Actor` |  `Points` |  `Skill` | `Vector` )<br>
+        A sequence of values with arbitrary number of elements.<br>
       * *Description*
         Switches your homunculus/mercenary to <font color="#006666">*activity*</font> activity with given arguments. Two <font color="#006666">*activity*</font> names have special meaning:<br><br>
           * `initial`
