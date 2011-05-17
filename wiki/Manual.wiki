@@ -441,7 +441,7 @@ All names are case and delimiter insensitive, which means that your can write `S
         * <font color="#5E5B00">*lvl*</font> | <font color="#006666">*maxLevel*</font> :: `number`<br>
         The level of the skill.<br>
       * *Description*
-        Returns the fixed delay in milliseconds(for example, after supportive skills like _Urgent Escape_) for the current skill of specified level. Returns 0 if the skill does not have a fixed delay.
+        Returns the delay in milliseconds for the current skill of specified level. Returns 0 if the skill does not have a delay.
 <br>
 ----
 ====<font color="#660000">List</font>====
