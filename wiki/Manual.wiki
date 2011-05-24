@@ -1,6 +1,6 @@
 =<font color="#003366">Reference Manual</font>=
-The reference manual is a place, where the developer describes his creation in details. It is often a very dry and concrete document, reading which can be quite boring. You can check out the [http://www.lua.org/manual/5.1/manual.html Lua documentation] for an example of a typical reference manual.<br>
-In this manual I'll try to keep a balance between technicality and lucidity of the content.
+The reference manual is a highly detailed description of a product. It is often a very dry and concrete document, reading which can be quite boring. You can check out the [http://www.lua.org/manual/5.1/manual.html Lua documentation] for an example of a typical reference manual.<br>
+I, on the other hand, would try to keep a certain balance between dryness and readability of the content.
 ==<font color="#006666">Detailed Description of Objects</font>==
 Objects are basically what RAICK is made of. About 80% of what the framework offers is in one way or another related to them. They are divided into 2 categories:
  * Single objects
@@ -462,7 +462,7 @@ A simple list for storing multiple values and manipulating them.
     * *<font color="#0052A3">clone()</font>* :: `List`<br>
     Returns a copy of the list.
     * *<font color="#0052A3">each()</font>* :: `function`<br>
-    Returns an _iteration function_ for the current list. All you need to know about this function is that it used to go through the list using the `for` loop like so:
+    Returns an _iteration function_ for the current list. All you need to know about this function is that it is used to go through the list using the `for` loop like so:
     <code language="lua">
 for index, value in list.each() do
 end
@@ -660,7 +660,7 @@ Basically, an advanced version of the `table`. It's main advantage is that unlik
     * *<font color="#0052A3">clone()</font>* :: `Map`<br>
     Returns a copy of the map.
     * *<font color="#0052A3">each()</font>* :: `function`<br>
-    Returns an _iteration function_ for the current map. All you need to know about this function is that it used to go through the map using the `for` loop like so:
+    Returns an _iteration function_ for the current map. All you need to know about this function is that it is used to go through the map using the `for` loop like so:
     <code language="lua">
 for index, key, value in map.each() do
 end
