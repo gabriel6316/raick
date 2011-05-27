@@ -404,7 +404,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
 <br>
 ----
 ====<font color="#660000">Skill</font>====
-Represents the skills that your bot can use. It is used either to get information about the skill or to order your bot to use it. Although this skills has a constructor you would not normally need to use it, because every skill object available can be accessed by it's name. For example if you query variables: `Devotion`, `TouchOfHeal`, `SBR44`, `MentalChange` they would all contain skill objects for those skills. RAICK even knows the synonyms and some shorter versions used by players: `Sacrifice`, `HealingHands`, `SBR`, `Mental`.
+Represents the skills that your bot can use. It is used either to get information about the skill or to order your bot to use it. Although this object has a constructor you would not normally need to use it, because every skill object available can be accessed by it's name. For example if you query variables: `Devotion`, `TouchOfHeal`, `SBR44`, `MentalChange` they would all contain skill objects for those skills. RAICK even knows the synonyms and some shorter versions used by players: `Sacrifice`, `HealingHands`, `SBR`, `Mental`.
 <br>
 All names are case and delimiter insensitive, which means that your can write `S_B_R` or `healing_HAND_S` and you would still get your objects.
   * <u>*Constructors*</u><br><br>
