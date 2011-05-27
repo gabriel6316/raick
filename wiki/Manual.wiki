@@ -1113,13 +1113,13 @@ Anything other than the handler functions will be ignored.
 <br>
 ----
 ===<font color="#006600">4. Messages</font>===
-The file, where you define _handler_ functions that intercept messages sent from one AI script to another. This allows your bots to communicate with each other. You can read more about this wonderful feature in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section]
+The file, where you define _handler_ functions that intercept messages sent from one AI script to another. This allows your bots to communicate with each other. You can read more about this wonderful feature in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].
 <br>
 ----
 ===<font color="#006600">5. Activities</font>===
 The final and the most important file is the one, where you define your activities. The first activity that you define is called _initial_. When you run your script for the first time RAICK does not know what is the current activity(since the memory is empty), so it uses the first activity as the current one.<br>
 Two activity names are _special_: `pre` and `post`(plus all case and delimiter insensitive variations). The first one is called every time before the current activity function is called and the second one is called after the current activity executes. Typically, you would use those to define periodical events like casting self-support skills.<br>
-There is also one hidden activity, to which your bot is switched if RAICK encounters an error in your script. It this activity your bot will follow you and you will have an ability to manually use it's skills. You can think of it as a _Safe Mode_.<br>
+There is also one hidden activity, to which your bot is switched if RAICK encounters an error in your script. In this activity your bot will follow you and you will have an ability to manually use it's skills. You can think of it as a _Safe Mode_.<br>
 Activities can take arguments, which are automatically saved to the memory.
 <br>
 ----
