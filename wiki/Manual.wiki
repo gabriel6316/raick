@@ -1,6 +1,6 @@
 =<font color="#003366">Reference Manual</font>=
 The reference manual is a highly detailed description of a product. It is often a very dry and concrete document, reading which can be quite boring. You can check out the [http://www.lua.org/manual/5.1/manual.html Lua documentation] for an example of a typical reference manual.<br>
-I will do my best to make this manual easily readable.
+I will do my best to make this manual easily readable and understandable.
 ==<font color="#006666">Detailed Description of Objects</font>==
 Objects are basically what RAICK is made of. About 80% of what the framework offers is in one way or another related to them. They are divided into 2 categories:
  * Single objects
