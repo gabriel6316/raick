@@ -308,7 +308,7 @@ end
 b = function(arg1, arg2) end
 -- You can see that 'function() ... end' is nothing more than function constructor.
 </code>
-In Lua those types that don't have any special ways to define their values are called *primitive types* and the other ones are called *objects*. This is actually not the only difference between those two groups and, in fact, not the main one. The main difference is in the way they are stored in variables. Primitive types are stored *by value* and objects are stored *by reference*. It is not easy for a beginner to understand this significant difference, but, nevertheless i will try to make it clearer:
+In Lua those types that don't have any special ways to define their values are called *primitive types* and the other ones are called *objects*. This is not the only difference between those two groups and, in fact, not the main one. The main difference is in the way they are stored in variables. Primitive types are stored *by value* and objects are stored *by reference*. It is not easy for a beginner to understand this significant difference, but, nevertheless i will try to make it clearer:
 <code language="lua">
 -- Suppose we have put a number into a variable:
 a = 1
