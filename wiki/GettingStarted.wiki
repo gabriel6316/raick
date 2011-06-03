@@ -68,7 +68,7 @@ RAICK can be configured using the `RAICK.Settings.lua` file. Currently RAICK has
   <u>Default:</u> `EN`<br>
   <u>Supported values:</u> `EN, RU`<br>
 
-  Currently RAICK supports only English and Russian. This settings affects mainly error messages.
+  Currently RAICK supports only English and Russian. This setting affects mainly error messages.
   * *LoggersUseTraceAI*
   <u>Default:</u> `NO`<br>
   <u>Supported values:</u> `YES, NO, ON, OFF`<br>
