@@ -1,4 +1,3 @@
-
 =<font color="#003366" face="Century Gothic">Table of Contents for R.A.I.C.K. Wikipedia</font>=
 
 <font size="5" face="Century Gothic">
@@ -61,7 +60,6 @@
       * [http://code.google.com/p/raick/wiki/Manual#4._Messages Messages]
       * [http://code.google.com/p/raick/wiki/Manual#5._Activities Activities]*</font>
     * [http://code.google.com/p/raick/wiki/Manual#Understanding_RAICK_Errors Understanding RAICK Errors]
-    * [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary Data Exchange Between Homunculus and Mercenary]</font>_<br/><br/><font color="gray">
-  # Mastering RAICK
-</font>
+    * [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary Data Exchange Between Homunculus and Mercenary]</font>_<br/><br/>
+  # [Mastering Mastering RAICK]
 </font>
