@@ -292,7 +292,7 @@ function    Main()
         for i, actor in Owner.surround.each() do -- .. we make a loop over the list of all visible actors. For each actor we check:
             if actor.target.is(Owner, Homun) then -- If its target is you or your homunculus and ..
                 if actor.action.is.attacking then -- .. it is attacking someone(in other words, if it is attacking us), then ..
-                    Activity.switchTo.AttackTarget(actor) -- .. we attack it(observe how we now pass the filtered 'act' as an argument).
+                    Activity.switchTo.AttackTarget(actor) -- .. we attack it(observe how we now pass the filtered 'actor' as an argument).
                     return -- We can use 'return' without any values just to stop a function at some point and it is very handy in this situation, since ..
                     -- .. we don't want to do anything else.
                 elseif actor.action.is.casting then -- .. it is not attacking, but is casting something(in other words, if it is casting something on us), then ..
