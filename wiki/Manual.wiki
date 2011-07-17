@@ -529,7 +529,7 @@ end
         A location or an in-game character.<br>
       * *Description*
         Looks through all objects of the current list, between which the distance can be calculated and returns the closest object to <font color="#006666">*v*</font> or `nil` if the list does not contain any objects of that kind.
-    * *<font color="#0052A3">farthestFrom( <font color="#006666">v</font> )</font>* :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary` | `nil`<br><br>
+    * *<font color="#0052A3">farthestFrom( <font color="#006666">v</font> )</font>* :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary` | `nil`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*v*</font> :: `Cell` | `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
         A location or an in-game character.<br>
