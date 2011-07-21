@@ -5,7 +5,7 @@
   # [History History of the Project]<font size="4">
     * _[http://code.google.com/p/raick/wiki/History#H.A.I.C.K. H.A.I.C.K.]
     * [http://code.google.com/p/raick/wiki/History#R.A.I.C.K._v1 R.A.I.C.K. v1]
-    * [http://code.google.com/p/raick/wiki/History#Going_International_with_R.A.I.C.K._v2 Going International with R.A.I.C.K. v2]_</font><br/><br/>
+    * [http://code.google.com/p/raick/wiki/History#Going_International_with_R.A.I.C.K._v2 Going International with R.A.I.C.K. v2]_</font><br/>
   # [Lua Lua and the ABC of Programming]<font size="4">
     * _[http://code.google.com/p/raick/wiki/Lua#Client_&_Script Client & Script]
     * [http://code.google.com/p/raick/wiki/Lua#Building_Blocks_of_Lua Building Blocks of Lua]<font size="3">
@@ -16,7 +16,7 @@
       * [http://code.google.com/p/raick/wiki/Lua#Conditions_&_Booleans Conditions & Booleans]
       * [http://code.google.com/p/raick/wiki/Lua#Loops Loops]
       * [http://code.google.com/p/raick/wiki/Lua#Standard_Libraries Standard Libraries]
-      * [http://code.google.com/p/raick/wiki/Lua#The_Hard_Part:_Objects_and_Primitive_Types The Hard Part: Objects and Primitive Types]_*</font></font><br/><br/>
+      * [http://code.google.com/p/raick/wiki/Lua#The_Hard_Part:_Objects_and_Primitive_Types The Hard Part: Objects and Primitive Types]_*</font></font><br/>
   # [GettingStarted Getting Started]<font size="4">
     * _[http://code.google.com/p/raick/wiki/GettingStarted#Installation Installation]
     * [http://code.google.com/p/raick/wiki/GettingStarted#Files_&_Folders Files & Folders]<font size="3">
@@ -32,7 +32,7 @@
       * [http://code.google.com/p/raick/wiki/GettingStarted#Automated_Target_Selection Automated Target Selection]
       * [http://code.google.com/p/raick/wiki/GettingStarted#The_Final_Touch The Final Touch]
       * [http://code.google.com/p/raick/wiki/GettingStarted#It%27s_Done! It's Done!]
-      * [http://code.google.com/p/raick/wiki/GettingStarted#Appendix Appendix]*</font>_</font><br/><br/>
+      * [http://code.google.com/p/raick/wiki/GettingStarted#Appendix Appendix]*</font>_</font><br/>
   # [Manual Reference Manual]<font size="4">
     * _[http://code.google.com/p/raick/wiki/Manual#Detailed_Description_of_Objects Detailed Description of Objects]<font size="3">
       * *[http://code.google.com/p/raick/wiki/Manual#A_Few_Words_About_the_Syntax A Few Words About the Syntax]
@@ -60,6 +60,6 @@
       * [http://code.google.com/p/raick/wiki/Manual#4._Messages Messages]
       * [http://code.google.com/p/raick/wiki/Manual#5._Activities Activities]*</font>
     * [http://code.google.com/p/raick/wiki/Manual#Understanding_RAICK_Errors Understanding RAICK Errors]
-    * [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary Data Exchange Between Homunculus and Mercenary]</font>_<br/><br/>
+    * [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary Data Exchange Between Homunculus and Mercenary]</font>_<br/>
   # [Mastering Mastering RAICK]
 </font>
