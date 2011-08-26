@@ -169,7 +169,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
       Actor's last cell.<br>
       * <font color="#006666">*action*</font> :: `Value`<br>
       Actor's current action. Can be one of the following:<br><br>
-        * `"Unknown" (-1)`
+        * `"Unknown" (?)`
         The action is unknown to RAICK.
         * `"Standing" (0)`
         The actor is standing.
@@ -227,7 +227,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
       * <font color="#006666">*type*</font> :: `Value`
       _Note: This field is not defined in the mercenary script, since they cannot distinguish types._<br><br>
       Actor's type. Can be one of the following depending of the <font color="#006666">*group*</font>:<br><br>
-        * `"Unknown" (-1)`
+        * `"Unknown" (?)`
         The type is unknown to RAICK.
         * For <font color="#006666">*group*</font> `"Player"`:<br><br>
           * `"Novice" (0)`
