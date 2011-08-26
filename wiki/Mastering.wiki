@@ -3,4 +3,4 @@ So, you have read everything, but still have a very limited feeling of how and w
 Add a comment below if you have questions about how to implement certain ideas you have and i will try to give an answer in this chapter. The more you ask the more ready-to-use solutions this chapter will have.
 <br>
 <br>
-You can also seek inspiration from the [http://raick.googlecode.com/files/my%20AIs.zip collection of AI's] that I've created for my personal needs while playing on Ragnarok private servers. They are mostly PvP-oriented.
+You can also seek inspiration from the [http://raick.googlecode.com/files/my%20AIs.zip collection of AI's] that I've created for my personal needs while playing Ragnarok on private servers. They are mostly PvP-oriented.
