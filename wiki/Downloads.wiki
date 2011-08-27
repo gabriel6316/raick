@@ -11,7 +11,7 @@
   * Fixed buggy error location tracking code.
   * Added Homunculus S ID's and names for probable future update.
   * Added custom mercenary support.
-    * _Note: Some skill handlers have moved to the `Common Skills` file due to the fact that they are now used also by the new mercenaries. This is not a problem, since you can define any handlers in any file, but if you would like to update your version simply backup your AI and reinstall it. After that you can copy/put everything in its place._
+    * _Note: Some skill handlers have moved to the `Common Skills` file due to the fact that they are now used also by the new mercenaries. This is not a problem, since you can define any handlers in any file, but if you would like to update your skill files simply backup your AI and reinstall it. After that you can copy/put everything in its place._
   * Added 3^rd^ job support.
   * Added `mob` query to `is` method of `Actor` object(works also with `Mercenary AI`).
   * `"Morroc Flying"` mob is renamed to `"Morroc Winged"`.
