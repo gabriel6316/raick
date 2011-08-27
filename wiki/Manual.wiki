@@ -299,10 +299,40 @@ Represents an in-game character(monster, NPC or player character), which can be 
           * `"Super Baby" (4045)`
           * `"Taekwon" (4046)`
           * `"Star Gladiator" (4047, 4048)`
-          * `"Soul Linker" (4049)`<br><br>
+          * `"Soul Linker" (4049)`
+          * `"Gangsi" (4050)`
+          * `"Death Knight" (4051)`
+          * `"Dark Collector" (4052)`
+          * `"Rune Knight" (4054, 4060, 4080, 4081)`
+          * `"Warlock" (4055, 4061)`
+          * `"Ranger" (4056, 4062, 4084, 4085)`
+          * `"Arch Bishop" (4057, 4063)`
+          * `"Mechanic" (4058, 4064, 4086, 4087)`
+          * `"Guillotine Cross" (4059, 4065)`
+          * `"Royal Guard" (4066, 4073, 4082, 4083)`
+          * `"Sorcerer" (4067, 4074)`
+          * `"Minstrel" (4068, 4075, 4069, 4076)`
+          * `"Sura" (4070, 4077)`
+          * `"Genetic" (4071, 4078)`
+          * `"Shadow Chaser" (4072, 4079)`
+          * `"Baby Rune Knight" (4096, 4109)`
+          * `"Baby Warlock" (4097)`
+          * `"Baby Ranger" (4098, 4111)`
+          * `"Baby Arch Bishop" (4099)`
+          * `"Baby Mechanic" (4100, 4112)`
+          * `"Baby Guillotine Cross" (4101)`
+          * `"Baby Royal Guard" (4102, 4110)`
+          * `"Baby Sorcerer" (4103)`
+          * `"Baby Minstrel" (4104)`
+          * `"Baby Wanderer" (4105)`
+          * `"Baby Sura" (4106)`
+          * `"Baby Genetic" (4107)`
+          * `"Baby Shadow Chaser" (4108)`
+          * `"Super Novice Ex" (4190)`
+          * `"Super Baby Ex" (4191)`<br><br>
         * For <font color="#006666">*group*</font> `"Mob"`:
         RAICK knows the names of pretty much every monster. The list is kept as up-to-date as possible. The names are identical to those used in the game, except for _Incarnation of Morroc_ mobs. Their names have been changed, so they could be distinguished from one another:<br><br>
-          * `"Morroc Flying" (1918, 1922)`
+          * `"Morroc Winged" (1918, 1922)`
           The winged one.
           * `"Morroc Golem" (1919, 1923)`
           The muddy one.
@@ -324,11 +354,24 @@ Represents an in-game character(monster, NPC or player character), which can be 
           * `"Lif" (6001, 6005, 6009, 6013)`
           * `"Amistr" (6002, 6006, 6010, 6014)`
           * `"Filir" (6003, 6007, 6011, 6015)`
-          * `"Vanilmirth" (6004, 6008, 6012, 6016)`<br><br>
+          * `"Vanilmirth" (6004, 6008, 6012, 6016)`
+          * `"Eira" (6048)`
+          * `"Bayeri" (6049)`
+          * `"Sera" (6050)`
+          * `"Dieter" (6051)`
+          * `"Eleanor" (6052)`<br><br>
         * For <font color="#006666">*group*</font> `"Mercenary"`:<br><br>
           * `"Bowman" (6017, 6018, 6019, 6020, 6021, 6022, 6023, 6024, 6025, 6026)`
           * `"Lancer" (6027, 6028, 6029, 6030, 6031, 6032, 6033, 6034, 6035, 6036)`
-          * `"Fencer" (6037, 6038, 6039, 6040, 6041, 6042, 6043, 6044, 6045, 6046)`<br><br>
+          * `"Fencer" (6037, 6038, 6039, 6040, 6041, 6042, 6043, 6044, 6045, 6046)`
+          * `"Mimic" (1191)`
+          * `"Disguise" (1506)`
+          * `"Alice" (1275)`
+          * `"Wild Rose" (1965)`
+          * `"Doppelganger" (1966)`
+          * `"Egnigem Cenia" (1967)`
+          * `"Game Master" (2000, 2001)`
+          * `"Valkyrie Randgris" (2037, 2038)`<br><br>
         * For <font color="#006666">*group*</font> `"WoE Stone"`:<br><br>
           * `"Emperium" (1288)`
           * `"Barricade" (1905, 1906)`
@@ -356,6 +399,8 @@ Represents an in-game character(monster, NPC or player character), which can be 
          Returns `true` if the current actor's ID equals `[id]`.
          * `"player"`
          Returns `true` if the current actor is a player character.
+         * `"mob"`
+         Returns `true` if the current actor is a monster.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">actor</font> .. <font color="#006666">object</font></font>* :: `number` | `nil`<br><br>
