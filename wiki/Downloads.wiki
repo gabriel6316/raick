@@ -8,7 +8,7 @@
 =<font color="#003366" face="Century Gothic">Change Log</font>=
 ----
 ===<font color="#A30000" face="Century Gothic">27.08.11</font> | <font color="#006600">2.1.0</font>===
-  * Fixed buggy error location finding code.
+  * Fixed buggy error location tracking code.
   * Added Homunculus S ID's and names for probable future update.
   * Added custom mercenary support.
     * _Note: Some skill handlers have moved to the `Common Skills` file due to the fact that they are now used also by the new mercenaries. This is not a problem, since you can define any handlers in any file, but if you would like to update your version simply backup your AI and reinstall it. After that you can copy/put everything in its place._
