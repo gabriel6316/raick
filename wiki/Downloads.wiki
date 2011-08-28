@@ -3,6 +3,8 @@
 <br><br><br><br>
 <p align="middle">
 <font size="7" face="Century Gothic">*[http://code.google.com/p/raick/wiki/GettingStarted#Installation How to Install ››]*</font><br><br><br><br>
+<font size="5" face="Century Gothic">*[http://code.google.com/p/raick/downloads/list?q=label:OlderVersion Older Versions ››]*</font>
+<br><br>
 <font size="5" face="Century Gothic">*[http://code.google.com/p/raick/downloads/list Show All Downloads ››]*</font>
 <br><br>
 =<font color="#003366" face="Century Gothic">Change Log</font>=
