@@ -40,7 +40,7 @@ For strings with specific format:
 I also use imaginary types to more specifically identify some return values or arguments:
   * `sequence` - to specify that the function can take an arbitrary number of arguments or return an arbitrary number of values.
   * `any` - to specify that the value can be of any type.
-  * `self` - to specify that the method returns the reference to the same object it has been called from. For example,  `list.add(2).add(5).remove(1)` would add `2` and `5` to the list and then remove the 1'st elements from it leaving just 1 element `5`.
+  * `self` - to specify that the method returns the reference to the same object it has been called from. For example,  `list.add(2).add(5).remove(1)` would add `2` and `5` to the list and then remove the 1^st^ element from it leaving just 1 element `5`.
 <br>
 ----
 ===<font color="#006600">Multipliable Objects</font>===
