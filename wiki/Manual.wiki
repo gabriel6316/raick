@@ -459,7 +459,11 @@ All names are case and delimiter insensitive, which means that your can write `S
         * <font color="#006666">*id*</font> :: `number`<br>
         The ID of the skill.<br>
       * *Description*
-        Returns the `Skills` object representing the skill with the given ID or `nil` if no such skill exist.
+        Returns the `Skills` object representing the skill with the given ID or `nil` if no such skill exist or if this skill cannot be used by the current homunculus/mercenary. The last fact is also true when you query skill objects by their names through variables. For example, variable `Caprise` would contain `nil` for `Amistr` and the corresponding object for `Vanilmirth`. This makes it easy to check if the current user of the script has the corresponding skill like so:
+        <code language="lua">
+if Caprise then
+-- ...
+</code>
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br>
       The ID of the skill.<br>
