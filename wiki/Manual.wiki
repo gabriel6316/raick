@@ -1237,6 +1237,7 @@ function    KILL_HIM(enemy)
     Activity.switchTo.terminationOf(mainTarget)
 end
 </code>
+<br>
 ----
 ==<font color="#006666">Quick Reload</font>==
 Another unique feature of RAICK that allows you to update your AI literally on-the-fly. When the setting `QuickReload` is turned `ON` the changes to `Commands`, `Skills` or `Activities` file automatically trigger the reload of this file i.e all handler functions are recreated as if you have restarted your AI. This liberates you from restarting your AI every time you want to change something.<br>
