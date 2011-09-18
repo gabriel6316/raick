@@ -22,7 +22,7 @@ require "C:/RAICK.lua"
 The image below illustrates the full set of files and folders that RAICK can create:
 <br><br>
 <img src="http://img148.imageshack.us/img148/2583/filesy.png" align="left"/>
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 Most of them are created during installation, others during runtime, when needed. You can see that homunculus and mercenary scripts are separated into different folders for easier management.<br><br>
 ===<font color="#006600">Common Files</font>===
   * <u>*RAICK.Bugz.txt* file</u>
