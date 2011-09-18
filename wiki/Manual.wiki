@@ -466,7 +466,7 @@ All names are case and delimiter insensitive, which means that your can write `S
 if Caprise then
 -- ...
 </code>
-        However, this will not work for normal homunculus skills when the user of the script is a mutated homunculus(Homunculus S), since they potentially can have access to every skill of normal homunculi and therefore all skills of normal homunculi are defined for them in the script.
+        However, this will not work for normal homunculus skills when the user of the script is a mutated homunculus(Homunculus S), since potentially they can have access to every skill of normal homunculi and therefore all skills of normal homunculi are defined for them in the script.
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br>
       The ID of the skill.<br>
