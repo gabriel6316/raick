@@ -1239,6 +1239,6 @@ end
 </code>
 ----
 ==<font color="#006666">Quick Reload</font>==
-Another unique feature of RAICK that allows you to update your AI literally on the fly. When the setting `QuickReload` is turned `ON` the changes to `Commands`, `Skills` or `Activities` file automatically trigger the reload of this file i.e all handler functions are recreated as if you have restarted your AI. This liberates you from restarting your AI every time you want to change something.<br>
+Another unique feature of RAICK that allows you to update your AI literally on-the-fly. When the setting `QuickReload` is turned `ON` the changes to `Commands`, `Skills` or `Activities` file automatically trigger the reload of this file i.e all handler functions are recreated as if you have restarted your AI. This liberates you from restarting your AI every time you want to change something.<br>
 I must note here that to trigger the reload the size of the file must change meaning that if you have made changes to the code that did not influence the size of the file this will not trigger the reload. In this case to force the reload you can, for example, add a space.<br>
 As always, if you make a mistake RAICK will propagate an error and put your bot to _Safe Mode_, from which `Quick Reload` will not work anymore.
