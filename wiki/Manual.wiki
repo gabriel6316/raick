@@ -466,7 +466,7 @@ All names are case and delimiter insensitive, which means that your can write `S
 if Caprise then
 -- ...
 </code>
-
+        However, this will not work for normal homunculus skills when the user of the script is a mutated homunculus(Homunculus S), since they potentially can have access to every skill of normal homunculi and therefore all skills of normal homunculi are defined for them in the script.
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br>
       The ID of the skill.<br>
@@ -476,8 +476,8 @@ if Caprise then
       The maximum level of the skill.<br>
       * <font color="#006666">*range*</font> :: `number` | `nil`<br>
       The range of the skill. Contains the maximum distance from the owner for skill to be usable in case of homunculus supportive skills like _Urgent Escape_. `nil` if the skill does not have any range restrictions.<br>
-      * <font color="#006666">*range[lvl]*</font> :: `number` | `nil`<br>
-      This is a special syntax to get ranges of some Homunculus S skills, whose range depend on level of the skill. [lvl] can be 1-4(e.g `range3`, `range1`). The standard `range` field in case of those skills returns the maximum range i.e range for the 5^th^ level.<br>
+      * <font color="#006666">*range`[`lvl`]`*</font> :: `number` | `nil`<br>
+      This is a special syntax to get ranges of some Homunculus S skills, whose range depend on level of the skill. `[lvl]` can be between 1 and 4(e.g `range3`, `range1`). The standard `range` field in case of those skills contains the maximum range i.e range for the 5^th^ level.<br>
   * <u>*Methods*</u><br><br>
     * *<font color="#0052A3">sp( <font color="#5E5B00">lvl</font> )</font>* :: `number`<br><br>
       * *Arguments*<br><br>
