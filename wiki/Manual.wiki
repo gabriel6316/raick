@@ -75,13 +75,15 @@ In these examples i have specified `Value` objects that translate original ID's 
          Returns `true` if the given string equals the <font color="#006666">*name*</font> of the current object.
       * *Accepted `string` Values* (They are checked if the given string does not equal <font color="#006666">*name*</font>)<br><br>
          * `"evolved[HomType]"`
-         Returns `true` if the current object is describing an evolved homunculus of type  `[HomType]`. For example: `"evolvedFilir"`, `"evolvedVanilmirth"`.
+         Returns `true` if the current object is describing an evolved homunculus of type `[HomType]`. For example: `"evolvedFilir"`, `"evolvedVanilmirth"`.
          * `"[HomType]Evolved"`
          The same as the previous one, but here `evolved` is written after the type. For example: `"lifEvolved"`, `"amistrEvolved"`.
          * `"[ScrollLvl][MercType]"`
          Returns `true` if the current object is describing a mercenary of type `[MercType]`, which is summoned from scroll of lvl `[ScrollLvl]`. For example: `"6Bowman"`, `"1fencer"`.
          * `"[MercType][ScrollLvl]"`
          The same as the previous one, except the lvl of the scroll is now in the back. For example: `"Lancer10"`, `"bowman3"`.
+         * `"mutated"`
+         Returns `true` if the current object is describing a type of the mutated homunculus i.e Homunculus S.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`
 <br>
 ----
@@ -464,6 +466,7 @@ All names are case and delimiter insensitive, which means that your can write `S
 if Caprise then
 -- ...
 </code>
+
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br>
       The ID of the skill.<br>
@@ -472,7 +475,9 @@ if Caprise then
       * <font color="#006666">*maxLevel*</font> :: `number`<br>
       The maximum level of the skill.<br>
       * <font color="#006666">*range*</font> :: `number` | `nil`<br>
-      The range of the skill. Contains the maximum distance from the owner for skill to be usable incase of homunculus supportive skills like _Urgent Escape_. `nil` if the skill does not have any range restrictions.<br>
+      The range of the skill. Contains the maximum distance from the owner for skill to be usable in case of homunculus supportive skills like _Urgent Escape_. `nil` if the skill does not have any range restrictions.<br>
+      * <font color="#006666">*range[lvl]*</font> :: `number` | `nil`<br>
+      This is a special syntax to get ranges of some Homunculus S skills, whose range depend on level of the skill. [lvl] can be 1-4(e.g `range3`, `range1`). The standard `range` field in case of those skills returns the maximum range i.e range for the 5^th^ level.<br>
   * <u>*Methods*</u><br><br>
     * *<font color="#0052A3">sp( <font color="#5E5B00">lvl</font> )</font>* :: `number`<br><br>
       * *Arguments*<br><br>
@@ -1157,8 +1162,8 @@ The file, where you define _handler_ functions that intercept `Ctrl + Something`
 Anything other than the handler functions will be ignored.
 <br>
 ----
-===<font color="#006600">3. Skills</font>===
-The file, where you define _handler_ functions that intercept commands to use a targeted skill. Upon creation it is also automatically filled with all available skill handlers. The second argument is always the skill level used and the first one is either a cell or an actor depending of the type of the skill: ground- or enemy-targeted.<br>
+===<font color="#006600">3. XXX Skills</font>===
+Files, where you define _handler_ functions that intercept commands to use a targeted skill. Upon creation it is also automatically filled with all available skill handlers. The second argument is always the skill level used and the first one is either a cell or an actor depending of the type of the skill: ground- or enemy-targeted.<br>
 Anything other than the handler functions will be ignored.
 <br>
 ----
@@ -1232,3 +1237,8 @@ function    KILL_HIM(enemy)
     Activity.switchTo.terminationOf(mainTarget)
 end
 </code>
+----
+==<font color="#006666">Quick Reload</font>==
+Another unique feature of RAICK that allows you to update your AI literally on the fly. When the setting `QuickReload` is turned `ON` the changes to `Commands`, `Skills` or `Activities` file automatically trigger the reload of this file i.e all handler functions are recreated as if you have restarted your AI. This liberates you from restarting your AI every time you want to change something.<br>
+I must note here that to trigger the reload the size of the file must change meaning that if you have made changes to the code that did not influence the size of the file this will not trigger the reload. In this case to force the reload you can, for example, add a space.<br>
+As always, if you make a mistake RAICK will propagate an error and put your bot to _Safe Mode_, from which `Quick Reload` will not work anymore.
