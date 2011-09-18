@@ -14,7 +14,7 @@
   * Changed the way skill handlers are distributed among skill files in the `Mercenary AI`. Now there is no `Common` skill file, instead all targeted skills that can be used by a particular type of mercenary are put directly in its file e.g if before you had to define different behaviors for skill `Crash` for `Lancer` and `Fencer` in the `Common` skill file, then now each of them has its separate handler for that skill in its own skill file.
   * Added `mutated` query to `is` method of `Value` object.
   * Fixed the bug that caused errors when subtracting a vector from a cell.
-  * Added a totally new and unique feature called `Quick Reload`. Read more [http://code.google.com/p/raick/wiki/Manual#Quick_Reload here].
+  * Added a totally new and unique feature called _Quick Reload_. Read more [http://code.google.com/p/raick/wiki/Manual#Quick_Reload here].
   * For the framework to work correctly you must reinstall it.
 ----
 ===<font color="#A30000" face="Century Gothic">27.08.11</font> | <font color="#006600">2.1.0</font>===
