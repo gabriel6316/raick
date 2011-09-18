@@ -21,7 +21,7 @@ require "C:/RAICK.lua"
 ==<font color="#006666">Files & Folders</font>==
 The image below illustrates the full set of files and folders that RAICK can create:
 <br><br>
-<img src="http://img715.imageshack.us/img715/9427/fileso.png" align="left"/>
+<img src="http://img148.imageshack.us/img148/2583/filesy.png" align="left"/>
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 Most of them are created during installation, others during runtime, when needed. You can see that homunculus and mercenary scripts are separated into different folders for easier management.<br><br>
 ===<font color="#006600">Common Files</font>===
@@ -43,8 +43,8 @@ Most of them are created during installation, others during runtime, when needed
     In this file you define your custom variables or functions that you want to use in your script. This file is loaded once when the script starts. It is typical place for reading saved data from the memory or putting initial values to variables.
     * <u>*`[`2`]` Commands.lua* file</u>
     This is the place where you can define your own custom ways to interpret _Alt/Ctrl + Something_ commands that come from the player. Default handlers are auto-generated so you just have to modify them.
-    * <u>*`[`3`]` Skills.lua* file</u>
-    File with the same structure as the previous one, only here you can customize the way skill commands are interpreted by your AI.
+    * <u>*`[`3`]` XXX Skills.lua* file</u>
+    Files with the same structure as the previous one, only here you can customize the way skill commands are interpreted by your AI. In the first file you must define skills of ordinary homunculi. Other files are used with mutated homunculi. Once you mutate your homunculus the first file will no longer be used, instead you should use the file with the type of your new homunculus. In this file you will find all skills of normal homunculi plus the skills of the corresponding mutated homunculus.
     * <u>*`[`4`]` Messages.lua* file</u>
     In this file you can also define handlers like in two previous ones, but in this case they are meant to intercept messages that bots send to each other. This is a unique feature of RAICK that allows exchanging arbitrary data between homunculus and mercenary AI's.
     * <u>*`[`5`]` Activities.lua* file</u>
@@ -55,7 +55,7 @@ Most of them are created during installation, others during runtime, when needed
       * _Attack_ - Attack the monster until it is killed or no longer in sight and then start looking for the next one(switch to _Active_ activity).
     Now, all you need to do is put these words into code and you have yourself a primitive AI.
   * <u>*Mercenary AI* folder</u>
-  This folder basically mirrors the *Homunculus Script* folder. The only difference is that the *`[`3`]` Skills.lua* file is divided into separate parts, since mercenaries have a lot more targeted skills than homunculi do.<br><br>
+  This folder basically mirrors the *Homunculus Script* folder. The only difference is in the `Skills` files: there is one file per type of normal mercenary and a separate file for all skills of monster mercenaries.<br><br>
 ----
 ==<font color="#006666">Settings</font>==
 RAICK can be configured using the `RAICK.Settings.lua` file. Currently RAICK has 4 settings:
@@ -79,6 +79,11 @@ RAICK can be configured using the `RAICK.Settings.lua` file. Currently RAICK has
   <u>Supported values:</u> `YES, NO, ON, OFF`<br>
 
   Turns communication between homunculus and mercenary ON or OFF. Explained [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary here].
+  * *QuickReload*
+  <u>Default:</u> `ON`<br>
+  <u>Supported values:</u> `YES, NO, ON, OFF`<br>
+
+  Turns the `Quick Reload` feature ON or OFF. Explained [http://code.google.com/p/raick/wiki/Manual#Quick_Reload here].
 The names of settings and the values that they support are case insensitive, furthermore you can even separate different words and letters with underscores. For example:
   * visionrange
   * ViSion`___`RanGE
