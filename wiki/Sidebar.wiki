@@ -58,4 +58,5 @@
       * [http://code.google.com/p/raick/wiki/Manual#5._Activities Activities]
     * [http://code.google.com/p/raick/wiki/Manual#Understanding_RAICK_Errors Understanding RAICK Errors]
     * [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary Data Exchange Between Homunculus and Mercenary]
+    * [http://code.google.com/p/raick/wiki/Manual#Quick_Reload Quick Reload]
   * [Mastering Mastering RAICK]
