@@ -60,6 +60,7 @@
       * [http://code.google.com/p/raick/wiki/Manual#4._Messages Messages]
       * [http://code.google.com/p/raick/wiki/Manual#5._Activities Activities]*</font>
     * [http://code.google.com/p/raick/wiki/Manual#Understanding_RAICK_Errors Understanding RAICK Errors]
-    * [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary Data Exchange Between Homunculus and Mercenary]</font>_<br/>
+    * [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary Data Exchange Between Homunculus and Mercenary]
+    * [http://code.google.com/p/raick/wiki/Manual#Quick_Reload Quick Reload]</font>_<br/>
   # [Mastering Mastering RAICK]
 </font>
