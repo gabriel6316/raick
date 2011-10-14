@@ -934,7 +934,7 @@ One final thing about vectors: 2 vectors with different coordinates can point in
 <br>
 ----
 ===<font color="#006600">Single Objects</font>===
-All single objects have multiple global variables defined for them to free you from the labor of writing long names like `Mercenary` or `Homunculus`. Shorter versions start from the third letter of the type name. For example, `Owner` object has 3 variables:
+`Owner`, `Homunculus` and `Mercenary` objects have multiple global variables defined for them to free you from the labor of writing long names like `Mercenary` or `Homunculus`. Shorter versions start from the third letter of the type name. For example, `Owner` object has 3 variables:
    * Own
    * Owne
    * Owner
