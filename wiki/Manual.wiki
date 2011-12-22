@@ -18,7 +18,7 @@ The <u>*_is_ Methods*</u> subsection is used to describe what types and values d
   `object.isNot(value1, value2, value3, ...)`
   * Second form of `isNot` method:
   `object.isNot.value`
-The first form of the `is` method can receive an arbitrary number of arguments of any type, but only certain values have meaning for it. The method returns `true` if at least one of the given values(as if all arguments were grouped  with `or`) is "telling" the truth about the current object. If all given values are either "lying" or are unknown to the method it will return `false`. The second form does the same, but can take only one `string` argument, which is passed to the method in a very original and convenient way. For example, `actor.is.visible` is just another way of writing `actor.is("visible")`. Although the second form is more restricted it is nonetheless faster to write and far easier to read and that's why i decided to introduce it.<br>
+The first form of the `is` method can receive an arbitrary number of arguments of any type, but only certain values have meaning for it. The method returns `true` if at least one of the given values(as if all arguments were grouped  with `or`) is "telling" the truth about the current object. If all given values are either "lying" or are unknown to the method it will return `false`. The second form does the same, but can take only one `string` argument, which is passed to the method in a very original and convenient way. For example, `actor.is.visible` is just another way of writing `actor.is("visible")`. Although the second form is more restricted it is nonetheless faster to write and far easier to read and that's why I decided to introduce it.<br>
 The `isNot` method is the opposite of `is`. It returns `true` if all given values are "lying" about the current object or are unknown to the method and `false`, if at least one of the value is "telling" the truth.
 <br>
 Last thing worth mentioning is that all string argument are case insensitive meaning that, for example, `actor.is("VISiBLe")` or `actor.is.ViSiBle` would also be accepted. Furthermore, they are delimiter insensitive, which means that `actor.is("a bad person")`, `actor.is("a_badPERSON")` or `actor.is.AbadPerson` would refer to the same thing.<br><br>
@@ -27,16 +27,16 @@ Objects that are direct representations of the in-game objects of Ragnarok(actor
   * The second call. Your character does not move. The current cell is (15,23). The previous cell is now also (15,23), since this is the value of the previous call, but the last cell remains `nil`, because the was no change in the value.
   * The third call. Your character has moved. The current cell is now (16,24). The previous cell remains (15,23), but the last cell changes to (15,23), since the current value has changed and we now know that the last cell, on which our character has stepped was (15,23).
 ===<font color="#006600">A Few Words About the Syntax</font>===
-In the description below i use some syntactical aids to reduce the amount of unnecessary repeating text and to make the manual more compact.<br>
+In the description below I use some syntactical aids to reduce the amount of unnecessary repeating text and to make the manual more compact.<br>
 For constructors, operators and object methods:
   * I use *<font color="#0052A3">blue</font>*.
-  * After the :: i specify the return type or value of the constructor/method/operator. If the constructor/method/operator can return different types in different situations(for example, `nil` if something is wrong), then those types are separated with | .
+  * After the :: I specify the return type or value of the constructor/method/operator. If the constructor/method/operator can return different types in different situations(for example, `nil` if something is wrong), then those types are separated with | .
 For arguments and object fields:
   * I use *<font color="#5E5B00">dark yellow</font>* for optional arguments(the ones that you can omit when calling a function/method/constructor) and *<font color="#006666">cyan</font>* for mandatory arguments and object fields.
-  * If the argument is optional, then i specify the default value(which is used if the argument is omitted) after the | .
-  * After the :: i specify the type of the argument/field. If the argument/field can have/contain different types, then those types are separated with | . If the argument is supposed to have not only a certain type, but also i certain value(for example, > 0), then the restriction is specified inside ( ) next to the type.
+  * If the argument is optional, then I specify the default value(which is used if the argument is omitted) after the | .
+  * After the :: I specify the type of the argument/field. If the argument/field can have/contain different types, then those types are separated with | . If the argument is supposed to have not only a certain type, but also I certain value(for example, > 0), then the restriction is specified inside ( ) next to the type.
 For strings with specific format:
-  * I specify the variable part like so: `[partOfTheString]`. For example: `"abc[num]"`, where `[num]` is a number, would mean that i refer to strings with `abc` in the beginning and numbers after that, such as: `"abc123"`, `"abc9"` or `"abc0"`.
+  * I specify the variable part like so: `[partOfTheString]`. For example: `"abc[num]"`, where `[num]` is a number, would mean that I refer to strings with `abc` in the beginning and numbers after that, such as: `"abc123"`, `"abc9"` or `"abc0"`.
 I also use imaginary types to more specifically identify some return values or arguments:
   * `sequence` - to specify that the function can take an arbitrary number of arguments or return an arbitrary number of values.
   * `any` - to specify that the value can be of any type.
@@ -45,11 +45,11 @@ I also use imaginary types to more specifically identify some return values or a
 ----
 ===<font color="#006600">Multipliable Objects</font>===
 ====<font color="#660000">Value</font>====
-The most primitive object in RAICK. It is used mainly to store the data about [http://code.google.com/p/raick/wiki/Manual#Actor actors]. Each object consists of a `number` and a `string`. In most cases the string is used to describe or translate the meaning of the number(ID), but you can also use the number, for example, to index the string or use only the string without the number. What i am saying is that it is just a `string`-`number` pair and it can be interpreted in many ways according to the place or situation it is used in.<br>
-Later in this guide i will specify `Value` objects in the following manner: `"string" (number1, number2, ...)`. For example:
+The most primitive object in RAICK. It is used mainly to store the data about [http://code.google.com/p/raick/wiki/Manual#Actor actors]. Each object consists of a `number` and a `string`. In most cases the string is used to describe or translate the meaning of the number(ID), but you can also use the number, for example, to index the string or use only the string without the number. What I am saying is that it is just a `string`-`number` pair and it can be interpreted in many ways according to the place or situation it is used in.<br>
+Later in this guide I will specify `Value` objects in the following manner: `"string" (number1, number2, ...)`. For example:
     * `"Assassin" (12)` specifies a `Value` object with `"Assassin"` for a name and 12 for the number(ID).
     * `"Attacking" (2, 9)` specifies 2 `Value` objects, both having `"Attacking"` for a name and 2, 9 for the ID respectively.
-In these examples i have specified `Value` objects that translate original ID's of a character type and an action/motion type into human-readable strings and that is actually the main idea behind this object.
+In these examples I have specified `Value` objects that translate original ID's of a character type and an action/motion type into human-readable strings and that is actually the main idea behind this object.
   * <u>*Constructors*</u><br><br>
     * *<font color="#0052A3">Value( <font color="#006666">name</font> , <font color="#5E5B00">id</font> )</font>* :: `Value`<br><br>
       * *Arguments*<br><br>
@@ -83,7 +83,7 @@ In these examples i have specified `Value` objects that translate original ID's 
          * `"[MercType][ScrollLvl]"`
          The same as the previous one, except the lvl of the scroll is now in the back. For example: `"Lancer10"`, `"bowman3"`.
          * `"mutated"`
-         Returns `true` if the current object is describing the type of a mutated homunculus i.e Homunculus S.
+         Returns `true` if the current object is describing the type of a mutated homunculus i.e. Homunculus S.
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`
 <br>
 ----
@@ -451,7 +451,7 @@ Represents your or your bot's HP or SP. It is very similar to the `Value` object
 <br>
 ----
 ====<font color="#660000">Skill</font>====
-Represents the skills that your bot can use. It is used either to get information about the skill or to order your bot to use it. Although this object has a constructor you would not normally need to use it, because every skill object available can be accessed by it's name. For example, if you query variables: `Devotion`, `TouchOfHeal`, `SBR44`, `MentalChange` they would all contain skill objects for those skills(i.e querying `Skill(8013)` has the same effect as querying variable `Caprise`). RAICK even knows the synonyms and some shorter versions used by players: `Sacrifice`, `HealingHands`, `SBR`, `Mental`.<br>
+Represents the skills that your bot can use. It is used either to get information about the skill or to order your bot to use it. Although this object has a constructor you would not normally need to use it, because every skill object available can be accessed by it's name. For example, if you query variables: `Devotion`, `TouchOfHeal`, `SBR44`, `MentalChange` they would all contain skill objects for those skills(i.e. querying `Skill(8013)` has the same effect as querying variable `Caprise`). RAICK even knows the synonyms and some shorter versions used by players: `Sacrifice`, `HealingHands`, `SBR`, `Mental`.<br>
 If you're not sure what names of skills does RAICK understand, then just open the `RAICK.lua` file and somewhere at line 2400 you will find a long list of skill definitions with skill names as the first line of every definition.
 <br>
 All names are case and delimiter insensitive, which means that your can write `S_B_R` or `healing_HAND_S` and you would still get your objects.
@@ -477,7 +477,7 @@ if Caprise then
       * <font color="#006666">*range*</font> :: `number` | `nil`<br>
       The range of the skill. Contains the maximum distance from the owner for skill to be usable in case of homunculus supportive skills like _Urgent Escape_. `nil` if the skill does not have any range restrictions.<br>
       * <font color="#006666">*range`[`lvl`]`*</font> :: `number` | `nil`<br>
-      This is a special syntax to get ranges of some Homunculus S skills, whose range depends on level of the skill. `[lvl]` can be between 1 and 4(e.g `range3`, `range1`). The standard `range` field in case of those skills contains the maximum range i.e range for the 5^th^ level.<br>
+      This is a special syntax to get ranges of some Homunculus S skills, whose range depends on level of the skill. `[lvl]` can be between 1 and 4(e.g. `range3`, `range1`). The standard `range` field in case of those skills contains the maximum range i.e. range for the 5^th^ level.<br>
   * <u>*Methods*</u><br><br>
     * *<font color="#0052A3">sp( <font color="#5E5B00">lvl</font> )</font>* :: `number`<br><br>
       * *Arguments*<br><br>
@@ -940,7 +940,7 @@ One final thing about vectors: 2 vectors with different coordinates can point in
    * Owner
 ====<font color="#660000">Owner</font>====
 Represents your character.<br>
-Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your character is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
+Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your character is also an actor, so I won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
       * <font color="#006666">*cell*</font> :: `Cell`<br><br>
@@ -992,7 +992,7 @@ Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki
 ====<font color="#660000">Homunculus / Mercenary</font>====
 I will unify descriptions of these objects, since they are identical.<br>
 They represent your homunculus/mercenary and are both defined in the homunculus and in the mercenary AI's, since RAICK support data exchange between scripts. Read more about it in the [http://code.google.com/p/raick/wiki/Manual#Data_Exchange_Between_Homunculus_and_Mercenary last section].<br>
-Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your homunculus/mercenary is also an actor, so i won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
+Most of the fields repeat the ones that the [http://code.google.com/p/raick/wiki/Manual#Actor Actor] object has, since your homunculus/mercenary is also an actor, so I won't bother describing them. The HP and SP field description is also unnecessary, since everything has been already explained in the [http://code.google.com/p/raick/wiki/Manual#Points appropriate section].
   * <u>*Fields*</u><br><br>
       * <font color="#006666">*id*</font> :: `number`<br><br>
       * <font color="#006666">*cell*</font> :: `Cell`<br><br>
@@ -1240,6 +1240,6 @@ end
 <br>
 ----
 ==<font color="#006666">Quick Reload</font>==
-Another unique feature of RAICK that allows you to update your AI literally on-the-fly. When the setting `QuickReload` is turned `ON`, changes to `Commands`, `Skills` or `Activities` files automatically trigger the reload of this file i.e all handler functions are recreated as if you have restarted your AI. This liberates you from restarting your AI every time you want to change something.<br>
+Another unique feature of RAICK that allows you to update your AI literally on-the-fly. When the setting `QuickReload` is turned `ON`, changes to `Commands`, `Skills` or `Activities` files automatically trigger the reload of this file i.e. all handler functions are recreated as if you have restarted your AI. This liberates you from restarting your AI every time you want to change something.<br>
 I must note here that to trigger the reload the size of the file must change meaning that if you have made changes to the code that did not influence the size of the file this will not trigger the reload. In this case to force the reload you can, for example, add a space.<br>
 As always, if you make a mistake RAICK will propagate an error and put your bot to _Safe Mode_, from which `Quick Reload` will not work anymore.
