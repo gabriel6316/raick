@@ -8,9 +8,9 @@ So, let's review:
   * The script text file is not used by the client the rest of the time(you can delete and modify it without any harm)
   * The data that the client gives to the AI to make a decision is static(it is a frozen moment in time and no matter how many times you query it, it will not change during the same call of the AI program)
   * The AI looses all of its data when it stops working
-These facts may seem i bit confusing right now, but they will help you to understand some things better in future chapters.
+These facts may seem I bit confusing right now, but they will help you to understand some things better in future chapters.
 ==<font color="#006666">Building blocks of Lua</font>==
-Let's focus more on that text file. The client assumes it is written in Lua. Being above all a *programming language* it follows some basic concepts that i would like to explain to you.
+Let's focus more on that text file. The client assumes it is written in Lua. Being above all a *programming language* it follows some basic concepts that I would like to explain to you.
 ===<font color="#006600">Types, Values & Variables</font>===
 All programming languages have three basic concepts in common:
   * Types
@@ -58,7 +58,7 @@ Oh, and one more thing- comments. You put those after `--` or between `--[[` and
 ===<font color="#006600">Functions</font>===
 First of all, the *function* is a special type. The values that this type represent are individual functions that you define or that come with the Lua language.<br>
 Functions are the ones that make something work in your AI. Every piece of code in Lua is executed inside some function. The AI script is also written inside a function, which you should put in a variable `AI`. This name is an agreement between the client and your script, so that the client knows what function to call after it makes the AI program.
-So, as i said, this function contains your whole AI. Of course, it would be hard to make such complex AI's like RampageAI or MirAI with all of the code being in one place. Thus, when you write your AI you usually divide it into different pieces for easier management.
+So, as I said, this function contains your whole AI. Of course, it would be hard to make such complex AI's like RampageAI or MirAI with all of the code being in one place. Thus, when you write your AI you usually divide it into different pieces for easier management.
 Another good use for functions is when you have a piece of code that you use many times in your script. You could put this code inside a function and call this function every time you need it. A good example from the default AI is the function to calculate the distance between the 2 objects. It receives (x,y) coordinates of those objects and returns the distance between them. Having this function you could call it every time you want to know the distance between some objects without the need to write the same code over and over again.
 <br>
 Now, you may have noticed something new about functions from the previous paragraph and you are right! Functions can receive values, which are called *arguments* and can return values. Using arguments you can influence the behavior of the function and/or it's return values. The most trivial example of this concept are the operators(`+, -, *, /`). They are also functions with a bit different appearance, which take 2 arguments and return a value based on them.
@@ -67,7 +67,7 @@ So, to sum up, we use functions to divide the logic of the script into different
 <code language="lua">
 -- This is a function definition. It terms of Lua this means that we put a value of type function into a global variable 'checkForCommands'.
 -- The variable is global since we have not told in any way that we refer to a local variable.
--- For now, i don't want you to think too much about those local variables and we'll assume that all our variables are global.
+-- For now, I don't want you to think too much about those local variables and we'll assume that all our variables are global.
 function    checkForCommands()
 
     -- We do something here.
@@ -119,13 +119,13 @@ end
 
 e = a.method(1) -- 'e' now holds value 1.
 -- What you see above is a definition of a function inside a table.
--- Technically speaking: i have created a function and put it under string key "method" of a table inside a global variable 'a'.
+-- Technically speaking: I have created a function and put it under string key "method" of a table inside a global variable 'a'.
 -- The syntax 'something.something(arg1, arg2, ...)' is very widespread in modern programming languages. What does it mean?
--- Well, be patient, i will certainly refer to it many times in the chapter about using RAICK.
+-- Well, be patient, I will certainly refer to it many times in the chapter about using RAICK.
 </code><br><br>
 ----
 ===<font color="#006600">nil</font>===
-Before we continue i would like to say a few words about one important type, which is *nil*. This is a special type, which has only one value- `nil`. This value specifies the absence of any other value. For example, if you refer to a variable that you have not used before it will contain `nil`. You can also use `nil` to delete anything from a variable or from under a table key.<br><br>
+Before we continue I would like to say a few words about one important type, which is *nil*. This is a special type, which has only one value- `nil`. This value specifies the absence of any other value. For example, if you refer to a variable that you have not used before it will contain `nil`. You can also use `nil` to delete anything from a variable or from under a table key.<br><br>
 ----
 ===<font color="#006600">Conditions & Booleans</font>===
 So far we have seen programming as a process of writing lines of code that get executed inside some main function, which is being initially called by someone(in our case- the Ragnarok client). What if we want to execute a certain line only when a certain condition is satisfied? We need a way to define conditions and some structure that would interpret them. This structure is known in programming as the *if statement*. It takes a condition, which can return either `true` or `false` and executes the enclosed code based on this value. Now, hold on a second! `true` or `false`? What's that? Well, those are values of type *boolean*. This type has only those 2 values. They are used in cases where you need to know if the result is: positive or negative, yes or no, on or off, true or false etc. That's why they are ideal for *conditional expressions*. Those are expressions similar to arithmetic ones like `2 * 3 + 5`, only they deal with logical and comparison operators and return `true` or `false` instead of a numeric result. Let's make things clear using examples:
@@ -230,7 +230,7 @@ c = 0
 
 -- This is probably the main loop, which you will be using in RAICK, .. 
 -- .. since it allows searching through sets of data like friend lists, target lists or the list of monsters, players and NPC's on the screen.
--- It has a bit more complex logic behind it, but i will tell you only the stuff that you need to know.
+-- It has a bit more complex logic behind it, but I will tell you only the stuff that you need to know.
 -- In the example below between 'in' and 'do' you see a function, which takes a table 'b' as an argument.
 -- This is a function from the Lua standard library(be patient, this will be covered in the next section), ..
 -- .. which assumes that the given table has all of it's values under numeric keys starting from 1.
@@ -281,7 +281,7 @@ Another useful function is `math.random`. It takes 2 numeric(can be negative) ar
 rand = math.random(-3, 2) -- Returns -3, -2, -1, 0, 1 or 2 randomly.
 </code>
 Random is often useful in programming. The main use for it in AI scripts is the, so called, "dance attack".<br>
-These are just some examples of standard functions. This is just a short overview of Lua, so i am not doing to cover the rest of them(and they are quite useless for you anyway).<br><br>
+These are just some examples of standard functions. This is just a short overview of Lua, so I am not doing to cover the rest of them(and they are quite useless for you anyway).<br><br>
 ----
 ===<font color="#006600">The Hard Part: Objects and Primitive Types</font>===
 OK, we are almost done! I don't know if this is actually the hardest part, but it tends to be quite confusing for most people. I just want you to try to understand it, since it is a very important issue, especially with RAICK.<br>
@@ -293,7 +293,7 @@ Let's, first of all, review what types we have learned during this quick guide:
   * function
   * table
 
-These types are all you will need for your script. Every AI, every script and even RAICK, they all use only those types and not a type more. Now, you might have noticed that to create the first 4 of them you don't need to do anything special. You just write the value you need and it is there. For the rest 2 of them you have a bit more specific ways. If you remember i have mentioned the word _constructor_ somewhere in the section about tables. Well, you can say that both the table and the function have constructors to create them. Let me demonstrate this with an example:
+These types are all you will need for your script. Every AI, every script and even RAICK, they all use only those types and not a type more. Now, you might have noticed that to create the first 4 of them you don't need to do anything special. You just write the value you need and it is there. For the rest 2 of them you have a bit more specific ways. If you remember I have mentioned the word _constructor_ somewhere in the section about tables. Well, you can say that both the table and the function have constructors to create them. Let me demonstrate this with an example:
 <code language="lua">
 a = {} -- '{}' is a table constructor.
 
@@ -308,7 +308,7 @@ end
 b = function(arg1, arg2) end
 -- You can see that 'function() ... end' is nothing more than function constructor.
 </code>
-In Lua those types that don't have any special ways to define their values are called *primitive types* and the other ones are called *objects*. This is not the only difference between those two groups and, in fact, not the main one. The main difference is in the way they are stored in variables. Primitive types are stored *by value* and objects are stored *by reference*. It is not easy for a beginner to understand this significant difference, but, nevertheless i will try to make it clearer:
+In Lua those types that don't have any special ways to define their values are called *primitive types* and the other ones are called *objects*. This is not the only difference between those two groups and, in fact, not the main one. The main difference is in the way they are stored in variables. Primitive types are stored *by value* and objects are stored *by reference*. It is not easy for a beginner to understand this significant difference, but, nevertheless I will try to make it clearer:
 <code language="lua">
 -- Suppose we have put a number into a variable:
 a = 1
@@ -362,7 +362,7 @@ b = a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.a.
 -- And we'll still get our table back.
 </code>
 This is just a funny example, but this principle actually has a great implementation in RAICK as you will see later.<br>
-I hope that i have made this important issue a bit less complicated. Try to understand it, since in RAICK you will mainly be dealing with objects.<br><br>
+I hope that I have made this important issue a bit less complicated. Try to understand it, since in RAICK you will mainly be dealing with objects.<br><br>
 ----
 ===<font color="#006600">It's Over!</font>===
 Finally! Your torture is over! We have covered the most boring and most crucial part of mastering RAICK. Now, you have the knowledge to dig into the interesting part- [GettingStarted a quick guide on using RAICK].
