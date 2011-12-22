@@ -202,7 +202,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
       * <font color="#006666">*last.action*</font> :: `Value`<br>
       Actor's last action.
       * <font color="#006666">*target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
-      Actor's current target. Contains a blank actor(ID = 0) if the current actor has no targets. The target is set when you have visually observed that the actor has attacked someone or has started casting any kind of targeted skill. The target is preserved until changed and is reseted(turned to blank actor), when the actor goes beyond your vision range.<br>
+      Actor's current target. Contains a blank actor(<font color="#006666">*id*</font> = 0) if the current actor has no targets. The target is set when you have visually observed that the actor has attacked someone or has started casting any kind of targeted skill. The target is preserved until changed and is reseted(turned to blank actor), when the actor goes beyond your vision range.<br>
       * <font color="#006666">*prev.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
       Actor's previous target.<br>
       * <font color="#006666">*last.target*</font> :: `Actor` | `Owner` |  `Homunculus` |  `Mercenary`<br>
@@ -256,7 +256,7 @@ Represents an in-game character(monster, NPC or player character), which can be 
           * `"Super Novice" (23)`
           * `"Gunslinger" (24)`
           * `"Ninja" (25)`
-          * `"Xmas" (26)` - The player is wearing the Santa's costume.
+          * `"Xmas" (26)` - The player is wearing the Santa costume.
           * `"Summer" (27)` - The player is wearing the summer beach costume.
           * `"Novice High" (4001)`
           * `"Swordman High" (4002)`
@@ -403,6 +403,8 @@ Represents an in-game character(monster, NPC or player character), which can be 
          Returns `true` if the current actor is a player character.
          * `"mob"`
          Returns `true` if the current actor is a monster.
+         * `"blank"`
+         Returns `true` if the current actor is a blank actor(<font color="#006666">*id*</font> = 0).
     * *<font color="#0052A3">is.<font color="#006666">value</font></font>* , *<font color="#0052A3">isNot.<font color="#006666">value</font></font>* :: `boolean`<br><br>
   * <u>*Operators*</u><br><br>
     * *<font color="#0052A3"><font color="#006666">actor</font> .. <font color="#006666">object</font></font>* :: `number` | `nil`<br><br>
@@ -536,6 +538,14 @@ end
         The value that needs to be added.<br>
       * *Description*
         Adds the given value to the list.
+    * *<font color="#0052A3">put( <font color="#006666">n</font> , <font color="#006666">v</font> )</font>* :: `self`<br><br>
+      * *Arguments*<br><br>
+        * <font color="#006666">*n*</font> :: `number`<br>
+        The index of the element in the list.<br>
+        * <font color="#006666">*v*</font> :: `any`<br>
+        The replacement value.<br>
+      * *Description*
+        Replaces the value under the index <font color="#006666">*n*</font> with <font color="#006666">*v*</font>. Does nothing if the specified index is empty.
     * *<font color="#0052A3">addList( <font color="#006666">l</font> )</font>* :: `self`<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*l*</font> :: `List`<br>
@@ -590,10 +600,7 @@ end
         A location or an in-game character.<br>
       * *Description*
         Looks through all objects of the current list, between which the distance can be calculated and returns the farthest object from <font color="#006666">*v*</font> or `nil` if the list does not contain any objects of that kind.
-    * *<font color="#0052A3">expand()</font>* :: `self`
-    After calling this method following methods appear in the list.
     * *<font color="#0052A3">filter( <font color="#006666">f</font> )</font>* :: `List`
-    _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*f*</font> :: `function`<br>
         The filtering function.<br>
@@ -615,21 +622,18 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
 </code>
         You can define filters in the `On Startup` file.
     * *<font color="#0052A3">filterOne( <font color="#006666">f</font> )</font>* :: `any`
-    _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*f*</font> :: `function`<br>
         The filtering function.<br>
       * *Description*
         Returns the first value that is approved by the given filter.
     * *<font color="#0052A3">forEach( <font color="#006666">f</font> )</font>* :: `Map`
-    _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*f*</font> :: `function`<br>
         The transformation function.<br>
       * *Description*
         Returns a map, where results of applying <font color="#006666">*f*</font> for each element of the list are stored under those elements(elements of the list are _keys_ and the corresponding transformation results are _values_). The transformation function receives one argument and must return any value, which will be the result of the transformation.
     * *<font color="#0052A3">removeFirst( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
-    _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*v*</font> :: `any`<br>
         The value that is removed.<br>
@@ -638,7 +642,6 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
       * *Description*
         Removes <font color="#5E5B00">*n*</font> occurrences of <font color="#006666">*v*</font> starting from the beginning of the list.
     * *<font color="#0052A3">removeLast( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
-    _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*v*</font> :: `any`<br>
         The value that is removed.<br>
@@ -647,7 +650,6 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
       * *Description*
         Removes <font color="#5E5B00">*n*</font> occurrences of <font color="#006666">*v*</font> starting from the back of the list.
     * *<font color="#0052A3">replace( <font color="#006666">v</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
-    _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*v*</font> :: `any`<br>
         The replacement value.<br>
@@ -656,7 +658,6 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
       * *Description*
         Replaces the <font color="#5E5B00">*n*</font>'th value of the list with <font color="#006666">*v*</font>.
     * *<font color="#0052A3">replaceAll( <font color="#006666">v1</font> , <font color="#006666">v2</font> )</font>* :: `self`
-    _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*v1*</font> :: `any`<br>
         The value that is replaced.<br>
@@ -665,7 +666,6 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
       * *Description*
         Replaces all occurrences of <font color="#006666">*v1*</font> with <font color="#006666">*v2*</font>.
     * *<font color="#0052A3">replaceFirst( <font color="#006666">v1</font> , <font color="#006666">v2</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
-    _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*v1*</font> :: `any`<br>
         The value that is replaced.<br>
@@ -676,7 +676,6 @@ filteredList = list.filter(filter) -- 'filteredList' contains values 2 and 3
       * *Description*
         Replaces <font color="#5E5B00">*n*</font> occurrences of <font color="#006666">*v1*</font> with <font color="#006666">*v2*</font> starting from the beginning of the list.
     * *<font color="#0052A3">replaceLast( <font color="#006666">v1</font> , <font color="#006666">v2</font> , <font color="#5E5B00">n</font> )</font>* :: `self`
-    _Note: This method becomes available only after calling method <font color="#0052A3">*expand()*.</font>_<br><br>
       * *Arguments*<br><br>
         * <font color="#006666">*v1*</font> :: `any`<br>
         The value that is replaced.<br>
