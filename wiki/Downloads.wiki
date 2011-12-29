@@ -33,7 +33,7 @@
 ----
 ===<font color="#A30000" face="Century Gothic">10.05.11</font> | <font color="#006600">2.0.3</font>===
   * After extensive field testing I've found some very annoying bugs that made the framework practically unusable. Now they are fixed.
-  * I've had plans to add custom mercenaries, Homunculus S skills and 3^rd^ job recognition, but since the project is highly unpopular I've found it a waste on time(at least at this point). If you really like the framework and want to use it with the new stuff, then send [http://forums.irowiki.org/member.php?u=15157 me] a PM on _iRO Wiki Forum_. Maybe i'll reconsider *;)*
+  * I've had plans to add custom mercenaries, Homunculus S skills and 3^rd^ job recognition, but since the project is highly unpopular I've found it a waste on time(at least at this point). If you really like the framework and want to use it with the new stuff, then send [http://forums.irowiki.org/member.php?u=15157 me] a PM on _iRO Wiki Forum_. Maybe I'll reconsider *;)*
 ----
 ===<font color="#A30000" face="Century Gothic">23.01.11</font> | <font color="#006600">2.0.2</font>===
   * Fixed some bugs regarding actor classification by group and by type.
