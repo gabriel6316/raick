@@ -331,7 +331,9 @@ Represents an in-game character(monster, NPC or player character), which can be 
           * `"Baby Genetic" (4107)`
           * `"Baby Shadow Chaser" (4108)`
           * `"Super Novice Ex" (4190)`
-          * `"Super Baby Ex" (4191)`<br><br>
+          * `"Super Baby Ex" (4191)`
+          * `"Kagerou" (4211)`
+          * `"Oboro" (4212)`<br><br>
         * For <font color="#006666">*group*</font> `"Mob"`:
         RAICK knows the names of pretty much every monster. The list is kept as up-to-date as possible. The names are identical to those used in the game, except for _Incarnation of Morroc_ mobs. Their names have been changed, so they could be distinguished from one another:<br><br>
           * `"Morroc Winged" (1918, 1922)`
