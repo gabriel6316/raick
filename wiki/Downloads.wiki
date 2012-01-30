@@ -10,7 +10,7 @@
 ----
 ===<font color="#A30000" face="Century Gothic">28.01.12</font> | <font color="#006600">2.3.0</font>===
   * Homunculi S are now fully supported. I cannot test them myself as I am not playing on official servers, so do expect bugs. Any feedback and bug reports from iRO players is highly appreciated.
-  * Added `Kagerou` and `Oboro` support.
+  * Added `Kagerou` and `Oboro` job recognition.
 ===<font color="#A30000" face="Century Gothic">22.12.11</font> | <font color="#006600">2.2.1</font>===
   * Removed `expand` method from `List` object. Now all methods are available upon creation of the object. It is advised to either delete the `[0] Memory.lua` file or reinstall the framework.
   * Added `put` method to `List` object.
