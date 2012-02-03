@@ -103,7 +103,7 @@ And one more thing- if you omit/delete some setting the default value will be us
 The best way to learn something in programming is by doing practical exercises or writing something yourself, so let's write a simple AI using RAICK. This way by the end of this chapter you will have both a working script and an idea of whether RAICK actually suits your needs.<br><br>
 ----
 ===<font color="#006600">Some Extra Knowledge: Objects in RAICK</font>===
-As much as i(and I guess you too) would like to dig into the scripting process right away I can't leave this topic without attention, since roughly it is what RAICK is made of.<br>
+As much as I(and I guess you too) would like to dig into the scripting process right away I can't leave this topic without attention, since roughly it is what RAICK is made of.<br>
 From the [http://code.google.com/p/raick/wiki/Lua#The_Hard_Part:_Objects_and_Primitive_Types chapter about Lua] you know that an _object_ is a value, which is stored in a variable *by reference*. The same is true for RAICK objects(and pretty much for all objects in every modern programming language), but in the traditional meaning the _object_ is not only some value that stores its reference in a variable, but an advanced entity of data, which(unlike primitive values) can itself contain data and operations that work with this data. It can be seen as a way to group related data and actions that you can perform on this data under some general idea. Let me just explain this by comparing the way of Gravity with the way of RAICK:
 <code language="lua">
 -- This is a standard function from Gravity, which allows us to order the homunculus to go to a cell with (x,y) coordinates.
