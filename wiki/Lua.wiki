@@ -8,7 +8,7 @@ So, let's review:
   * The script text file is not used by the client the rest of the time(you can delete and modify it without any harm)
   * The data that the client gives to the AI to make a decision is static(it is a frozen moment in time and no matter how many times you query it, it will not change during the same call of the AI program)
   * The AI looses all of its data when it stops working
-These facts may seem I bit confusing right now, but they will help you to understand some things better in future chapters.
+These facts may seem a bit confusing right now, but they will help you to understand some things better in future chapters.
 ==<font color="#006666">Building blocks of Lua</font>==
 Let's focus more on that text file. The client assumes it is written in Lua. Being above all a *programming language* it follows some basic concepts that I would like to explain to you.
 ===<font color="#006600">Types, Values & Variables</font>===
