@@ -8,8 +8,8 @@
 <br><br>
 =<font color="#003366" face="Century Gothic">Change Log</font>=
 ----
-===<font color="#A30000" face="Century Gothic">14.01.13</font> | <font color="#006600">Project Closed</font>===
-Well, as you might have seen, the project has not been updated for a year, so I am officially closing it, since I don't have the time nor the interest to continue it. Thank you all who have used and continues to use it! See ya!
+===<font color="#A30000" face="Century Gothic">14.01.13</font> | <font color="#A30000">Project Closed</font>===
+Well, as you might have seen, the project has not been updated for a year, so I am officially closing it, since I don't have the time nor the interest to continue it. Thank you all who have used and continues to use RAICK! See ya!
 ===<font color="#A30000" face="Century Gothic">28.01.12</font> | <font color="#006600">2.3.0</font>===
   * Homunculi S are now fully supported. I cannot test them myself as I am not playing on official servers, so do expect bugs. Any feedback and bug reports from iRO players is highly appreciated.
   * Added `Kagerou` and `Oboro` job recognition.
