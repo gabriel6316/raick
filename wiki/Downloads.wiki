@@ -1,6 +1,5 @@
 <p align="middle">
-[http://raick.googlecode.com/files/RAICK.lua http://img204.imageshack.us/img204/7378/getlatest.png]
-<br><br><br><br>
+<font size="7" face="Century Gothic">*[http://raick.googlecode.com/files/RAICK.lua GET LATEST]*</font><br><br><br><br>
 <p align="middle">
 <font size="7" face="Century Gothic">*[http://code.google.com/p/raick/wiki/GettingStarted#Installation How to Install ››]*</font><br><br>
 <br><br>
