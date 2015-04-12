@@ -1,4 +1,4 @@
 =<font color="#003366">Lua Code Editor</font>=
 I recommend *SciTE* for editing `.lua` files. It is very lightweight and easy-to-use.
-<br><br><br><br><br><br><br>
+<br><br><br><br>
 <font size="7" face="Century Gothic">[http://prdownloads.sourceforge.net/scintilla/wscite222.zip?download DOWNLOAD]</font>
